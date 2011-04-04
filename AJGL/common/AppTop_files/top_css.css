@@ -1,0 +1,42 @@
+.css {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #ffffff
+}
+.title-00 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; FILTER: shadow(color=white,direction=135,strength=0)
+	font-size: 12px; COLOR: #318ecb
+}
+.title-01 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; FILTER: shadow(color=white,direction=135,strength=0)
+	font-size: 12px; COLOR: #f7701f
+}
+.title-02 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #f7701f
+}
+.title-03 {
+	FONT-SIZE: 12px; COLOR: #024c7b
+}
+.text-01 {
+	FONT-SIZE: 12px; COLOR: #0055a2
+}
+.title-04 {
+	FONT-SIZE: 12px; COLOR: #0055a2
+}
+.title-05 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; FILTER: shadow(color=black,direction=0,strength=10)
+	font-size: 12px; COLOR: #ffffff
+}
+.title-04 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #024c7b; FONT-FAMILY: "Wingdings 3"
+}
+A.marquee:link {
+	FONT-SIZE: 12px; COLOR: #ffff00; LINE-HEIGHT: 18px
+}
+A.marquee:visited {
+	FONT-SIZE: 12px; COLOR: #ffff00; LINE-HEIGHT: 18px
+}
+A.marquee:hover {
+	FONT-SIZE: 12px; COLOR: #d9d900; LINE-HEIGHT: 18px; TEXT-DECORATION: underline
+}
+A.marquee:active {
+	FONT-SIZE: 12px; COLOR: #ffff00; LINE-HEIGHT: 18px
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html>
+  <head>
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" /> 
+	<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/redmond/jquery-ui-1.8.2.custom.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.jqgrid.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.multiselect.css" />
+<link type="text/css" href="../../css/tabs.css" rel="stylesheet" /> 
+<script src="../../common/js/jquery-1.4.2.min.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery.layout.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script> 
+<script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+<script src="../../common/js/jqgrid/js/ui.multiselect.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery.jqGrid.js" type="text/javascript"></script>   
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+			<script src="../../common/js/base.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var mydata = [
+		{id:"1",num:"2010001",name:'<a href="lainfo.html">北京市纪检监察机关</a> ',dwNum:"2",jgFlag:"1",ryNum:"1",toName:"张某",face:"党员",job:"省部级"} ,
+		{id:"2",num:"2010002",name:'<a href="lainfo.html">天津市纪检监察机关</a> ',dwNum:"2",jgFlag:"3",ryNum:"1",toName:"张某",face:"党员",job:"省部级"} ,
+		{id:"3",num:"2010003",name:'<a href="lainfo.html">河北省纪检监察机关</a> ',dwNum:"2",jgFlag:"1",ryNum:"1",toName:"张某",face:"党员",job:"省部级"} ,
+		{id:"4",num:"2010004",name:'<a href="lainfo.html">山西省纪检监察机关</a> ',dwNum:"2",jgFlag:"1",ryNum:"1",toName:"坦某",face:"党员",job:"省部级"} ,
+		{id:"5",num:"2010005",name:'<a href="lainfo.html">内蒙古自治区纪检监察机关</a> ',dwNum:"2",jgFlag:"1",ryNum:"1",toName:"坦某",face:"党员",job:"省部级"} ,
+		{id:"6",num:"2010006",name:'<a href="lainfo.html">辽宁省纪检监察机关</a> ',dwNum:"2",jgFlag:"1",ryNum:"1",toName:"坦某",face:"党员",job:"省部级"} 
+		];
+        
+		jQuery(document).ready(function(){
+  jQuery("#list486").jqGrid({
+  	width: 810,
+	data: mydata,
+	datatype: "local",
+	height: 'auto',
+	rowNum: 10,
+	rowList: [10,20,30],
+   	colNames:['序号','内部标号', '填报单位名称', '填报单位代码','核实结果标志记录','人员编码','被反映人','政治面貌','职级'],
+   	colModel:[
+   		{name:'id',index:'id', width:60, sorttype:"int",align:"center"},
+		{name:'num',index:'num', width:100,align:"center"},
+		{name:'name',index:'name',width:150,editable:true},
+		{name:'dwNum',index:'dwNum',width:80,align:"center"},
+		{name:'jgFlag',index:'jgFlag',width:60,align:"center"},
+		{name:'ryNum',index:'ryNum',width:80,align:"center"},
+		{name:'toName',index:'toName',width:80,align:"center"},
+   		{name:'face',index:'face', width:80,align:"center"},  		
+   		{name:'job',index:'job', width:100, align:"center"}
+   			
+   	],
+   	pager: "#plist486",
+   	viewrecords: true,
+   	sortname: 'id',
+   	caption: "指标查询",multiselect:true
+}).jqGrid('hideCol',["ryNum"]);
+jQuery("#list486").jqGrid('navGrid','#plist486',{add:false,edit:false,del:false,search:false,refresh:true});
+jQuery("#list486").jqGrid('navButtonAdd','#plist486',{
+    caption: "选择列",
+    title: "点击按钮选择列",
+    onClickButton : function (){
+        jQuery("#list486").jqGrid('columnChooser');
+    }
+});
+
+
+});
+		function showTable(){
+		     window.open("xsdjb.html","纪检监察机关立案案件登记表","top=0,left=100,width=745,height=700,scrollbars=no");   
+		}
+		function showWindow(){
+		     window.open("laInfos.html","","top=0,left=0,width=1024,height=700");
+			 
+		}
+	</script>
+	<style type="text/css">
+		#calbody{
+	widows:198px;
+}	
+.hoves{ cursor:pointer}
+.cbox{
+width:20px;
+}
+*{ margin:0; padding:0;}
+	</style>
+  </head>
+  
+  <body>
+  	<div style="width:100%;background-color:#f4f4f4; height:32px; font-size:12px; "><div style="padding-left:10px;padding-top:8px;">当前位置： 查询分析&nbsp;<font style="font-family:'宋体'">></font>&nbsp;简单查询&nbsp;<font style="font-family:'宋体'">></font>&nbsp;立案部分&nbsp;<font style="font-family:'宋体'">></font>&nbsp;立案指标查询结果</div></div>
+  <div style=" width:100%; height:28px; background:url(../../images/tiao_bg04.gif);">
+    <div style=" float:left; padding-top:8px;"><font color="#124c95" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;<img src="../../images/dian02.gif" align="middle">&nbsp;查询结果：2010年01月 至 2010年10月 017河北省纪检监察机关 立案数</font></div>
+	
+ </div>
+  <div style=" width:100%; height:28px; background:url(../../images/tiao_bg03.gif); margin-top:2px;">
+    <div style=" float:left; padding-top:3px;"><font color="#595959" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;共查到&nbsp;<input type="text" value="8" style="width:50px; text-align:right; padding-right:2px;"/>&nbsp;记录&nbsp;&nbsp;&nbsp;&nbsp;其中：</font></div>
+	</div>
+ <div style="width:100%; padding-top:10px;">
+    <table style="width:100%; font-size:12px;">
+	    <tr height="30">
+		  <td align="right" style="width:15%">线索总数</td>
+		  <td>&nbsp;&nbsp;<input type="text" style="text-align:right; padding-right:2px;" readonly="true" value="8"/>&nbsp;&nbsp;个</td>
+		   <td></td>
+		  <td align="right">涉及金额</td>
+		  <td>&nbsp;&nbsp;<input type="text" style="text-align:right; padding-right:2px;"  readonly="true" value="80"/>&nbsp;&nbsp;万元</td>
+		 
+		</tr>
+		 <tr height="30">
+		  <td align="right">失渎职造成损失</td>
+		  <td>&nbsp;&nbsp;<input type="text" style="text-align:right;padding-right:2px;"  readonly="true" value="30"/>&nbsp;&nbsp;万元</td>
+		   <td></td>
+		  <td align="right">收激涉案金额</td>
+		  <td>&nbsp;&nbsp;<input type="text" style="text-align:right;padding-right:2px;"  readonly="true" value="50"/>&nbsp;&nbsp;万元</td>
+		</tr>
+		<tr height="30">
+		  <td align="right">共挽回经济损失</td>
+		  <td>&nbsp;&nbsp;<input type="text" style="text-align:right;padding-right:2px;"  readonly="true" value="20"/>&nbsp;&nbsp;万元</td>
+		  <td colspan="3">&nbsp;</td>
+		</tr>
+	</table>
+	 <div style=" width:100%; height:35px; background-color:#ebf6fc; margin-top:10px;">
+    
+	<div style="float: right; padding-top:5px;" class="hoves">
+	
+	  <DIV style="PADDING-RIGHT: 5px; FLOAT: right;"  class="clbutton"  id="search"  onClick="javascript:history.back()">
+		<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+		  <tr>
+			<td  class="blue_2_j"></td>
+			<td class="blue_4_j">返 回</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	</DIV> 
+	  <DIV style="PADDING-RIGHT: 5px; FLOAT: right;"  class="clbutton"  id="search"  onclick="javascript:window.location.href='bbfx.html'">
+		<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+		  <tr>
+			<td  class="blue_2_j"></td>
+			<td class="blue_4_j">固定报表分析</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	</DIV> 
+	  <DIV style="PADDING-RIGHT: 5px; FLOAT: right;"  class="clbutton"  id="search" onclick="javascript:window.location.href='bssj.html'">
+		<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+		  <tr>
+			<td  class="blue_2_j"></td>
+			<td class="blue_4_j">自定义报表分析</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	</DIV> 
+	  <DIV style="PADDING-RIGHT: 5px; FLOAT: right;"  class="clbutton"  id="search">
+		<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+		  <tr>
+			<td  class="blue_2_j"></td>
+			<td class="blue_4_j">输出处分决定到Word</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	</DIV> 
+	 <DIV style="PADDING-RIGHT: 5px; FLOAT: right;"  class="clbutton"  id="search">
+		<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+		  <tr>
+			<td  class="blue_2_j"></td>
+			<td class="blue_4_j">输出登记表到Word</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	</DIV> 
+	  <DIV style="PADDING-RIGHT: 5px; FLOAT: right;"  class="clbutton"  id="search">
+		<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+		  <tr>
+			<td  class="blue_2_j"></td>
+			<td class="blue_4_j">打印登记表</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	</DIV> 
+	  <DIV style="PADDING-RIGHT: 5px; FLOAT: right;"  class="clbutton"  id="search" onclick="showTable()">
+		<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+		  <tr>
+			<td  class="blue_2_j"></td>
+			<td class="blue_4_j">显示登记表</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	</DIV> 
+	  <DIV style="PADDING-RIGHT: 5px; FLOAT: right;"  class="clbutton"  id="search" onclick="showWindow()">
+		<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+		  <tr>
+			<td  class="blue_2_j"></td>
+			<td class="blue_4_j">筛选记录</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	</DIV> 
+	  </div>
+ </div>
+ </div>
+	<!--<table id="list486"></table>
+    <div id="plist486"></div> -->
+  </body>
+</html>

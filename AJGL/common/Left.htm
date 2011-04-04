@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>通用导航</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312"><LINK 
+href="Left_files/nav.css" type=text/css rel=stylesheet>
+<SCRIPT src="Left_files/nav.js"></SCRIPT>
+
+<SCRIPT language=JavaScript>
+function TreeDisplay(OutLineID,imgID){
+	//alert(OutLineID);
+	if (OutLineID != 0){
+		if (OutLineID.style.display == "none") {
+		    OutLineID.style.display = "block";
+			imgID.src="../images/lminus.gif"
+		}else {
+		    OutLineID.style.display = "none";
+			imgID.src="../images/lplus.gif"
+		}
+	}
+}
+</SCRIPT>
+
+<SCRIPT language=JavaScript type=text/JavaScript>
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+function switch_cell(a, hash) {
+	if(a == 2){
+		Layer2.style.visibility = "visible";
+		Layer4.style.visibility = "hidden";
+		Layer3.style.visibility = "hidden";
+
+		tb0.style.display="block";
+	}
+	if(a == 0){
+		Layer2.style.visibility = "hidden";
+		Layer3.style.visibility = "visible";
+		Layer4.style.visibility = "hidden";
+		tb0.style.display="none";
+		tb1.style.display="block";
+		tb2.style.display="none";
+	}
+	if(a == 1){
+		Layer2.style.visibility = "hidden";
+		Layer3.style.visibility = "hidden";
+		Layer4.style.visibility = "visible";
+		tb0.style.display="none";
+		tb1.style.display="none";
+		tb2.style.display="block";
+	}
+}
+</SCRIPT>
+
+<STYLE type=text/css>.style3 {
+	COLOR: #cccccc
+}
+</STYLE>
+
+<META content="MSHTML 6.00.6000.16397" name=GENERATOR></HEAD>
+<BODY bgColor=#f0f0f0 leftMargin=0 topMargin=0 marginheight="0" marginwidth="0">
+<TABLE height="100%" cellSpacing=0 cellPadding=0 width=174 border=0>
+  <TBODY>
+  <TR>
+    <TD width="30%" bgColor=#f0f0f0 colSpan=2 height=20>
+      <DIV id=Layer2 style="LEFT: 2px; VISIBILITY: visible; WIDTH: 100%; POSITION: absolute; TOP: 0px">
+	  <IMG src="Left_files/011.jpg" width=168> </DIV>
+      <DIV id=Layer1 style="Z-INDEX: 4; WIDTH: 200px; POSITION: absolute; TOP: 0px">
+      <TABLE width=170 border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle><A id=navcell style="CURSOR: hand" onclick=switch_cell(2)>
+		  <IMG alt=功能导航栏 src="Left_files/nav_func.gif">&nbsp;功能</A> </TD>
+          <TD align=middle><IMG alt=模块导航栏 src="Left_files/nav_nav_grey.gif">&nbsp;<FONT class=F0F0F0>导航</FONT> 
+          </TD>
+          <TD align=middle><A id=navcell style="CURSOR: hand" onclick=switch_cell(1)><IMG alt=系统导航栏 src="Left_files/nav_sys.gif">&nbsp;系统</A> </TD>
+		</TR>
+		</TBODY>
+	  </TABLE>
+	  </DIV>
+      <DIV id=Layer3 style="Z-INDEX: 3; VISIBILITY: hidden; WIDTH: 200px; POSITION: absolute; TOP: 0px"><IMG src="Left_files/022.jpg" width=170> </DIV>
+      <DIV id=Layer4 style="Z-INDEX: 2; VISIBILITY: hidden; WIDTH: 200px; POSITION: absolute; TOP: 0px"><IMG src="Left_files/033.jpg" width=168> </DIV></TD>
+	  <!--    
+    <td class=tab-off id=navcell onclick=switchCell(1) width="34%"><img src="misc_arrow.gif" alt="模块导航栏" >导航</td>    
+    <td class=tab-off id=navcell onclick=switchCell(2) width="36%"><img src="navbar_update.gif" alt="系统导航栏" >系统</td>
+    -->
+  </TR>
+  <TR>
+    <TD width=7 background=Left_files/navigation-03-02_r6_c1.jpg></TD>
+    <TD width="100%" bgColor=#f0f0f0>
+      <TABLE id=tb0 height="100%" width="100%">
+        <TBODY>
+        <TR>
+          <TD><IFRAME id=leftiframe src="Left_files/function.htm" frameBorder=0 width="100%" scrolling=yes height="95%"></IFRAME></TD></TR></TBODY></TABLE>
+      <TABLE id=tb1 height="100%" width="100%">
+        <TBODY>
+        <TR>
+          <TD></TD></TR></TBODY></TABLE>
+      <TABLE id=tb2 cellSpacing=0 cellPadding=3 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD>
+            <SCRIPT language=JavaScript>
+/*function changeSystem()
+{
+  sysid =0;
+for(i=0;i<document.form1.sysId.options.length;i++){
+   if(document.form1.sysId.options[i].selected==true){
+       sysid = document.form1.sysId.options[i].value
+   }
+} window.top.location="/login?userid=wangzheng&personUuid=635f0587-101c6a980b4-1c34d7652cd15e91ffe3a88701cc427e&sysId="+sysid+"&Way=login&entrymode=switch&ui=menu";
+
+}*/
+</SCRIPT>
+
+            <FORM name=form1 method=post target=parent>
+			<SELECT class=xian onchange=changeSystem() name=sysId> 
+			<OPTION value=2 selected>ICSSMIS</OPTION>
+			<OPTION value=144>电子政务事业部</OPTION>
+			</SELECT> 
+            </FORM>
+		  </TD>
+		</TR>
+        <TR>
+          <TD class=sjline vAlign=top width="100%" height=778>
+            <TABLE borderColor=#666666 cellSpacing=0 cellPadding=3 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD class=sjline height=25></TD></TR>
+              <TR>
+                <TD onmouseover='over_change(1,this,"#EEF4FF")' onclick='click_change(1,this,"#EEF4FF","/servlet/SiteMapServlet")' onmouseout='out_change(1,this,"")' height=25>
+				<DIV align=left>&nbsp;<IMG src="Left_files/sj_dot.gif" valign="bottom">&nbsp;&nbsp;<FONT color=#000000>系统帮助</FONT></DIV></TD>
+			  </TR>
+              <TR>
+                <TD onmouseover='over_change(2,this,"#EEF4FF")' onclick='click_change(2,this,"#EEF4FF","../common/Logout.jsp")' onmouseout='out_change(2,this,"")' height=25>
+                  <DIV align=left>&nbsp;<IMG src="Left_files/sj_dot.gif" valign="bottom">&nbsp;&nbsp;<FONT color=#000000>退出系统</FONT></DIV></TD>
+			  </TR>
+			  </TBODY>
+			</TABLE>
+		  </TD>
+		</TR>
+		</TBODY>
+	  </TABLE>
+	</TD>
+  </TR>
+  </TBODY>
+</TABLE>
+<SCRIPT language=javascript>
+   switch_cell(2)
+</SCRIPT>
+</BODY></HTML>
+

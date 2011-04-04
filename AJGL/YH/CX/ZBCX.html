@@ -1,0 +1,240 @@
+<html>
+  <head>
+  	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+	<script type="text/javascript">
+		$(function() { 
+				$(":date").dateinput()
+			});
+		function nodeRetail(){
+			window.open("nodedetail.html","","resizable=no,menubar=no,directories=no,status=no,location=no,scrollbars=no,left=300,top=170,width=330,height=230");
+		    $(":date").dateinput();
+		}
+	</script>
+	<style type="text/css">
+		#calbody{
+	widows:198px;
+}	
+	</style>
+  </head>
+  
+  <body>
+  	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>    
+			<td align="left" valign="top" class="text01"><strong>当前位置->查询分析->指标查询</strong></td>
+			<td align="right" class="text01"><strong>操作员->案件检查一室王明</strong></td>       
+		</tr>
+	</table>
+	<div class="search" style="border:solid 0px #fff">默认显示当前月份的信息，如需查看其他月份的信息，<span class="search" style="border:solid 0px #fff">请在查询区域内进行查询。</span></div>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="../../images/tiao001.gif" width="2" height="22"></td>
+    <td width="100%" background="../../images/tiao003.gif" class="tit">添加信息</td>
+    <td><img src="../../images/tiao002.gif" width="2" height="22"></td>
+  </tr>
+</table>
+  <table width="100%"  class="search" id="addarea">
+    <tr type="title">
+      <td colspan="6"></td>
+     </tr>
+    <tr type="title">
+      <td width="10">&nbsp;</td>
+      <td colspan="2">日期
+  <input type="date" width="80"  class="inputtext">
+</td>
+      <td width="71" align="right">填报单位</td>
+      <td width="502"><select name="select" id="select" style="width:150px">
+        <option>请选择</option>
+        <option>一处</option>
+        <option>二处</option>
+        <option>三处</option>
+        <option>四处</option>
+</select></td>
+      <td width="309"><input type="button" value="添 加" class="button" onClick="window.location='newla.html'" ></td>
+      </tr>
+  </table><br>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="../../images/tiao001.gif" width="2" height="22"></td>
+    <td width="100%" background="../../images/tiao003.gif" class="tit">查询</td>
+    <td><img src="../../images/tiao002.gif" width="2" height="22"></td>
+  </tr>
+</table>
+<table width="100%"  class="search" id="addarea">
+    <tr type="title">
+      <td colspan="8"></td>
+  </tr>
+    <tr type="title">
+      <td>&nbsp;</td>
+      <td colspan="2">填报起始日期
+      <input type="date" width="80"  class="inputtext"></td>
+      <td colspan="2">填报终止日期
+        <input type="date" width="80"  class="inputtext"></td>
+      <td align="right">填报单位</td>
+      <td><select name="select" id="select" style="width:150px">
+        <option>请选择</option>
+        <option>一处</option>
+        <option>二处</option>
+        <option>三处</option>
+        <option>四处</option>
+</select></td>
+      <td><input type="submit" name="button" id="button"  class="button"  value="查询"></td>
+  </tr>
+    <tr type="title">
+      <td width="14">&nbsp;</td>
+      <td width="73">案件编码        </td>
+      <td width="143"><input type="text" width="80"  class="inputtext"></td>
+      <td width="69">人员编码        </td>
+      <td width="156"><input type="text" width="80"  class="inputtext"></td>
+      <td width="85" align="right">被调查人</td>
+      <td width="208"><input type="text" width="80"  class="inputtext" style="width:150px"></td>
+      <td width="290">&nbsp;</td>
+  </tr>
+</table>	
+<table width="99%" valign="top" border="0" cellpadding="1" cellspacing="0">
+	  <tr align="right">
+			<td width="94%">&nbsp;</td>
+             <td width="6%">&nbsp;
+		    <input type="button" value="删 除" class="button" onClick="javascript:window.confirm('确实要删除吗？')" ></td>
+  </tr>
+</table>  
+	<!-- 查询结果列表栏(分页显示) -->
+	<table width="100%" valign="top" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<div id="primarytable">
+<table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#9CC6F7">
+						<tr height="22">
+							<th background="../../images/listbg.jpg" align="center" width="6%"><input type="checkbox" id="selectall"  onClick="_selectAll()"  style="width:30px"/></th>
+							<th background="../../../images/listbg.jpg" align="center" class="text01" width="5%">序号</th>
+							<th background="../../../images/listbg.jpg" align="center" class="text01" width="14%">填报单位</th>
+							<th background="../../../images/listbg.jpg" align="center" class="text01" width="13%">填报情况</th>
+							<th background="../../../images/listbg.jpg" align="center" class="text01" width="15%">填报信息条数</th>
+							<th background="../../../images/listbg.jpg" align="center" class="text01" width="10%">填报人</th>
+							<th background="../../../images/listbg.jpg" align="center" class="text01" width="18%">填报时间</th>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem2"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">1</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01"><a href="../ZLLR/la2.html">一处</a></td>
+						  <td bgcolor="#FFFFFF" align="center" class="text01">已报</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">13</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王一明</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">2010-1-1</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">2</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">二处</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">已报</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">22</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王二明</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">2010-1-1</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">3</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">三处</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">已报</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">24</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王三明</td>	
+							<td bgcolor="#FFFFFF" align="center" class="text01">2010-1-5</td>					
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem3"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">4</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">四处</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">已报</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">0</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王四明</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">2010-1-7</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01" style="color:red">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="text01">
+				<div class="pagination">到 <input name="gopage" type="text" class="queryinput" size="5" />页&nbsp;
+					<ul>
+					<li class="firstpage"><a href="#">跳转</a>&nbsp;</li>
+					<li class="" >第 1 页&nbsp;共 1 页&nbsp;&nbsp;</li>
+					<li class="firstpage"><a href="#">首&nbsp;&nbsp;页</a></li>
+					<li class="disablepage">上一页</li>			
+					<li class="nextpage"><a href="#">下一页</a></li>
+					<li class="endpage"><a href="#">尾&nbsp;&nbsp;页</a></li>
+					</ul>
+				</div>
+			</td>
+		</tr>
+	</table>
+  </body>
+</html>

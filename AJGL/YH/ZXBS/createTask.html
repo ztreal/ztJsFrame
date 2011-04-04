@@ -1,0 +1,1052 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html lang="en"> 
+	<head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+        <meta http-equiv="Content-Style-Type" content="text/css"> 
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+         
+	 	<link href="../../common/tree/css/dhtmlXTree.css" rel="stylesheet" type="text/css" />
+	  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+		<link href="../../css/tabs2.css" rel="stylesheet" type="text/css" />
+		<link href="../../css/date.css" rel="stylesheet" type="text/css" />	
+		
+		
+		<script type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+		<script type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+		<script type="text/javascript" src="../../common/js/common.js"></script>
+		<script type="text/javascript" src="../../common/js/jcommon.js"></script>
+	  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+		<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>	
+		<script type="text/javascript" src="../../common/js/dateinput.js"></script>
+	    <script type="text/javascript" src="../../common/js/base.js"></script>
+	    
+        <title>创建新任务</title> 
+        <style type="text/css" media="screen, projection"> 
+            /* Not required for Tabs, just to make this demo look better... */
+            body, h1, h2 {
+                font-family: "宋体";
+                font-size: 12px;
+            }
+            input {
+            	line-height: 18px;
+            }
+            p {
+                margin: 0;
+                padding: 0 0 .5em;
+                max-width: 40em;
+            }
+			.hoves{ cursor:pointer}
+			*{ margin:0; padding:0;}
+			.green1{
+				  border-top:solid 0px red;
+			}
+        </style> 
+ 
+        <script type="text/javascript"> 
+        	var report = {   
+			   	"hang": {
+			   		'rowgroup': ['案件来源','变更、撤销理由'], 
+			   		'rows': [
+			   			['信访举报','上级交办','公检法移送','执法监察中发现','办案中发现','审计中发现','其他','巡视中发现'],
+			   			['事实不符','证据不足','定性不准','处分不当','违反程序']]   
+			   	},   
+			   	"lie": {
+			   		'columngroup': ['党纪处分','国有及国有控股企业'], 
+			   		'columns': [
+			   			['警告','严重警告','撤销党内职务','党内察看','开出党籍'],
+			   			['中央管理正职企业','非中央管理正职企业']]   
+			   	}
+			}; 
+			var cached = {
+				"hang": {
+			   		'rowgroup': new Array(), 
+			   		'rows': new Array()   
+			   	},   
+			   	"lie": {
+			   		'columngroup': new Array(), 
+			   		'columns': new Array()  
+			   	}
+			};
+			function fillSelectData(selectId, data)
+			{
+				var select = document.getElementById(selectId);
+				select.options.length = 0;
+				for(var i=0; i<data.length; i++)
+				{
+					var op = document.createElement("OPTION"); 
+    				op.value = data[i];  
+					op.innerHTML = data[i];
+					select.appendChild(op);
+				}
+			}
+			
+			function tabclick(index)
+			{
+				if(index == 3)
+				{
+					fillSelectData('hangzu', cached.hang.rowgroup);
+					fillSelectData('liezu', cached.lie.columngroup);
+				}
+				if(index == 4)
+				{
+					var arr1 = new Array();
+					for(var i=0; i<cached.hang.rows.length; i++)
+						for(var j=0; j<cached.hang.rows[i].length; j++)
+							arr1.push(cached.hang.rows[i][j]);						
+					fillSelectData('row_formula', arr1);
+					var arr2 = new Array();
+					for(var i=0; i<cached.lie.columns.length; i++)
+						for(var j=0; j<cached.lie.columns[i].length; j++)
+							arr2.push(cached.lie.columns[i][j]);	
+					fillSelectData('column_formula', arr2);
+					fillSelectData('row_relations', cached.hang.rowgroup);
+					fillSelectData('column_relations', cached.lie.columngroup);
+				}
+			}
+        	
+        	window.onload=function()
+        	{
+        		fillSelectData('rowGroupList', report.hang.rowgroup);	
+				fillSelectData('columnGroupList', report.lie.columngroup);
+        	}
+			$(function() 
+			{
+			    $("#tabs1").tabs("#panes1 > div");
+			    $("#tabs2").tabs("#panes2 > div"); 
+				$(":date").dateinput();
+			});
+        </script> 
+    </head>
+	<body style="margin:10px"> 
+		<div style="width:100%;background-color:#f4f4f4; height:32px; font-size:12px; "><div style="padding-left:10px;padding-top:8px;">当前位置： 专项报送&nbsp;<font style="font-family:'宋体'">></font>&nbsp;定制任务&nbsp;<font style="font-family:'宋体'">></font>&nbsp;新建任务</div></div>
+
+		<ul id="tabs1" class="tabs" style="width:790px; height:26px; overflow:hidden;border-left:solid #D7D7D7 1px;"> 
+		    <li><a href="#tabs-1">任务定义</a></li> 
+		    <li><a href="#tabs-2">数据表定义</a></li>
+		</ul>
+		<div id="panes1" style="width:790px;">
+	 		<div class="panes" style="padding:10px;border-top: 1px solid #E3E3E3; border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;">
+				<table width="770" border="0" cellspacing="0">
+					<tr>
+						<td height="25" width="100" align="right">任务名称：</td>
+						<td width="150"><input id="taskName" name="taskName" type="text" style="width:99%;height:18px;border:1px solid #ccc"></td>
+		
+						<td width="90" align="right">任务发布者：</td>
+						<td width="200"><input type="text" name="taskPublisher" class="inputtext" readonly="true" value="中央纪委监察部" style="width:99%;height:18px;border:1px solid #ccc"></td>
+					
+						<td width="80" align="right">任务类型：</td>
+						<td width="150">
+							<select style="width:148px;height:20px;border:1px solid #ccc">
+								<option>一次性报送</option>
+								<option>月报</option>
+								<option>季报</option>
+								<option>年报</option>
+							</select>		
+						</td>
+					</tr>
+					<tr>
+						<td height="25" align="right">发布日期：</td>
+						<td><input type="date" class="inputtext" style="width:99%"></td>
+						
+						<td align="right">结束日期：</td>
+						<td><input type="date" class="inputtext" style="width:99%"></td>
+						
+						<td align="right">任务编号：</td>
+						<td><input type="text" name="taskID" readonly="true" value="2010001ENVYYDAUCE" style="width:146px; height:18px;border:1px solid #ccc"></td>
+					</tr>
+					<tr>
+						<td height="5px" colspan="6"></td>
+					</tr>
+					<tr>
+						<td align="right" valign="top">任务填报说明：</td>
+						<td colspan="5">
+							<textarea name="textarea" style="width:666px;height:210px"></textarea>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="panes" style="padding:10px;border-top: 1px solid #E3E3E3; border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;">
+				<table width="768" border="0" cellspacing="0">
+					<tr>
+						<td width="170" valign="top">
+							<div style="margin:5px 0">已经创建的数据表：</div>
+							<select multiple="multiple" style="width:170px; height:300px; overflow:scroll">
+								<option>某某专项报送的数据表1</option>
+								<option>某某专项报送的数据表2</option>
+							</select>
+						</td>
+					
+						<td width="598" valign="top">
+							<div style="width: 588px; padding-left:10px">
+								<ul id="tabs2" class="tabs" style="width:100%; height:26px;overflow:hidden;border-left:solid #D7D7D7 1px;"> 
+								    <li><a href="#sub1" onclick="tabclick(1)">基本信息</a></li> 
+								    <li><a href="#sub2" onclick="tabclick(2)">行列信息</a></li>
+									<li><a href="#sub3" onclick="tabclick(3)">显示信息</a></li> 
+									<li><a href="#sub4" onclick="tabclick(4)">表内关系</a></li> 
+								</ul> 
+								<div id="panes2" class="panes" style="width:588px;"> 
+									<div style="padding:10px;border-top: 1px solid #E3E3E3; border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;">
+										<table width="580" border="0" cellspacing="5">
+											<tr>
+											  	<td width="100" align="right">数据表名称：</td>
+											  	<td width="280"><input id="dtName" type="text" name="dtname" style="width:270px"></td>
+												<td align="left" valign="center">
+													<input type="checkbox" name="isUserList" value="checkbox" style="width:22px;">需要人员名单
+												</td>
+											</tr>
+											<tr>
+											  	<td valign="top" width="100" align="right">数据表填写说明：</td>
+												<td colspan="2"><textarea name="dtRemark" style="width:95%;height:250px"></textarea></td>
+											</tr>
+										</table>
+									</div>
+									<div style="padding:10px;border-top: 1px solid #E3E3E3; border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;">
+										<table width="566" border="0" cellspan="5">
+											<tr>
+												<td colspan="4" height="8"></td>
+											</tr>
+											<tr>
+												<td colspan="2">定义行：</td>
+												<td colspan="2">定义列：</td>
+											</tr>
+											<tr>
+											  	<td width="183">
+													<select id="rowGroupList" style="width:173px"></select></td>
+											  	<td width="100">
+											  		<input type="button" name="addRGroup" value="添加至行组" style="width:90px" onclick="f001()">
+											  		<script type="text/javascript">
+											  			function f001()
+											  			{
+											  				var rowGroupList = document.getElementById('rowGroupList');
+											  				var rowGroup = document.getElementById('rowGroup');
+															var op1 = rowGroupList.options[rowGroupList.selectedIndex];
+															for(var i=0; i<rowGroup.options.length; i++)
+															{
+																if(rowGroup[i].value == op1.value)
+																{
+																	alert("该项已在备选列表中!");
+																	return;
+																}	
+															}
+																
+															var op2 = document.createElement("OPTION"); 
+										        			op2.value = op1.value;  
+															op2.innerHTML = op1.innerHTML;
+															rowGroup.appendChild(op2);
+															
+															cached.hang.rowgroup.push(op1.value);
+															for(var i=0; i<report.hang.rowgroup.length; i++)
+															{
+																var v = report.hang.rowgroup[i];
+																if(v == op1.value)
+																{
+																	cached.hang.rows.push(report.hang.rows[i]);
+																	return;	
+																}
+															}
+											  			}
+											  		</script>
+											  	</td>
+											  	<td width="183">
+												  	<select id="columnGroupList" style="width:173px"></select></td>
+											  	<td width="100">
+											  		<input type="button" name="addCGroup" value="添加至列组" style="width:90px" onclick="f002()">
+											  		<script type="text/javascript">
+											  			function f002()
+											  			{
+											  				var columnGroupList = document.getElementById('columnGroupList');
+											  				var columnGroup = document.getElementById('columnGroup');
+															var op1 = columnGroupList.options[columnGroupList.selectedIndex];
+															for(var i=0; i<columnGroup.options.length; i++)
+															{
+																if(columnGroup[i].value == op1.value)
+																{
+																	alert("该项已在备选列表中!");
+																	return;
+																}	
+															}
+																
+															var op2 = document.createElement("OPTION"); 
+										        			op2.value = op1.value;  
+															op2.innerHTML = op1.innerHTML;
+															columnGroup.appendChild(op2);
+															
+															cached.lie.columngroup.push(op1.value);
+															for(var i=0; i<report.lie.columngroup.length; i++)
+															{
+																var v = report.lie.columngroup[i];
+																if(v == op1.value)
+																{
+																	cached.lie.columns.push(report.lie.columns[i]);
+																	return;	
+																}
+															}
+											  			}
+											  		</script>
+											  	</td>
+										  	</tr>
+										  	<tr>
+												<td><input id="createRGroup" type="text" name="createRGroup" style="width:169px"></td>
+											  	<td>
+											  		<input type="button" name="newRGroup" value="新建行组" style="width:70px" onclick="f003()">
+											  		<script type="text/javascript">
+											  			function f003()
+											  			{
+											  				if(createRGroup.value == '')
+											  					return;
+											  				var rowGroup = document.getElementById('rowGroup');
+															for(var i=0; i<rowGroup.options.length; i++)
+															{
+																if(rowGroup[i].value == createRGroup.value)
+																{
+																	alert("该项已在备选列表中!");
+																	return;
+																}	
+															}
+																
+															var op = document.createElement("OPTION"); 
+										        			op.value = createRGroup.value;
+															op.innerHTML = createRGroup.value;
+															rowGroup.appendChild(op);
+															
+															cached.hang.rowgroup.push(createRGroup.value);
+															cached.hang.rows.push(new Array());
+																
+															createRGroup.value = '';
+											  			}
+											  		</script>
+											  	</td>
+											  	<td><input id="createCGroup" type="text" name="createCGroup" style="width:169px"></td>
+											  	<td>
+											  		<input type="button" name="newCGroup" value="新建列组" style="width:70px" onclick="f004()">
+										  			<script type="text/javascript">
+											  			function f004()
+											  			{
+											  				if(createCGroup.value == '')
+											  					return;
+											  					
+											  				var columnGroup = document.getElementById('columnGroup');
+															for(var i=0; i<columnGroup.options.length; i++)
+															{
+																if(columnGroup[i].value == createCGroup.value)
+																{
+																	alert("该项已在备选列表中!");
+																	return;
+																}	
+															}
+																
+															var op = document.createElement("OPTION"); 
+										        			op.value = createCGroup.value;
+															op.innerHTML = createCGroup.value;
+															columnGroup.appendChild(op);
+															
+															cached.lie.columngroup.push(createCGroup.value);
+															cached.lie.columns.push(new Array());
+															
+															createCGroup.value = '';
+											  			}
+											  		</script>
+											  	</td>
+										  	</tr>
+											<tr>
+											  	<td colspan="2">行组：</td>
+											  	<td colspan="2">列组：</td>
+										  	</tr>
+										  	<tr>
+											  	<td>
+											  		<select id="rowGroup" multiple="multiple" style="width:173px;height:150px;" onchange="f005()"></select>
+											  		<script type="text/javascript">
+											  			function f005()
+											  			{
+											  				var rowGroup = document.getElementById('rowGroup');
+											  				var item = rowGroup.options[rowGroup.selectedIndex];
+															for(var i=0; i<cached.hang.rowgroup.length; i++)
+															{
+																if(item.value == cached.hang.rowgroup[i])
+																{
+																	var rowList = document.getElementById('rowList');
+																	rowList.options.length = 0;
+																	var data = cached.hang.rows[i];
+																	for(var i=0; i<data.length; i++)
+													        		{
+													        			var op = document.createElement("OPTION"); 
+													        			op.value = data[i];
+																		op.innerHTML = data[i];
+																		rowList.appendChild(op);
+																	}	
+			
+																	return;	
+																}
+															}
+											  			}
+											  		</script>
+											  	</td>
+											  	<td valign="top">
+											  		<input type="button" name="delRGroup" value="删除行组" style="width:70px" onclick="f006()">
+											  		<script type="text/javascript">
+											  			function f006()
+														{
+															var rowGroup = document.getElementById('rowGroup');
+															
+															var item = rowGroup.options[rowGroup.selectedIndex];
+															for(var i=0; i<cached.hang.rowgroup.length; i++)
+															{
+																if(cached.hang.rowgroup[i] == item.value)
+																{
+																	cached.hang.rowgroup.splice(i, 1);
+																	cached.hang.rows.splice(i, 1);
+																	
+																	break;
+																}
+															}
+															
+															rowGroup.remove(rowGroup.selectedIndex);
+															var rowList	= document.getElementById('rowList');
+															rowList.options.length = 0;
+														}
+												  	</script>
+											  	</td>
+											  	<td>
+											  		<select id="columnGroup" multiple="multiple" style="width:173px;height:150px" onchange="f007()"></select>
+											  		<script type="text/javascript">
+											  			function f007()
+											  			{
+											  				var columnGroup = document.getElementById('columnGroup');
+											  				var item = columnGroup.options[columnGroup.selectedIndex];
+															for(var i=0; i<cached.lie.columngroup.length; i++)
+															{
+																if(item.value == cached.lie.columngroup[i])
+																{
+																	var columnList = document.getElementById('columnList');
+																	columnList.options.length = 0;
+																	var data = cached.lie.columns[i];
+																	for(var i=0; i<data.length; i++)
+													        		{
+													        			var op = document.createElement("OPTION"); 
+													        			op.value = data[i];
+																		op.innerHTML = data[i];
+																		columnList.appendChild(op);
+																	}	
+			
+																	return;	
+																}
+															}
+											  			}
+											  		</script>
+											  	</td>
+												<td valign="top">
+													<input type="button" name="delCGroup" value="删除列组" style="width:70px" onclick="f008()">
+													<script type="text/javascript">
+											  			function f008()
+														{
+															var columnGroup = document.getElementById('columnGroup');
+															var item = columnGroup.options[columnGroup.selectedIndex];
+															for(var i=0; i<cached.lie.columngroup.length; i++)
+															{
+																if(cached.lie.columngroup[i] == item.value)
+																{
+																	cached.lie.columngroup.splice(i, 1);
+																	cached.lie.columns.splice(i, 1);
+																	
+																	break;
+																}
+															}
+															
+															
+															columnGroup.remove(columnGroup.selectedIndex);
+															var columnList	= document.getElementById('columnList');
+															columnList.options.length = 0;
+														}
+												  	</script>
+												</td>
+										  	</tr>
+										  	<tr>
+											  	<td colspan="2">行：</td>
+											  	<td colspan="2">列：</td>
+										  	</tr>
+											<tr>
+											  	<td>
+											  		<select id="rowList" multiple="multiple" style="width:173px;height:150px"></select>
+											  	</td>
+											  	<td valign="top">
+											  		<input type="button" name="delRow" value="删除行" style="width:70px" onclick="f009()">
+											  		<script type="text/javascript">
+											  			function f009()
+														{
+															var rowGroup = document.getElementById('rowGroup');
+															var item1 = rowGroup.options[rowGroup.selectedIndex];
+															
+															var rowList = document.getElementById('rowList');
+															var item2 = rowList.options[rowList.selectedIndex];
+															for(var i=0; i<cached.hang.rowgroup.length; i++)
+															{
+																if(cached.hang.rowgroup[i] == item1.value)
+																{
+																	for(var j=0; j<cached.hang.rows[i].length; j++)
+																	{
+																		if(cached.hang.rows[i][j] == item2.value)
+																		{
+																			cached.hang.rows[i].splice(j, 1);
+																			break;
+																		}
+																	}
+																	
+																	break;
+																}
+															}
+															
+															rowList.remove(rowList.selectedIndex);
+														}
+												  	</script>
+											  	</td>
+											  	<td>
+													<select id="columnList" multiple="multiple" style="width:173px;height:150px">
+											  		</select>
+												</td>
+											  	<td valign="top">
+											  		<input type="button" name="delCol" value="删除列" style="width:70px" onclick="f010()">
+											  		<script type="text/javascript">
+											  			function f010()
+														{
+															var columnGroup = document.getElementById('columnGroup');
+															var item1 = columnGroup.options[columnGroup.selectedIndex];
+															var columnList = document.getElementById('columnList');
+															var item2 = columnList.options[columnList.selectedIndex];
+															for(var i=0; i<cached.lie.columngroup.length; i++)
+															{
+																if(cached.lie.columngroup[i] == item1.value)
+																{
+																	for(var j=0; j<cached.lie.columns[i].length; j++)
+																	{
+																		if(cached.lie.columns[i][j] == item2.value)
+																		{
+																			cached.lie.columns[i].splice(j, 1);
+																			break;
+																		}
+																	}
+																	
+																	break;
+																}
+															}
+															
+															columnList.remove(columnList.selectedIndex);
+														}
+												  	</script>	
+											  	</td>
+										  	</tr>
+										  	<tr>
+											  	<td><input id="createRow" type="text" name="createRow" style="width:169px"></td>
+											  	<td>
+											  		<input type="button" name="newRow" value="新建行" style="width:70px" onclick="f011()">
+											  		<script type="text/javascript">
+											  			function f011()
+														{
+															if(createRow.value == '')
+											  					return;
+											  					
+															var rowGroup = document.getElementById('rowGroup');
+															if(rowGroup.selectedIndex != -1)
+															{
+																var rowList = document.getElementById('rowList');
+																var op = document.createElement("OPTION"); 
+											        			op.value = createRow.value;
+																op.innerHTML = createRow.value;
+																rowList.appendChild(op);
+																
+																var item = rowGroup.options[rowGroup.selectedIndex];
+																for(var i=0; i<cached.hang.rowgroup.length; i++)
+																{
+																	if(item.value == cached.hang.rowgroup[i])
+																	{
+																		var row = cached.hang.rows[i];
+																		row.push(createRow.value);																		
+																		break;	
+																	}
+																}
+																
+																createRow.value = '';
+															}
+															else
+															{
+																alert('请先选择行组');	
+															}
+														}
+												  	</script>
+											  	</td>
+											  	<td><input id="createCol" type="text" name="createCol" style="width:169px"></td>
+											  	<td>
+											  		<input type="button" name="newCol" value="新建列" style="width:70px" onclick="f012()">
+											  		<script type="text/javascript">
+											  			function f012()
+														{
+															if(createCol.value == '')
+											  					return;
+											  					
+															var columnGroup = document.getElementById('columnGroup');
+															if(columnGroup.selectedIndex != -1)
+															{
+																var columnList = document.getElementById('columnList');
+																var op = document.createElement("OPTION"); 
+											        			op.value = createCol.value;
+																op.innerHTML = createCol.value;
+																columnList.appendChild(op);
+																
+																var item = columnGroup.options[columnGroup.selectedIndex];
+																for(var i=0; i<cached.lie.columngroup.length; i++)
+																{
+																	if(item.value == cached.lie.columngroup[i])
+																	{
+																		var columns = cached.lie.columns[i];
+																		columns.push(createCol.value);																		
+																		break;	
+																	}
+																}
+																
+																createCol.value = '';
+															}
+															else
+															{
+																alert('请先选择行组');	
+															}
+														}
+												  	</script>
+											  	</td>
+										  	</tr>
+										</table>
+									</div>
+									<div style="padding:10px;border-top: 1px solid #E3E3E3; border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;">
+										<table width="566" border="0" cellspan="5">
+											<tr>
+												<td colspan="4" height="8"></td>
+											</tr>
+											<tr>
+												<td colspan="2">行定义：</td>
+												<td colspan="2">列定义：</td>
+											</tr>
+											<tr>
+											  	<td width="30" align="center">
+													<input type="checkbox" name="isRowNo" value="checkbox" style="width:20px;">
+											  	</td>
+											  	<td width="229">在报表中显示行号</td>
+											  	<td width="30" align="center">
+													<input type="checkbox" name="isColNo" value="checkbox" style="width:20px;">
+											  	</td>
+											  	<td width="220">在报表中显示列号</td>
+										  	</tr>
+										  	<tr>
+											  	<td colspan="2">行组：</td>
+											  	<td colspan="2">列组：</td>
+										 	</tr>
+										  	<tr>
+											  	<td colspan="2">
+											  		<select id="hangzu" multiple="multiple" style="width:173px;height:150px">
+											  		</select>
+											  	</td>
+											  	<td colspan="2">
+											  		<select id="liezu" multiple="multiple" style="width:173px;height:150px">
+											  		</select>
+											  	</td>
+										  	</tr>
+										  	<tr>
+											  	<td align="center">
+													<input type="checkbox" name="isRGroupName" value="checkbox" style="width:20px;">
+											  	</td>
+											  	<td>在报表中显示行组名</td>
+											  	<td align="center">
+													<input type="checkbox" name="isCGroupName" value="checkbox" style="width:20px;">
+											  	</td>
+											  	<td>在报表中显示列组名</td>
+										  	</tr>
+										</table>
+									</div>
+									<div style="padding:10px;border-top: 1px solid #E3E3E3; border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;">
+										<table width="527" border="0" style="font-size:12px">
+										  	<tr>
+												<td colspan="12" height="8"></td>
+										  	</tr>
+										  	<tr>
+												<td colspan="6">行间计算公式</td>
+												<td colspan="6">列间计算公式</td>
+										 	</tr>
+										  	<tr>
+												<td colspan="6">编辑公式</td>
+												<td colspan="6">编辑公式</td>
+										  	</tr>
+										  	<tr>
+												<td width="15">行</td>
+												<td width="103"><select id="row_formula" style="width:100px"></select></td>
+												<td width="26"><input onclick="row_formula(this)" type="button" style="width:24px" value="+"></td>
+												<td width="26"><input onclick="row_formula(this)" type="button" style="width:24px" value="-"></td>
+												<td width="26"><input onclick="row_formula(this)" type="button" style="width:24px" value="="></td>
+												<td width="46"><input onclick="row_formula(this)" type="button" style="width:24px" value="<-"></td>
+												<script type="text/javascript">
+													function row_formula(obj)
+													{
+														var row_formula = document.getElementById('row_formula');
+														var selectedValue = row_formula.options[row_formula.selectedIndex].innerHTML;
+														if(obj.value != '=' && RFomular.value == '')
+														{
+															alert('公式错误!');
+															return;
+														}
+														if(obj.value == '=' && RFomular.value != '')
+														{
+															alert('公式错误!');
+															return;
+														}
+														if(RFomular.value.indexOf(selectedValue) != -1)
+														{
+															alert('公式错误!');
+															return;
+														}
+														RFomular.value += '(' + selectedValue + ')';
+														if(obj.value != '<-')
+															RFomular.value += obj.value;
+													}
+												</script>
+												
+												<td width="15">列</td>
+												<td><select id="column_formula" style="width:100px"></select></td>
+												<td width="26"><input onclick="column_formula(this)" type="button" style="width:24px" value="+"></td>
+												<td width="26"><input onclick="column_formula(this)" type="button" style="width:24px" value="-"></td>
+												<td width="26"><input onclick="column_formula(this)" type="button" style="width:24px" value="="></td>
+												<td width="46"><input onclick="column_formula(this)" type="button" style="width:24px" value="<-"></td>
+												<script type="text/javascript">
+													function column_formula(obj)
+													{
+														var column_formula = document.getElementById('column_formula');
+														var selectedValue = column_formula.options[column_formula.selectedIndex].innerHTML;
+														if(obj.value != '=' && CFomular.value == '')
+														{
+															alert('公式错误!');
+															return;
+														}
+														if(obj.value == '=' && CFomular.value != '')
+														{
+															alert('公式错误!');
+															return;
+														}
+														if(CFomular.value.indexOf(selectedValue) != -1)
+														{
+															alert('公式错误!');
+															return;
+														}
+														CFomular.value += '(' + selectedValue + ')';
+														if(obj.value != '<-')
+															CFomular.value += obj.value;
+													}
+												</script>
+										  	</tr>
+										  	<tr>
+												<td colspan="6"><textarea name="RFomular" style="width:240px;height:80px"></textarea></td>
+												<td colspan="6"><textarea name="CFomular" style="width:240px;height:80px"></textarea></td>
+										  	</tr>
+										  	<tr>
+												<td colspan="2" align="center">
+													<input type="button" onclick="add_formula_row()" value="添加公式" style="width:70px">
+													<script type="text/javascript">
+														function add_formula_row()
+														{
+															if(RFomular.value == '')
+															{
+																alert('公式格式有误!');
+																return;
+															}
+															var RowsFomular = document.getElementById('RowsFomular');
+															var op = document.createElement("OPTION"); 
+										        			op.value = RowsFomular.options.length;
+															op.innerHTML = RFomular.value;
+															RowsFomular.appendChild(op);
+															
+															RFomular.value = '';
+														}
+													</script>
+												</td>
+												<td colspan="4" align="left">
+													<input type="button" onclick="delete_formula_row()" value="删除公式" style="width:70px">
+													<script type="text/javascript">
+														function delete_formula_row()
+														{
+															var RowsFomular = document.getElementById('RowsFomular');
+															if(RowsFomular.selectedIndex == -1)
+															{
+																alert('请选择公式!');
+																return;
+															}
+															RowsFomular.remove(RowsFomular.selectedIndex);
+														}
+													</script>
+												</td>
+												<td colspan="2" align="center">
+													<input type="button" onclick="add_formula_column()" value="添加公式" style="width:70px">
+													<script type="text/javascript">
+														function add_formula_column()
+														{
+															if(CFomular.value == '')
+															{
+																alert('公式格式有误!');
+																return;
+															}
+															var ColsFomular = document.getElementById('ColsFomular');
+															var op = document.createElement("OPTION"); 
+										        			op.value = ColsFomular.options.length;
+															op.innerHTML = CFomular.value;
+															ColsFomular.appendChild(op);
+															
+															CFomular.value = '';
+														}
+													</script>
+												</td>
+												<td colspan="4" align="left">
+													<input type="button" onclick="delete_formula_column()" value="删除公式" style="width:70px">
+													<script type="text/javascript">
+														function delete_formula_column()
+														{
+															var ColsFomular = document.getElementById('ColsFomular');
+															if(ColsFomular.selectedIndex == -1)
+															{
+																alert('请选择公式!');
+																return;
+															}
+															ColsFomular.remove(ColsFomular.selectedIndex);
+														}
+													</script>
+												</td>
+										  	</tr>
+										  	<tr>
+												<td colspan="6"><select id="RowsFomular" multiple="multiple" style="width:240px;height:80px"></select></td>
+												<td colspan="6"><select id="ColsFomular" multiple="multiple" style="width:240px;height:80px"></select></td>
+										  	</tr>
+										  	<tr>
+												<td colspan="6">行组间平衡关系</td>
+												<td colspan="6">列组间平衡关系</td>
+										  	</tr>
+										  	<tr>
+												<td width="15">组</td>
+												<td width="103"><select id="row_relations" style="width:100px"></select></td>
+												<td width="26"><input onclick="row_relation(this)" type="button" value="=" style="width:24px"></td>
+												<td width="26"><input onclick="row_relation(this)" type="button" value=">" style="width:24px"></td>
+												<td width="26"><input onclick="row_relation(this)" type="button" value="<" style="width:24px"></td>
+												<td width="46"><input onclick="row_relation(this)" type="button" value="<-" style="width:24px"></td>
+												<script type="text/javascript">
+													var row_relation_flag = 0;
+													function row_relation(obj)
+													{
+														var row_relations = document.getElementById('row_relations');
+														var selectedValue = row_relations.options[row_relations.selectedIndex].innerHTML;
+														
+														if(RRelation.value.indexOf(selectedValue) != -1)
+														{
+															alert('二元关系错误!');
+															return;
+														}
+														
+														if(obj.value == '<-')
+														{
+															if(row_relation_flag != 1)
+															{
+																alert('组间关系只支持二元运算!');
+																return;
+															}
+															
+															RRelation.value += '(' + selectedValue + ')';
+															row_relation_flag = 2;
+														}
+														else
+														{
+															if(row_relation_flag != 0)
+															{
+																alert('组间关系只支持二元运算!');
+																return;
+															}
+															else
+															{
+																RRelation.value += '(' + selectedValue + ')' + obj.value;
+																row_relation_flag = 1;
+															}
+														}
+													}
+												</script>
+												
+												<td width="15">组</td>
+												<td width="103"><select id="column_relations" style="width:100px"></select></td>
+												<td width="26"><input onclick="column_relation(this)" type="button" value="=" style="width:24px"></td>
+												<td width="26"><input onclick="column_relation(this)" type="button" value=">" style="width:24px"></td>
+												<td width="26"><input onclick="column_relation(this)" type="button" value="<" style="width:24px"></td>
+												<td width="46"><input onclick="column_relation(this)" type="button" value="<-" style="width:24px"></td>
+												<script type="text/javascript">
+													var column_relation_flag = 0;
+													function column_relation(obj)
+													{
+														var column_relations = document.getElementById('column_relations');
+														var selectedValue = column_relations.options[column_relations.selectedIndex].innerHTML;
+														
+														if(CRelation.value.indexOf(selectedValue) != -1)
+														{
+															alert('二元关系错误!');
+															return;
+														}
+														
+														if(obj.value == '<-')
+														{
+															if(column_relation_flag != 1)
+															{
+																alert('组间关系只支持二元运算!');
+																return;
+															}
+															
+															CRelation.value += '(' + selectedValue + ')';
+															column_relation_flag = 2;
+														}
+														else
+														{
+															if(column_relation_flag != 0)
+															{
+																alert('组间关系只支持二元运算!');
+																return;
+															}
+															else
+															{
+																CRelation.value += '(' + selectedValue + ')' + obj.value;
+																column_relation_flag = 1;
+															}
+														}
+													}
+												</script>
+										  	</tr>
+										  	<tr>
+												<td colspan="6"><textarea name="RRelation" style="width:240px;height:80px"></textarea></td>
+												<td colspan="6"><textarea name="CRelation" style="width:240px;height:80px"></textarea></td>
+										  	</tr>
+										  	<tr>
+												<td colspan="2" align="center">
+													<input type="button" onclick="add_relation_row()" value="添加关系" style="width:70px">
+													<script type="text/javascript">
+														function add_relation_row()
+														{
+															if(RRelation.value == '')
+															{
+																alert('关系格式有误!');
+																return;
+															}
+															var RowsRelations = document.getElementById('RowsRelations');
+															var op = document.createElement("OPTION"); 
+										        			op.value = RowsRelations.options.length;
+															op.innerHTML = RRelation.value;
+															RowsRelations.appendChild(op);
+															
+															RRelation.value = '';
+															
+															row_relation_flag = 0;
+														}
+													</script>
+												</td>
+												<td colspan="4" align="left">
+													<input type="button" onclick="delete_relation_row()" value="删除关系" style="width:70px">
+													<script type="text/javascript">
+														function delete_relation_row()
+														{
+															var RowsRelations = document.getElementById('RowsRelations');
+															if(RowsRelations.selectedIndex == -1)
+															{
+																alert('请选择关系!');
+																return;
+															}
+															RowsRelations.remove(RowsRelations.selectedIndex);
+														}
+													</script>
+												</td>
+												<td colspan="2" align="center">
+													<input type="button" onclick="add_relation_column()" value="添加关系" style="width:70px">
+													<script type="text/javascript">
+														function add_relation_column()
+														{
+															if(CRelation.value == '')
+															{
+																alert('关系格式有误!');
+																return;
+															}
+															var ColsRelations = document.getElementById('ColsRelations');
+															var op = document.createElement("OPTION"); 
+										        			op.value = ColsRelations.options.length;
+															op.innerHTML = CRelation.value;
+															ColsRelations.appendChild(op);
+															
+															CRelation.value = '';
+															column_relation_flag = 0;
+														}
+													</script>
+												</td>
+												<td colspan="4" align="left">
+													<input type="button" onclick="delete_relation_column()" value="删除关系" style="width:70px">
+													<script type="text/javascript">
+														function delete_relation_column()
+														{
+															var ColsRelations = document.getElementById('ColsRelations');
+															if(ColsRelations.selectedIndex == -1)
+															{
+																alert('请选择关系!');
+																return;
+															}
+															ColsRelations.remove(ColsRelations.selectedIndex);
+														}
+													</script>
+												</td>
+										  	</tr>
+										  	<tr>
+												<td colspan="6"><select id="RowsRelations" multiple="multiple" style="width:240px;height:80px"></select></td>
+												<td colspan="6"><select id="ColsRelations" multiple="multiple" style="width:240px;height:80px"></select></td>
+										  	</tr>
+										</table>
+									</div>
+								</div>
+								
+								<div style="HEIGHT: 20px; width:578px; border:#4297d7 0px solid; padding:5px;">
+									<DIV style="PADDING-RIGHT: 10px; FLOAT: right; padding-left:10px; PADDING-TOP: 3px" class="clbutton" id="2">
+										<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" id="add">
+										  <tr>
+										    <td  class="blue_2_j"></td>
+										    <td class="blue_4_j">创建数据表</td>
+										    <td class="blue_3_j"></td>
+										  </tr>
+										</table>
+							 		</DIV> 
+							 		<DIV style="PADDING-RIGHT: 10px; FLOAT: right; padding-left:10px; PADDING-TOP: 3px" class="clbutton" id="1">
+										<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+										  <tr>
+										    <td class="blue_2_j"></td>
+										    <td class="blue_4_j" onClick="javascript:window.location='createTask.html'">取消</td>
+										    <td class="blue_3_j"></td>
+										  </tr>
+										</table>
+							 		</DIV>
+						 		</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div style="HEIGHT: 35px; width:790px; border:#4297d7 0px solid; padding:5px;">
+			<DIV style="PADDING-RIGHT: 10px; FLOAT: right; padding-left:10px; PADDING-TOP: 3px" class="clbutton" id="1">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+				  <tr>
+				    <td class="blue_2_j"></td>
+				    <td class="blue_4_j" onClick="javascript:window.location='taskManage.html'">保存任务并返回</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+	 		</DIV>
+			<DIV style="PADDING-RIGHT: 10px; FLOAT: right; padding-left:10px; PADDING-TOP: 3px" class="clbutton" id="2">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" id="add">
+				  <tr>
+				    <td  class="blue_2_j"></td>
+				    <td class="blue_4_j" onClick="javascript:window.location='taskManage.html'">不保存返回</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+	 		</DIV> 
+		</div>
+	</body> 
+</html>

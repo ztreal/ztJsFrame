@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>中纪委登陆</title>
+<link href="loginstyle.css" type="text/css" rel="stylesheet" />
+<script src="Scripts/AC_RunActiveContent.js" type="text/javascript"></script>
+<script src="../common/js/jquery-1.4.2.js" type="text/javascript"></script>
+</head>
+<script type="text/javascript">
+	$(function(){
+		$("#choice").click(function(){
+			if($("select")[0].value==1){
+				window.location='index.htm';
+			}else if($("select")[0].value==11){
+				window.location='../../AJGL/YH/index.htm';
+			}else if($("select")[0].value==22){
+				window.location='../../AJGL/YH/index.htm';
+			}else if($("select")[0].value==2){
+				window.location='../../AJGL/YH/index.htm';
+			}else if($("select")[0].value==33){
+				window.location='../../AJGL/YH/index.htm';
+			}else{
+				window.location='../../AJGL/YH/index.htm';
+			}
+		});
+		
+	})
+	
+</script>
+<body>
+<table width="1004" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td height="620" valign="middle">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr>
+            <td rowspan="2" width="547"><script type="text/javascript">
+AC_FL_RunContent( 'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0','width','547','height','492','src','login_flash','quality','high','pluginspage','http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash','movie','login_flash' ); //end AC code
+</script><noscript><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="547" height="492">
+                <param name="movie" value="login_flash.swf" />
+                <param name="quality" value="high" />
+                <embed src="login_flash.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="547" height="492"></embed>
+            </object></noscript></td>
+            <td height="151" background="images/login_top.jpg">&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="341" background="images/login_right.jpg" valign="top">
+            	<table width="200" border="0" cellspacing="0" cellpadding="0" style="margin:100px 0 0 35px">
+                  <tr>
+                    <td height="36" class="bt">请选择证书：</td>
+                  </tr>
+                  
+                  <tr>
+                    <td><label>
+                      <select name="select" size="1" class="inpt" id="select">
+                        <option>---请选择证书---</option>
+						<option  value="2">案件管理室统计处</option>
+						<!--<option  value="1">案件检查一室</option>
+						<option  value="11">案件审理一室</option>
+                        <option   >信访室</option>
+                        <option  value="3">案件检查一室一处</option>
+                        <option  value="33">案件审理一室一处</option>
+                        <option   >信访室一处</option>-->
+                                                                  </select>
+                    </label></td>
+                  </tr>
+                  <tr>
+                    <td height="51"><label>
+                      <input type="image" src="images/login_btn.gif" name="button" id="choice" value="提交" />
+                    </label></td>
+                  </tr>
+            	</table>
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+  	<td height="25" align="center" class="footer">
+    版权所有© 2010 纪检监察部 &nbsp;| &nbsp;建议使用IE浏览器
+    </td>
+  </tr>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>通用导航</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312"><LINK 
+href="Left_files/nav.css" type=text/css rel=stylesheet>
+<SCRIPT src="Left_files/nav.js"></SCRIPT>
+<SCRIPT language=JavaScript type=text/JavaScript>
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+function switch_cell(a, hash) {
+	if(a == 2){
+		Layer2.style.visibility = "visible";
+		Layer4.style.visibility = "hidden";
+		Layer3.style.visibility = "hidden";
+
+		tb0.style.display="block";
+	}
+	if(a == 0){
+		Layer2.style.visibility = "hidden";
+		Layer3.style.visibility = "visible";
+		Layer4.style.visibility = "hidden";
+		tb0.style.display="none";
+		tb1.style.display="block";
+		tb2.style.display="none";
+	}
+	if(a == 1){
+		Layer2.style.visibility = "hidden";
+		Layer3.style.visibility = "hidden";
+		Layer4.style.visibility = "visible";
+		tb0.style.display="none";
+		tb1.style.display="none";
+		tb2.style.display="block";
+	}
+}
+</SCRIPT>
+<SCRIPT language=JavaScript>
+	
+function TreeOpenAll()
+{
+ var s =  document.getElementsByTagName("div");
+  for(var i=0;i<s.length;i++){
+	if(s[i].prop=="menu"){
+  	 s[i].style.display = "block";
+  	 var _id = s[i].id;
+  	 document.getElementById("img"+_id).src = "../images/lminus.gif";  	 
+	 }
+ 	}
+}	
+
+function TreeCloseAll()
+{
+ var s =  document.getElementsByTagName("div");
+  for(var i=0;i<s.length;i++){
+   if(s[i].prop=="menu"){
+   var _id = s[i].id; 	
+  	if(_id.length > 5){
+  	 s[i].style.display = "none";  	 
+  	 }
+	 
+  	 document.getElementById("img"+_id).src = "../images/lplus.gif";
+ 	}
+  }
+}	
+function TreeDisplay(OutLineID,imgID){
+	var _f = OutLineID.id;
+	var s =  document.getElementsByTagName("div");
+	
+	if(imgID.src.indexOf("lminus")>0){	  
+	  _j = 0;
+	  for(var i=0;i<s.length;i++){  
+	     if(s[i].prop=="menu"){
+		  _ff = s[i].id;
+		  if((_ff.length>_f.length)&&(_ff.substring(0,_f.length)==_f)){
+		    s[i].style.display = "none";
+		    _j++;
+		  }
+		  }
+    }
+    //如果没有子树，则不改变本节点状态
+    if(_j>0){
+      imgID.src="../images/lplus.gif";
+    }
+   }
+   else{
+     for(var i=0;i<s.length;i++){  
+	      if(s[i].prop=="menu"){
+		  _ff = s[i].id;
+		  
+		  if((_ff.length==_f.length+4)&&(_ff.substring(0,_f.length)==_f)){		    
+		    s[i].style.display = "block";		    
+		    var img = document.getElementById("img"+_ff);
+
+		    img.src = "../images/lplus.gif";
+		  }
+		  }
+     }
+     imgID.src="../images/lminus.gif";
+    }
+}
+</SCRIPT>
+<STYLE type=text/css>.style3 {
+	COLOR: #cccccc
+}
+</STYLE>
+<STYLE type=text/css>.style1 {
+	COLOR: #009966
+}
+</STYLE>
+<META content="MSHTML 6.00.6000.16397" name=GENERATOR></HEAD>
+<BODY text=#eeeeee bgColor=#f0f0f0 leftMargin=0 topMargin=0 marginheight="0" marginwidth="0">
+<TABLE height="100%" cellSpacing=0 cellPadding=0 width=174 border=0>
+  <TBODY>
+  <TR>
+    <TD width="30%" bgColor=#f0f0f0 colSpan=2 height=20>
+      <DIV id=Layer2 style="LEFT: 2px; VISIBILITY: visible; WIDTH: 100%; POSITION: absolute; TOP: 0px">
+	  <IMG src="Left_files/011.jpg" width=168></DIV>
+      <DIV id=Layer1 style="Z-INDEX: 4; WIDTH: 200px; POSITION: absolute; TOP: 0px">
+      <TABLE width=170 border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle><A id=navcell style="CURSOR: hand" onclick=switch_cell(2)><IMG alt=功能导航栏 src="Left_files/nav_func.gif">&nbsp;<FONT color=#000000>功能</FONT></A></TD>
+          <TD align=middle><IMG alt=模块导航栏 src="Left_files/nav_nav_grey.gif">&nbsp;<FONT class=F0F0F0>导航</FONT></TD>
+          <TD align=middle><A id=navcell style="CURSOR: hand" onclick=switch_cell(1)><IMG alt=系统导航栏 src="Left_files/nav_sys.gif">&nbsp;<FONT color=#000000>系统</FONT></A></TD>
+		</TR>
+		</TBODY>
+	  </TABLE>
+	  </DIV>
+      <DIV id=Layer3 style="Z-INDEX: 3; VISIBILITY: hidden; WIDTH: 200px; POSITION: absolute; TOP: 0px"><IMG src="Left_files/022.jpg" width=170> </DIV>
+      <DIV id=Layer4 style="Z-INDEX: 2; VISIBILITY: hidden; WIDTH: 200px; POSITION: absolute; TOP: 0px"><IMG src="Left_files/033.jpg" width=168> </DIV>
+	</TD>
+	<!--
+    <td class=tab-off id=navcell onclick=switchCell(1) width="34%"><img src="misc_arrow.gif" alt="模块导航栏" >导航</td>
+    
+    <td class=tab-off id=navcell onclick=switchCell(2) width="36%"><img src="navbar_update.gif" alt="系统导航栏" >系统</td>
+    -->
+  </TR>
+  <TR>
+    <TD width=7 background=Left_files/navigation-03-02_r6_c1.jpg></TD>
+    <TD width="100%" bgColor=#f0f0f0>
+      <TABLE id=tb0 height="100%" width="100%">
+        <TBODY>
+        <TR>
+          <TD class=sjline vAlign=top width="100%" height=778>
+		    <!--left menu:start-->
+			<TABLE borderColor=#666666 cellSpacing=0 cellPadding=3 width="100%" border=0>
+			  <TBODY>
+			  <TR>
+				<TD><BR><A title=点击展开所有功能树 href="javascript:TreeOpenAll();"><IMG src="../images/openall.jpg" border=0></A> 
+				<A title=点击所有树节点折叠 href="javascript:TreeCloseAll();"><IMG src="../images/closeall.jpg" border=0></A> <BR>
+				</TD>
+			  </TR>
+			  <TR>
+				<TD vAlign=top noWrap height=778>
+				  <DIV id=f1000 style="DISPLAY: block; HEIGHT: 20px" height="35" prop="menu"><IMG id=imgf1000 style="CURSOR: hand" onclick=TreeDisplay(f1000,imgf1000) src="../images/lplus.gif" border=0>&nbsp;<IMG height=10 src="../images/function.gif" border=0><FONT COLOR="#000000">涉外收入申报单</FONT>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f10001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10001000 style="CURSOR: hand" onclick=TreeDisplay(f10001000,imgf10001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptDeletingCheckList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>请示删除核准</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f10002000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10002000 style="CURSOR: hand" onclick=TreeDisplay(f10002000,imgf10002000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptNoSubmitQueryList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>待申报信息查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f100020001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf100020001000 style="CURSOR: hand" onclick=TreeDisplay(f100020001000,imgf100020001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptNoSubmitQueryList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>限额以上</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f100020002000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf100020002000 style="CURSOR: hand" onclick=TreeDisplay(f100020002000,imgf100020002000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptNoSubmitQueryList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>限额以下</A>&nbsp;&nbsp;<BR></DIV>
+				  
+				  <!--DIV id=f10003000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10003000 style="CURSOR: hand" onclick=TreeDisplay(f10003000,imgf10003000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/abroadreceipts_shewaishourushenbaodan_luruinfo_blank.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销单号查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f10004000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10004000 style="CURSOR: hand" onclick=TreeDisplay(f10004000,imgf10004000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/forExamList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>申报信息审核</A>&nbsp;&nbsp;<BR></DIV>
+				  
+				  <DIV id=f10001500 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10001500 style="CURSOR: hand" onclick=TreeDisplay(f10001500,imgf10001500) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/forDeleteForAuditingList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>请示删除审核</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f10005000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10005000 style="CURSOR: hand" onclick=TreeDisplay(f10005000,imgf10005000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptForDeleteList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>申报单请示删除</A>&nbsp;&nbsp;<BR></DIV>
+				  				  
+				  <!--DIV id=f10006000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10006000 style="CURSOR: hand" onclick=TreeDisplay(f10006000,imgf10006000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptDeleteList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>申报单删除</A>&nbsp;&nbsp;<BR></DIV-->
+
+				  
+				  <!--DIV id=f10007000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10007000 style="CURSOR: hand" onclick=TreeDisplay(f10007000,imgf10007000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核查疑问</A>&nbsp;&nbsp;<BR></DIV-->
+				  <!--DIV id=f100070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf100070001000 style="CURSOR: hand" onclick=TreeDisplay(f100070001000,imgf100070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/checkQuestionRefuseList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核查疑问拒绝</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f100070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf100070001000 style="CURSOR: hand" onclick=TreeDisplay(f100070001000,imgf100070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/checkQuestionBaseInfoList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核查疑问基础信息修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f100070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf100070001000 style="CURSOR: hand" onclick=TreeDisplay(f100070001000,imgf100070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/checkQuestionRptInfoList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核查疑问申报信息修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f100070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf100070001000 style="CURSOR: hand" onclick=TreeDisplay(f100070001000,imgf100070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/checkQuestionQueryList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>查询</A>&nbsp;&nbsp;<BR></DIV-->
+
+				  <DIV id=f10001100 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10001100 style="CURSOR: hand" onclick=TreeDisplay(f10001100,imgf10001100) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptDeleteHistoryQueryList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>删除申报单查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f10001100 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10001100 style="CURSOR: hand" onclick=TreeDisplay(f10001100,imgf10001100) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptExpireList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>逾期未申报信息查询</A>&nbsp;&nbsp;<BR></DIV>
+				  
+				  
+				  <!--DIV id=f10001300 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10001300 style="CURSOR: hand" onclick=TreeDisplay(f10001300,imgf10001300) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptAutoBackList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>外汇局自动退回信息查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f10001400 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10001400 style="CURSOR: hand" onclick=TreeDisplay(f10001400,imgf10001400) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/dayStsQuery.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>当日业务统计</A>&nbsp;&nbsp;<BR></DIV-->
+
+				  <DIV id=f7000 style="DISPLAY: block; HEIGHT: 20px" height="35" prop="menu"><IMG id=imgf7000 style="CURSOR: hand" onclick=TreeDisplay(f7000,imgf7000) src="../images/lplus.gif" border=0>&nbsp;<IMG height=10 src="../images/function.gif" border=0><FONT COLOR="#000000">出口核销专用联（境外收入）</FONT>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f70002000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf70002000 style="CURSOR: hand" onclick=TreeDisplay(f70002000,imgf70002000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/writeoffQueryList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销信息查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f70003000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf70003000 style="CURSOR: hand" onclick=TreeDisplay(f70003000,imgf70003000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/writeoffBillNoQueryList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销单号查询</A>&nbsp;&nbsp;<BR></DIV>	
+					
+				  <DIV id=f2000 style="DISPLAY: block; HEIGHT: 20px" height="35" prop="menu"><IMG id=imgf2000 style="CURSOR: hand" onclick=TreeDisplay(f2000,imgf2000) src="../images/lplus.gif" border=0>&nbsp;<IMG height=10 src="../images/function.gif" border=0><FONT COLOR="#000000">境外汇款申请书</FONT>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f20001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf20001000 style="CURSOR: hand" onclick=TreeDisplay(f20001000,imgf20001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/JWHK/jcxxList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>基础信息</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f20002000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf20002000 style="CURSOR: hand" onclick=TreeDisplay(f20002000,imgf20002000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrsbList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>申报信息/核销信息</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f20003000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf20003000 style="CURSOR: hand" onclick=TreeDisplay(f20003000,imgf20003000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrhxxxList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销信息录入/修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f20004000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf20004000 style="CURSOR: hand" onclick=TreeDisplay(f20004000,imgf20004000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>待审核</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f20005000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf20005000 style="CURSOR: hand" onclick=TreeDisplay(f20005000,imgf20005000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>申报单请示删除</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f20006000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf20006000 style="CURSOR: hand" onclick=TreeDisplay(f20006000,imgf20006000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>申报单删除</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f20007000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf20007000 style="CURSOR: hand" onclick=TreeDisplay(f20007000,imgf20007000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核查疑问</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f200070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf200070001000 style="CURSOR: hand" onclick=TreeDisplay(f200070001000,imgf200070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核查疑问拒绝</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f200070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf200070001000 style="CURSOR: hand" onclick=TreeDisplay(f200070001000,imgf200070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核查疑问基础信息修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f200070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf200070001000 style="CURSOR: hand" onclick=TreeDisplay(f200070001000,imgf200070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核查疑问申报信息修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f200070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf200070001000 style="CURSOR: hand" onclick=TreeDisplay(f200070001000,imgf200070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f20008000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf20008000 style="CURSOR: hand" onclick=TreeDisplay(f20008000,imgf20008000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>申报单分类查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f20009000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf20009000 style="CURSOR: hand" onclick=TreeDisplay(f20009000,imgf20009000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>逻辑删除申报单查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f20001100 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf20001100 style="CURSOR: hand" onclick=TreeDisplay(f20001100,imgf20001100) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>报关单号查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f20001200 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf20001200 style="CURSOR: hand" onclick=TreeDisplay(f20001200,imgf20001200) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>外汇局自动退回信息查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f20001400 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10001300 style="CURSOR: hand" onclick=TreeDisplay(f10001300,imgf10001300) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptAutoBackList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>当日业务统计</A>&nbsp;&nbsp;<BR></DIV>
+				  
+				  <DIV id=f3000 style="DISPLAY: block; HEIGHT: 20px" height="35" prop="menu"><IMG id=imgf3000 style="CURSOR: hand" onclick=TreeDisplay(f3000,imgf3000) src="../images/lplus.gif" border=0>&nbsp;<IMG height=10 src="../images/function.gif" border=0><FONT COLOR="#000000">对外付款/承兑通知书</FONT>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f30001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf30001000 style="CURSOR: hand" onclick=TreeDisplay(f30001000,imgf30001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrjcxxList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>基础信息</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f30002000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf30002000 style="CURSOR: hand" onclick=TreeDisplay(f30002000,imgf30002000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrsbList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>申报信息/核销信息</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f30003000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf30003000 style="CURSOR: hand" onclick=TreeDisplay(f30003000,imgf30003000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrhxxxList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销信息录入/修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f30004000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf30004000 style="CURSOR: hand" onclick=TreeDisplay(f30004000,imgf30004000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>待审核</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f30005000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf30005000 style="CURSOR: hand" onclick=TreeDisplay(f30005000,imgf30005000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>申报单请示删除</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f30006000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf30006000 style="CURSOR: hand" onclick=TreeDisplay(f30006000,imgf30006000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>申报单删除</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f30007000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf30007000 style="CURSOR: hand" onclick=TreeDisplay(f30007000,imgf30007000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核查疑问</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f300070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf300070001000 style="CURSOR: hand" onclick=TreeDisplay(f300070001000,imgf300070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核查疑问拒绝</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f300070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf300070001000 style="CURSOR: hand" onclick=TreeDisplay(f300070001000,imgf300070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核查疑问基础信息修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f300070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf300070001000 style="CURSOR: hand" onclick=TreeDisplay(f300070001000,imgf300070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核查疑问申报信息修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f300070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf300070001000 style="CURSOR: hand" onclick=TreeDisplay(f300070001000,imgf300070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f30008000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf30008000 style="CURSOR: hand" onclick=TreeDisplay(f30008000,imgf30008000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>申报单分类查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f30009000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf30009000 style="CURSOR: hand" onclick=TreeDisplay(f30009000,imgf30009000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>逻辑删除申报单查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f30001100 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf30001100 style="CURSOR: hand" onclick=TreeDisplay(f30001100,imgf30001100) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>外汇局自动退回信息查询</A>&nbsp;&nbsp;<BR></DIV>
+<DIV id=f30001400 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10001300 style="CURSOR: hand" onclick=TreeDisplay(f10001300,imgf10001300) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptAutoBackList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>当日业务统计</A>&nbsp;&nbsp;<BR></DIV>
+
+				  <DIV id=f4000 style="DISPLAY: block; HEIGHT: 20px" height="35" prop="menu"><IMG id=imgf4000 style="CURSOR: hand" onclick=TreeDisplay(f4000,imgf4000) src="../images/lplus.gif" border=0>&nbsp;<IMG height=10 src="../images/function.gif" border=0><FONT COLOR="#000000">出口核销专用联（境内收入）</FONT>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f40001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf40001000 style="CURSOR: hand" onclick=TreeDisplay(f40001000,imgf40001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/CKHX/baseInfoList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>基础信息</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f40003000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf40003000 style="CURSOR: hand" onclick=TreeDisplay(f40003000,imgf40003000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrhxxxList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销信息录入/修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f40004000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf40004000 style="CURSOR: hand" onclick=TreeDisplay(f40004000,imgf40004000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>待审核</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f40005000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf40005000 style="CURSOR: hand" onclick=TreeDisplay(f40005000,imgf40005000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销信息请示删除</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f40006000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf40006000 style="CURSOR: hand" onclick=TreeDisplay(f40006000,imgf40006000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销删除</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f40007000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf40007000 style="CURSOR: hand" onclick=TreeDisplay(f40007000,imgf40007000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销疑问</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f400070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf400070001000 style="CURSOR: hand" onclick=TreeDisplay(f400070001000,imgf400070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销疑问拒绝</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f400070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf400070001000 style="CURSOR: hand" onclick=TreeDisplay(f400070001000,imgf400070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销疑问基础信息修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f400070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf400070001000 style="CURSOR: hand" onclick=TreeDisplay(f400070001000,imgf400070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销疑问核销信息修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f400070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf400070001000 style="CURSOR: hand" onclick=TreeDisplay(f400070001000,imgf400070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f40008000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf40008000 style="CURSOR: hand" onclick=TreeDisplay(f40008000,imgf40008000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f40009000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf40009000 style="CURSOR: hand" onclick=TreeDisplay(f40009000,imgf40009000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销专用联打印</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f40001100 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf40001100 style="CURSOR: hand" onclick=TreeDisplay(f40001100,imgf40001100) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>逻辑删除申报单查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f40001200 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf40001200 style="CURSOR: hand" onclick=TreeDisplay(f40001200,imgf40001200) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销单号查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f40001300 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf40001300 style="CURSOR: hand" onclick=TreeDisplay(f40001300,imgf40001300) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>外汇局自动退回信息查询</A>&nbsp;&nbsp;<BR></DIV>
+<DIV id=f40001400 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10001300 style="CURSOR: hand" onclick=TreeDisplay(f10001300,imgf10001300) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptAutoBackList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>当日业务统计</A>&nbsp;&nbsp;<BR></DIV>
+
+				  <DIV id=f5000 style="DISPLAY: block; HEIGHT: 20px" height="35" prop="menu"><IMG id=imgf5000 style="CURSOR: hand" onclick=TreeDisplay(f5000,imgf5000) src="../images/lplus.gif" border=0>&nbsp;<IMG height=10 src="../images/function.gif" border=0><FONT COLOR="#000000">境内汇款申请书</FONT>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f50001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf50001000 style="CURSOR: hand" onclick=TreeDisplay(f50001000,imgf50001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/JNHK/baseInfoList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>基础信息</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f50003000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf50003000 style="CURSOR: hand" onclick=TreeDisplay(f50003000,imgf50003000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrhxxxList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销信息录入/修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f50004000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf50004000 style="CURSOR: hand" onclick=TreeDisplay(f50004000,imgf50004000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>待审核</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f50005000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf50005000 style="CURSOR: hand" onclick=TreeDisplay(f50005000,imgf50005000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销信息请示删除</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f50006000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf50006000 style="CURSOR: hand" onclick=TreeDisplay(f50006000,imgf50006000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销删除</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f50007000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf50007000 style="CURSOR: hand" onclick=TreeDisplay(f50007000,imgf50007000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销疑问</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f500070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf500070001000 style="CURSOR: hand" onclick=TreeDisplay(f500070001000,imgf500070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销疑问拒绝</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f500070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf500070001000 style="CURSOR: hand" onclick=TreeDisplay(f500070001000,imgf500070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销疑问基础信息修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f500070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf500070001000 style="CURSOR: hand" onclick=TreeDisplay(f500070001000,imgf500070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销疑问核销信息修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f500070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf500070001000 style="CURSOR: hand" onclick=TreeDisplay(f500070001000,imgf500070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f50008000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf50008000 style="CURSOR: hand" onclick=TreeDisplay(f50008000,imgf50008000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f50001100 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf50001100 style="CURSOR: hand" onclick=TreeDisplay(f50001100,imgf50001100) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>逻辑删除申报单查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f50001200 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf50001200 style="CURSOR: hand" onclick=TreeDisplay(f50001200,imgf50001200) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>报关单号查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f50001300 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf50001300 style="CURSOR: hand" onclick=TreeDisplay(f50001300,imgf50001300) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>外汇局自动退回信息查询</A>&nbsp;&nbsp;<BR></DIV>
+<DIV id=f50001400 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10001300 style="CURSOR: hand" onclick=TreeDisplay(f10001300,imgf10001300) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptAutoBackList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>当日业务统计</A>&nbsp;&nbsp;<BR></DIV>
+
+				  <DIV id=f6000 style="DISPLAY: block; HEIGHT: 20px" height="35" prop="menu"><IMG id=imgf6000 style="CURSOR: hand" onclick=TreeDisplay(f6000,imgf6000) src="../images/lplus.gif" border=0>&nbsp;<IMG height=10 src="../images/function.gif" border=0><FONT COLOR="#000000">境内付款/承兑通知书</FONT>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f60001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf60001000 style="CURSOR: hand" onclick=TreeDisplay(f60001000,imgf60001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/JNFK/baseInfoList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>基础信息</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f60003000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf60003000 style="CURSOR: hand" onclick=TreeDisplay(f60003000,imgf60003000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrhxxxList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销信息录入/修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f60004000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf60004000 style="CURSOR: hand" onclick=TreeDisplay(f60004000,imgf60004000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>待审核</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f60005000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf60005000 style="CURSOR: hand" onclick=TreeDisplay(f60005000,imgf60005000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销信息请示删除</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f60006000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf60006000 style="CURSOR: hand" onclick=TreeDisplay(f60006000,imgf60006000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销删除</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f60007000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf60007000 style="CURSOR: hand" onclick=TreeDisplay(f60007000,imgf60007000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销疑问</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f600070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf600070001000 style="CURSOR: hand" onclick=TreeDisplay(f600070001000,imgf600070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销疑问拒绝</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f600070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf600070001000 style="CURSOR: hand" onclick=TreeDisplay(f600070001000,imgf600070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销疑问基础信息修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f600070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf600070001000 style="CURSOR: hand" onclick=TreeDisplay(f600070001000,imgf600070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销疑问核销信息修改</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f600070001000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;&nbsp;&nbsp;<IMG id=imgf600070001000 style="CURSOR: hand" onclick=TreeDisplay(f600070001000,imgf600070001000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/sysrxeysList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f60008000 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf60008000 style="CURSOR: hand" onclick=TreeDisplay(f60008000,imgf60008000) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>核销查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f60001100 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf60001100 style="CURSOR: hand" onclick=TreeDisplay(f60001100,imgf60001100) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>逻辑删除申报单查询</A>&nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f60001300 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf60001300 style="CURSOR: hand" onclick=TreeDisplay(f60001300,imgf60001300) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>外汇局自动退回信息查询</A>&nbsp;&nbsp;<BR></DIV>
+<DIV id=f60001400 style="DISPLAY: none; HEIGHT: 20px" height="35" prop="menu">&nbsp;&nbsp;<IMG id=imgf10001300 style="CURSOR: hand" onclick=TreeDisplay(f10001300,imgf10001300) src="../images/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../WHJ/GJSZ/SWSR/rptAutoBackList.html" target=mainFrame><IMG height=10 src="../images/function.gif" border=0>当日业务统计</A>&nbsp;&nbsp;<BR></DIV>
+
+				</TD>
+			  </TR>
+			  </TBODY>
+			</TABLE>			
+			 <!--left menu:end-->
+			 <SPAN class=style1></SPAN>
+		  </TD>
+		</TR>
+		</TBODY>
+	  </TABLE>
+
+      <TABLE id=tb1 height="100%" width="100%">
+        <TBODY>
+        <TR>
+          <TD></TD>
+		</TR>
+		</TBODY>
+	  </TABLE>
+
+      <TABLE id=tb2 cellSpacing=0 cellPadding=3 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD class=sjline vAlign=top width="100%" height=778>
+            <TABLE borderColor=#666666 cellSpacing=0 cellPadding=3 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD class=sjline height=25></TD></TR>
+              <TR>
+                <TD onmouseover='over_change(1,this,"#EEF4FF")' onclick='click_change(1,this,"#EEF4FF","/servlet/SiteMapServlet")' onmouseout='out_change(1,this,"")' height=25>
+                  <DIV align=left>&nbsp;<IMG src="Left_files/sj_dot.gif" valign="bottom">&nbsp;&nbsp;<FONT color=#000000>系统帮助</FONT></DIV></TD></TR>
+              <TR>
+                <TD onmouseover='over_change(2,this,"#EEF4FF")' onclick='click_change(2,this,"#EEF4FF","../common/Logout.jsp")' onmouseout='out_change(2,this,"")' height=25>
+                  <DIV align=left>&nbsp;<IMG src="Left_files/sj_dot.gif" valign="bottom">&nbsp;&nbsp;<FONT color=#000000>退出系统</FONT></DIV></TD></TR>
+			  </TBODY>
+			</TABLE>
+		  </TD>
+		</TR>
+		</TBODY>
+	  </TABLE>
+
+	</TD>
+  </TR>
+  </TBODY>
+</TABLE>
+<SCRIPT language=javascript>
+   switch_cell(2)
+</SCRIPT>
+</BODY></HTML>
+

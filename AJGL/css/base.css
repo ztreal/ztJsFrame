@@ -1,0 +1,45 @@
+/*按钮效果*/
+.blue_1_j{ background: url(../images/anblue_bg_1.gif); height:22px;cursor:hand;}
+.blue_2_j{ background: url(../images/anblue_left_1.gif) no-repeat left; width:5px}
+.blue_3_j{ background: url(../images/anblue_right_1.gif) no-repeat right; width:5px}
+.blue_4_j{padding:0 10px; padding-top:2px; font: 12px/14px '宋体'; color:#0c558c}
+
+.blue_1_o{ background: url(../images/anblue_bg_2.gif); height:22px;cursor:hand;}
+.blue_2_o{ background: url(../images/anblue_left_2.gif) no-repeat left; width:5px}
+.blue_3_o{ background: url(../images/anblue_right_2.gif) no-repeat right; width:5px}
+.blue_4_o{padding:0 10px; padding-top:2px; font: 12px/14px '宋体'; color:#984718}
+
+.blue_1_d{ background: url(../images/anblue_bg_3.gif); height:22px;cursor:hand;}
+.blue_2_d{ background: url(../images/anblue_left_3.gif) no-repeat left; width:5px}
+.blue_3_d{ background: url(../images/anblue_right_3.gif) no-repeat right; width:5px}
+.blue_4_d{padding:0 10px; padding-top:4px; font: 12px/14px '宋体'; color:#984718}
+
+.gray_1_j{ background: url(../images/angray_bg_1.gif); height:22px;cursor:hand;}
+.gray_2_j{ background: url(../images/angray_left_1.gif) no-repeat left; width:5px}
+.gray_3_j{ background: url(../images/angray_right_1.gif) no-repeat right; width:5px}
+.gray_4_j{padding:0 10px; padding-top:2px; font: 12px/14px '宋体'; color:#3d3b3c}
+
+.gray_1_o{ background: url(../images/angray_bg_2.gif); height:22px;cursor:hand;}
+.gray_2_o{ background: url(../images/angray_left_2.gif) no-repeat left; width:5px}
+.gray_3_o{ background: url(../images/angray_right_2.gif) no-repeat right; width:5px}
+.gray_4_o{padding:0 10px; padding-top:2px; font: 12px/14px '宋体'; color:#3d3b3c}
+
+
+.gray_1_d{ background: url(../images/angray_bg_3.gif); height:22px;cursor:hand;}
+.gray_2_d{ background: url(../images/angray_left_3.gif) no-repeat left; width:5px}
+.gray_3_d{ background: url(../images/angray_right_3.gif) no-repeat right; width:5px}
+.gray_4_d{padding:0 10px; padding-top:4px; font: 12px/14px '宋体'; color:#3d3b3c}
+
+#target{
+    border:1px solid #d1d1d1;
+}
+#target th{
+	/*background:url(../images/blue/in_tiao_bg02.gif) repeat-x;*/
+	color:#575757;
+	font-size:12px;
+    padding:4px 10px;
+}
+#target td{
+    padding:2px 10px;
+    border:1px solid #d1d1d1;
+}

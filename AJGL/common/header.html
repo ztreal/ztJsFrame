@@ -1,0 +1,299 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="TEXT/HTML;CHARSET=GB2312">
+<TITLE>国家外汇管理局</TITLE>
+<link href="../css/css.css" rel="stylesheet" type="text/css">
+<STYLE type="text/css">
+a.dr:hover{color:red}
+a.dr{color:black}
+</STYLE>
+</HEAD>
+
+<script>
+function resize(height)
+{
+	try
+	{
+			document.getElementById("_leftAll").rows = height+",*,12";
+	}
+	catch(e)
+	{
+	}
+}
+</script>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+//globle variables
+
+var glb=new Object()
+glb.online=location.host==""
+glb.svName=""
+glb.svPath=""
+
+//init menu
+function setMenu(key)
+	{
+		var a=key.split(";"),i,ad,l,sClick,sAtt
+		l="<table id=tbSideBar cellpadding=3 cellspacing=0 width=100%>"
+		for(i=0;i<a.length;i++)
+		{
+			ad=a[i].split(",")
+			sClick= "sideBarRoot_click('"+ad[1]+"');"
+			//if(ad[2]!=null)
+			//	sClick+="link('"+ad[2]+"');"
+			sAtt=""
+			
+			l+="<tr><td nowrap style='padding:3;padding-left:8;background:#F7D45D;border:1px solid #FFF8DA'><img id='node_"+ad[1]+"' name=1 onclick=sideBarRoot_click('"+ad[1]+"') align=absmiddle <img id='node_"+ad[1]+"' name=1 onclick=sideBarRoot_click('"+ad[1]+"') align=absmiddle src=../images/arrow15.gif '> <a class=dr href=\"javascript:"+sClick+"\" style='"+(i>0 ? "text-decoration:none" : "")+"'>"+ad[0]+"</a>"+sAtt+"</td></tr><tr id='"+ad[1]+"' bgcolor=#FFF8DA style='display:none'><td style=padding:14;padding-top:4;padding-bottom:4></td></tr>"
+		}
+		l+="</table>"
+		document.write(l)
+	}
+
+function oo(obj)
+	{
+		var o;
+		if (typeof(obj)!="string")
+			return obj;
+		else
+		{
+			try
+			{
+				document.all
+				try
+				{
+					o=document.all(obj);
+				}
+				catch(e)
+				{
+					return ;
+				}
+			}
+			catch(ee)
+			{
+				try
+				{
+					o=document.getElementById(obj);
+				}
+				catch(e)
+				{
+					return ;
+				}
+			}
+			return o;
+		}
+	}
+
+function sideBarRoot_click(oMenu)
+	{
+		var ol=document.getElementsByTagName("TR"),tb=oo("tbSideBar")
+		var i,o,s,v
+
+		ee=oo("node_"+oMenu)
+		
+		ee.name*=-1
+		ee.src="../images/home_background.gif"
+		if(ee.name==1)
+		{
+			oo(oMenu).children[0].innerHTML=""
+			oo(oMenu).style.display="none"
+		}
+		else
+		{
+			oo(oMenu).children[0].innerHTML=oo(oMenu).children[0].val
+			oo(oMenu).style.display=""
+		}
+
+		for(i=1;i<tb.rows.length;i+=2)
+		{
+			if(tb.rows[i].id==oMenu)
+				continue
+			tb.rows[i].style.display="none"
+			tb.rows[i].children[0].innerHTML=""
+			o=oo("node_"+tb.rows[i].id)
+			o.src="../images/arrow15.gif"
+			o.name=1
+		}
+		
+	}
+
+	function setCMenu(pNode,key)
+	{
+		var a=key.split(";"),i,ad,l,v
+		l=""
+		for(i=0;i<a.length;i++)
+		{
+			if(a[i]=="")
+				continue
+		// fix multi-comma issue
+			if (pNode != "m_uFolder") ad=a[i].split(",")
+			else ad = new Array(a[i].substring(0, a[i].lastIndexOf(",")), a[i].substring(a[i].lastIndexOf(",") + 1))
+
+			//ad=a[i].split(",")
+			ad[0]=ad[0].replace(/^[\s]*|[\s]+$/g, "")
+			if(ad[3]=="hide"&&glb.online)
+				continue
+			v="link('"+ad[1]+"'"+(ad[1].indexOf("#")==0?",'"+ad[2]+"'":"")+")"
+			l+="<div id='"+pNode+"_"+ad[0]+"' style='padding:4;padding-left:12"+(i==a.length-1 ? "" : ";background:url(http://image2.sina.com.cn/rny/ria2/split1.gif) bottom repeat-x")+"'><a href=\"javascript:"+v+"\" class=vmc>"+ad[0]+"</a></div>"
+		}
+		if((pNode=="m_folder"||oo("node_"+pNode).name!=1)||(pNode=="m_service"||oo("node_"+pNode).name!=1))
+			oo(pNode).children[0].innerHTML=oo(pNode).children[0].val=l
+		else
+			oo(pNode).children[0].val=l
+	}
+
+//-->
+</SCRIPT>
+
+
+<BODY BGCOLOR=#FFFFFF background="../images/home_background.gif" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+<TABLE WIDTH=800 BORDER="0" align="center" CELLPADDING=0 CELLSPACING=0>
+  <TR> 
+    <TD COLSPAN="2"> 
+	
+	<!---------------header:start-------------->
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td width="300"><img src="../images/logo.jpg" width="300" height="83"></td>
+        <td width="500" align="right" valign="top" background="../images/logging_2_2.gif" height="72">
+          <table  border="0" cellpadding="0" cellspacing="0">
+            <tr>
+			  <td>&nbsp;</td>
+			  <td>&nbsp;</td>
+			</tr>
+			<tr> 
+			  <td width="100%" align="right">
+			  <font color="#FFFFFF">| <a href="#">退 出</a> | <a href="#">帮 助</a></font>
+			  </td>
+			</tr>
+		  </table>
+		</td>
+	  </tr>
+	  <tr bgcolor="FF9A00">
+	    <td height="4" colspan="2"></td>
+	  </tr>
+    </table>
+    <!--------------header:end----------------->
+
+	</TD>
+  </TR>  
+  <TR> 
+    <TD	width="20%" BGCOLOR="#FFE472" valign="top">
+	<SCRIPT LANGUAGE=JAVASCRIPT type="text/javascript">
+	if(screen.width==800)
+		document.write("<DIV id=bxAd align=center style=display:none><iframe frameborder=0 scrolling=no marginheight=0 marginwidth=0  style=width:800;height:200></iframe></DIV>")
+	</SCRIPT>
+	
+
+	<TABLE id="tbsMain" cellpadding="0" cellspacing="0" width="100%" style="border-top:1px solid white">
+      <TR VALIGN="TOP">
+	    <TD ALIGN="CENTER" BGCOLOR="#FFE472" WIDTH="150" STYLE="PADDING:1;BORDER-RIGHT:1PX SOLID WHITE">
+	    <DIV STYLE="FONT-SIZE:0;HEIGHT:5"></DIV>
+	    <DIV ALIGN="LEFT" STYLE="WIDTH:148;BORDER:2PX SOLID #F8BA0D">
+		<SCRIPT LANGUAGE=JAVASCRIPT type="text/javascript">
+			setMenu("涉外收入申报,m_swsr;境外汇款申请书,m_jwhk;对外付款/承兑通知书,m_dwfk;出口核销专用联（境内收入）,m_ckhx;境内汇款申请书,m_jnhk;境内付款/承兑通知书,m_jnfk;基本单位情况表,m_jbdw;金融机构档案,m_jrjg;外汇局基本情况表,m_whj;银行业务系统接口,m_yhjk;公共表维护,m_ggb;公共数据共享,m_ggsj;辅助工具,m_fzgj")
+		</SCRIPT>
+		</DIV>
+		</TD>
+	  </TR>
+	</TABLE>	
+    </TD>
+	
+	<TD	width="80%" BGCOLOR="#FFFFFF" valign="top">
+	<!--main:start-->
+	  <TABLE width="100%" valign="top" border="0" cellpadding="0" cellspacing="0">
+	    <TR>
+		  <TD>
+		    <!--nav:start-->
+			<table width="90%" border="0" cellspacing="0" cellpadding="0">
+			  <tr>
+				<td width="3%" align="center"><img src="../images/info_4.gif" width=17 height=21 alt=""></td>
+				<td width="50%" valign="bottom"><font color="#F77808">当前位置->涉外收入申报</font></td>
+				<td width="24%"></td>
+				<td width="3%" align="center"><img src="../images/info_4.gif" width=17 height=21 alt=""></td>
+				<td width="20%" valign="bottom"><font color="#F77808">操作员->银行操作员</font></td>          
+			  </tr>
+			</table>
+			<!--nav:end-->
+		  </TD>
+		</TR>
+		<TR> 
+		  <TD>
+		  <!--main:start-->
+		  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+		    <tr> 
+			  <td>&nbsp; </td>
+			</tr>
+			<tr> 
+			  <td height="415" align="center" valign="top"> 
+			    <TABLE width=95% border=0 align=center cellspacing="3">		  
+				  <TBODY>
+				  <TR> 
+				    <TD width="100%">&nbsp;</TD>       
+				  </TR>
+				  <TR> 
+				    <TD width="100%">&nbsp;</TD>       
+				  </TR>
+				</TABLE> 
+			  </td>
+			</tr>
+		  </table>
+		  <!--main:end-->
+		  </TD>
+	    </TR>		
+	  </TABLE>
+	</TD>
+  </TR>
+  <TR>
+  <TR>
+    <TD COLSPAN="2" height="45" align="center" bgcolor="2A7CD6">&nbsp;</TD>
+  </TR>
+</TABLE>
+
+<SCRIPT LANGUAGE=JAVASCRIPT type="text/javascript">
+
+	function body_load()
+	{
+		setCMenu("m_swsr","基础信息,tmpl:;基础信息修改,tmpl:;申报信息/核销信息,tmpl:;核销信息录入,tmpl:;待审核,tmpl:;申报单请示删除,tmpl:;申报单删除,tmpl:;核查疑问,tmpl:;查询,tmpl;核销专用联查询/打印,tmpl:;逻辑删除申报单查询,tmpl:;核销单号查询,tmpl:;外汇局自动退回信息查询,tmpl:;")
+		setCMenu("m_jwhk","基础信息,tmpl:;基础信息修改,tmpl:;申报信息/核销信息,tmpl:;核销信息录入,tmpl:;待审核,tmpl:;申报单请示删除,tmpl:;申报单删除,tmpl:;核查疑问,tmpl:;查询,tmpl;核销专用联查询/打印,tmpl:;逻辑删除申报单查询,tmpl:;报关单号查询,tmpl:;外汇局自动退回信息查询,tmpl:;")
+		setCMenu("m_swsr","基础信息,tmpl:;基础信息修改,tmpl:;申报信息/核销信息,tmpl:;核销信息录入,tmpl:;待审核,tmpl:;申报单请示删除,tmpl:;申报单删除,tmpl:;核查疑问,tmpl:;查询,tmpl;核销专用联查询/打印,tmpl:;逻辑删除申报单查询,tmpl:;核销单号查询,tmpl:;外汇局自动退回信息查询,tmpl:;")
+		setCMenu("m_swsr","基础信息,tmpl:;基础信息修改,tmpl:;申报信息/核销信息,tmpl:;核销信息录入,tmpl:;待审核,tmpl:;申报单请示删除,tmpl:;申报单删除,tmpl:;核查疑问,tmpl:;查询,tmpl;核销专用联查询/打印,tmpl:;逻辑删除申报单查询,tmpl:;核销单号查询,tmpl:;外汇局自动退回信息查询,tmpl:;")
+		setCMenu("m_swsr","基础信息,tmpl:;基础信息修改,tmpl:;申报信息/核销信息,tmpl:;核销信息录入,tmpl:;待审核,tmpl:;申报单请示删除,tmpl:;申报单删除,tmpl:;核查疑问,tmpl:;查询,tmpl;核销专用联查询/打印,tmpl:;逻辑删除申报单查询,tmpl:;核销单号查询,tmpl:;外汇局自动退回信息查询,tmpl:;")
+		
+		oo("DEBUG").innerHTML="1";
+	}
+
+	body_load();
+	alert("d");
+	
+	
+	var caution = true;//no caution dialog
+	var default_cookie_expires = new Date();
+	//default expires = 1 year
+	default_cookie_expires.setTime(default_cookie_expires.getTime() + 12 * 30 * 24 * 60 * 60 * 1000);
+	
+	function set_Cookie(name, value, expires, path, domain, secure) {
+	var curCookie = name + "=" + escape(value) +
+	((expires) ? "; expires=" + expires.toGMTString() : default_cookie_expires.toGMTString()) +
+	((path) ? "; path=" + path : "") +
+	((domain) ? "; domain=" + domain : "sina.com.cn") +
+	((secure) ? "; secure" : "");
+	if (!caution || (name + "=" + escape(value)).length <= 4000) {
+		document.cookie = curCookie;
+	}
+	else {
+		if (confirm("Cookie 超过 4KB 将会被切断，请您清空cookie。")){
+			document.cookie = curCookie;
+		}
+	}
+}
+try{
+	set_Cookie("sina_free_mail_lver", "riaagentv0", default_cookie_expires, "/", "mail.sina.com.cn");
+}
+catch (e){}
+</SCRIPT>
+
+</BODY>
+</HTML>
+
+

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>通用导航</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312"><LINK 
+href="Left_files/nav.css" type=text/css rel=stylesheet>
+
+<script language="JavaScript" type="text/javascript" src="js/jquery-1.4.2.js"></script><SCRIPT src="Left_files/nav.js"></SCRIPT>
+<SCRIPT language=JavaScript type=text/JavaScript>
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+function switch_cell(a, hash) {
+	if(a == 2){
+ 
+		tb0.style.display="block";
+	}
+	if(a == 0){
+ 
+		tb0.style.display="none";
+		tb1.style.display="block";
+		tb2.style.display="none";
+	}
+	if(a == 1){
+ 
+		tb0.style.display="none";
+		tb1.style.display="none";
+		tb2.style.display="block";
+	}
+}
+</SCRIPT>
+<SCRIPT language=JavaScript>
+	
+function TreeOpenAll()
+{
+ var s =  document.getElementsByTagName("div");
+  for(var i=0;i<s.length;i++){
+	if(s[i].prop=="menu"){
+  	 s[i].style.display = "block";
+  	 var _id = s[i].id;
+  	 document.getElementById("img"+_id).src = "../images/lminus.gif";  	 
+	 }
+ 	}
+}	
+
+function TreeCloseAll()
+{
+ var s =  document.getElementsByTagName("div");
+  for(var i=0;i<s.length;i++){
+   if(s[i].prop=="menu"){
+   var _id = s[i].id; 	
+  	if(_id.length > 5){
+  	 s[i].style.display = "none";  	 
+  	 }
+	 
+  	 document.getElementById("img"+_id).src = "../images/lplus.gif";
+ 	}
+  }
+}	
+function TreeDisplay(OutLineID,imgID){
+	var _f = OutLineID.id;
+	var s =  document.getElementsByTagName("div");
+	
+	if(imgID.src.indexOf("lminus")>0){	  
+	  _j = 0;
+	  for(var i=0;i<s.length;i++){  
+	     if(s[i].prop=="menu"){
+		  _ff = s[i].id;
+		  if((_ff.length>_f.length)&&(_ff.substring(0,_f.length)==_f)){
+		    s[i].style.display = "none";
+		    _j++;
+		  }
+		  }
+    }
+    //如果没有子树，则不改变本节点状态
+    if(_j>0){
+      imgID.src="../images/lplus.gif";
+    }
+   }
+   else{
+     for(var i=0;i<s.length;i++){  
+	      if(s[i].prop=="menu"){
+		  _ff = s[i].id;
+		  
+		  if((_ff.length==_f.length+4)&&(_ff.substring(0,_f.length)==_f)){		    
+		    s[i].style.display = "block";		    
+		    var img = document.getElementById("img"+_ff);
+
+		    img.src = "../images/lplus.gif";
+		  }
+		  }
+     }
+     imgID.src="../images/lminus.gif";
+    }
+}
+</SCRIPT>
+<STYLE type=text/css>.style3 {
+	COLOR: #cccccc
+}
+</STYLE>
+<STYLE type=text/css>.style1 {
+	COLOR: #009966
+}
+</STYLE>
+<META content="MSHTML 6.00.6000.16397" name=GENERATOR></HEAD>
+<BODY text=#eeeeee bgColor=#f0f0f0 leftMargin=0 topMargin=0 marginheight="0" marginwidth="0">
+
+<TABLE id=tb0 height="100%" width="174px" style="background:#FFFFFF url(../images/leftnavbg.gif) no-repeat  bottom">
+        <TBODY>
+        <TR>
+          <TD class=sjline vAlign=top   >
+		    <!--left menu:start-->
+			<TABLE borderColor=#fff cellSpacing=0 cellPadding=3 width="100%" border=0 style="font-weight:bold">
+			  <TBODY>
+	 
+			  <TR>
+				<TD vAlign=top noWrap style="padding:0px"  >
+				  <DIV id=f7000 style="DISPLAY: block; HEIGHT: 20px" height="35" prop="menu" class="hover">&nbsp;<IMG height=10 src="../images/function.gif" border=0> <a href="../YH/ZXBS/diskenter.html" target="mainFrame" style="color:#cf2a04;">磁盘录入</a> &nbsp;&nbsp;<BR></DIV>
+				  <DIV id=f7000 style="DISPLAY: block; HEIGHT: 20px" height="35" prop="menu">&nbsp;<IMG height=10 src="../images/function.gif" border=0> <a href="../YH/ZXBS/handenter.html" target="mainFrame">手工录入</a>&nbsp;&nbsp;<BR></DIV>     
+				  <DIV id=f7000 style="DISPLAY: block; HEIGHT: 20px" height="35" prop="menu">&nbsp;<IMG height=10 src="../images/function.gif" border=0> <a href="../YH/ZXBS/networkenter.html" target="mainFrame">网络录入</a> &nbsp;&nbsp;<BR></DIV>
+				</TD>
+			  </TR>
+			  </TBODY>
+			</TABLE>
+<SCRIPT language=javascript>
+   switch_cell(2)
+</SCRIPT>
+</BODY></HTML>
+

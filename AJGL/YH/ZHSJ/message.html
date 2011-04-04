@@ -1,0 +1,64 @@
+<html>
+   <head>
+      <title>机构人员信息</title>
+	  <link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+	<style>
+	   html,body{margin: 0 auto;}
+	</style>
+	<script language="javascript" type="text/javascript">
+	    function updateInfo(){
+		   
+		   document.getElementById("msgUpdate").style.display="none";
+		   document.getElementById("msg1").style.display="none";
+		   document.getElementById("msg2").style.display="block";
+		   document.getElementById("msgAdd").style.display="block";
+		}
+		function addInfo(){
+		    alert("修改成功！");
+		    window.close();
+			
+		}
+	</script>
+   </head>
+   <body>
+      <div style="width:100%;heiht:100px;">
+	      <div style="float:right;"><input type="button" value="关闭" onclick="window.close();"></div>
+	      <div id="msgUpdate" style="float: right;"><input type="button" value="修改" onclick="updateInfo()"></div>
+		   <div id="msgAdd" style="float: right;display:none;"><input type="button" value="保存" onclick="addInfo()"></div>
+	      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  <tr>
+					<td><img src="../../images/tiao001.gif" width="2" height="22"></td>
+					<td width="100%" background="../../images/tiao003.gif" class="tit">中央纪委信息</td>
+					<td><img src="../../images/tiao002.gif" width="2" height="22"></td>
+				  </tr>
+		 </table>
+		 <div style="width:100%;height:350px;" class="search">
+		    <div id="msg1">
+            <textarea  rows="23" cols="51" disabled="disabled">
+			   &nbsp;&nbsp;&nbsp;中共中央纪律检查委员会是中国共产党最高纪律检查机关。1949年11月根据中共中央的决定设立。1955年3月中国共产党全国代表会议决定设立中央监察委员会，代替中央纪律检查委员会。“文化大革命”开始后，党的纪律检查机关被冲垮，九大正式取消纪律检查机关。1978年12月，党的十一届三中全会决定重新设立中央纪律检查委员会，在中央委员会领导下进行工作。每届任期五年。主要任务是：维护党的章程和其他党内法规，协助党的委员会加强党风建设，检查党的路线方针政策和决议的执行情况；对党员进行遵守纪律的教育，作出关于维护党纪的决定；检查和处理党的组织和党员违反党章和其他党内法规的比较重要或复杂的案件，决定或取消对这些案件中党员的处分；受理党员的控告和申诉等。根据工作需要，它可向中央一级党和国家机关派驻党的纪律检查组或纪律检查员。
+			</textarea>
+			</div>
+			<div id="msg2" style="display: none;">
+			<textarea  rows="23" cols="51" >
+			   &nbsp;&nbsp;&nbsp;中共中央纪律检查委员会是中国共产党最高纪律检查机关。1949年11月根据中共中央的决定设立。1955年3月中国共产党全国代表会议决定设立中央监察委员会，代替中央纪律检查委员会。“文化大革命”开始后，党的纪律检查机关被冲垮，九大正式取消纪律检查机关。1978年12月，党的十一届三中全会决定重新设立中央纪律检查委员会，在中央委员会领导下进行工作。每届任期五年。主要任务是：维护党的章程和其他党内法规，协助党的委员会加强党风建设，检查党的路线方针政策和决议的执行情况；对党员进行遵守纪律的教育，作出关于维护党纪的决定；检查和处理党的组织和党员违反党章和其他党内法规的比较重要或复杂的案件，决定或取消对这些案件中党员的处分；受理党员的控告和申诉等。根据工作需要，它可向中央一级党和国家机关派驻党的纪律检查组或纪律检查员。
+			</textarea>
+			</div>
+		 </div>
+	  </div>
+   </body>
+</html>

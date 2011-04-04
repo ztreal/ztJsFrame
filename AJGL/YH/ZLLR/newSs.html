@@ -1,0 +1,261 @@
+<html>
+  <head>
+  	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+  	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/main.css">
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+		<link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+  </head>
+  
+        <script type="text/javascript"> 
+			$(function() { 
+			    // 将ul.tabs区域设定为选项卡，用来控制div.panes区域中最近一层的各div区域
+			   // 注意tabs和panes与html中class的对应关系
+			    $("ul.tabs").tabs("div.panes > div",{history: true}); 
+				$(":date").dateinput()
+			});
+        </script> 
+  <body>
+  	<h1>申诉表</h1> <form>
+		 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="../../images/tiao001.gif" width="2" height="22"></td>
+    <td width="100%" background="../../images/tiao003.gif" class="tit">信息录入</td>
+    <td><img src="../../images/tiao002.gif" width="2" height="22"></td>
+  </tr>
+</table>
+ 
+	<table width="100%"  class="green1">
+<tr>
+			      <td align="left" valign="middle">申诉类别</td>
+			      <td colspan="-6" align="left" valign="middle"><label>
+			        <select name="select" id="select">
+			          <option>党纪申诉</option>
+			          <option>政纪申诉</option>
+			          <option>双重申诉</option>
+			          <option>其他申诉</option>
+		            </select>
+		          </label></td>
+			      <td align="left" valign="middle">申诉人</td>
+			      <td align="left" valign="middle"><label>
+			        <input type="text" name="textfield" id="textfield" class="inputtext">
+		          </label></td>
+			      <td align="left" valign="middle">政治面貌</td>
+			      <td align="left" valign="middle"><label>
+			        <select name="select2" id="select2">
+			          <option>党员</option>
+			          <option>团员</option>
+			          <option>民主党派</option>
+			          <option>其他</option>
+			          <option>党组织</option>
+			          <option>法人</option>
+		            </select>
+		          </label></td>
+			      <td align="left" valign="middle">是否监察对象</td>
+			      <td align="left" valign="middle"><label>
+			        <select name="select3" id="select3">
+			          <option>是</option>
+			          <option>否</option>
+		            </select>
+		          </label></td>
+		        </tr>
+			    <tr>
+			      <td colspan="2" align="left" valign="middle">受处分时单位职级及单位</td>
+			      <td colspan="2" align="left" valign="middle"><input name="input" type="text"class="inputtext"></td>
+			      <td align="left" valign="middle">现单位职级及单位</td>
+			      <td colspan="3" align="left" valign="middle" class="datepicker"><span style="width:30%;display:block;float:left">
+			        <input name="input2" type="text" class="inputtext">
+			      </span></td>
+		        </tr>
+			    <tr>
+			      <td align="left" valign="middle">受处分时职级</td>
+			      <td colspan="-6" align="left" valign="middle"><label>
+			        <select name="select4" id="select4">
+			          <option>省部级及以上</option>
+			          <option>地厅级</option>
+			          <option>县处级</option>
+			          <option>乡科级</option>
+			          <option>一般干部</option>
+			          <option>其他人员</option>
+		            </select>
+		          </label></td>
+			      <td align="left" valign="middle">现职级</td>
+			      <td align="left" valign="middle"><select name="select5" id="select5">
+			        <option>省部级及以上</option>
+			        <option>地厅级</option>
+			        <option>县处级</option>
+			        <option>乡科级</option>
+			        <option>一般干部</option>
+			        <option>其他人员</option>
+		          </select></td>
+			      <td align="left" valign="middle">受处分时间</td>
+			      <td align="left" valign="middle"><input type="date" width="80" class="inputtext"></td>
+			      <td align="left" valign="middle">是否二次申诉</td>
+			      <td align="left" valign="middle"><label>
+			        <select name="select6" id="select6">
+			          <option>是</option>
+			          <option>否</option>
+		            </select>
+		          </label></td>
+		        </tr>
+			    <tr>
+			      <td width="14%" align="left" valign="middle">第一次申诉时间</td>
+			      <td width="10%" colspan="-6" align="left" valign="middle"><input type="date" width="80" class="inputtext"></td>
+			      <td width="14%" align="left" valign="middle">第一次受理时间</td>
+			      <td width="10%" align="left" valign="middle"><input type="date" width="80" class="inputtext"></td>
+			      <td width="14%" align="left" valign="middle">第一次办结时间</td>
+			      <td width="10%" align="left" valign="middle"><input type="date" width="80" class="inputtext"></td>
+			      <td width="14%" align="left" valign="middle">第一次办理机关</td>
+			      <td width="10%" align="left" valign="middle"><label>
+			        <select name="select7" id="select7">
+			          <option>中央纪委监察部</option>
+			          <option>省区市纪检监察机关</option>
+			          <option>地市州纪检监察机关</option>
+			          <option>县市区纪检监察机关</option>
+			          <option>乡镇街道纪（工）委</option>
+			          <option>军队纪委</option>
+			          <option>中央和国家机关纪检监察机构</option>
+			          <option>省区市直属机关纪检监察机构</option>
+			          <option>地市州直属机关纪检监察机构</option>
+			          <option>县市区直属机关纪检监察机构</option>
+			          <option>企业单位纪检监察机构</option>
+			          <option>事业单位纪检监察机构</option>
+			          <option>其他</option>
+		            </select>
+			      </label></td>
+		        </tr>
+			    <tr>
+			      <td align="left" valign="middle">第一次结论</td>
+			      <td colspan="-6" align="left" valign="middle"><label>
+			        <select name="select8" id="select8">
+			          <option>维持</option>
+			          <option>变更</option>
+			          <option>撤消</option>
+			          <option>其他</option>
+		            </select>
+		          </label></td>
+			      <td align="left" valign="middle">受理时间</td>
+			      <td align="left" valign="middle"><input type="date" width="80" class="inputtext"></td>
+			      <td align="left" valign="middle">办理机关</td>
+			      <td align="left" valign="middle"><select name="select9" id="select9">
+			        <option>中央纪委监察部</option>
+			        <option>省区市纪检监察机关</option>
+			        <option>地市州纪检监察机关</option>
+			        <option>县市区纪检监察机关</option>
+			        <option>乡镇街道纪（工）委</option>
+			        <option>军队纪委</option>
+			        <option>中央和国家机关纪检监察机构</option>
+			        <option>省区市直属机关纪检监察机构</option>
+			        <option>地市州直属机关纪检监察机构</option>
+			        <option>县市区直属机关纪检监察机构</option>
+			        <option>企业单位纪检监察机构</option>
+			        <option>事业单位纪检监察机构</option>
+			        <option>其他</option>
+		          </select></td>
+			      <td align="left" valign="middle">撤诉时间</td>
+			      <td align="left" valign="middle"><input type="date" width="80" class="inputtext"></td>
+		        </tr>
+			    <tr>
+			      <td align="left" valign="middle">办结时间</td>
+			      <td colspan="-6" align="left" valign="middle"><input type="date" width="80" class="inputtext"></td>
+			      <td align="left" valign="middle">结论</td>
+			      <td align="left" valign="middle"><select name="select10" id="select10">
+			        <option>维持</option>
+			        <option>变更</option>
+			        <option>撤消</option>
+			        <option>其他</option>
+		          </select></td>
+			      <td align="left" valign="middle">原党纪处分</td>
+			      <td align="left" valign="middle"><label>
+			        <select name="select11" id="select11">
+			          <option>警告</option>
+			          <option>严重警告</option>
+			          <option>撤销党内职务</option>
+			          <option>留党察看</option>
+			          <option>开除党籍</option>
+		            </select>
+			      </label></td>
+			      <td align="left" valign="middle">原政纪处分</td>
+			      <td align="left" valign="middle"><label>
+			        <select name="select12" id="select12">
+			          <option>警告</option>
+			          <option>记过</option>
+			          <option>记大过</option>
+			          <option>降级</option>
+			          <option>降职</option>
+			          <option>撤职</option>
+			          <option>开除留用察看</option>
+			          <option>开除</option>
+		            </select>
+		          </label></td>
+		        </tr>
+			    <tr>
+			      <td align="left" valign="middle">新党纪处分</td>
+			      <td colspan="-6" align="left" valign="middle"><select name="select13" id="select13">
+			        <option>警告</option>
+			        <option>严重警告</option>
+			        <option>撤销党内职务</option>
+			        <option>留党察看</option>
+			        <option>开除党籍</option>
+		          </select></td>
+			      <td align="left" valign="middle">新政纪处分</td>
+			      <td align="left" valign="middle"><select name="select14" id="select14">
+			        <option>警告</option>
+			        <option>记过</option>
+			        <option>记大过</option>
+			        <option>降级</option>
+			        <option>降职</option>
+			        <option>撤职</option>
+			        <option>开除留用察看</option>
+			        <option>开除</option>
+		          </select></td>
+			      <td colspan="4" align="left" valign="middle">变更撤消原因 <label>
+			            <input type="checkbox" name="复选框组1" value="复选框" id="复选框组1_0">
+			      </label>
+	              <label>
+			            事实不符
+			              <input type="checkbox" name="复选框组1" value="复选框" id="复选框组1_1">
+			              证据不足
+		            </label>
+			          
+		              <input type="checkbox" name="复选框组1_" value="复选框" id="复选框组1_2">
+		              定性不准
+			              <input type="checkbox" name="复选框组1_2" value="复选框" id="复选框组1_3">
+			              处分不当
+			              <input type="checkbox" name="复选框组1_3" value="复选框" id="复选框组1_4">
+			              违反程序	                <br>
+	              </td>
+		        </tr>
+			    <tr>
+			      <td colspan="8" align="left" valign="middle"><span style="width:6%;display:block;float:left">申诉理由</span><span style="width:37%;display:block;float:left"><textarea name="" cols="45" rows="5"></textarea></span><span style="width:6%;display:block;float:left">备注</span><span style="width:44%;display:block;float:left">
+			        <textarea name="textarea" cols="45" rows="5"></textarea>
+			      </span></td>
+		        </tr>
+			    <tr>
+			      <td colspan="4" align="left" valign="middle">填报单位
+			        <label>
+			        	<input type="date" width="80" class="inputtext">
+	              </label></td>
+                  <td colspan="4" align="left" valign="middle">填报日期
+                    <label>
+                      <input type="date" width="80" class="inputtext">
+                  </label></td>
+		        </tr>
+  </table><table width="100%">
+    <tr type="title">
+      <td width="251" align="right" valign="middle"><input type="reset" name="button3" id="button3" value="保存" class="button"></td>
+	  <td width="127" align="center" valign="middle"><input type="reset" name="button3" id="button3" value="还原" class="button"></td>
+	  <td width="118" align="center" valign="middle"><input type="reset" name="button" id="button" value="打印" class="button"></td>
+      <td width="224"><input type="submit" name="button6" id="button6" value="返回" class="button" onClick="window.location='ssnewone.html'""></td>
+     </tr>
+  </table></form>
+  </body>
+</html>

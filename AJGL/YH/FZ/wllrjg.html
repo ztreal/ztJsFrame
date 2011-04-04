@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html>
+  <head>
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" /> 
+	<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/redmond/jquery-ui-1.8.2.custom.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.jqgrid.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.multiselect.css" />
+<link type="text/css" href="../../css/tabs.css" rel="stylesheet" /> 
+<script src="../../common/js/jquery-1.4.2.min.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery.layout.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script> 
+<script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+<script src="../../common/js/jqgrid/js/ui.multiselect.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery.jqGrid.js" type="text/javascript"></script>   
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+	<script src="../../common/js/base.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var mydata = [
+		{id:"1",name:"山西省纪检监察机关",sbDate:"2010-09-27",info:"审核通过",tax:""} ,
+		{id:"2",name:"司法部纪检监察机关",sbDate:"2010-09-28",info:"审核通过",tax:""} ,
+		{id:"3",name:"财政部纪检监察机关",sbDate:"2010-09-24",info:"审核通过",tax:""} ,
+		{id:"4",name:"北京市纪检监察机关",sbDate:"2010-09-27",info:"审核通过",tax:""} ,
+		{id:"5",name:"河北省纪检监察机关",sbDate:"2010-09-25",info:"审核通过",tax:""} ,
+		{id:"6",name:"山西省纪检监察机关",sbDate:"2010-09-27",info:"审核通过",tax:""} 
+		];
+        var mydatas= [
+{id:"1",name:'北京市纪检监察机关',sbDate:"2010-09-27",info:"原立案统计时间为[2007.01.31]，本次报来数据立案统计时间变为[2000.11.30]序将维持元数据不变"},
+		{id:"2",name:'财政部纪检监察机关',sbDate:"2010-09-27",info:"原立案统计时间为[2008.01.31]，本次报来数据立案统计时间变为[2000.11.30],程序将维持元数据不变"},
+		{id:"3",name:'司法部纪检监察机关',sbDate:"2010-09-27",info:"原立案统计时间为[2004.01.31]，本次报来数据立案统计时间变为[2000.11.30],程序将维持元数据不变"},
+		{id:"4",name:'山西省纪检监察机关',sbDate:"2010-09-27",info:"原立案统计时间为[2009.04.21]，本次报来数据立案统计时间变为[2000.11.30],程序将维持元数据不变"} 
+		];
+        
+		jQuery(document).ready(function(){
+  jQuery("#list486").jqGrid({
+  	width: 810,
+	data: mydata,
+	datatype: "local",
+	height: 'auto',
+	rowNum: 5,
+	rowList: [5,10,20],
+   	colNames:['序号','单位名称', '上报日期', '审核信息',''],
+   	colModel:[
+   		{name:'id',index:'id', width:60, sorttype:"int",align:"center"},
+		{name:'name',index:'name',width:180,editable:true},
+		{name:'sbDate',index:'sbDate', width:100,align:"center"},
+		{name:'info',index:'dwNum',width:220,align:"center"},
+   		{name:"tax",index:"tax",width:250}
+   	],
+   	pager: "#plist486",
+   	viewrecords: true,
+   	sortname: 'id',
+   	caption: "审核通过",multiselect:true
+}).jqGrid('hideCol',["ryNum"]);
+jQuery("#list486").jqGrid('navGrid','#plist486',{add:false,edit:false,del:false,search:false,refresh:true});
+jQuery("#list486").jqGrid('navButtonAdd','#plist486',{
+    caption: "选择列",
+    title: "点击按钮选择列",
+    onClickButton : function (){
+        jQuery("#list486").jqGrid('columnChooser');
+    }
+});
+
+
+});
+jQuery(document).ready(function(){
+  jQuery("#tabList").jqGrid({
+  	width: 810,
+	data: mydatas,
+	datatype: "local",
+	height: 'auto',
+	rowNum: 5,
+	rowList: [5,10,20],
+   	colNames:['序号','单位名称', '上报日期', '错误信息'],
+   	colModel:[
+   		{name:'id',index:'id', width:40, sorttype:"int",align:"center"},
+		{name:'name',index:'name',width:150,editable:true},
+		{name:'sbDate',index:'sbDate', width:100,align:"center"},
+		{name:'info',index:'info',width:520,align:"center"}
+   	],
+   	pager: "#divList",
+   	viewrecords: true,
+   	sortname: 'id',
+   	caption: "审核未通过",multiselect:true
+}).jqGrid('hideCol',["ryNum"]);
+jQuery("#tabList").jqGrid('navGrid','#divList',{add:false,edit:false,del:false,search:false,refresh:true});
+jQuery("#tabList").jqGrid('navButtonAdd','#divList',{
+    caption: "选择列",
+    title: "点击按钮选择列",
+    onClickButton : function (){
+        jQuery("#tabList").jqGrid('columnChooser');
+    }
+});
+
+
+});
+function bhItem(){
+    if(window.confirm("您确定要驳回吗？")){
+	     alert("驳回成功！");
+		 window.location="plsh.html";
+	}
+}
+	</script>
+	<style type="text/css">
+		#calbody{
+	widows:198px;
+}	
+.hoves{ cursor:pointer}
+.cbox{
+width:20px;
+}
+*{ margin:0; padding:0;}
+.tds{ border-right:1px solid #BFDCEC; border-bottom:1px solid #BFDCEC; text-align:center;}
+.tdl{ border-right:1px solid #BFDCEC; border-bottom:1px solid #BFDCEC; text-align:left; padding-left:2px;}
+.tdr{border-bottom:1px solid #BFDCEC; text-align:left; padding-left:2px;}
+.tdd{border-right:1px solid #BFDCEC;text-align:center;}
+.tdrd{text-align:left; padding-left:2px;}
+	</style>
+  </head>
+  <body>
+ 
+   <div style="width:100%;background-color:#f4f4f4; height:32px; font-size:12px;"><div style="padding-left:10px;padding-top:8px;">当前位置： 资料填报&nbsp;<font style="font-family:'宋体'">></font>&nbsp;数据审核&nbsp;<font style="font-family:'宋体'">></font>&nbsp;数据审核结果&nbsp;<font style="font-family:'宋体'">></font>&nbsp;数据审核结果详细信息</div></div>
+   <!--<div style=" width:100%; height:28px; background:url(../../images/tiao_bg04.gif);">
+    <div style=" float:left; padding-top:5px;"><font color="#124c95" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;<img src="../../images/dian02.gif" align="middle">&nbsp;数据审核</font></div>
+ </div>-->
+ <div style=" width:100%; height:28px; background:url(../../images/tiao_bg04.gif);">
+       <div style=" float:left; padding-top:10px;"><font color="#595959" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;北京市纪检监察机关</font></div>
+	   <div style="float: right; padding-top:2px;" class="hoves">
+	    <div  style="float: right; padding-right:3px;" class="clbutton" onclick="window.history.back();">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		    <td class="blue_2_j"></td>
+			<td class="blue_4_j">返 回</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	  </div>
+	   <div  style="float: right; padding-right:3px;" class="clbutton" onclick="bhItem()">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		    <td class="blue_2_j"></td>
+			<td class="blue_4_j">驳 回</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	  </div>
+	   <div  style="float: right; padding-right:3px;" class="clbutton" onclick="window.location='plsh.html';alert('审核通过！');">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		    <td class="blue_2_j"></td>
+			<td class="blue_4_j">审核通过</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	  </div>
+	   
+	  
+	 </div>
+	</div>
+	  <div style="width:100%; font-size:12px; padding-top:10px; margin-bottom:10px;">
+	     <table style="width:100%">
+		    <tr>
+			  <td align="right">信访件数</td>
+			  <td>&nbsp;&nbsp;<font color="red;">200</font>&nbsp;件</td>
+			  <td align="right">初核件数</td>
+			  <td>&nbsp;&nbsp;<font color="red;">150</font>&nbsp;件</td>
+			  <td align="right">立案件数</td>
+			  <td>&nbsp;&nbsp;<font color="red;">100</font>&nbsp;件</td>
+			  <td align="right">申诉人数</td>
+			  <td>&nbsp;&nbsp;<font color="red;">47</font>&nbsp;人</td>
+			  <td align="right">处分人数</td>
+			  <td>&nbsp;&nbsp;<font color="red;">38</font>&nbsp;人</td>
+			  <td align="right">安全事故数</td>
+			  <td>&nbsp;&nbsp;<font color="red;">10</font>&nbsp;件</td>
+			</tr>
+		 </table>
+	 </div>
+	 <!--<table id="list486"></table>
+    <div id="plist486"></div>-->
+	
+	<div style=" width:100%; height:28px; background:url(../../images/tiao_bg03.gif);">
+       <div style=" float:left; padding-top:8px;"><font color="#595959" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;错误信息 6 个</font></div>
+	 </div>
+	
+	<div style="width:100%;">
+	   <table id="tabs" cellpadding="0" cellspacing="0" style="width:100%; border:1px solid #BFDCEC; font-size:12px; ">
+	      <tr style="background-color:#f4f4f4; height:25px;">
+			<td style="width:10%;" class="tds"><font style="color:#595959; font-weight:bold;">案件编码</font></td>
+			<td style=" width:10%" class="tdl"><font style="color:#595959;font-weight:bold;">被调查人</font></td>
+			<td style="width:80%" class="tdr" style="text-align:left;"><font style="color:#595959;font-weight:bold;">错误信息</font></td>
+		  </tr>
+		  <tr style="height:25px;">
+			<td class="tds">2010001</td>
+			<td class="tdl">张雨</td>
+			<td class="tdr">涉及金额为200万，违纪总金额为150万，收激涉案金额300万，上报数据有误</td>		
+		  </tr>
+		  <tr style="height:25px;">
+		   <td class="tds">2010021</td>
+			<td class="tdl">杜锋</td>
+		    <td class="tdr">原立案统计时间为[2007.01.31]，本次报来数据立案统计时间变为[2006.11.30]序将维持元数据不变</td>		
+		  </tr>
+		  <tr style="height:25px;">
+		    <td class="tds">2010036</td>
+			<td class="tdl">谢汉明</td>
+			<td class="tdr">首次违纪时间为2009年，末次违纪时间为2008年，上报数据有误</td>		
+		  </tr>
+		  <tr style="height:25px;">
+			<td class="tds">2010005</td>
+			<td class="tdl">吴东翔</td>
+			<td class="tdr">吴东翔的入党时间为1900年，上报数据有误</td>		
+		  </tr>
+		  <tr style="height:25px;">
+			<td class="tds">2010009</td>
+			<td class="tdl">张一海</td>
+			<td class="tdr">审理受理时间为[2010.04.28]，结案时间为[2009.10.18]，上报数据有误</td>		
+		  </tr>
+		  <tr style="height:25px;">
+			<td class="tdd">2010019</td>
+			<td class="tdl">顾军</td>
+			<td class="tdrd">挽回经济损失为-200万，上报数据有误</td>		
+		  </tr>
+	   </table>
+	</div>
+	<!--<table id="tabList"></table>
+    <div id="divList"></div>-->
+
+ 
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+ 
+<html lang="en"> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+        <meta http-equiv="Content-Style-Type" content="text/css"> 
+        <meta http-equiv="Content-Script-Type" content="text/javascript"> 
+ 	<link rel="STYLESHEET" type="text/css" href="tree/css/dhtmlXTree.css">
+  	<link href="../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="js/jcommon.js"></script>
+  	<script type="text/javascript" src="tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="tree/js/dhtmlXTree.js"></script>
+        <title>jQuery UI Tabs</title> 
+        
+        <link rel="stylesheet" href="../YH/ZLLR/ui.tabs.css" type="text/css" media="print, projection, screen"> 
+        <style type="text/css" media="screen, projection"> 
+            /* Not required for Tabs, just to make this demo look better... */
+            body, h1, h2 {
+                font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+            }
+            h1 {
+                margin: 1em 0 1.5em;
+                font-size: 18px;
+            }
+            h2 {
+                margin: 2em 0 1.5em;
+                font-size: 16px;
+            }
+            p {
+                margin: 0;
+                padding: 0 0 .5em;
+                max-width: 40em;
+            }
+            /*pre, pre+p, p+p {
+                margin: 1em 0 0;
+            }
+            code {
+                font-family: "Courier New", Courier, monospace;
+            }*/
+        </style> 
+ 
+        <script type="text/javascript"> 
+			$(function() { 
+			    // 将ul.tabs区域设定为选项卡，用来控制div.panes区域中最近一层的各div区域
+			   // 注意tabs和panes与html中class的对应关系()
+			    $("ul.tabs").tabs("div.panes > div",{history: true}); 
+				$(":date").dateinput()
+				
+				//添加删除修改事件
+				$("#add").click( function () { $("#addarea tr:first").after(' <tr>  <td width="256"><label> <input type="text" name="textfield" id="textfield"> </label></td>   <td width="188"><input type="text" name="textfield2" id="textfield2"></td>  <td width="239"><input type="text" name="textfield3" id="textfield3"></td> <td width="211"><input type="text" name="textfield4" id="textfield4"></td>'); }); 
+				$("#del").click( function () { $("#addarea tr:last[type!=title]").remove() });
+			});
+        </script> 
+    </head> 
+    <body> 
+	<div style="width:964px">
+        <h1>行为违纪</h1>
+<br>
+       		<!-- Tabs --> 
+
+
+ 
+   <table width="100%"  class="search" id="addarea">
+    <tr type="title">
+      <td colspan="4">默认显示当前月份的信息，如需查看其他月份的信息，请选择需要查看信息的时间段。</td>
+     </tr>
+    <tr type="title">
+      <td width="284">从 
+      <input type="date" width="80"  class="inputtext"></td>
+      <td width="262">到  
+      <input type="date" width="80"  class="inputtext"></td>
+      <td width="183"><label>
+        <select name="select" id="select">
+          <option>请选择需要查看的组织机构</option>
+          <option>河北纪委</option>
+          <option>中央纪委</option>
+        </select>
+      </label></td>
+      <td width="165"><input type="submit" name="button" id="button"  class="button"  value="提交"></td>
+     </tr>
+  </table>
+ 
+    </body> 
+</html>

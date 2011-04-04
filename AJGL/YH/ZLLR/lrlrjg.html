@@ -1,0 +1,79 @@
+
+<html>
+  <head>
+  	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript">
+		$(function() { 
+				$(":date").dateinput()
+			});
+		function nodeRetail(){
+			window.open("nodedetail.html","","resizable=no,menubar=no,directories=no,status=no,location=no,scrollbars=no,left=300,top=170,width=330,height=230");
+		    $(":date").dateinput();
+		}
+	</script>
+	<style type="text/css">
+		#calbody{
+	widows:198px;
+}	
+	</style>
+  </head>
+  
+  <body>
+ 
+ 
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="../../images/tiao001.gif" width="2" height="22"></td>
+    <td width="100%" background="../../images/tiao003.gif" class="tit">接收数据检查结果</td>
+    <td><img src="../../images/tiao002.gif" width="2" height="22"></td>
+  </tr>
+</table>
+  <table width="100%"  class="search" id="addarea" style="text-indent:2em;">
+    <tr type="title">
+      <td>该数据表中存在以下问题：</td>
+    </tr>
+    <tr  >
+      <td   align="left">●XXXXX</td></tr>
+      <tr  > <td   align="left">&nbsp;</td></tr>
+     <tr  >   
+        <tr  >
+      <td   align="left">●XXXXXXXXXX</td></tr>
+      <tr  > <td   align="left">&nbsp;</td></tr>
+     <tr  >       <tr  >
+      <td   align="left">●XXXXXXX</td></tr>
+      <tr  > <td   align="left">&nbsp;</td></tr>
+     <tr  >       <tr  >
+      <td   align="left">●XXXXXX</td></tr>
+      <tr  > <td   align="left">&nbsp;</td></tr>
+     <tr  >   
+  </table><br>
+  
+	
+<table width="99%" valign="top" border="0" cellpadding="1" cellspacing="0">
+<tr align="right">
+			<td width="31%"><input type="button" value="打印本页" class="button"  ></td>
+			<td width="23%" align="center"><input type="button" value="回退重报" class="button" onClick="javascript:window.confirm('确实要将上报数据回退重报吗？');history.back()" ></td>
+             <td width="17%" align="left">&nbsp;
+             <input type="button" value="确认接收" class="button" onClick="alert('接收成功！');history.back()"  ></td>
+             <td width="29%" align="left"><input type="button" value="返回" class="button" onClick="javascript:history.back()" ></td>
+  </tr>
+</table>  
+ 
+  </body>
+</html>

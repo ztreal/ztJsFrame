@@ -1,0 +1,210 @@
+.white12 {
+	font-size: 12px;
+	color: #FFFFFF;
+}
+.text01 {
+	font-size: 12px;
+	color: #2A5E9B;
+}
+.text02{
+  font-size: 12px;
+  color: #ACA899;
+}
+.text01Copy {
+	font-size: 12px;
+	color: #2A5E9B;
+	text-align: center;
+}
+.text01black {
+	font-size: 12px;
+	color: #000000;
+}
+.input01 {
+	font-size: 12px;
+	background-color: #E8FFEE;
+	border: 1px solid #73D08B;
+}
+.input02 {
+	font-size: 12px;
+	background-color: #DAEEFC;
+	border: 1px solid #A5C4EB;
+	margin-top:1px;	
+}
+.input03 {
+  font-size: 12px;
+	color: #2A5E9B;
+	background-color: #F0F0F0;
+	border: 1px solid #C2C2C2;
+}
+.input03right{
+  font-size: 12px;
+	color: #2A5E9B;
+	background-color: #F0F0F0;
+	border: 1px solid #C2C2C2;
+	text-align:right;
+}
+.checkboxinlist {
+	width:10px;
+}
+
+div.positiontext{
+	display:inline;
+	vertical-align:top;
+	font-size:16px;
+}
+div.querytext{
+	width:100%; 
+	height:100%; 	
+	background-color:#98BCEE; 
+	text-indent:18px; 
+	line-height:25px; 
+	vertical-align:middle; 
+	color:#003399
+}
+div.buttonzone{
+	width:100%; 
+	height:100%; 
+	background-color:#D6E9FC; 
+	line-height:21px; 
+	padding-top:5px;
+}
+input.queryinput{
+	font-size: 12px;
+	background-color: #FFFFFF;
+	border: 1px solid #A5C4EB;
+	margin-top:2px;
+}
+.button{
+	width:60px;
+	height:16px;
+	font-family:arial;
+	font-size:10px;
+	border:1px;
+	
+	border-top-color:#FFFFFF;
+	border-left-color:#FFFFFF;
+	border-right-color:#000000;
+	border-bottom-color:#000000;
+	background-color:#E6EDFC;
+
+}
+a.mainmenu1{
+	text-decoration:none;
+	font-family:arial;
+	font-size:12px;
+	color:#ffffff;
+	display:block;
+	width:100%;
+	height:28px;
+	background:url(../../images/navigationbg.jpg) repeat;
+	text-indent:0px;
+	vertical-align: middle;
+	text-align: center;
+	line-height:28px;
+}
+a.mainmenu2{
+	text-decoration:none;
+	font-family:arial;
+	font-size:12px;
+	color:#ffffff;
+	display:block;
+	width:100%;
+	height:28px;
+	background:url(../../images/navigationbg.jpg) repeat;
+	text-indent:0px;
+	vertical-align: middle;
+	text-align: center;
+	line-height:14px;
+}
+a.mainmenu1:hover{
+	background:url(../../images/navigationbg2.jpg) repeat;
+}
+a.mainmenu2:hover{
+	background:url(../../images/navigationbg2.jpg) repeat;
+}
+a.mainmenu1:active{	
+}
+a.mainmenu2:active{	
+}
+
+a.navigationmenu{
+	text-decoration:none;
+	font-family:arial;
+	font-size:12px;
+	color:#003399;
+	display:block;
+	width:102px;
+	height:28px;
+	background:url(../../images/Button-notselected.jpg) no-repeat;
+	text-indent:25px;
+	vertical-align: middle;
+	text-align: left;
+	line-height: 28px;
+}
+a.navigationmenu:hover{
+	background:url(../../images/button_selected.jpg) no-repeat;
+}
+a.navigationmenu:active{	
+}
+
+img#buttonzoneimg{
+	vertical-align:top;
+}
+
+
+
+/*  fanye  */
+
+.pagination{
+padding: 1px;
+text-align: right;
+}
+
+.pagination ul{
+margin: 0;
+padding: 0;
+text-align: right; /*Set to "right" to right align pagination interface*/
+font-size: 12px;
+display:inline;
+}
+
+.pagination li{
+list-style-type: none;
+display: inline;
+}
+
+.pagination a, .pagination a:visited{
+padding: 0 5px;
+border: 1px solid #9aafe5;
+text-decoration: none; 
+color: #2e6ab1;
+}
+
+.pagination a:hover, .pagination a:active{
+border: 1px solid #2b66a5;
+color: #000;
+background-color: lightyellow;
+}
+
+.pagination li.currentpage{
+font-weight: bold;
+padding: 0 5px;
+border: 1px solid navy;
+background-color: #2e6ab1;
+color: #FFF;
+}
+
+.pagination li.disablepage{
+padding: 0 5px;
+border: 1px solid #929292;
+color: #929292;
+}
+
+.pagination li.nextpage{
+font-weight: bold;
+}
+
+* html .pagination li.currentpage, * html .pagination li.disablepage{ /*IE 6 and below. Adjust non linked LIs slightly to account for bugs*/
+margin-right: 5px;
+padding-right: 0;
+}

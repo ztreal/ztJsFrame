@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+ 
+<html lang="en"> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+        <meta http-equiv="Content-Style-Type" content="text/css"> 
+        <meta http-equiv="Content-Script-Type" content="text/javascript"> 
+ 	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/redmond/jquery-ui-1.8.2.custom.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.jqgrid.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.multiselect.css" />
+<link type="text/css" href="../../css/tabs.css" rel="stylesheet" /> 
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<script src="../../common/js/base.js" type="text/javascript"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+    <script src="../../common/js/jqgrid/js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery.layout.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script> 
+<script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript"> 
+	$.jgrid.no_legacy_api = true;
+	$.jgrid.useJSON = true;
+</script>
+<script src="../../common/js/jqgrid/js/ui.multiselect.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery.jqGrid.js" type="text/javascript"></script> 
+	<link type="text/css" href="../../css/tabs2.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+    
+        <title>纪检监察机关两规登记表</title> 
+        
+        <link rel="stylesheet" href="ui.tabs.css" type="text/css" media="print, projection, screen"> 
+        <style type="text/css" media="screen, projection"> 
+            /* Not required for Tabs, just to make this demo look better... */
+            body, h1, h2 {
+                font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+            }
+            h1 {
+                margin: 1em 0 1.5em;
+                font-size: 18px;
+            }
+            h2 {
+                margin: 2em 0 1.5em;
+                font-size: 16px;
+            }
+            p {
+                margin: 0;
+                padding: 0 0 .5em;
+                max-width: 40em;
+            }
+            /*pre, pre+p, p+p {
+                margin: 1em 0 0;
+            }
+            code {
+                font-family: "Courier New", Courier, monospace;
+            }*/
+			input{ width:130px }
+			select{ width:135px}
+			#addarea1 input{width:115px}
+			#addarea2 input{width:60px}
+        </style> 
+ 
+        <script type="text/javascript"> 
+			
+			
+        </script> 
+    </head>
+    <body style="margin-left: 0px; margin-top: 0px; margin-right: 0px;"> 
+    
+    
+ <form name="fm">
+ 	
+	<!--最外层table-->
+	<table width="100%" height="62" border="0">
+  <tr valign="top">
+    <td height="346" align="center" style="padding:0">
+    	<!--页面控制条-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg04.gif">
+  <tr>
+	 <td align="left" style="padding-top:2px;">
+	 	<table>
+	 		<tr>
+	 		<td width="1%"><img src="../../images/blue/dian02.gif" style="margin-left:10px"></td>
+			<td style="color:#124c95; font-size:12px;padding-left:5px" align="left"><strong>纪检监察机关使用“两规”“两指”措施登记表</strong></td>
+	 		</tr>
+		</table>
+	 </td>
+	 <td align="right">
+	 	<table border="0" cellpadding="0" cellspacing="0" style="margin-right:2px">
+	 		<td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+				<DIV style="FLOAT: left;PADDING-TOP: 3px" class="clbutton">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+				    <td  class="blue_2_j"></td>
+				    <td class="blue_4_j">保存</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV>
+			 </td>
+	 		<td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+			<DIV style="FLOAT: left;PADDING-TOP: 3px" class="clbutton">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+				    <td  class="blue_2_j"></td>
+				    <td class="blue_4_j">还原</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV>
+			 </td>
+			 <td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+				<DIV style="FLOAT: left;PADDING-TOP: 3px" class="clbutton">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+				    <td  class="blue_2_j"></td>
+				    <td class="blue_4_j">打印</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV>
+			 </td>
+			 <td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+				<DIV style="FLOAT: left;PADDING-TOP: 3px" class="clbutton" onClick=" window.location='lg.html'">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+				    <td  class="blue_2_j"></td>
+				    <td class="blue_4_j">返回</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV>
+			 </td>
+	 	</table>
+	 </td>
+	  
+  </tr>
+</table>
+
+<!--基本信息-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:2px;" height="20">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>基本信息</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+<!--人员信息内容-->
+<table width="100%" height="94" cellspacing="0" style="color:#3d3b3c; font-size:12px;">
+    <tr>
+    <td width="100" height="32" align="right">姓名<span style="color:red">*<span></span></span><span></td>
+    <td width="163"><input name="textfield9" type="text" id="textfield12" size="12" maxlength="12" class="inputtext"></td>
+    <td width="100" align="right">性别 <span style="color:red">*<span></span></span><span></td>
+    <td width="163"><select name="name19" id="name20">
+      <option>&nbsp;</option>
+      <option>男</option>
+      <option>女</option>
+    </select></td>
+    <td width="88" align="right" >出生日期</td>
+    <td width="163"><input type="text" class="Wdate " onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"></td>
+    </tr>
+  <tr>
+    <td height="31" align="right">工作单位及职务</td>
+    <td width="163"><input name="textfield10" type="text" id="textfield13" size="12" maxlength="12" class="inputtext"></td>
+    <td align="right">参加工作时间</td>
+    <td><input type="text" class="Wdate " onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"></td>
+    <td align="right">入党时间</td>
+    <td><input type="text" class="Wdate " onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"></td>
+    </tr>
+  <tr>
+    <td height="29" align="right">人大代表</td>
+    <td height="29"><select name="name3" id="name3">
+		        <option>全国人大代表</option>
+		        <option>省级人大代表</option>
+		        <option>市级人大代表</option>
+		        <option>县级人大代表</option>
+		        <option>乡级人大代表</option>
+              </select></td>
+    <td height="29" align="right">政协委员</td>
+    <td height="29"><select name="name5" id="name5">
+		        <option>全国政协委员</option>
+		        <option>省级政协委员</option>
+		        <option>市级政协委员</option>
+		        <option>县级政协委员</option>
+              </select></td>
+    <td align="right">职级</td>
+    <td><select name="name6" id="name6">
+		        <option>省部级及以上</option>
+		        <option>地厅级</option>
+		        <option>县处级</option>
+		        <option>乡科级</option>
+		        <option>一般干部</option>
+		        <option>其他人员</option>
+              </select></td>
+    </tr>
+  </table>
+<!--措施信息-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:2px;" height="20">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>措施信息</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+<!--措施信息内容-->
+<table width="100%" height="94" cellspacing="0" style="color:#3d3b3c; font-size:12px;">
+    <tr>
+    <td width="100" height="32" align="right">措施种类</td>
+    <td width="163"><select name="name" id="name">
+		        <option>两规</option>
+		        <option>两指</option>
+              </select></td>
+    <td width="100" align="right">使用措施单位级别</td>
+    <td width="163"><select name="name" id="name">
+		        <option>监察部</option>
+		        <option>省区市监察厅（局）</option>
+		        <option>地市州监察局</option>
+		        <option>县市区监察局</option>
+		        <option>监察部派驻监察局监察专员办公室</option>
+		        <option>省区市监察厅（局）派驻监察室</option>
+		        <option>地市州监察局派驻监察室</option>
+              </select></td>
+    <td width="88" align="right" >使用措施单位<span style="color:red">*</span></td>
+    <td width="163"><input name="textfield" type="text" id="textfield" size="20" maxlength="5" class="inputtext"/></td>
+    </tr>
+  <tr>
+  	<td width="100" height="32" align="right">审批情况</td>
+	<td colspan="5">
+		<textarea name="textfield" cols="95" rows="5" id="textfield" style="border-color:#0d5689;border:solid 1px" ReadOnly></textarea></td>
+	</td>
+	</tr>
+  <tr>
+    <td height="29" align="right">起始时间</td>
+    <td height="29"><input type="text" class="Wdate " onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"></td>
+    <td height="29" align="right">陪护人员情况<span style="color:red">*</span></td>
+    <td height="29"><select name="name2" id="name2">
+		        <option>武警</option>
+		        <option>党和国家机关工作人员</option>
+		        <option>其他</option>
+              </select></td>
+    <td align="right">其他<span style="color:red">*</span></td>
+    <td><input name="textfield2" type="text" id="textfield2" size="20" maxlength="5" class="inputtext"/></td>
+    </tr>
+	 <tr>
+    <td width="100" height="32" align="right">采取措施地点分类<span style="color:red">*</span></td>
+    <td width="163"><select name="name7" id="name7">
+		        <option>自建办案点</option>
+		        <option>租用宾馆</option>
+		        <option>使用上级纪检机关办案点</option>
+		        <option>其他</option>
+              </select></td>
+    <td width="100" align="right">采取措施地点<span style="color:red">*</span></td>
+    <td width="163"><input name="textfield3" type="text" id="textfield3" size="50" maxlength="5" class="inputtext"/></td>
+    <td width="88" align="right" ></td>
+    <td width="163"></td>
+    </tr>
+	<tr>
+  	<td width="100" height="32" align="right">主要问题及<br>使用措施理由</td>
+	<td colspan="5">
+		<textarea name="textfield" cols="95" rows="5" id="textfield" style="border-color:#0d5689;border:solid 1px" ReadOnly></textarea></td>
+	</td>
+	</tr>
+  </table>
+  <!--其他信息-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:2px;" height="20">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>其他</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+<!--其他信息内容-->
+<table width="100%" height="94" cellspacing="0" style="color:#3d3b3c; font-size:12px;">
+    <tr>
+    <td width="100" height="32" align="right">是否延期</td>
+    <td width="163"><select name="name8" id="name8">
+		        <option>是</option>
+		        <option>否</option>
+              </select></td>
+    <td width="100" align="right">延期天数</td>
+    <td width="163"><input name="textfield5" type="text" id="textfield5" size="20" maxlength="5" class="inputtext"/></td>
+    <td width="88" align="right" ></td>
+    <td width="163"></td>
+    </tr>
+  <tr>
+  	<td width="100" height="32" align="right">延期审批情况</td>
+	<td colspan="5">
+		<textarea name="textfield" cols="95" rows="5" id="textfield" style="border-color:#0d5689;border:solid 1px" ReadOnly></textarea></td>
+	</td>
+	</tr>
+  <tr>
+    <td height="29" align="right">结束时间</td>
+    <td height="29"><input type="text" class="Wdate " onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"></td>
+    <td height="29" align="right">采取措施天数<span style="color:red">*</span></td>
+    <td height="29"><input name="textfield5" type="text" id="textfield5" size="20" maxlength="5" class="inputtext"/></td>
+    <td align="right">移送司法机关时间</td>
+    <td><input type="text" class="Wdate " onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"></td>
+    </tr>
+	<tr>
+  	<td width="100" height="32" align="right">其他处理情况</td>
+	<td colspan="5">
+		<textarea name="textfield" cols="95" rows="5" id="textfield" style="border-color:#0d5689;border:solid 1px" ReadOnly></textarea></td>
+	</td>
+	</tr>
+  </table>
+  
+			</td>
+		</tr>
+		<tr>
+			<td align="center">
+				<table width="100%" height="32px" border="0" cellspacing="0" cellpadding="0" bgcolor="#ebf6fc">
+  <tr>
+	<td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+			  	<DIV style="FLOAT: right;PADDING-TOP: 3px" class="clbutton" >
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+				    <td  class="blue_2_j"></td>
+				    <td class="blue_4_j">保存</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV>
+			 </td>
+	 		<td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+			  <DIV style="FLOAT: left;PADDING-TOP: 3px" class="clbutton" onClick=" window.location='../ZLLR/lgnewone.html'">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+				    <td  class="blue_2_j"></td>
+				    <td class="blue_4_j">返回</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV>
+			 </td>
+  </tr>
+</table>
+			</td>
+		</tr>
+		</table>
+
+</form>
+    </body> 
+</html>

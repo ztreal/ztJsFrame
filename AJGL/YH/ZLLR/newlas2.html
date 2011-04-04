@@ -1,0 +1,865 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+ 
+<html lang="en"> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+        <meta http-equiv="Content-Style-Type" content="text/css"> 
+        <meta http-equiv="Content-Script-Type" content="text/javascript"> 
+ 	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs2.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+    
+        <title>纪检监察机关立案线索登记表</title> 
+        
+        <link rel="stylesheet" href="ui.tabs.css" type="text/css" media="print, projection, screen"> 
+        <style type="text/css" media="screen, projection"> 
+            /* Not required for Tabs, just to make this demo look better... */
+            body, h1, h2 {
+                font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+            }
+            h1 {
+                margin: 1em 0 1.5em;
+                font-size: 18px;
+            }
+            h2 {
+                margin: 2em 0 1.5em;
+                font-size: 16px;
+            }
+            p {
+                margin: 0;
+                padding: 0 0 .5em;
+                max-width: 40em;
+            }
+            /*pre, pre+p, p+p {
+                margin: 1em 0 0;
+            }
+            code {
+                font-family: "Courier New", Courier, monospace;
+            }*/
+        </style> 
+ 
+        <script type="text/javascript"> 
+			$(function() { 
+			    // 将ul.tabs区域设定为选项卡，用来控制div.panes区域中最近一层的各div区域
+			   // 注意tabs和panes与html中class的对应关系
+			    $("ul.tabs").tabs("div.panes > div",{history: true}); 
+				$(":date").dateinput();
+				//添加删除修改事件
+				$("#add").click( function () { $("#addarea tr:first").after(' <tr>  <td width="256"><label> <input type="text" name="textfield" id="textfield"> </label></td>   <td width="188"><input type="text" name="textfield2" id="textfield2"></td>  <td width="239"><input type="text" name="textfield3" id="textfield3"></td> <td width="211"><input type="text" name="textfield4" id="textfield4"></td>'); }); 
+				$("#del").click( function () { $("#addarea tr:last[type!=title]").remove() });
+			
+
+			$("#change").click(function(){
+				window.location="newlas3.html";
+			})
+			
+			$("select").wrap("<div style='width:50px;overflow:hidden'></div>"); 
+			});
+        </script>
+		
+		
+    </head> 
+    <body> 
+	<div style="width:810px">
+      	<table width="789" border="0" cellpadding="0" cellspacing="0">
+		<tr>    
+			<td width="567" align="left" valign="top" class="text01"><strong>当前位置->资料录入->立案部分->纪检监察机关立案线索登记表</strong></td>
+			<td width="222" align="right" class="text01"><strong> </strong></td>       
+		</tr>
+	</table>
+    
+ <form>
+ <table width="796px" border="0" cellspacing="0" cellpadding="0" id="buttoncontrol">
+  <tr>
+    <td><img src="../../images/tiao001.gif" width="2" height="22"></td>
+    <td width="100%" background="../../images/tiao003.gif" class="tit">功能按钮</td>
+    <td><img src="../../images/tiao002.gif" width="2" height="22"></td>
+  </tr>
+</table>
+ <table width="796px" class="green3">
+    <tr type="title">
+      <td width="94" align="center" valign="middle">&nbsp;</td>
+      <td width="94" align="center" valign="middle"><input type="reset" name="button8" id="button3" value="保存" class="button" onclick="alert('保存成功！继续输入下条记录')"></td>
+      <td width="213" align="center" valign="middle"><input type="reset" name="button5" id="button" value="还原" class="button"></td>
+      <td width="183" align="center" valign="middle"><input type="reset" name="button7" id="button2" value="打印" class="button"></td>
+      <td width="100"><input type="button" name="button6" id="button6" value="返回" class="button" onClick=" window.location='la.html'"></td>
+      <td width="100"><input type="button" name="button9" id="change" value="切换样式" class="button"  ></td>
+     </tr>
+</table><br>
+		 <table width="791" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="../../images/tiao001.gif" width="2" height="22"></td>
+    <td width="100%" background="../../images/tiao003.gif" class="tit">基本信息</td>
+    <td><img src="../../images/tiao002.gif" width="2" height="22"></td>
+  </tr>
+</table>
+ 
+   <table width="791" height="184" cellspacing="0" class="green3" >
+    <tr>
+    <td width="114" height="32" align="right">是否单位<span style="color:red">*<span></span></span><span></td>
+    <td><select name="name18" id="name19">
+      <option>&nbsp;</option>
+      <option>是</option>
+      <option>否</option>
+    </select></td>
+    <td width="128" align="right">  姓名<span style="color:red">*<span></span></span><span></td>
+    <td width="122"><label>
+    <input name="textfield6" type="text" id="textfield6" size="12" maxlength="12" class="inputtext">
+    </label></td>
+    <td width="90" align="right" >出生年月</td>
+    <td width="231"><input type="text" class="Wdate " id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月'})"  ></input></td>
+    </tr>
+  <tr>
+    <td height="31" align="right">国家公务员</td>
+    <td width="92"><select name="name17" id="name18">
+      <option>&nbsp;</option>
+      <option>是</option>
+      <option>否</option>
+    </select></td>
+    <td align="right">政协委员</td>
+    <td><select name="name" id="name">
+          <option>&nbsp;</option>
+          <option>全国政协委员</option>
+          <option>省政协委员</option>
+          <option>市政协委员</option>
+          <option>县政协委员</option>
+        </select></td>
+    <td align="right">人大代表</td>
+    <td><select name="name" id="name">
+          <option>&nbsp;</option>
+          <option>全国人大代表</option>
+          <option>省政人大代表员</option>
+          <option>市政人大代表员</option>
+          <option>县政人大代表</option>
+        </select></td>
+    </tr>
+  <tr>
+    <td height="29" align="right">工作单位及职务<span style="color:red">*<span></span></span><span></td>
+    <td height="29"><input class="inputtext" name="textfield3" type="text" id="textfield3" size="30" maxlength="30" /></td>
+    <td height="29" align="right">民族<span style="color:red">*<span></span></span></td>
+    <td height="29"><select name="name16" id="name17">
+      <option>&nbsp;</option>
+      <option>汉族</option>
+      <option>回</option>
+      <option>傣</option>
+      <option>其他</option>
+    </select></td>
+    <td align="right">&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td align="right">政治面貌细节</td>
+    <td><select name="name3" id="name4">
+      <option>&nbsp;</option>
+      <option>正事党员</option>
+      <option>预备党员</option>
+    </select></td>
+    <td align="right">政治面貌<span style="color:red">*<span></span></span><span></td>
+    <td><select name="name3" id="name4">
+      <option>&nbsp;</option>
+      <option>党员</option>
+      <option>团员</option>
+      <option>民主党派</option>
+      <option>其他</option>
+      <option>党组织</option>
+      <option>法人</option>
+    </select></td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="31" align="right">是否检察对象<span style="color:red">*<span></span></span></td>
+    <td height="31"><select name="name4" id="name3">
+      <option>&nbsp;</option>
+      <option>是</option>
+      <option>否</option>
+    </select></td>
+    <td height="31" align="right">职称<span style="color:red">*<span></span></span><span></td>
+    <td><select name="name" id="name">
+      <option>&nbsp;</option>
+      <option>省部及以上</option>
+      <option>地厅级</option>
+      <option>县处级</option>
+    </select></td>
+    <td><select name="name2" id="name2">
+      <option>&nbsp;</option>
+      <option>正级</option>
+      <option>副级</option>
+    </select></td>
+    <td>&nbsp;</td>
+    </tr>
+  </table> 
+ <br>
+	<table width="791" height="217"   class="green3" >
+    <tr>
+      <td width="79" height="27" align="right">性别</td>
+      <td width="103"><select name="name8" id="name7">
+        <option>&nbsp;</option>
+        <option>男</option>
+        <option>女</option>
+      </select></td>
+      <td width="90" align="right">年龄</td>
+      <td width="109" ><input name="textfield5" type="text" id="textfield5" size="4" maxlength="4" class="inputtext"/></td>
+      <td width="102" align="right" >企业性质</td>
+      <td width="129" ><select name="name13" id="name11">
+        <option>&nbsp;</option>
+        <option>国有或国有控股企业</option>
+        <option>集体企业</option>
+        <option>私营企业</option>
+      </select></td>
+      <td width="147"><select name="name14" id="name14">
+        <option>&nbsp;</option>
+        <option>中央管理正职企业</option>
+        <option>国务院国资委管理正职企业</option>
+        <option>省委管理正职企业</option>
+        <option>省国资委管理正职企业</option>
+        <option>市委管理正职企业</option>
+      </select></td>
+      </tr>
+    <tr>
+      <td height="25" align="right"><span class="datepicker">入党时间</span></td>
+      <td><input type="text" class="Wdate " id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月'})"  ></input></td>
+      <td align="right">任现职时间</td>
+      <td><input type="text" class="Wdate " id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月'})"  ></input></td>
+      <td height="25" align="right">企业人员类别<span style="color:red">*</span></td>
+      <td><select name="name6" id="name16">
+        <option>&nbsp;</option>
+        <option>企业领导人员</option>
+        <option>中层管理人员</option>
+        <option>其他人员</option>
+      </select></td>
+      <td><select name="name9" id="name13">
+        <option>&nbsp;</option>
+        <option>中管干部</option>
+        <option>省管干部</option>
+        <option>市管干部</option>
+        <option>县管干部</option>
+      </select></td>
+      </tr>
+    <tr>
+      <td height="44" align="right">企业级别</td>
+      <td><select name="name7" id="name6">
+        <option>&nbsp;</option>
+        <option>一级企业</option>
+        <option>二级企业</option>
+        <option>三级企业</option>
+        <option>四级及以下</option>
+      </select></td>
+      <td align="right">学历</td>
+      <td ><select name="name5" id="name5">
+        <option>&nbsp;</option>
+        <option>博士</option>
+        <option>硕士</option>
+        <option>本科</option>
+        <option>大专</option>
+        <option>中专</option>
+        <option>高中</option>
+        <option>初中以下</option>
+      </select></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+    <tr>
+      <td height="25" align="right">部门分类<span style="color:red">*</span></td>
+      <td><select name="name" id="name">
+        <option>&nbsp;</option>
+        <option>党政机关</option>
+        <option>政府机关</option>
+        <option>人大机关</option>
+      </select></td>
+      <td><select name="name" id="name">
+        <option>&nbsp;</option>
+        <option>组织</option>
+        <option>宣传</option>
+        <option>政法委</option>
+      </select></td>
+      <td><select name="name15" id="name15">
+        <option>&nbsp;</option>
+        <option>劳动保障</option>
+        <option>教育</option>
+        <option>财政</option>
+      </select></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+    <tr>
+      <td height="25" align="right">一把手违纪</td>
+      <td><select name="name10" id="name8">
+        <option> </option>
+        <option>查处时任一把手</option>
+        <option>违纪时任一把手</option>
+        <option>查处时违纪时均任一把手</option>
+      </select></td>
+      <td><select name="name11" id="name9">
+        <option> </option>
+        <option>中央</option>
+        <option>省区市</option>
+        <option>县市区</option>
+      </select></td>
+      <td><select name="name12" id="name10">
+        <option> </option>
+        <option>党委机关</option>
+        <option>党委直属机构</option>
+        <option>政府机关</option>
+      </select></td>
+      <td height="25" align="right">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+    <tr>
+      <td height="25" align="right">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+    </table>  
+<br>
+       		<!-- Tabs --> 
+ 
+ 
+<ul class="tabs" style="width:790px"> 
+    <li><a href="#1">两规情况</a></li> 
+    <li><a href="#2">立案情况</a></li>
+	<li><a href="#3">违纪行为 </a></li> 
+	<li><a href="#4">立案文书</a></li> 
+	<li><a href="#5">审理情况  </a></li> 
+	<li><a href="#6">结案情况</a></li> 
+	<li><a href="#7">结案文书</a></li> 
+	<li><a href="#8">公检法处理</a></li> 
+	<li><a href="#9">初核情况</a></li> 
+	<li><a href="#10">初核文书</a></li> 
+</ul> 
+<!-- 定义选项卡切换的每个区域，注意最外层的class定义为panes --> 
+<div class="panes" style="width:790px"> 
+ <div><table width="791" height="26"   class="green3" >
+		    <tr>
+		      <td width="70" height="27" align="right">使用措施</td>
+		      <td width="110"><select name="name" id="name">
+		        <option>&nbsp;</option>
+		        <option>两规</option>
+		        <option>两指</option>
+		      </select></td>
+		      <td width="98" height="25" align="right">实施时间<span style="color:red">*</span></td>
+		      <td width="101" height="25"><input type="text" class="Wdate " id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"  ></input></td>
+		      <td width="109" height="25" align="right">实施结束时间<span style="color:red">*</span></td>
+		      <td width="275" height="25"><input type="text" class="Wdate " id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"  ></input></td>
+	        </tr>
+		    <tr>
+		      <td height="25" align="right">实施机关</td>
+		      <td height="25"><select name="select9" id="select9">
+		      	  <option>&nbsp;</option>
+			        <option>中央纪委监察部</option>
+			        <option>省区市纪检监察机关</option>
+			        <option>地市州纪检监察机关</option>
+			        <option>县市区纪检监察机关</option>
+			        <option>乡镇街道纪（工）委</option>
+			        <option>军队纪委</option>
+			        <option>中央和国家机关纪检监察机构</option>
+			        <option>省区市直属机关纪检监察机构</option>
+			        <option>地市州直属机关纪检监察机构</option>
+			        <option>县市区直属机关纪检监察机构</option>
+			        <option>企业单位纪检监察机构</option>
+			        <option>事业单位纪检监察机构</option>
+			        <option>其他</option>
+		          </select></td>
+		      <td></td>
+		      <td></td>
+		      <td ></td>
+		      <td ></td>
+		    </tr>
+</table></div>
+
+
+   
+		  <!--tab2-->
+		   <div><table width="791" height="209"   class="green3" >
+		    <tr>
+		      <td width="53" height="27" align="right">案件编码<span style="color:red">*</span></td>
+		      <td width="230"><label>
+		        <input name="textfield" type="text" id="textfield" size="20" maxlength="20" class="inputtext"/>
+		      </label></td>
+		      <td width="101" align="right" >涉案人员编码<span style="color:red">*</span></td>
+		      <td width="131"><input name="textfield2" type="text" id="textfield2" size="20" maxlength="20" class="inputtext"/></td>
+		      <td width="83" align="right" >案件来源<span style="color:red">*</span></td>
+		      <td width="90" ><select name="name" id="name">
+		        <option>&nbsp;</option>
+		        <option>信访举报</option>
+		        <option>上级交办</option>
+		        <option>公检法移送</option>
+		      </select></td>
+	        </tr>
+		    <tr>
+		      <td height="25" align="right">首次违纪时间<span style="color:red">*</span></td>
+		      <td height="25"><input type="text" class="Wdate " id="d2" onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"  ></td>
+		      <td align="right">末次违纪时间<span style="color:red">*</span></td>
+		      <td><input type="text" class="Wdate " id="d" onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"  ></td>
+		      <td align="right" >其他违纪时间</td>
+		      <td ><input name="textfield" type="text" id="textfield" size="20" maxlength="20" class="inputtext"/></td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">立案时间<span style="color:red">*</span></td>
+		      <td height="25"><input type="text" class="Wdate " id="d3" onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"  ></td>
+		      <td align="right">立案机关<span style="color:red">*</span></td>
+		      <td><select name="name3" id="name3">
+		      			<option>&nbsp;</option>
+			          <option>中央纪委监察部</option>
+			          <option>省区市纪检监察机关</option>
+			          <option>地市州纪检监察机关</option>
+			          <option>县市区纪检监察机关</option>
+			          <option>乡镇街道纪（工）委</option>
+			          <option>军队纪委</option>
+			          <option>中央和国家机关纪检监察机构</option>
+			          <option>省区市直属机关纪检监察机构</option>
+			          <option>地市州直属机关纪检监察机构</option>
+			          <option>县市区直属机关纪检监察机构</option>
+			          <option>企业单位纪检监察机构</option>
+			          <option>事业单位纪检监察机构</option>
+			          <option>其他</option>
+		      </select></td>
+		      <td align="right" >联合办案</td>
+		      <td ><select name="name" id="name">
+		        <option>&nbsp;</option>
+		        <option>检察院</option>
+		        <option>公安</option>
+		        <option>其他</option>
+		      </select></td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">窝案串案</td>
+		      <td height="25"><select name="name" id="name">
+		        <option>&nbsp;</option>
+		        <option>窝案</option>
+		        <option>串案</option>
+		      </select></td>
+		      <td align="right">窝案细节</td>
+		      <td><select name="name" id="name">
+		        <option>&nbsp;</option>
+		        <option>主要涉案人</option>
+		        <option>次要涉案人</option>
+		      </select></td>
+		      <td align="right" >窝案涉案人细节</td>
+		      <td ><input name="textfield" type="text" id="textfield" size="20" maxlength="20" class="inputtext"/></td>
+		    </tr>
+		    <tr>
+		      <td height="25" rowspan="2" align="right">专项统计</td>
+		      <td height="11">
+			            <input  style="width:30px" type="checkbox" name="复选框组1" value="复选框" id="复选框组1_0">
+			            工程建设领域
+	          </td>
+		      <td><input type="checkbox"style="width:30px"   name="复选框组1" value="复选框" id="复选框组1_1">
+			              房屋拆迁</td>
+		      <td><input type="checkbox" style="width:30px"  name="复选框组1" value="复选框" id="复选框组1_1">
+			              企业改制破产			        </td>
+		      <td colspan="2" ><input type="checkbox" style="width:30px"  name="复选框组1" value="复选框" id="复选框组1_1">
+			              土地征用              </td>
+	         </tr>
+		    <tr>
+		      <td height="12"><input type="checkbox" style="width:30px"  name="复选框组1_" value="复选框" id="复选框组1_2">
+	          生活作风问题</td>
+		      <td><input type="checkbox"style="width:30px"   name="复选框组1_2" value="复选框" id="复选框组1_3">
+买官卖官</td>
+		      <td><input type="checkbox" style="width:30px"  name="复选框组1_3" value="复选框" id="复选框组1_4">
+贿赂</td>
+		      <td colspan="2" ><input type="checkbox" style="width:30px"  name="复选框组1_6" value="复选框" id="复选框组1_7">
+官商勾结</td>
+	         </tr>
+		    <tr>
+		      <td height="25" rowspan="3" align="right"></td>
+		      <td height="25" rowspan="3"><input style="width:30px"  type="checkbox" name="复选框组1" value="复选框" id="复选框组1_1">
+			              设立小金库和使用小金库款项案件</td>
+		      <td><input type="checkbox" style="width:30px"  name="复选框组1" value="复选框" id="复选框组1_1">
+			              商业贿赂</td>
+		      <td ><input type="checkbox" style="width:30px"  name="复选框组1" value="复选框" id="复选框组1_1">
+			              提出问责建议			         </td>
+		      <td colspan="2" >&nbsp;</td>
+             </tr>
+		    <tr>
+		      <td colspan="4"><input style="width:30px"  type="checkbox" name="复选框组1_4" value="复选框" id="复选框组1_5">
+群体性事件涉及的失职渎职和背后的腐败问题</td>
+	         </tr>
+		    <tr>
+		      <td colspan="4"><input style="width:30px"  type="checkbox" name="复选框组1_5" value="复选框" id="复选框组1_6">
+	          重大责任事故涉及的失职渎职和背后的腐败问题</td>
+	         </tr>
+           </table>
+</div>
+		  
+   
+		  <!--tab3-->
+		   <div style="width:805px"><br><br><fieldset width="791"><legend>主要违纪行为</legend>
+<table width="791" height="29" cellspacing="0" bordercolor="#9CC6F7"  class="green3" >
+		    <tr>
+		      <td width="171" height="27"><select name="name5" id="name5">
+		        <option>违反政治纪律</option>
+		        <option>违反组织人事纪律</option>
+		        <option>违反廉洁自律规定</option>
+		        <option>贪污贿赂</option>
+		        <option>破坏社会主义经济秩序</option>
+              </select></td>
+		      <td width="183" ><select name="name7" id="name7">
+		        <option>挪用资金</option>
+		        <option>妨害公司企业管理秩序</option>
+		        <option>违反金融管理法规</option>
+              </select></td>
+		      <td width="153"><select name="name8" id="name8">
+		        <option>非国家工作人员索取收受财物</option>
+		        <option>给予非国家工作人员财物</option>
+		        <option>为亲友经营牟利</option>
+              </select></td>
+		      <td width="50" >金额<span style="color:red"></span></td>
+		      <td width="222" ><input name="textfield" type="text" id="textfield" size="20" maxlength="20" class="inputtext"/>
+	          <span style="color:red">万元</span></td>
+  </tr>
+		  </table></fieldset><br>
+<fieldset width="920"><legend>次要违纪行为</legend>
+  <table width="791" height="29"  cellspacing="0" bordercolor="#9CC6F7"  class="green3" >
+    <tr>
+      <td width="183" height="27"><select name="name2" id="name6">
+        <option>违反政治纪律</option>
+        <option>违反组织人事纪律</option>
+        <option>违反廉洁自律规定</option>
+        <option>贪污贿赂</option>
+        <option>破坏社会主义经济秩序</option>
+      </select></td>
+      <td width="173" ><select name="name2" id="name11">
+        <option>挪用资金</option>
+        <option>妨害公司企业管理秩序</option>
+        <option>违反金融管理法规</option>
+      </select></td>
+      <td width="197"><select name="name2" id="name12">
+        <option>非国家工作人员索取收受财物</option>
+        <option>给予非国家工作人员财物</option>
+        <option>为亲友经营牟利</option>
+      </select></td>
+      <td width="46" >金额<span style="color:red"></span></td>
+      <td width="179" ><input name="textfield2" type="text" id="textfield4" size="20" maxlength="20" class="inputtext"/>
+        <span style="color:red">万元</span></td>
+    </tr>
+  </table> 
+  <table width="914" border="0">
+    <tr> 
+      <td width="101"><input type="button" name="button" id="add" value="添加"></td>
+      <td width="102"><input type="button" name="button2" id="del" value="删除"></td>
+      <td width="100"><input type="button" name="button3" id="save" value="保存"></td>
+      <td width="301"><input type="button" name="button4" id="modify" value="修改"></td>
+      <td width="73">&nbsp;</td>
+      <td width="197">&nbsp;</td>
+    </tr>
+  </table>
+   
+   <table width="791"  class="green3" id="addarea">
+    <tr type="title">
+      <td width="256">违纪行为一级</td>
+      <td width="188">违纪行为二级</td>
+      <td width="239">违纪行为三级</td>
+      <td width="84">金额</td>
+     </tr>
+  </table>
+</fieldset></div>
+		  
+		 
+		   <!--tab4-->
+		    <div><table width="791" height="26"   class="green3" >
+		    <tr>
+		      <td width="73" height="27">立案报告</td>
+		      <td width="706" height="25" colspan="5">
+                <textarea name="textfield" cols="97" rows="5" id="textfield"></textarea>
+	        </td>
+	        </tr>
+		    <tr>
+		      <td height="25">立案决定书</td>
+		      <td height="25" colspan="5"><textarea name="textfield" cols="97" rows="5" id="textfield"></textarea></td>
+		    </tr>
+		    <tr>
+		      <td height="25">调查报告</td>
+		      <td height="25" colspan="5"><textarea name="textfield" cols="97" rows="5" id="textfield"></textarea></td>
+		    </tr>
+		    <tr>
+		      <td height="25">简要案情<span style="color:red">*</span></td>
+		      <td height="25" colspan="5"><textarea name="textfield" cols="97" rows="5" id="textfield"></textarea></td>
+		    </tr>
+		    <tr>
+		      <td height="25">备注</td>
+		      <td height="25" colspan="5"><textarea name="textfield" cols="97" rows="5" id="textfield"></textarea></td>
+		    </tr>
+</table></div>
+		   
+		  
+		   <!--tab5-->
+		     <div><table width="791" height="26"   class="green3" >
+		    <tr>
+		      <td width="84" height="25">审理受理时间</td>
+		      <td width="99" height="25"><input type="text" class="Wdate " id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"  ></input></td>
+		      <td width="76">审理机关</td>
+		      <td width="103"><select name="name3" id="name3">
+		      			<option>&nbsp;</option>
+			          <option>中央纪委监察部</option>
+			          <option>省区市纪检监察机关</option>
+			          <option>地市州纪检监察机关</option>
+			          <option>县市区纪检监察机关</option>
+			          <option>乡镇街道纪（工）委</option>
+			          <option>军队纪委</option>
+			          <option>中央和国家机关纪检监察机构</option>
+			          <option>省区市直属机关纪检监察机构</option>
+			          <option>地市州直属机关纪检监察机构</option>
+			          <option>县市区直属机关纪检监察机构</option>
+			          <option>企业单位纪检监察机构</option>
+			          <option>事业单位纪检监察机构</option>
+			          <option>其他</option>
+		      </select></td>
+		      <td width="78" >审结时间</td>
+		      <td width="323" ><input type="text" class="Wdate " id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"  ></input></td>
+		    </tr>
+		    <tr>
+		      <td height="25">审理报告</td>
+		      <td height="25" colspan="5"><textarea name="textfield" cols="95" rows="10" id="textfield"></textarea></td>
+		    </tr>
+</table></div>
+		   
+		
+		   <!--tab7-->
+		   <div><table width="791" height="26"  class="green3" >
+		    <tr>
+		      <td width="59" height="27">处分决定</td>
+		      <td width="720" height="25" colspan="5">
+                <textarea name="textfield" cols="99" rows="10" id="textfield"></textarea>
+	        </td>
+	        </tr>
+		    <tr>
+		      <td height="25">案件剖析</td>
+		      <td height="25" colspan="5"><textarea name="textfield" cols="99" rows="15" id="textfield"></textarea></td>
+		    </tr>
+</table> </div>
+		   <!--tab6-->
+		 <div><table width="791" height="104" class="green3" >
+		    <tr>
+		      <td width="89" height="25" align="right">案件总金额</td>
+		      <td width="142" height="25"><input name="textfield4" type="text" id="textfield4" size="20" maxlength="20" class="inputtext"/>
+		      <span style="color:red">万元</span></td>
+		      <td width="135" height="25" align="right">失职渎职损失</td>
+		      <td width="184" height="25"><input name="textfield4" type="text" id="textfield4" size="20" maxlength="20" class="inputtext"/>
+		      <span style="color:red">万元</span></td>
+		      <td width="90" height="25">涉案金额</td>
+		      <td width="123" height="25"><input name="textfield4" type="text" id="textfield4" size="20" maxlength="20" class="inputtext"/>
+		      <span style="color:red">万元</span></td>
+	        </tr>
+		    <tr>
+		      <td height="25" align="right">违纪总金额</td>
+		      <td height="25"><input name="textfield4" type="text" id="textfield4" size="20" maxlength="20" class="inputtext"/>
+		      <span style="color:red">万元</span></td>
+		      <td height="25" align="right">挽回损失</td>
+		      <td height="25"><input name="textfield4" type="text" id="textfield4" size="20" maxlength="20" class="inputtext"/>
+		      <span style="color:red">万元</span></td>
+		      <td height="25">留党察看年限</td>
+		      <td height="25"><select name="name3" id="name3">
+		        <option>&nbsp;</option>
+		        <option>一年</option>
+		        <option>两年</option>
+		      </select></td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">责任追究</td>
+		      <td height="25"><select name="name3" id="name3">
+		        <option>&nbsp;</option>
+		        <option>是</option>
+		      </select></td>
+		     <td height="25" align="right">结案时间<span style="color:red">*</span></td>
+		      <td height="25"><input type="date" width="80" class="inputtext"></td>
+		      <td >收缴涉案金额</td>
+		      <td ><input name="textfield" type="text" id="textfield" size="20" maxlength="20" class="inputtext"/></td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">党纪处分</td>
+		      <td height="25"><select name="name" id="name">
+		        <option>&nbsp;</option>
+		        <option>警告</option>
+			          <option>严重警告</option>
+			          <option>撤销党内职务</option>
+			          <option>留党察看</option>
+			          <option>开除党籍</option>
+		      </select></td>
+		      <td align="right">政纪处分</td>
+		      <td><select name="name" id="name">
+		        <option>&nbsp;</option>
+		        <option>警告</option>
+			          <option>记过</option>
+			          <option>记大过</option>
+			          <option>降级</option>
+			          <option>降职</option>
+			          <option>撤职</option>
+			          <option>开除留用察看</option>
+			          <option>开除</option>
+		      </select></td>
+		      <td >受贿涉及人数</td>
+		      <td ><input name="textfield" type="text" id="textfield" size="20" maxlength="5" class="inputtext"/></td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">收受礼金人数</td>
+		      <td height="25"><input name="textfield" type="text" id="textfield" size="20" maxlength="5" class="inputtext"/></td>
+		      <td height="25" align="right">其他处理</td>
+		      <td colspan="3"><select name="">
+		        <option>免予党纪处分</option>
+		        <option>免予政纪处分</option>
+		        <option>不予处分</option>
+		        <option>改组党组织</option>
+		        <option>解散党组织</option>
+		        <option>处分有关人员</option>
+		      </select> 
+		        <select name="select" id="select">
+		          <option>通报批评</option>
+		          <option>解聘</option>
+		          <option>辞退</option>
+		          <option>调整岗位</option>
+		          <option>免职</option>
+		          <option>取消预备党员资格</option>
+		          <option>取消名誉称号</option>
+		          <option>诫勉谈话</option>
+		          <option>停职(检查)</option>
+		          <option>公开道歉</option>
+		          <option>引咎辞职</option>
+		          <option>责令辞职</option>
+		          <option>其他处理</option>
+	          </select></td>
+	        </tr>
+		    <tr>
+		      <td height="25" align="right">潜逃时间</td>
+		      <td height="25"><input type="date" width="80" class="inputtext"></td>
+		      <td align="right">潜逃去向</td>
+		      <td ><select name="name2" id="name2">
+		        <option>国内</option>
+		        <option>国境外</option>
+		        <option>去向不明</option>
+              </select></td>
+		      <td >潜逃去向细节</td>
+			              <td ><input name="textfield2" type="text" id="textfield2" size="20" maxlength="5" class="inputtext"/></td>
+		    </tr>
+            <tr>
+		      <td height="25" align="right">调查中/终止时间</td>
+		      <td height="25"><input type="date" width="80" class="inputtext"></td>
+		      <td align="right">解除政纪时间</td>
+		      <td ><input type="date" width="80" class="inputtext"></td>
+		      <td >销案时间</td>
+			              <td ><input type="date" width="80" class="inputtext"></td>
+		    </tr>
+</table></div>
+		   <!--tab8-->
+		  <div><table width="791" height="79"  cellspacing="0" bordercolor="#9CC6F7"  class="green3" >
+		    <tr>
+		      <td width="110" height="27">移送司法机关时间</td>
+		      <td width="115"><input type="date" width="80" class="inputtext"></td>
+		      <td width="558" height="27">&nbsp;</td>
+	        </tr>
+		    <tr>
+		      <td height="25">公检法处理</td>
+		      <td height="25"><select name="select2" id="select2">
+		        <option>&nbsp;</option>
+		        <option>刑事处理</option>
+		        <option>其他处理</option>
+		        </select></td>
+		      <td><select name="select2" id="select3">
+		        <option>&nbsp;</option>
+		        <option>死刑立即执行</option>
+		        <option>死刑缓期执行</option>
+		        <option>无期徒刑</option>
+		        <option>有期徒刑</option>
+		        <option>管制</option>
+		        <option>拘役</option>
+		        <option>罚金</option>
+		        <option>剥夺政治权利</option>
+		        <option>没收财产</option>
+		        </select>
+		        <input type="text" name="textfield7" id="textfield7" size="3" class="inputtext">
+		        年
+		        <input type="text" name="textfield7" id="textfield8" size="3" class="inputtext">
+		        月
+		        
+		        缓刑
+		        <input type="text" name="textfield7" id="textfield9" size="3" class="inputtext">
+		        年
+		        <input type="text" name="textfield7" id="textfield10" size="3" class="inputtext">
+		        月 </td>
+	        </tr>
+		    <tr>
+		      <td height="25">公检法处理时间</td>
+		      <td height="25"><input type="date" width="80" class="inputtext"></td>
+		      <td>司法判决金额
+		        <input name="textfield8" type="text" id="textfield11" size="20" maxlength="20" class="inputtext"/>
+		        <span style="color:red">万元</span></td>
+	        </tr>
+</table></div>
+		   <!--tab9-->
+		 <div><table width="791" height="127"  cellspacing="0" bordercolor="#9CC6F7"  class="green3" >
+		    <tr>
+		      <td width="79" height="26" align="right">线索编码<span style="color:red">*</span></td>
+		      <td width="155"><label>
+		        2001010
+		      </label></td>
+		      <td width="78" align="right" >人员编码<span style="color:red">*</span></td>
+		      <td width="131">001</td>
+		      <td width="67" align="right" >线索来源<span style="color:red">*</span></td>
+		      <td width="283" >信访举报</td>
+        </tr>
+		    <tr>
+		      <td height="24" align="right">违纪类型<span style="color:red">*</span></td>
+		      <td height="24">违反组织人事纪律</td>
+		      <td align="right">批准核实时间<span style="color:red">*</span></td>
+		      <td>2009-10-1</td>
+		      <td align="right" >了结时间</td>
+		      <td ><span calss="datepick">
+		        2010-10-1
+		      </span></td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">核实结果</td>
+		      <td height="25">了结</td>
+		      <td align="right">了结结论</td>
+		      <td>适当处理</td>
+		      <td align="right" >挽回经济损失</td>
+		      <td > 万元 </td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">收缴涉案金额</td>
+		      <td height="25">189 万元 </td>
+		      <td align="right">组织处理情况</td>
+		      <td>调整岗位</td>
+		      <td align="right" >办理机关</td>
+		      <td >省区市纪检监察机关</td>
+		    </tr>
+</table> </div> 
+		   <!--tab10-->
+		 <div><table width="791" height="104"  class="green3" >
+		    <tr>
+		      <td width="97" height="27">主要违纪线索<span style="color:red">*</span></td>
+		      <td width="678" colspan="5">被某人举报，发现账本，和不明资金来源100万元</td>
+        </tr>
+		    <tr>
+		      <td height="25">初核报告<span style="color:red"></span></td>
+		      <td height="25" colspan="5">经核实，所举报属实</td>
+	        </tr>
+		    <tr>
+		      <td height="25">备注</td>
+		      <td height="25" colspan="5">已经处理</td>
+	        </tr>
+    </table></div>  
+		  
+</div></br>
+</form>
+    </body> 
+</html>

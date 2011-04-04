@@ -1,0 +1,113 @@
+<html>
+ <head>
+  	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.treeview.css">
+    <link rel="stylesheet" type="text/css" href="css/screen.css">
+
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.treeview.js"></script>
+	<style type="text/css">
+       a{color: #2a5e9b}
+	   span{cursor: pointer;}
+    </style>
+	<script type="text/javascript">
+		$(function() {
+			$("#browser").treeview({
+			toggle: function() {
+				console.log("%s was toggled.", $(this).find(">span").text());
+			}
+		});	
+		})
+		function checkName(regs){
+		    var blan=window.confirm("您确定选择此项吗？");
+			if(blan){
+			    window.opener.getValues(regs);
+				window.close();
+			}
+		}
+	</script>
+  </head>
+  <body class="text01">
+     <div style="padding-left:10px;width: 100%;height: 400px; overflow:hidden"  >
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  <tr>
+					<td><img src="../../images/tiao001.gif" width="2" height="22"></td>
+					<td width="100%" background="../../images/tiao003.gif" class="tit">机构树</td>
+					<td><img src="../../images/tiao002.gif" width="2" height="22"></td>
+				  </tr>
+			 </table>
+		   <div style="width:100%;height:460px;" class="search">
+		      <div style="padding-left:10px;">
+				<ul id="browser" class="filetree treeview-famfamfam">
+					<li><span class="folder" title="中央纪委" onClick="checkName(this.title)">中央纪委</span>
+						<ul>
+							<li><span class="folder" title="直属系统" onClick="checkName(this.title)">直属系统</span>
+								<ul>
+									<li><span class="folder" title="河北省纪检监察机关" onClick="checkName(this.title)">河北省纪检监察机关</span>
+									   <ul>
+									     <li><span class="file" title="石家庄纪检监察机关" onClick="checkName(this.title)">石家庄纪检监察机关</span></li>
+										 <li><span class="file" title="邢台纪检监察机关" onClick="checkName(this.title)">邢台纪检监察机关</span></li>
+										 <li><span class="file" title="邯郸纪检监察机关" onClick="checkName(this.title)">邯郸纪检监察机关</span></li>
+									   </ul>
+									</li>
+									<li><span class="folder" title="山西省纪检监察机关" onClick="checkName(this.title)">山西省纪检监察机关</span>
+									   <ul>
+									     <li><span class="file" title="太原市纪检监察机关" onClick="checkName(this.title)">太原市纪检监察机关</span></li>
+										 <li><span class="file" title="大同纪检监察机关" onClick="checkName(this.title)">大同纪检监察机关</span></li>
+										 <li><span class="file" title="临汾纪检监察机关" onClick="checkName(this.title)">临汾纪检监察机关</span></li>
+									   </ul>
+									</li>
+								</ul>
+							</li>
+							<li><span class="folder" title="国家机关" onClick="checkName(this.title)">国家机关</span>
+								<ul>
+									<li><span class="file" title="外交部" onClick="checkName(this.title)">外交部</span>
+										
+									</li>
+									<li><span class="file" title="发纪委" onClick="checkName(this.title)">发纪委</span>
+									</li>
+								</ul>
+							</li>
+							<li class="closed"><span class="folder" title="企业" onClick="checkName(this.title)">企业</span>
+								<ul>
+									<li><span class="folder" title="国资委" onClick="checkName(this.title)">国资委</span>
+									   <ul>
+									     <li><span class="folder" title="中央企业" onClick="checkName(this.title)">中央企业</span>
+										   <ul>
+										     <li><span class="folder" title="省企业" onClick="checkName(this.title)">省企业</span>
+											   <ul>
+											     <li><span class="file" title="市企业" onClick="checkName(this.title)">市企业</span></li>
+											   </ul>
+											 </li>
+										   </ul>
+										 </li>
+									   </ul>
+									</li>
+								</ul>
+							</li>
+							<li><span class="file" title="军队">军队</span></li>
+						</ul>
+					</li>
+				</ul>
+				</div>
+			</div>
+     </div>
+  </body>
+</html>

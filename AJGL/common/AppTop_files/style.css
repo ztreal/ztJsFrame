@@ -1,0 +1,126 @@
+UNKNOWN {
+	FONT-FAMILY: "宋体", "Times New Roman"
+}
+TD {
+	FONT-SIZE: 9pt; FONT-FAMILY: "宋体", "Times New Roman"
+}
+P {
+	FONT-SIZE: 9pt; FONT-FAMILY: "宋体", "Times New Roman"
+}
+.normal {
+	FONT-SIZE: 9pt; WORD-SPACING: 1px; LINE-HEIGHT: 13pt; FONT-FAMILY: "宋体", "Times New Roman"
+}
+.text {
+	LIST-STYLE-POSITION: outside; FONT-SIZE: 9pt; WORD-SPACING: 1px; TEXT-INDENT: 22px; LINE-HEIGHT: 13pt; FONT-FAMILY: "宋体", "Times New Roman"
+}
+.title1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #003399; FONT-FAMILY: "宋体", "Times New Roman"
+}
+.title2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #0033cc; LINE-HEIGHT: 25pt; FONT-FAMILY: "宋体", "Times New Roman"
+}
+.title3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 18pt; LINE-HEIGHT: 25pt; FONT-FAMILY: "宋体", "Times New Roman"
+}
+A:hover {
+	COLOR: #cc0000; FONT-FAMILY: "宋体", "Times New Roman"; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #0000cc; FONT-FAMILY: "宋体", "Times New Roman"; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #0000cc; FONT-FAMILY: "宋体", "Times New Roman"; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #ff0000; FONT-FAMILY: "宋体", "Times New Roman"
+}
+A.top:link {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "宋体", "Times New Roman"; TEXT-DECORATION: none
+}
+A.top:hover {
+	FONT-SIZE: 9pt; COLOR: #ff6600; FONT-FAMILY: "宋体", "Times New Roman"; TEXT-DECORATION: none
+}
+A.top:visited {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "宋体", "Times New Roman"; TEXT-DECORATION: none
+}
+A.left:link {
+	FONT-SIZE: 9pt; COLOR: #ffffff; FONT-FAMILY: "宋体", "Times New Roman"; TEXT-DECORATION: none
+}
+A.left:hover {
+	FONT-SIZE: 9pt; COLOR: #ffcc00; FONT-FAMILY: "宋体", "Times New Roman"; TEXT-DECORATION: none
+}
+A.left:visited {
+	FONT-SIZE: 9pt; COLOR: #ffffff; FONT-FAMILY: "宋体", "Times New Roman"; TEXT-DECORATION: none
+}
+A.menu:active {
+	COLOR: #ffffff; BACKGROUND-COLOR: #003399
+}
+A.menu:link {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "宋体", "Times New Roman"; TEXT-DECORATION: none
+}
+A.menu:hover {
+	FONT-SIZE: 10pt; COLOR: #ffffff; FONT-FAMILY: "宋体", "Times New Roman"; BACKGROUND-COLOR: #003399; TEXT-DECORATION: none
+}
+A.menu:visited {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: "宋体", "Times New Roman"; TEXT-DECORATION: none
+}
+A.home:hover {
+	FONT-SIZE: 9pt; COLOR: #ffcc00; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.home:link {
+	FONT-SIZE: 9pt; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.home:visited {
+	FONT-SIZE: 9pt; COLOR: #ffffff; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+A.home:hover {
+	FONT-SIZE: 9pt; COLOR: #ffcc00; FONT-FAMILY: "宋体"; TEXT-DECORATION: none
+}
+BODY {
+	SCROLLBAR-FACE-COLOR: #eef9ff; FONT-SIZE: 12px; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; SCROLLBAR-SHADOW-COLOR: #000000; SCROLLBAR-3DLIGHT-COLOR: #99ccff; SCROLLBAR-ARROW-COLOR: #000000; SCROLLBAR-TRACK-COLOR: #99ccff; FONT-FAMILY: "宋体"; SCROLLBAR-DARKSHADOW-COLOR: #99ccff
+}
+INPUT.bt1 {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-WEIGHT: normal; FONT-SIZE: 9pt; BACKGROUND-IMAGE: none; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; BACKGROUND-REPEAT: repeat; FONT-FAMILY: 宋体, Arial; BACKGROUND-COLOR: #f7f5ee
+}
+INPUT.bt2 {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #999999 1px solid; COLOR: #000000; PADDING-TOP: 2px; BORDER-BOTTOM: #999999 1px solid; HEIGHT: 22px; BACKGROUND-COLOR: #eeeeee
+}
+INPUT.txt1 {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-WEIGHT: normal; FONT-SIZE: 9pt; BACKGROUND-IMAGE: none; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; BACKGROUND-REPEAT: repeat; FONT-FAMILY: 宋体, Arial; BACKGROUND-COLOR: #eef4ff
+}
+INPUT.txt2 {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-WEIGHT: normal; FONT-SIZE: 9pt; BACKGROUND-IMAGE: none; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; BACKGROUND-REPEAT: repeat; FONT-FAMILY: 宋体, Arial; BACKGROUND-COLOR: #f7f5ee
+}
+SELECT.slect1 {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-WEIGHT: normal; FONT-SIZE: 9pt; BACKGROUND-IMAGE: none; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; BACKGROUND-REPEAT: repeat; FONT-FAMILY: 宋体, Arial; BACKGROUND-COLOR: #eef4ff
+}
+radio.radio1 {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-WEIGHT: normal; FONT-SIZE: 9pt; BACKGROUND-IMAGE: none; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; BACKGROUND-REPEAT: repeat; FONT-FAMILY: 宋体, Arial; BACKGROUND-COLOR: #eef4ff
+}
+chekbox.chk1 {
+	BORDER-RIGHT: #999999 1px solid; BORDER-TOP: #999999 1px solid; FONT-WEIGHT: normal; FONT-SIZE: 9pt; BACKGROUND-IMAGE: none; BORDER-LEFT: #999999 1px solid; BORDER-BOTTOM: #999999 1px solid; BACKGROUND-REPEAT: repeat; FONT-FAMILY: 宋体, Arial; BACKGROUND-COLOR: #eef4ff
+}
+.TreePoint {
+	BACKGROUND-POSITION: left 0%; BACKGROUND-IMAGE: url(/resourceone/images/point.gif); WIDTH: 22px; BACKGROUND-REPEAT: repeat-y
+}
+.TreeBgColor {
+	BACKGROUND-COLOR: #eeeeee
+}
+.TreeSign {
+	WIDTH: 22px; CURSOR: hand
+}
+.ExplainON {
+	FONT-SIZE: 9pt; MARGIN: 10%; CURSOR: hand; COLOR: #ff0000; FONT-FAMILY: Arial; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+.ExplainOFF {
+	FONT-SIZE: 9pt; MARGIN: 10%; CURSOR: hand; COLOR: #000000; FONT-FAMILY: Arial; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+.smcDiv {
+	PADDING-RIGHT: 0px; OVERFLOW-Y: auto; PADDING-LEFT: 0px; OVERFLOW-X: auto; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; HEIGHT: 117px
+}
+.xian {
+	BORDER-RIGHT: #333333 1px solid; BORDER-TOP: #333333 1px solid; BORDER-LEFT: #333333 1px solid; BORDER-BOTTOM: #333333 1px solid; BACKGROUND-COLOR: #f7f8fd
+}
+.background {
+	BACKGROUND-POSITION: right top; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-IMAGE: url(top-bj.gif); BACKGROUND-REPEAT: no-repeat
+}

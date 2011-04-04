@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>左右控制栏</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<LINK href="left.files/style.css" rel=stylesheet>
+<META content="MSHTML 6.00.6000.16397" name=GENERATOR></HEAD>
+<BODY text=#eeeeee bgColor=#ffffff leftMargin=0 topMargin=0 marginwidth="0" marginheight="0">
+<TABLE height="100%" cellSpacing=0 cellPadding=0 width=5 background=FrameControl_files/nav.gif border=0>
+  <TBODY>
+  <TR height="100%">
+    <TD vAlign=center height="100%">
+      <DIV id=divNav style="DISPLAY: block" align=right>
+	  <IMG id=imgNav onmouseover=javascript:_ArrowOver(); style="CURSOR: hand" onclick=javascript:window.top._funNav(0); onmouseout=javascript:_ArrowOut(); src="FrameControl_files/lefta.gif" border=0>
+	  </DIV>
+	</TD>
+  </TR>
+  </TBODY>
+</TABLE>
+<SCRIPT language=JavaScript>
+function _ArrowOver()
+{
+ _src = document.all.imgNav.src;
+
+ if(_src.indexOf("lefta")>0)
+{
+
+ document.all.imgNav.src="../images/leftb.gif";
+}
+if(_src.indexOf("righta")>0)
+{
+ document.all.imgNav.src="../images/rightb.gif";
+}
+
+}
+
+function _ArrowOut()
+{
+ _src = document.all.imgNav.src;
+if(_src.indexOf("leftb")>0)
+{
+ document.all.imgNav.src="../images/lefta.gif";
+}
+if(_src.indexOf("rightb")>0)
+{
+ document.all.imgNav.src="../images/righta.gif";
+}
+}
+</SCRIPT>
+</BODY></HTML>
+

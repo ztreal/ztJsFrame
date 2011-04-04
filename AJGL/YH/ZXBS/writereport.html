@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+	<head> 
+		<meta http-equiv="Content-Type" content="text/html; charset=gbk" /> 
+		<title>填写报表</title> 
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />	
+		<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/redmond/jquery-ui-1.8.2.custom.css" /> 
+		<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.jqgrid.css" /> 
+		<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.multiselect.css" />
+		<link type="text/css" href="../../css/tabs.css" rel="stylesheet" /> 
+        
+		<script src="../../common/js/jquery-1.4.2.min.js" type="text/javascript"></script> 
+		<script src="../../common/js/base.js" type="text/javascript"></script>
+		<script src="../../common/js/jqgrid/js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script> 
+		<script src="../../common/js/jqgrid/js/jquery.layout.js" type="text/javascript"></script> 
+		<script src="../../common/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script> 
+		<script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+		<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+		<script src="../../common/js/jqgrid/js/ui.multiselect.js" type="text/javascript"></script> 
+		<script src="../../common/js/jqgrid/js/jquery.jqGrid.js" type="text/javascript"></script>  
+		<style type="text/css" >
+			* { margin:0; padding:0;}
+			body {
+                font-family: "宋体";
+                font-size: 12px;
+            }
+            .excel_header td
+            {
+            	border-right: 1px solid black;
+            	border-bottom: 1px solid black;
+            	text-align: center;
+            }
+            .excel_data td
+            {
+            	border-right: 1px solid #aaa;
+            	border-bottom: 1px solid #aaa;
+            	text-align: center;
+            }
+            .excel_data input[type=text]
+            {
+            	border: 0px;
+            	width: 100%;
+            	height: 100%;	
+            }
+		</style> 
+	</head>
+	<body>
+		<div style="width:100%;background-color:#f4f4f4; height:32px; font-size:12px; "><div style="padding-left:10px;padding-top:8px;">当前位置： 专项报送&nbsp;<font style="font-family:'宋体'">></font>&nbsp;录入任务&nbsp;<font style="font-family:'宋体'">></font>&nbsp;手工录入</div></div>
+		<table align="center" style="margin-top:15px;">
+			<tr>
+				<td>
+					单位名称:<select style="width:auto; height:22px;">
+						<option selected="selected">国家发改委</option>
+						<option>中央纪委监察部</option>
+						<option>江西省安检检查机关</option>
+						<option>湖南安检检查机关</option>
+					</select>
+					&nbsp;&nbsp;
+					填报时间:<select style="width:90px; height:22px;">
+						<option selected="selected">2007-11-12</option>
+						<option>2007-11-12</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<table cellspacing="0" cellpadding="0" align="center" style="margin-top:10px; border:2px solid black;">
+			<tr>
+				<td colspan="2">
+					<table class="excel_header" cellspacing="0" cellpadding="0" style="background-color:#aaa">
+						<tr>
+							<td width="100">行名</td>
+							<td width="40">行号</td>
+							<td width="70">
+								<div>党务机关</div><div>1</div>
+							</td>
+							<td width="70">
+								<div>政府机关</div><div>2</div>
+							</td>
+							<td width="70">
+								<div>人大机关</div><div>3</div>
+							</td>
+							<td width="70">
+								<div>政协机关</div><div>4</div>
+							</td>
+							<td width="70">
+								<div>审判机关</div><div>5</div>
+							</td>
+							<td width="70">
+								<div>检察机关</div><div>6</div>
+							</td>
+							<td width="70">
+								<div>人民团体</div><div>7</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table cellspacing="0" cellpadding="0" style="background-color:#aaa" class="excel_header">
+						<tr height="22">
+							<td width="100">信访举报</td>
+							<td width="40">1</td>
+						</tr>
+						<tr height="22">
+							<td>上级交办</td>
+							<td>2</td>
+						</tr>
+						<tr height="22">
+							<td>公检法移送</td>
+							<td>3</td>
+						</tr>
+						<tr height="22">
+							<td>执法监察中发现</td>
+							<td>4</td>
+						</tr>
+						<tr height="22">
+							<td>办案中发现</td>
+							<td>5</td>
+						</tr>
+						<tr height="22">
+							<td>审计中发现</td>
+							<td>6</td>
+						</tr>
+						<tr height="22">
+							<td>其他</td>
+							<td>7</td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table id="data" cellspacing="0" cellpadding="0" class="excel_data">
+						<tr height="22">
+							<td width="70"><input type="text"></td>
+							<td width="70"><input type="text"></td>
+							<td width="70"><input type="text"></td>
+							<td width="70"><input type="text"></td>
+							<td width="70"><input type="text"></td>
+							<td width="70"><input type="text"></td>
+							<td width="70"><input type="text"></td>
+						</tr>
+						<tr height="22">
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+						</tr>
+						<tr height="22">
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+						</tr>
+						<tr height="22">
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+						</tr>
+						<tr height="22">
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+						</tr>
+						<tr height="22">
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+						</tr>
+						<tr height="22">
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+							<td><input type="text"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table align="center">
+			<tr>
+				<td colspan="2" align="center" height="45">
+					<DIV style="PADDING-RIGHT: 10px; FLOAT: left; padding-left:10px; PADDING-TOP: 3px"  class="clbutton"  id="beginWrite" >
+						<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+						  <tr>
+						    <td  class="blue_2_j"></td>
+						    <td class="blue_4_j" onclick="javascript:window.location='selectreportform.html'">保存</td>
+						    <td class="blue_3_j"></td>
+						  </tr>
+						</table>
+			 		</DIV> 
+			 		<DIV style="PADDING-RIGHT: 10px; FLOAT: left; padding-left:10px; PADDING-TOP: 3px"  class="clbutton"  id="downloadTask" >
+						<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+						  <tr>
+						    <td  class="blue_2_j"></td>
+						    <td class="blue_4_j" onclick="javascript:window.location='selectreportform.html'">返回</td>
+						    <td class="blue_3_j"></td>
+						  </tr>
+						</table>
+			 		</DIV> 
+			  </td>
+			</tr>
+		</table>
+	</body>
+</html>

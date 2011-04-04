@@ -1,0 +1,23 @@
+<?xml-stylesheet type="text/xsl" href="docs.xsl"?><javascript fileName="jquery.valipingmeng.js">
+    <property name="$" scope="static" constructor="false" deprecated="false" private="false" protected="false" ignored="true" internal="false" type="Object">
+        <property name="fn" scope="static" constructor="false" deprecated="false" private="false" protected="false" ignored="true" internal="false" type="Object">
+            <function name="check" scope="static" constructor="false" deprecated="false" private="false" protected="false" ignored="false" internal="false" type="Function">
+                <description>$.fn.print.default = { greater: &quot;printcontent&quot; }; // 需要校验的内容参数传入 $(&apos; # print&apos;).print( { tempobj : &apos;#temp2&apos;}); }</description>
+                <object_literal name="defaults" scope="static" constructor="false" deprecated="false" private="false" protected="false" ignored="true" internal="false" type="Object">
+                    <property name="greater" scope="static" constructor="false" deprecated="false" private="false" protected="false" ignored="true" internal="false" type="String">
+                    </property>
+                    <property name="less" scope="static" constructor="false" deprecated="false" private="false" protected="false" ignored="true" internal="false" type="String">
+                    </property>
+                </object_literal>
+                <property name="opts" scope="static" constructor="false" deprecated="false" private="false" protected="false" ignored="true" internal="false" type="Object">
+                </property>
+                <property name="symbol" scope="static" constructor="false" deprecated="false" private="false" protected="false" ignored="true" internal="false" type="Object">
+                </property>
+                <property name="va1" scope="static" constructor="false" deprecated="false" private="false" protected="false" ignored="true" internal="false" type="Object">
+                </property>
+                <property name="va2" scope="static" constructor="false" deprecated="false" private="false" protected="false" ignored="true" internal="false" type="Object">
+                </property>
+            </function>
+        </property>
+    </property>
+</javascript>

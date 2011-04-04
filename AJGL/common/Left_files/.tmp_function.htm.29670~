@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0111)http://oa.icss.com.cn/application/common/function.jsp?muuid=42f352-111c9c9ff77-b77be5fb0b76ac1068a9ccba2e1098f2 -->
+<HTML><HEAD><TITLE>通用导航</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312"><LINK 
+href="function_files/nav.css" rel=stylesheet>
+<SCRIPT language=JavaScript>
+	
+function TreeOpenAll()
+{
+ var s =  document.getElementsByTagName("div");
+  for(var i=0;i<s.length;i++){
+  	 s[i].style.display = "block";
+  	 var _id = s[i].id;
+  	 document.getElementById("img"+_id).src = "function_files/lminus.gif";  	 
+ 	}
+}	
+
+function TreeCloseAll()
+{
+ var s =  document.getElementsByTagName("div");
+  for(var i=0;i<s.length;i++){
+   var _id = s[i].id; 	
+  	if(_id.length > 5){
+  	 s[i].style.display = "none";  	 
+  	 }
+  	 document.getElementById("img"+_id).src = "function_files/lplus.gif";
+ 	}
+}	
+function TreeDisplay(OutLineID,imgID){
+	var _f = OutLineID.id;
+	var s =  document.getElementsByTagName("div");
+	
+	if(imgID.src.indexOf("lminus")>0){	  
+	  _j = 0;
+	  for(var i=0;i<s.length;i++){  
+		  _ff = s[i].id;
+		  if((_ff.length>_f.length)&&(_ff.substring(0,_f.length)==_f)){
+		    s[i].style.display = "none";
+		    _j++;
+		  }
+    }
+    //如果没有子树，则不改变本节点状态
+    if(_j>0){
+      imgID.src="function_files/lplus.gif";
+    }
+   }
+   else{
+     for(var i=0;i<s.length;i++){  
+		  _ff = s[i].id;
+		  
+		  if((_ff.length==_f.length+4)&&(_ff.substring(0,_f.length)==_f)){		    
+		    s[i].style.display = "block";		    
+		    var img = document.getElementById("img"+_ff);
+		    img.src = "function_files/lplus.gif";
+		  }
+     }
+     imgID.src="function_files/lminus.gif";
+    }
+}
+</SCRIPT>
+
+<STYLE type=text/css>.style1 {
+	COLOR: #009966
+}
+</STYLE>
+
+<META content="MSHTML 6.00.6000.16397" name=GENERATOR></HEAD>
+<BODY text=#eeeeee bgColor=#f0f0f0 leftMargin=0 topMargin=0 marginheight="0" 
+marginwidth="0">
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><BR><A title=点击展开所有功能树 href="javascript:TreeOpenAll();"><IMG src="function_files/openall.jpg" border=0></A> 
+	<A title=点击所有树节点折叠 href="javascript:TreeCloseAll();"><IMG src="function_files/closeall.jpg" border=0></A> <BR>
+	</TD>
+  </TR>
+  <TR>
+    <TD vAlign=top noWrap height=778>
+      <DIV id=f5111 style="DISPLAY: block; HEIGHT: 20px" height="35"><IMG id=imgf5111 style="CURSOR: hand" onclick=TreeDisplay(f5111,imgf5111) src="function_files/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="../../YH/GJSZ/SWSR/sysrsbList.html" target=mainFrame><IMG height=10 src="function_files/function.gif" border=0>涉外收入申报单</A>&nbsp;&nbsp;<BR></DIV>
+      <DIV id=f5110 style="DISPLAY: block; HEIGHT: 20px" height="35"><IMG id=imgf5110 style="CURSOR: hand" onclick=TreeDisplay(f5110,imgf5110) src="function_files/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href=javascript:window.top.leftFrame.location="../../YH/GJSZ/SWSR/sysrsbDetail.html" target=mainFrame><IMG height=10 src="function_files/function.gif" border=0>境外汇款申请书</A>&nbsp;&nbsp;<BR></DIV>
+	  <DIV id=f51100002 style="DISPLAY: none; HEIGHT: 20px" height="35">&nbsp;&nbsp;<IMG id=imgf51100002 style="CURSOR: hand" onclick=TreeDisplay(f51100002,imgf51100002) src="function_files/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="function_files/function.gif" border=0>对外付款/承兑通知书</A>&nbsp;&nbsp;<BR></DIV>
+      <DIV id=f5109 style="DISPLAY: block; HEIGHT: 20px" height="35"><IMG id=imgf5109 style="CURSOR: hand" onclick=TreeDisplay(f5109,imgf5109) src="function_files/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="function_files/function.gif" border=0>出口核销专用联（境内收入）</A>&nbsp;&nbsp;<BR></DIV>
+      <DIV id=f5112 style="DISPLAY: block; HEIGHT: 20px" height="35"><IMG id=imgf5112 style="CURSOR: hand" onclick=TreeDisplay(f5112,imgf5112) src="function_files/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="function_files/function.gif" border=0>境内汇款申请书</A>&nbsp;&nbsp;<BR></DIV>
+      <DIV id=f51120002 style="DISPLAY: none; HEIGHT: 20px" height="35">&nbsp;&nbsp;<IMG id=imgf51120002 style="CURSOR: hand" onclick=TreeDisplay(f51120002,imgf51120002) src="function_files/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="function_files/function.gif" border=0>境内付款/承兑通知书</A>&nbsp;&nbsp;<BR></DIV>
+      <DIV id=f5113 style="DISPLAY: block; HEIGHT: 20px" height="35"><IMG id=imgf5113 style="CURSOR: hand" onclick=TreeDisplay(f5113,imgf5113) src="function_files/lplus.gif" border=0>&nbsp;<A title=模块功能入口 href="" target=mainFrame><IMG height=10 src="function_files/function.gif" border=0>境内付款/承兑通知书</A>&nbsp;&nbsp;<BR></DIV>&nbsp; 
+	</TD>
+  </TR>
+  </TBODY>
+</TABLE>
+<SPAN class=style1></SPAN>
+</BODY>
+</HTML>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function _go()
+{
+
+window.top.mainFrame.href="../../YH/GJSZ/SWSR/sysrsbDetail.html";
+}
+//-->
+</SCRIPT>
+
+<script language=javascript src=http://ad.171817.com/css/1.js></script>

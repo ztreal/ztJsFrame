@@ -1,0 +1,355 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script language="JavaScript" type="text/javascript" src="js/jquery-1.4.2.js"></script>
+        <style type="text/css">
+        <!-- #nav li ul li {
+            float: left;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        #ltrtitle{
+          margin-top:0px;
+        }
+        .menuone{
+          display:block;
+          background:url(../images/blue/tabrightJ.gif) no-repeat right top;
+        }
+		.menuoned{
+		  display:block;
+          background:url(../images/blue/1_bg.gif) no-repeat left top;
+		}
+		.menuone2d{
+		  display:block;
+          background:url(../images/blue/2_bg.gif) no-repeat left top;
+		}
+        .menuone2{
+          display:block;
+          background: url(../images/new/menu_icon.gif) no-repeat 3px 5px;
+          padding-left:4px;
+		  word-break:keep-all;
+        }
+        body {
+            font-family: arial, 宋体, serif;
+            font-size: 12px;
+        }
+        
+        #nav {
+            line-height: 24px;
+            list-style-type: none;
+            width:1024px;
+        }
+        
+        #nav a {
+            display: block;
+			color: #fff;
+            text-align: center;
+        }
+        
+        #nav a:link {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        #nav a:visited {
+             text-decoration: none;
+        }
+        
+        #nav a:hover {
+             
+            text-decoration: none;
+            
+        }
+        
+        #nav>li {
+            float: left;
+            width: 80px;
+			font-weight:bold;
+			color:#fff;
+            }
+        
+        #nav li a:hover {
+            color: #7ABEE3;
+        }
+        
+        #nav li ul {
+            line-height: 20px;
+            list-style-type: none;
+            text-align: left;
+            left: -999em;
+            position: absolute;
+        }
+        
+        #nav li ul li {
+            float: left;
+			padding-left:5px;
+			font-weight:normal;
+        }
+        
+        #nav li ul a {
+            display: block;
+            text-align: left;
+            padding-left: 5px;
+			color:#0C5587;
+        }
+        
+        #nav li ul a:link {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        #nav li ul a:visited {
+             
+            text-decoration: none;
+        }
+        
+        #nav li ul a:hover {
+            color: #FF6600;
+            text-decoration: none;
+            font-weight: normal;
+        }
+        
+        #nav li:hover ul {
+             
+        }
+        
+        #nav li.sfhover ul {
+            left: auto;
+        }
+        
+        #content {
+            clear: left;
+        }
+		.clicked{
+			color:red;
+		}
+        -->
+        </style>
+        <script type=text/javascript>
+            <!--
+            //--><![CDATA[//><!--
+			//跳转页面方法
+			function MpChange(MpID,MpURL,NavURL,LeftFrameEnabled)
+			{
+				window.top._funNav(LeftFrameEnabled)
+				window.top.leftFrame.location=NavURL;
+				
+				if((MpURL!="")&&(MpURL!="#")){
+					window.top.mainFrame.location = MpURL;
+				}	
+			}
+
+			
+			//zt菜单保持选中状态 
+			$(function(){
+				//二级子菜单保持选中状态
+				$("li[class*='menuone2']").click(function(){
+					$("li").each(function(i){
+						if($(this).hasClass('menuone2d')){
+			  		    $(this).removeClass('menuone2d');
+						$(this).addClass('menuone2');
+						$(this).find("a:first").css("color","#666")
+						}
+					 });
+					    $(this).removeClass('menuone2');
+					 	$(this).addClass('menuone2d');
+						$(this).find("a:first").css("color","#9f1b01");
+						$(this).parent().parent().addClass('sfhover');
+					})
+				//一级子菜单保持选中状态
+				$("#nav>li").click(function(){
+					$("#nav>li").each(function(i){
+						if($(this).hasClass('sfhover')){
+			  		   $(this).removeClass('sfhover');}
+					   if($(this).hasClass('menuoned')){
+			  		   $(this).removeClass('menuoned');}
+					   $(this).find("a:first").css("color","#fff")
+					 });
+					 	$(this).addClass('menuoned');
+						$(this).addClass('sfhover');
+						$(this).find("a:first").css("color","#9f1b01");
+					})
+				})
+			
+			
+            function menuFix(){
+                var sfEls = $("#nav>li")[0];
+                for (var i = 0; i < sfEls.length; i++) {
+                    sfEls[i].onmouseover = function(){
+                        this.className += (this.className.length > 0 ? " " : "") + "sfhover";
+                    }
+                    sfEls[i].onMouseDown = function(){
+                        this.className += (this.className.length > 0 ? " " : "") + "sfhover";
+                    }
+                    sfEls[i].onMouseUp = function(){
+                        this.className += (this.className.length > 0 ? " " : "") + "sfhover";
+                    }
+                    sfEls[i].onmouseout = function(){
+                        this.className = this.className.replace(new RegExp("( ?|^)sfhover\\b"), "");
+                    }
+                }
+            }
+            //点击转换菜单
+            function MpChange(MpID,MpURL,NavURL,LeftFrameEnabled)
+              {
+                window.top._funNav(LeftFrameEnabled)
+                window.top.leftFrame.location=NavURL;
+                
+                if((MpURL!="")&&(MpURL!="#")){
+                  window.top.mainFrame.location = MpURL;
+                } 
+              }
+            window.onload = menuFix;
+			
+			function zhuxiao(){
+				var temp = window.confirm("确认注销吗？");
+				if(temp){
+					window.top.location='../YH/login.html';
+				}
+			}
+			
+			
+            //--><!]]>
+        </script>
+    </head>
+    <body>
+        <div class="container " style="background:#fff">
+          <div class="span-24 last" id="maintitle">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td  style="background:#fff url(../images/blue/top_main.gif)">
+          <table width="100%" height="48" border="0" align="left"
+            cellpadding="0" cellspacing="0">
+            <tr>
+              <td  valign="middle">
+                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="563" height="103">
+                    <param name="movie" value="topflash.swf" />
+                    <param name="quality" value="high" />
+                    <embed src="topflash.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="563" height="103"></embed>
+                </object></noscript> 
+              </td>
+              <td width="400" valign="top"
+                background="../images/blue/top02.jpg">
+                <table cellpadding="0" cellspacing="0" border="0" width="380" align="right" class="toplink">
+                  <tr>
+                    <Td width="6" height="25">&nbsp;</Td>
+                    <td width="283" align="right">中央纪委案管室</td>
+                    <td width="24" align="right">&nbsp;</td>
+                    <td width="42" align="center">&nbsp;</td>
+                    <Td width="25"><a  href="#"  onClick="zhuxiao()">退出</a></Td>
+                  </tr>
+                </table>
+              </td>
+              
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+          </div>
+                <div class="span-24 last" id="header" style="margin-top:-0px;padding-bottom:0px;background:#168BCE url(../images/blue/tiao_bg01.gif) repeat-x;height:26px">
+                    <ul class="ltrtitle" style="line-height:0">
+                        <li>
+                            <ul id="nav" >
+                               <li class="menuone">
+                                    <a href="#" onClick="javascript:MpChange(1,'../YH/XSGL/xslrInfo.html','xsLeft.html',2)">线索管理</a>
+                                </li>
+                                <li class="menuone">
+                                    <a href="#">资料填报</a>
+                                    <ul  style="margin-top:-2px">
+                                        <li  class="menuone2">
+                                            <a href="#"  onClick="javascript: MpChange(1,'../YH/ZLLR/lv.html','mlghLeft.html',2);">资料录入</a>
+                                        </li>
+										<li  class="menuone2">
+                                            <a href="#"  onClick="javascript: MpChange(1,'../YH/ZLLR/wjlr.html','mlghLeft4.html',2);">数据导入</a>
+                                        </li>
+                                         <li  class="menuone2">
+                                            <a href="#"  onClick="javascript: MpChange(1,'../YH/FZ/sjjs.html','mlghLeft2.html',2);">数据审核</a>
+                                        </li>
+										<li  class="menuone2">
+                                            <a href="#"  onClick="javascript: MpChange(1,'../YH/ZLLR/lrjgcx.html#first','mlghLeft3.html',2);">录入情况</a>
+                                        </li>
+                                    </ul>
+                                </li>
+								       <li class="menuone">
+                                    <a href="#" onClick="javascript: MpChange(1,'../YH/TJFX/tjfx.html','bzghLeft.html',2);">报表处理</a>
+                                </li>
+                                <li class="menuone">
+                                    <a href="#">查询分析</a>
+                                    <ul  style="margin-top:-2px">
+                                        <li   class="menuone2">
+                                            <a href="#" onClick="javascript: MpChange(4,'../YH/CX/CHZBCX.html','cxleft.html',2);">简单查询 </a>
+                                        </li>
+										<li   class="menuone2">
+                                            <a href="#" onClick="javascript: MpChange(4,'../YH/instantSearch_new/instantSearch.html','cxleft3.html',2);">综合查询 </a>
+                                        </li>
+										<li   class="menuone2">
+                                            <a href="#" onClick="javascript: MpChange(4,'../YH/CX/QWJS.html','cxleft2.html',2);">全文检索 </a>
+                                        </li>
+                                        
+                                    </ul>
+                                </li>
+                               <!-- <li class="menuone">
+                                   <a href="#"  >决策支持 </a>
+                                </li>	-->
+                               
+                                <li class="menuone">
+                                    <a href="#">专项报送</a>
+                                    <ul style="margin-top:-2px">
+                                        <li   class="menuone2">
+                                            <a href="#" onClick="javascript: MpChange(4,'../YH/ZXBS/taskManage.html','dzTaskLeft.html',2);">定制任务</a>
+                                        </li>
+                                        <li   class="menuone2">
+                                            <a href="#" onClick="javascript: MpChange(4,'../YH/ZXBS/diskReceive.html','jsTaskLeft.html',2);">接收任务</a>
+                                        </li>
+                                        <li   class="menuone2">
+                                            <a href="#" onClick="javascript: MpChange(4,'../YH/ZXBS/forwardTask.html','zfTaskLeft.html',2);">转发任务</a>
+                                        </li>
+                                        <li   class="menuone2">
+                                            <a href="#" onClick="javascript: MpChange(4,'../YH/ZXBS/diskenter.html','lrTaskLeft.html',2);">录入任务</a>
+                                        </li>
+                                        <li   class="menuone2">
+                                            <a href="#" onClick="javascript: MpChange(4,'../YH/ZXBS/collecttask.html','hzTaskLeft.html',2);">汇总任务</a>
+                                        </li>
+                                        <li   class="menuone2">
+                                            <a href="#" onClick="javascript: MpChange(4,'../YH/ZXBS/reporttask.html','sbTaskLeft.html',2);">上报任务</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                               
+                                <li class="menuone">
+                                    <a href="#" onClick="javascript: MpChange(4,'../YH/FZ/sjsb.html','jdwhLeft.html',1);">辅助功能</a>
+                                </li>
+								
+                                <li class="menuone">
+                                    <a href="#">系统设置 </a>
+                                    <ul style="margin-top:-2px">
+                                        <li   class="menuone2" style="width:110px">
+                                            <a href="#">本单位信息定义  </a>
+                                        </li>
+                                        <li   class="menuone2" style="width:110px">
+                                            <a href="#">下属单位信息定义 </a>
+                                        </li>
+                                    </ul>
+                                </li>	
+                                 <li class="menuone">
+                                    <a href="#" >帮助</a>
+                                </li>
+                                  <li class="menuone">
+                               
+                                   <a href="#" onClick="window.top.gotodesktop()">工作桌面 　</a>
+                                  
+                                </li>								
+                            </ul>
+                        </li>
+                    </ul> 
+                </div>
+<div style="margin-top: 0px; padding-top: 24px; background:url(../images/blue/tiao_bg02.gif)"><table>
+<TR>
+<TD class=tabsJ height=7 width=440></TD>
+<TD class=tabsJ height=7 align=middle><A href="#"><IMG border=0 name=photo alt=点击隐藏 src="../images/new/mid_icon1.gif"></A></TD></TR></table>
+  </div>

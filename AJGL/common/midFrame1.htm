@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0046)http://oa.icss.com.cn/application/midFrame.htm -->
+<HTML><HEAD><TITLE>上下控制</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<LINK href="left.files/style.css" rel=stylesheet>
+<META content="MSHTML 6.00.6000.16397" name=GENERATOR>
+</HEAD>
+<BODY text=#eeeeee leftMargin=0 topMargin=0 marginwidth="0" marginheight="0">
+<TABLE height=9 cellSpacing=0 cellPadding=0 width="100%" background="midFrame_files/ctrl_bg.gif" border=0>
+  <TBODY>
+  <TR width="100%">
+    <TD vAlign=top align=middle width="100%">
+      <DIV id=divNav style="DISPLAY: block" align=center valign="top">
+	  <IMG id=imgNav onmouseover=javascript:_ArrowOver(); style="CURSOR: hand" onclick=window.top._topControl() onmouseout=javascript:_ArrowOut(); src="midFrame_files/upa.gif" border=0>
+	  </DIV>
+	</TD>
+  </TR>
+  </TBODY>
+</TABLE>
+<SCRIPT language=JavaScript>
+function _ArrowOver()
+{
+ _src = document.all.imgNav.src;
+ if(_src.indexOf("upa")>0)
+{
+ document.all.imgNav.src = "midFrame_files/upb.gif";
+ document.all.imgNav.alt = "点击收起上边的菜单栏";
+}
+if(_src.indexOf("downa")>0)
+{
+ document.all.imgNav.src="midFrame_files/downb.gif";
+ document.all.imgNav.alt = "点击展开上边的菜单栏";
+}
+
+}
+
+function _ArrowOut()
+{
+ _src = document.all.imgNav.src;
+if(_src.indexOf("upb")>0)
+{
+ document.all.imgNav.src="midFrame_files/upa.gif";
+}
+if(_src.indexOf("downb")>0)
+{
+ document.all.imgNav.src="midFrame_files/downa.gif";
+}
+}
+</SCRIPT>
+</BODY></HTML>
+

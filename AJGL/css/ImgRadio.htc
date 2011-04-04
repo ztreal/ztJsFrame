@@ -1,0 +1,198 @@
+<!-- ---------------------------------------------------------------------
+//
+//  File:         ImgRadio.htc
+//
+//  Description:  Ê¹ÓÃÍ¼Æ¬µÄRadioBox
+//
+//-------------------------------------------------------------------- -->
+<PUBLIC:COMPONENT id="icssJindunImgRadio" urn="icss:JindunImgRadio">
+
+<PROPERTY NAME="checkedImg" />
+<PROPERTY NAME="uncheckedImg" />
+
+<ATTACH   EVENT="ondocumentready"  HANDLER="DoInit"       />
+<script language="jscript">
+
+
+//+----------------------------------------------------------------------------
+//
+//  Global Variables
+//
+//-----------------------------------------------------------------------------
+
+checkedImg  ;
+
+uncheckedImg ;
+
+
+//+----------------------------------------------------------------------------
+//
+//  Function:       DoInit
+//
+//  Description:    Attaches the proper formatting and events, depending on
+//                  the type of tag the behavior is attached to.
+//
+//  Arguments:      none
+//
+//  Returns:        nothing
+//
+//-----------------------------------------------------------------------------
+
+function DoInit()
+{
+	if(!(type.toLowerCase() == 'radio') && !(type.toLowerCase() == 'checkbox'))
+	{
+	    return;
+	}
+
+	SetDefaults();
+
+	if(type.toLowerCase() == 'radio')
+	{
+        checkedImg = (checkedImg==null) ? style.imgRadioChecked : checkedImg;
+        uncheckedImg = (uncheckedImg==null) ? style.imgRadioUnchecked : uncheckedImg;
+	}
+	else if(type.toLowerCase() == 'checkbox')
+	{
+        checkedImg = checkedImg==null ? style.imgCheckboxChecked : checkedImg;
+        uncheckedImg = uncheckedImg==null ? style.imgCheckboxUnchecked : uncheckedImg;
+	}
+	else
+	{
+	//	alert('error');
+	}
+	
+	style.display = "none";
+	var sHTML = "";
+	sHTML += "<span>";
+	sHTML += "<img id='imgRadio_" + name + "_checked' src='" + checkedImg + "' " ; 
+    sHTML += "style=\"display:expression(((parentNode.previousSibling.checked==true) ? '' : 'none')); filter:expression(((parentNode.previousSibling.disabled==true) ?  'progid:DXImageTransform.Microsoft.BasicImage(grayscale=1)' : '')); \" ";
+	sHTML += "onclick=\"parentNode.previousSibling.click();\" >";
+	sHTML += "<img id='imgRadio_" + name + "_unchecked' src='" + uncheckedImg + "' ";
+	sHTML += "style=\"display:expression(((parentNode.previousSibling.checked==true) ? 'none' : ''));  filter:expression(((parentNode.previousSibling.disabled==true) ?  'progid:DXImageTransform.Microsoft.BasicImage(opacity=0.15) progid:DXImageTransform.Microsoft.BasicImage(XRay=1)' : '')); \" " ;
+	sHTML += "onclick=\"parentNode.previousSibling.click();\">";
+	sHTML += "</span>";
+
+	insertAdjacentHTML('afterEnd',sHTML);
+	//alert(firstChild);
+}
+
+//+----------------------------------------------------------------------------
+//
+//  Function:       SetDefaults
+//
+//  Description:    Called during the initialization of the behavior.  Sets
+//                  the defaults for custom CSS properties (calls the
+//                  CustomDefault() function), regular CSS properties (the
+//                  NormalDefault() function), and attribute/properties.
+//
+//  Arguments:      none
+//
+//  Returns:        nothing
+//
+//-----------------------------------------------------------------------------
+
+function SetDefaults()
+{
+	if(!(type.toLowerCase() == 'radio') && !(type.toLowerCase() == 'checkbox'))
+	{
+	    return;
+	}
+
+	CustomDefault('img--radio-checked', 'imgRadioChecked', '../images/selectedv.gif');
+	CustomDefault('img--radio-unchecked', 'imgRadioUnchecked', '../images/unselected.gif');
+	CustomDefault('img--checkbox-checked', 'imgCheckboxChecked', '../images/selectedg.gif');
+	CustomDefault('img--checkbox-unchecked', 'imgCheckboxUnchecked', '../images/unselected.gif');
+		
+}
+
+
+//+----------------------------------------------------------------------------
+//
+//  Function:       CustomDefault
+//
+//  Description:    Sets the defaults for custom CSS properties and establishes
+//                  a scriptable name for the property
+//
+//  Arguments:      sCSSName - the CSS name of the property
+//                  sScriptName - the desired Scriptable name of the property
+//                  sDefault - the desired default value
+//
+//  Returns:        nothing
+//
+//-----------------------------------------------------------------------------
+
+function CustomDefault(sCSSName, sScriptName, sDefault)
+{
+    if (currentStyle[sCSSName] == null)
+    {
+        style[sCSSName] = sDefault;
+    }
+    else style[sCSSName] = ImgRadio_Trim(currentStyle[sCSSName]);
+    
+    style[sScriptName] = style[sCSSName];
+    
+    
+}
+
+
+//+----------------------------------------------------------------------------
+//
+//  Function:       NormalDefault
+//
+//  Description:    Sets the defaults for CSS properties by checking the
+//                  currentStyle and style of the object against the IE
+//                  default.
+//
+//  Arguments:      sCSSName - the CSS name of the property
+//                  sIEDefault - the IE standard default of the property
+//                  sDefault - the desired default of the property
+//
+//  Returns:        nothing
+//
+//-----------------------------------------------------------------------------
+
+function NormalDefault(sCSSName, sIEDefault, sDefault)
+{
+    if (currentStyle[sCSSName] == sIEDefault 
+        && (style[sCSSName] == "" || style[sCSSName] == null))
+    {
+        style[sCSSName] = sDefault;
+    }
+}
+
+
+function ImgRadio_Trim(str, space)
+{
+	if(space == null)
+	{
+		space = " \t\r\n\'\"";
+	}
+	var begin = 0;
+	var end = str.length;
+	var i;
+
+	for(begin=0; begin<str.length; begin++)
+	{
+	    var ch = str.charAt(begin);
+		if( space.indexOf(ch) == -1)
+		{
+		    break;
+		}
+	}
+
+	for(end=str.length-1 ; end > begin ; end--)
+	{
+	    var ch = str.charAt(end);
+		if( space.indexOf(ch) == -1)
+		{
+		    break;
+		}
+	}
+
+	return str.substring(begin, end+1);
+}
+
+</script>
+
+</PUBLIC:COMPONENT>

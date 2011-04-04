@@ -1,0 +1,435 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<STYLE>A.appg:hover {
+	COLOR: #ffffff; FONT-FAMILY: "ï¿½ï¿½ï¿½ï¿½", "Times New Roman"; TEXT-DECORATION: none
+}
+A.appg:visited {
+	COLOR: #ffffff; FONT-FAMILY: "ï¿½ï¿½ï¿½ï¿½", "Times New Roman"; TEXT-DECORATION: none
+}
+A.appg:link {
+	COLOR: #ffffff; FONT-FAMILY: "ï¿½ï¿½ï¿½ï¿½", "Times New Roman"; TEXT-DECORATION: none
+}
+A.appg:active {
+	COLOR: #ffffff; FONT-FAMILY: "ï¿½ï¿½ï¿½ï¿½", "Times New Roman"
+}
+</STYLE>
+<script language="JavaScript" type="text/javascript" src="../common/js/jquery-1.4.2.js"></script>
+<LINK href="AppTop_files/style.css" rel=stylesheet>
+<LINK href="AppTop_files/top_css.css" rel=stylesheet>
+<SCRIPT language=javascript>
+		
+		function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+		if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+		document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+		else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+		}
+		
+		MM_reloadPage(true);
+		
+		function MM_findObj(n, d) { //v4.01
+		var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+		d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+		if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+		for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+		if(!x && d.getElementById) x=d.getElementById(n); return x;
+		}
+		function MM_showHideLayers() { //v6.0
+		var i,p,v,obj,args=MM_showHideLayers.arguments;
+		for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
+		if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+		obj.visibility=v; }
+		}
+		previous_index=0;
+		previous_src=0;
+		m_previous_index=0;
+		m_previous_src=0;
+
+		function over_change(index,src,clrOver){
+		if(previous_index!=parseInt(index))
+		if (!src.contains(event.fromElement))
+		{
+		src.style.cursor = 'hand';
+		//src.bgColor = clrOver;
+		src.background="../images/bg-02.gif";	
+		src.style.cssText= "cursor:hand;COLOR: #000000";
+		}
+		}
+
+		function out_change(index,src,clrIn){
+		if(previous_index!=index)
+		if (!src.contains(event.toElement))
+		{
+		src.style.cursor = 'default';
+		//src.bgColor = clrIn;
+		src.background="#9FBFF5";
+		src.style.cssText= "cursor:hand;COLOR: #000000";
+		}
+		}
+		
+		function click_change(index,src,clrIn){
+		if(previous_src.contains)
+		{
+		if (!previous_src.contains(event.toElement)  && previous_src != src)
+		{
+		
+		previous_src.background="#9FBFF5";
+		previous_src.style.cssText= "cursor:hand;COLOR: #000000";
+		}
+		}
+		if (!src.contains(event.toElement))
+		{
+		src.style.cursor = 'default';
+		//src.bgColor = clrIn;
+		//src.background="../images/bg-02.gif";
+		//alert(src.style.cssText);
+		src.style.cssText= "COLOR: #000000";
+		}
+		previous_index=index;
+		previous_src=src;
+		}
+
+		function onerror(aa,bb,cc)
+		{
+		alert(aa+"\n"+bb+"\n"+cc);
+		}
+		function mOvr(src,clrOver) {
+		if (!src.contains(event.fromElement)) {
+		src.style.cursor = 'hand'; src.bgColor = clrOver;
+		}
+		}
+		function mOut(src,clrIn)
+		{
+		if (!src.contains(event.toElement))
+		{
+		src.style.cursor = 'default'; src.bgColor = clrIn;
+		}
+		}
+		function mClk(src)
+		{
+		if(event.srcElement.tagName=='TD')
+		{
+		;
+		}
+		}
+		function ModuleChange(index,src,clrclick,ModuleURL,ModuleNavURL,LeftFrameEnabled,Muuid,leftfirst)
+		{
+		window.top._funNav(LeftFrameEnabled)
+		if((ModuleNavURL==null)||(ModuleNavURL=="")||(ModuleNavURL=="#")){
+		window.top.leftFrame.location="Left.jsp?Muuid="+Muuid+"&leftfirst="+leftfirst;
+		}
+		else{
+		window.top.leftFrame.location="Left.jsp?navflag=module&Muuid="+Muuid+"&leftfirst="+leftfirst+"&moduleNav="+ escape(ModuleNavURL);
+		}
+		if(ModuleURL!=""){
+		window.top.mainFrame.location = ModuleURL;
+		}
+		if(m_previous_src.contains)
+		{
+		if (!m_previous_src.contains(event.toElement) && m_previous_src != src)
+		{
+		  //m_previous_src.bgColor = "";
+		  m_previous_src.background="../images/bg-03.jpg";	
+		  m_previous_src.style.cssText="font-size: 12px;color: #000000;cursor:hand";
+		  
+		}
+		}
+		if (!src.contains(event.toElement))
+		{
+		src.style.cursor = 'default';
+		  src.bgColor = clrclick;
+		  src.style.cssText = "font-size: 12px;	color: #000000;";
+		}
+		m_previous_index=index;
+		m_previous_src=src;
+		}
+		function ModuleOver(index,src,clrover)
+		{
+		if(m_previous_index!=parseInt(index))
+		if (!src.contains(event.fromElement))
+		{
+		src.style.cursor = 'hand';
+		//src.bgColor = clrover;
+		src.background="../images/bg-02.gif";	
+		src.style.cssText = "font-size: 12px;	color: #000000;cursor:hand";
+		}
+		}
+		function ModuleOut(index,src,clrout)
+		{
+		if(m_previous_index!=index)
+		if (!src.contains(event.toElement))
+		{
+		src.style.cursor = 'default';
+		//src.bgColor = "#9FBFF5";
+		src.background="../images/bg-03.jpg";	
+		src.style.cssText="font-size: 12px;color: #024C7B;cursor:hand";
+		}
+		}
+		function changeToolUrl(url){
+		window.top.mainFrame.location.href = url
+		}
+		function resetUserCustomize(){
+		ok = confirm("ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÈ±Ê¡ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½?")
+		if(ok){
+		
+		window.top.mainFrame.location.href = "/servlet/ResetUserCustomizeServlet";
+		}
+		else{
+		return false;
+		}
+		}
+		function saveMenu(){
+		ok = confirm("ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ä²Ëµï¿½×´Ì¬,ï¿½Â´Îµï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,È·ï¿½ï¿½ï¿½ï¿½?")
+		if(ok){
+		_url="/servlet/SaveMenuStatusServlet?appgrpid=85&appuuid=1d840cd-111c60bd500-b77be5fb0b76ac1068a9ccba2e1098f2&moduleGrpKey="+previous_index+"&moduleKey="+m_previous_index;
+		window.open(_url,"","toolbar=no,width=500,height=300,screenX="+screen.width/2+",screenY="+screen.height/2);
+		}
+		else{
+		return false;
+		}
+		}
+		function showonline(){
+		
+		_url="/resourceone/common/online.jsp";
+		window.open(_url,"","toolbar=no,width=200,screenX="+screen.width/2+",screenY="+screen.height/2);
+		
+		}
+		function _changeModuleMenu(_moduleindex)
+		{
+		
+		eval("document.all."+ _moduleindex +".click()");
+		
+		}
+		function _changeModuleGroupMenu(_mpindex)
+		{
+		
+		eval("document.all."+ _mpindex +".click()");
+		
+		}
+		function _changeMenu(_mpindex,_moduleindex){
+		if(_mpindex!="_mp0"){
+		setTimeout("javascript:_changeModuleGroupMenu('"+_mpindex+"')",1000);
+		}
+		if(_moduleindex!="_module0"){
+		setTimeout("javascript:_changeModuleMenu('"+_moduleindex+"')",1000);
+		}
+		
+		}
+		function _showhelp(){
+		
+		_url="/resourceone/help/sitemap.jsp";
+		window.open(_url,"","toolbar=no, menubar=no, scrollbars=yes,resizable=yes,location=no, status=no,width=800,screenX="+screen.width/2+",screenY="+screen.height/2);
+		
+		}
+		function _addFavorite(){
+		url = "";
+		title = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³";
+		window.external.AddFavorite(url,title);
+		}
+		</SCRIPT>
+
+<SCRIPT language=JavaScript type=text/javascript>
+		
+		<!-- //
+		var oPopup = window.createPopup();
+		function ShowMenu(WhichOne,Ypos,Height,width) {
+		Xpos = document.body.scrollLeft + event.clientX - event.offsetX -3;
+		Ypos = document.body.scrollTop + event.clientY - event.offsetY + Ypos;
+		oPopup.document.body.style.backgroundColor = "#D9E6FF";
+		oPopup.document.body.innerHTML = WhichOne.innerHTML;
+		oPopup.show(Xpos,Ypos,width,Height,document.body);
+		}
+		// -->
+		
+		function changeAppGroup(appgrpid)
+		{
+		MM_showHideLayers('alertbox','','show');
+		window.top.location="/login?userid=wangzheng&personUuid=635f0587-101c6a980b4-1c34d7652cd15e91ffe3a88701cc427e&sysId="+2+"&appgrpid="+appgrpid+"&Way=login&entrymode=switch&ui=menu";
+		
+		}
+		
+		function appgrpover(src){		
+		src.style.cursor = 'hand';		
+		}
+		
+		function _logout(){		
+		// window.location.href="/resourceone/common/Logout.jsp";
+		}
+	</SCRIPT>
+
+<META content="MSHTML 6.00.6000.16397" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#9fbff5 leftMargin=0 topMargin=0 onunload=_logout();>
+ <table cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td  background="../images/blue/top_main.gif">
+          <table width="100%" height="48" border="0" align="left"
+            cellpadding="0" cellspacing="0">
+            <tr>
+              <td  valign="middle">
+                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="563" height="103">
+                    <param name="movie" value="topflash.swf" />
+                    <param name="quality" value="high" />
+                    <embed src="topflash.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="563" height="103"></embed>
+                  </object></noscript> 
+              </td>
+              <td width="424" valign="top"
+                background="../images/blue/top_right.gif">
+                <table cellpadding="0" cellspacing="0" border="0" width="370" align="right" class="toplink">
+                  <tr>
+                    <td width="36" align="right">
+                      <a href="#" class="gree_up"><img
+                          src="../images/blue/toplink1.gif" alt="×¢ï¿½ï¿½" width="20"
+                           border="0" onClick="zhuxiao()"/> </a>
+                    </td>
+                    <td width="32" align="right">
+                      <a class="gree_up" href="#" onClick="zhuxiao()">×¢ï¿½ï¿½</a>
+                    </td>
+                    <Td width="10">|</Td>
+                    <td width="20" align="right">
+                      <a href="#" class="gree_up"><img
+                          src="../images/blue/toplink2.gif" alt="ï¿½ï¿½ï¿½ï¿½" width="20"
+                           border="0" onClick=""/> </a>
+                    </td>
+                    <td width="32" align="right">
+                      <a class="gree_up" href="#" onClick="">ï¿½ï¿½ï¿½ï¿½</a>
+                    </td>
+                    <Td width="10">|</Td>
+                    <td width="20" align="right">
+                      <a href="/help/jsp/file/help.htm" class="gree_up" target="_blank"><img
+                          src="../images/blue/toplink3.gif" alt="ï¿½ï¿½ï¿½ï¿½" width="20"
+                           border="0" onClick=""/> </a>
+                    </td>
+                    <td width="32" align="right">
+                      <a class="gree_up" href="/help/jsp/file/help.htm" onClick="" target="_blank">ï¿½ï¿½ï¿½ï¿½</a>
+                    </td>
+                    <Td width="10">|</Td>
+                    <td width="20" align="right">
+                      <a href="#" class="gree_up"><img
+                          src="../images/blue/toplink4.gif" alt="ï¿½Ø±ï¿½" width="15"
+                           border="0" onClick="javascript:parent.window.close();"/> </a>
+                    </td>
+                    <td width="32" align="center">
+                      <a class="gree_up" href="javascript:parent.window.close();">ï¿½Ø±ï¿½</a>
+                    </td>
+                    <Td>&nbsp;</Td>
+                  </tr>
+                </table>
+              </td>
+              
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table><TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR bgColor=#99C8E7>
+    <TD width=9 bgColor=#9fbff5 height=20><IMG height=20 src="AppTop_files/images-06.jpg" width=9></TD>
+    <TD noWrap align=middle width=90 bgColor=#9fbff5>
+      <TABLE id=_mp1 onmouseover='over_change(1,this,"#3366cc")' onClick="javascript:click_change(1,this,'#9FBFF5');MpChange(1,'../YH/ZLLR/lv.html','mlghLeft.html',2);" onmouseout='out_change(1,this,"#9FBFF5")' height=21 cellSpacing=0 cellPadding=0 width="100%" border=0 vAlign="top">
+	    <TBODY>
+        <TR>
+          <TD title=ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ align=middle height=21><A style="CURSOR: hand">ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½</A></TD>
+		  <TD vAlign=top align=middle width=2 bgColor=#9fbff5 height=21><IMG height=20 src="AppTop_files/images-13.jpg" width=2></TD>
+		</TR>
+	    </TBODY>
+	  </TABLE>
+	</TD>
+	
+	<TD noWrap align=middle width=90 bgColor=#9fbff5>
+      <TABLE id=_mp1 onmouseover='over_change(1,this,"#3366cc")' onClick="javascript:click_change(1,this,'#9FBFF5');MpChange(2,'../YH/TJFX/tjfx.html','bzghLeft.html',2);" onmouseout='out_change(1,this,"#9FBFF5")' height=21 cellSpacing=0 cellPadding=0 width="100%" border=0 vAlign="top">
+	    <TBODY>
+        <TR>
+          <TD title=ï¿½ï¿½ï¿½?ï¿½ï¿½ align=middle height=21><A style="CURSOR: hand">ï¿½ï¿½ï¿½?ï¿½ï¿½</A></TD>
+		  <TD vAlign=top align=middle width=2 bgColor=#9fbff5 height=21><IMG height=20 src="AppTop_files/images-13.jpg" width=2></TD>
+		</TR>
+	    </TBODY>
+	  </TABLE>
+	</TD>
+
+    <TD noWrap align=middle width=90 bgColor=#9fbff5>
+      <TABLE id=_mp2 onmouseover='over_change(2,this,"#3366cc")' onClick="javascript:click_change(2,this,'#9FBFF5');MpChange(3,'../YH/NRCQ/zycq.html','nrcqLeft.html',2);" onmouseout='out_change(2,this,"#9FBFF5")' height=21 cellSpacing=0 cellPadding=0 width="100%" border=0 vAlign="top">
+        <TBODY>
+        <TR>
+          <TD title=ï¿½ï¿½Ñ¯ï¿½ï¿½Ï¢ align=middle height=21><A style="CURSOR: hand">ï¿½ï¿½Ñ¯ï¿½ï¿½Ï¢</A></TD>
+          <TD vAlign=top align=middle width=2 bgColor=#9fbff5 height=21><IMG height=20 src="AppTop_files/images-13.jpg" width=2></TD>
+		</TR>
+		</TBODY>
+	  </TABLE>
+	</TD>
+	<TD noWrap align=middle width=90 bgColor=#9fbff5>
+      <TABLE id=_mp4 onmouseover='over_change(4,this,"#3366cc")' onClick="javascript:click_change(4,this,'#9FBFF5');MpChange(4,'../YH/JDTB/jdwh.html','jdwhLeft.html',2);" onmouseout='out_change(4,this,"#9FBFF5")' height=21 cellSpacing=0 cellPadding=0 width="100%" border=0 vAlign="top">
+        <TBODY>
+        <TR>
+          <TD title=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ align=middle height=21><A style="CURSOR: hand">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</A></TD>
+          <TD vAlign=top align=middle width=2 bgColor=#9fbff5 height=21><IMG height=20 src="AppTop_files/images-13.jpg" width=2></TD>
+		</TR>
+		</TBODY>
+	  </TABLE>
+	</TD>
+	
+	<TD noWrap align=middle width=90 bgColor=#9fbff5>
+      <TABLE id=_mp4 onmouseover='over_change(4,this,"#3366cc")' onClick="javascript:click_change(4,this,'#9FBFF5');MpChange(5,'../YH/XTGL/cspz.html','xtglLeft.html',2);" onmouseout='out_change(4,this,"#9FBFF5")' height=21 cellSpacing=0 cellPadding=0 width="100%" border=0 vAlign="top">
+        <TBODY>
+        <TR>
+          <TD title=×¨ï¿½î±¨ï¿½ï¿½ align=middle height=21><A style="CURSOR: hand">×¨ï¿½î±¨ï¿½ï¿½</A></TD>
+          <TD vAlign=top align=middle width=2 bgColor=#9fbff5 height=21><IMG height=20 src="AppTop_files/images-13.jpg" width=2></TD>
+		</TR>
+		</TBODY>
+	  </TABLE>
+	</TD>
+	
+	<TD align=right width="100%" bgColor=#9fbff5>
+      <TABLE height=22 cellSpacing=0 cellPadding=0 border=0 vAlign="top">
+        <TBODY>
+        <TR>
+          <TD align=right height=22>
+            <DIV id=MenuModuleGroup style="DISPLAY: none; POSITION: absolute">
+            <TABLE 
+            style="BORDER-RIGHT: #918e82 1px solid; BORDER-TOP: #918e82 1px solid; BORDER-LEFT: #918e82 1px solid; BORDER-BOTTOM: #918e82 1px solid" 
+            cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffffff border=0>
+              <TBODY></TBODY></TABLE></DIV>
+            <DIV id=MenuPullNew style="DISPLAY: none; POSITION: absolute">
+            <SCRIPT language=javascript>										
+				function changeApplication(appuuid)
+				{
+				MM_showHideLayers('alertbox','','show');
+				window.top.location="/login?userid=wangzheng&personUuid=635f0587-101c6a980b4-1c34d7652cd15e91ffe3a88701cc427e&sysId="+2+"&curAppuuid="+appuuid+"&appgrpid=85&Way=login&entrymode=switch&ui=menu";
+				
+				}
+			</SCRIPT>
+
+            <TABLE style="BORDER-RIGHT: #918e82 1px solid; BORDER-TOP: #918e82 1px solid; BORDER-LEFT: #918e82 1px solid; BORDER-BOTTOM: #918e82 1px solid" cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffffff border=0>
+              <TBODY>
+              <TR bgColor=#ffeaaa>
+                <TD onMouseOver="this.style.paddingleft = '15px'; this.style.paddingright = '5px'; this.style.border = '1px solid #468BC7'; this.style.backgroundColor = '#C0D8EE'; this.style.font = '8pt Tahoma'; this.style.color = '#295E8C'; this.style.cursor = 'hand';" style="BORDER-RIGHT: #f3f3ee 1px solid; PADDING-RIGHT: 8px; BORDER-TOP: #f3f3ee 1px solid; PADDING-LEFT: 8px; FONT: 8pt Tahoma; BORDER-LEFT: #f3f3ee 1px solid; CURSOR: hand; COLOR: #282211; BORDER-BOTTOM: #f3f3ee 1px solid" onclick='parent.changeApplication("1d840cd-111c60bd500-b77be5fb0b76ac1068a9ccba2e1098f2");' onMouseOut="this.style.paddingleft = '15px'; this.style.paddingright = '5px'; this.style.border = '1px solid #FCFCF8'; this.style.backgroundColor = '#FFEAAA';this.style.font = '8pt Tahoma'; this.style.color = '#282211'; this.style.cursor = 'hand';" height=20>
+				<IMG src="AppTop_files/app.gif" border=0>&nbsp;ï¿½ï¿½ï¿½ï¿½ï¿½Î¯
+				</TD>
+			  </TR>
+			  </TBODY>
+			</TABLE>
+			</DIV>
+		  </TD>
+		</TR>
+		</TBODY>
+	  </TABLE>
+	</TD>
+    <TD width=14 bgColor=#9fbff5><IMG height=20 src="AppTop_files/images-08.jpg" width=8></TD>
+  </TR>
+  </TBODY>
+</TABLE>
+
+<SCRIPT language=javascript>		
+function MpChange(MpID,MpURL,NavURL,LeftFrameEnabled)
+{
+	window.top._funNav(LeftFrameEnabled);
+	window.top.leftFrame.location=NavURL;
+	
+	if((MpURL!="")&&(MpURL!="#")){
+		window.top.mainFrame.location = MpURL;
+	}	
+}
+
+</SCRIPT>
+</BODY></HTML>

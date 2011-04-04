@@ -1,0 +1,87 @@
+/* Input textbox - do not specify a width here, it will be overwritten */
+.ffb-input 
+{
+	float:left;
+	color:#000; /* must specify along with watermark color */
+	height:16px; /* required for webkit browsers (Safari, Chrome) */
+	padding-left:10px;
+}
+/* Color of watermark, if present */
+.ffb-input.watermark { /* added and removed dynamically */
+	color:#888; /* must specify along with input color */
+}
+/* Drop-down arrow, with sprited image */
+.ffb-arrow 
+{
+	float:left;
+	width:17px;
+	height:22px;
+	background-image:url(../img/sel_win7.gif);
+}
+.ffb-arrow.out { /* css sprite technique */
+	background-position:0;
+}
+.ffb-arrow.over { /* css sprite technique */
+	background-position:-17px 0;
+}
+.ffb-arrow.active { /* css sprite technique */
+	background-position:-34px 0;
+}
+.ffb-no-results 
+{
+	padding:2px;
+	color:#888;
+	font-style:italic;
+	border-bottom:1px solid #828790;
+}
+/* Container for dropdown contents */
+.ffb {
+	position:absolute; /* this guy's parent div is hard-coded to position:relative */
+	overflow:hidden;
+	border-left:1px solid #8e999d; /* #7B9EBD for Vista */
+	border-right:1px solid #8e999d;
+	border-bottom:1px solid #d1d1d1;/*TODO:下拉框效果下边线，目前会2线重叠，去掉填充不满时，没下划线，*/
+	background-color:#fff; /* Give it a background-color, so it's not transparent */
+}
+/* Inner div for dropdown */
+.ffb .content {
+	overflow:auto;
+}
+.ffb .content .row {
+	border-bottom:1px solid #8e999d;
+	color:#000;
+	height:20px;
+	clear:both;
+	text-indent:10px;
+	padding-right:2px;
+}
+.ffb-sel {
+	cursor:pointer;
+	cursor:hand;
+	color:#000 !important;
+	background-color:#e2f0fe;
+}
+.ffb-match {
+	font-weight:bold;
+	color:#000;
+}
+
+/* Paging */
+.ffb .paging {
+	vertical-align:middle;
+	border-bottom:1px solid #828790;
+}
+.ffb .page, .ffb a.page {
+	font-size:85%;
+	padding:2px;
+	border:solid 1px #63b0fe;
+	background-color:#e2f0fe;
+	margin:2px;
+}
+.ffb .box {
+	width:22px;
+	margin:2px;
+}
+.ffb .summary {
+	font-size:85%;
+}

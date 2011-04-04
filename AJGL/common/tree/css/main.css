@@ -1,0 +1,513 @@
+extremecomponents.css
+ /*
+ * Ext JS Library 1.1 Beta 2
+ * Copyright(c) 2006-2007, Ext JS, LLC.
+ * licensing@extjs.com
+ * 
+ * http://www.extjs.com/license
+ */ /*
+ * Ext - JS Library 1.0 Alpha 2
+ * Copyright(c) 2006-2007, Jack Slocum.
+ */ /*
+  * layout css
+  */
+.x-layout-panel-south {
+	background: #c3daf9;
+	border: 0px none;
+	border-top: 1px solid #ddecfe;
+}
+
+.x-layout-panel-north,.xtheme-gray .x-layout-panel-north {
+	background-image: url(../images/header.gif);
+	background-repeat: repeat;
+	color: #FFF;
+	font: bold 12px verdana, helvetica;
+	overflow: hidden;
+	padding: 4px;
+	border: 0px none;
+	border-bottom: 2px solid #c3daf9;
+}
+
+#status {
+	text-align: center;
+	font-size: 8pt;
+	background-image: url('../resources/images/default/grid/loading.gif');
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 20px;
+	padding-top: 3px;
+	height: 18px;
+}
+
+#status .done {
+	background-image: url('../resources/images/default/grid/loading.gif');
+}
+
+/*
+ * body css
+ */
+.body {
+	background-color: #faf4f4;
+	margin-top: 10px;
+}
+
+.body1 {
+	background-color: #faf4f4;
+}
+
+.loginBody {
+	margin-top: 150px;
+}
+
+/*
+ *  iframe css
+ */
+.graybackground {
+	background-color: #faf4f4;
+}
+
+.iframecss {
+	background-color: #faf4f4;
+	scrolling: auto;
+}
+
+/*
+ * datatable css
+ */
+.badyinner {
+	bgcolor: #faf4f4 !important;
+}
+
+.datatable {
+	border: 0;
+	width: 98%;
+	cellspacing: 1px;
+	cellpadding: 0px;
+	background-color: #b9c8d6 !important;
+}
+
+.formtable {
+	border: 1px;
+	width: 98%;
+	align: center;
+	background-color: #b9c8d6 !important;
+}
+
+.bordertabel {
+	BORDER-top: rgb(255, 255, 255) 1px solid;
+	BORDER-bottom: rgb(255, 255, 255) 1px solid;
+	BORDER-left: rgb(255, 255, 255) 1px solid;
+	BORDER-right: rgb(255, 255, 255) 1px solid
+}
+
+.trform {
+	background-color: #edeff1 !important;
+	height: 25px;
+}
+
+td {
+	font-family: "verdana", "arial", "helvetica", "sans-serif";
+	font-size: 10pt;
+	color: #006699;
+	height: 25px;
+}
+
+th {
+	font-family: "verdana", "arial", "helvetica", "sans-serif";
+	font-size: 10pt;
+	color: #006699;
+}
+
+.logintd {
+	font-family: "verdana", "arial", "helvetica", "sans-serif";
+	font-size: 10pt;
+	color: #006699;
+	height: 190px;
+}
+
+.trtitle {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 10pt;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #347BA5 !important;
+}
+
+.trtitle td {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 10pt;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #347BA5 !important;
+}
+
+/*
+ * button
+ */
+.button {
+}
+
+/*
+ * font css
+ */
+.font {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 10pt;
+	color: #ffffff;
+}
+
+.font2 {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-family: "华文隶书";
+	font-weight: bold;
+	font-size: 16pt;
+	color: #ffffff;
+}
+
+.titleFont {
+	font-family: "华文隶书";
+	font-weight: bold;
+	font-size: 24px;
+	color: #0033FF;
+}
+
+/*
+ * link css
+ */
+a:link {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 10pt;
+	color: #006699;
+	text-decoration: none;
+}
+
+a:hover {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 10pt;
+	background-color: #FFFFFF;
+	color: red;
+	text-decoration: underline;
+}
+
+a:visited {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 10pt;
+	color: 006699;
+	text-decoration: none;
+}
+
+a.linkwhite {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 12px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+/*
+ * input css
+ */
+.input1 {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 10pt;
+	color: #006699;
+	border: 1px solid #006699;
+	background-color: #FFFFFF;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	width: 150px;
+}
+
+input,Textarea {
+ 
+}
+
+select {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 10pt;
+	color: #006699;
+	background: #ffffff;
+	line-height: 15px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+}
+
+.select {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 10pt;
+	color: #006699;
+	border: 1px solid #006699;
+	background-color: #FFFFFF;
+	width: 80px;
+}
+
+.h1 {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: x-large;
+	color: #347BA5;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.line {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: dotted;
+	border-left-style: none;
+	border-bottom-color: #006699;
+}
+
+/*
+ * tab css
+ */
+#tabs1 {
+	float: left;
+	width: 100%;
+	background: #F4F7FB;
+	font-size: 93%;
+	line-height: normal;
+	border-bottom: 1px solid #BCD2E6;
+}
+
+#tabs1 ul {
+	margin: 0;
+	padding: 10px 10px 0 50px;
+	list-style: none;
+}
+
+#tabs1 li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+#tabs1 a {
+	float: left;
+	background: url("../images/tableft1.gif") no-repeat left top;
+	margin: 0;
+	padding: 0 0 0 4px;
+	text-decoration: none;
+}
+
+#tabs1 a span {
+	float: left;
+	display: block;
+	background: url("../images/tabright1.gif") no-repeat right top;
+	padding: 5px 15px 4px 6px;
+	color: #627EB7;
+}
+
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabs1 a span {
+	float: none;
+}
+
+/* End IE5-Mac hack */
+#tabs a:hover span {
+	color: #627EB7;
+}
+
+#tabs1 a:hover {
+	background-position: 0% -42px;
+}
+
+#tabs1 a:hover span {
+	background-position: 100% -42px;
+}
+
+#tabs1 #current a {
+	background-position: 0% -42px;
+}
+
+#tabs1 #current a span {
+	background-position: 100% -42px;
+}
+
+.eXtremeTable {
+	margin: 0;
+	padding: 0;
+}
+
+.eXtremeTable select {
+	font-family: Verdana;
+	font-size: 9px;
+	border: solid 1px #EEE;
+	width: 75px;
+}
+
+.eXtremeTable .tableRegion {
+	border: 1px solid silver;
+	padding: 2px;
+	font-family:Verdana;
+	font-size: 10px;
+	margin-top: 7px;
+}
+
+.eXtremeTable .filter {
+	background-color: #efefef;
+}
+
+.eXtremeTable .filter input {
+	font-family: Verdana;
+	font-size: 10px;
+	width: 100%;
+}
+
+.eXtremeTable .filter select {
+	font-family: Verdana;
+	font-size: 9px;
+	border: solid 1px #EEE;
+	width: 100%;
+}
+
+.eXtremeTable .tableHeader {
+	background-color: #308dbb;
+	color: white;
+	font-family:Verdana;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: left;
+	padding-right: 3px;
+	padding-left: 3px;
+	padding-top: 4;
+	padding-bottom: 4;
+	margin: 0;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-color: white;
+}
+
+.eXtremeTable .tableHeaderSort {
+	background-color: #3a95c2;
+	color: white;
+	font-family:Verdana;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: left;
+	padding-right: 3px;
+	padding-left: 3px;
+	padding-top: 4;
+	padding-bottom: 4;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-color: white;
+}
+
+.eXtremeTable .odd a, .even a {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 10pt;
+	color: black;
+	text-decoration: none;
+}
+
+.eXtremeTable .odd td, .eXtremeTable .even td {
+	padding-top: 2px;
+	padding-right: 3px;
+	padding-bottom: 2px;
+	padding-left: 3px;
+	vertical-align: middle;
+	font-family: "verdana", "arial", "helvetica", "sans-serif";
+	font-size: 9pt;
+}
+
+.eXtremeTable .odd {
+	background-color: #FFFFFF;
+}
+
+.eXtremeTable .even {
+  	background-color: #dfe4e8;
+}
+
+.eXtremeTable .highlight td {
+	color: black;
+	font-size: 10px;
+	padding-top: 2px;
+	padding-right: 3px;
+	padding-bottom: 2px;
+	padding-left: 3px;
+	vertical-align: middle;
+	background-color: #fdecae;
+}
+
+.eXtremeTable .highlight a, .highlight a {
+	color: black;
+	font-size: 10px;
+}
+
+.eXtremeTable .toolbar {
+	background-color: #F4F4F4;
+	font-family:Verdana;
+	font-size: 9px;
+	margin-right: 1px;
+	border-right: 1px solid silver;
+	border-left: 1px solid silver;
+	border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
+}
+
+.eXtremeTable .toolbar td {
+	color: #444444;
+	padding: 0px 3px 0px 3px;
+	text-align:center;
+}
+
+.eXtremeTable .separator {
+	width: 7px;
+}
+
+.eXtremeTable .statusBar {
+	background-color: #F4F4F4;
+	font-family:Verdana;
+	font-size: 10px;
+}
+
+.eXtremeTable .filterButtons {
+	background-color: #efefef;
+	text-align: right;
+}
+
+.eXtremeTable .title {
+	color: #444444;
+	font-weight: bold;
+	font-family:Verdana;
+	font-size: 15px;
+	vertical-align: middle;
+}
+
+.eXtremeTable .title span {
+	margin-left: 7px;
+}
+
+.eXtremeTable .formButtons {
+	display: block;
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+.eXtremeTable .formButton {
+	cursor: pointer;
+	font-family:Verdana;
+	font-size:10px;
+	font-weight: bold;
+	background-color: #308dbb;
+	color: white;
+	margin-top: 5px;
+	border: outset 1px #333;
+	vertical-align: middle;
+}
+
+.eXtremeTable .tableTotal {
+	background-color: #FFFFFF;
+	border-top: solid 1px Silver;	
+}
+
+.eXtremeTable .tableTotalEmpty {
+	background-color: #FFFFFF;	
+}

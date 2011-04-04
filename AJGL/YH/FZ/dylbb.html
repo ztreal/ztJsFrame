@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html lang="en"> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+        <meta http-equiv="Content-Style-Type" content="text/css"> 
+        <meta http-equiv="Content-Script-Type" content="text/javascript"> 
+ <link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs2.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+	<script src="../../common/js/base.js" type="text/javascript"></script>
+	        <title>统计分析</title> 
+        
+        <link rel="stylesheet" href="../TJFX/ui.tabs.css" type="text/css" media="print, projection, screen"> 
+        <style type="text/css" media="screen, projection"> 
+            /* Not required for Tabs, just to make this demo look better... */
+            body, h1, h2 {
+                font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+            }
+            h1 {
+                margin: 1em 0 1.5em;
+                font-size: 18px;
+            }
+            h2 {
+                margin: 2em 0 1.5em;
+                font-size: 16px;
+            }
+            p {
+                margin: 0;
+                padding: 0 0 .5em;
+                max-width: 40em;
+            }
+            /*pre, pre+p, p+p {
+                margin: 1em 0 0;
+            }
+            code {
+                font-family: "Courier New", Courier, monospace;
+            }*/
+			input[type=checkbox]{
+				width:20px;
+			}
+			*{
+			  margin:0; padding:0;
+			}
+			.fs{padding-left:2px; padding-right:3px;}
+        </style> 
+ 
+        <script type="text/javascript"> 
+			$(function() { 
+			    // 将ul.tabs区域设定为选项卡，用来控制div.panes区域中最近一层的各div区域
+			   // 注意tabs和panes与html中class的对应关系()
+			    $("ul.tabs").tabs("div.panes > div",{history: true}); 
+				$(":date").dateinput()
+				
+				//添加删除修改事件
+				$("#add").click( function () { $("#addarea tr:first").after(' <tr>  <td width="256"><label> <input type="text" name="textfield" id="textfield"> </label></td>   <td width="188"><input type="text" name="textfield2" id="textfield2"></td>  <td width="239"><input type="text" name="textfield3" id="textfield3"></td> <td width="211"><input type="text" name="textfield4" id="textfield4"></td>'); }); 
+				$("#del").click( function () { $("#addarea tr:last[type!=title]").remove() });
+			});
+			function selectAll(){
+			     var items=document.getElementsByName("dy");
+				 for(var i=0;i<items.length;i++){
+				     items[i].checked="true";
+				 }
+			}
+			function selectNon(){
+			     var items=document.getElementsByName("dy");
+				 for(var i=0;i<items.length;i++){
+				     if(items[i].checked){
+					     items[i].checked=!items[i].checked;
+					 }
+				 }
+			}
+        </script> 
+    </head> 
+    <body> 
+ 
+ <div style="width:100%;background-color:#f4f4f4; height:32px; font-size:12px; "><div style="padding-left:10px;padding-top:8px;">当前位置： &nbsp;辅助功能&nbsp;<font style="font-family:'宋体'">></font>&nbsp;查阅以前报表</div></div>
+ <div style=" width:100%px; height:28px; background:url(../../images/tiao_bg04.gif);">
+    <div style=" float:left; padding-top:5px;"><font color="#124c95" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/dian02.gif" align="middle">&nbsp;&nbsp;查阅以前报表</font></div>
+ </div>
+ 
+<ul class="tabs" style="width:790px; height:26px;overflow:hidden;border-left:solid #D7D7D7 1px;padding-left:0px"> 
+    <li><a href="#1">2004年以前</a></li> 
+    <li><a href="#2">2010年以前</a></li>
+</ul> 
+<div class="panes">
+
+ <div style="padding-bottom:10px;">
+<table width="100%" id="addarea" style="color:black; font-size:12px;" >
+   <tr height="8"><td colspan="2"></td></tr>
+   <tr height="30">
+     <td align="right" width="80">填报日期</td>
+	 <td>&nbsp;&nbsp;<input type="text" width="100" onFocus="WdatePicker({dateFmt:'yyyy年MM月'})" value="2010年10月">&nbsp;&nbsp;至&nbsp;&nbsp;<input type="text" width="100" onFocus="WdatePicker({dateFmt:'yyyy年MM月'})" value="2010年10月"></td>
+   </tr>
+   <tr height="30">
+     <td align="right">填表人</td>
+	 <td>&nbsp;&nbsp;<input type="text"></td>
+   </tr>
+   <tr>
+     <td align="right" valign="top"><div style="padding-top:8px;">报表名称</div></td>
+	 <td >
+	  <div style="font-size:15px;height: 200px; overflow:auto; width:400px; border:1px solid #2a5e9a; margin-left:8px; margin-top:8px;">
+<TABLE style = "font-size:12px;height:290px; color:black;">
+<TBODY>
+<TR>
+<TD width="">
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 1<font class="fs">.</font>立案案件统计表</TD></TR>
+<TR>
+<TD>
+<INPUT  value=复选框 type=checkbox name="dy" checked="checked"> 
+2<font class="fs">.</font>处分人员统计表 </TD></TR>
+<TR>
+<TD>
+<INPUT  value=复选框 type=checkbox name="dy" checked="checked"> 
+3<font class="fs">.</font>立案案件分析表(之一 )</TD></TR>
+<TR>
+<TD>
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 
+4<font class="fs">.</font>立案案件分析表(之二)</TD></TR>
+<TR>
+<TD>
+<INPUT  value=复选框 type=checkbox name="dy" checked="checked"> 
+5<font class="fs">.</font>处分人员分析表(之一) </TD></TR>
+<TR>
+<TD>
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 
+6<font class="fs">.</font>立案案件分析表(之一 )</TD></TR>
+<TR>
+<TD>
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 
+7<font class="fs">.</font>立案案件分析表(之二 )</TD></TR>
+<TR>
+<TD>
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 
+8<font class="fs">.</font>立案案件分析表(之三 )</TD></TR>
+<TR>
+<TD>
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 
+9<font class="fs">.</font>办案工作逐月分析表</TD></TR>
+<TR>
+<TD>
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 
+10<font class="fs">.</font>立案查处企业人员分析表</TD></TR></TBODY></TABLE> </div>
+	 </td>
+   </tr>
+</table>
+ <div style="background-color:#ebf6fc; width:100%px; height:32px; margin-top:5px; font-size:12px;">
+	     <div style="float:left; padding-top:8px; padding-left:90px;">
+		    <input type="radio" style="width:20px;" checked="checked" onClick="selectAll()" name="regs">全选
+			&nbsp;&nbsp;&nbsp;<input type="radio" style="width:20px;" onClick="selectNon()" name="regs">全不选
+		  </div>
+	      <div style="padding-right:220px; padding-top:5px; float:right;">
+		      <DIV style="PADDING-RIGHT: 10px; FLOAT: left; padding-left:10px; "    class="clbutton">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+					<td  class="blue_2_j"></td>
+					<td class="blue_4_j">屏幕显示</td>
+					<td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV> 
+				 <DIV style="PADDING-RIGHT: 10px; FLOAT: left; padding-left:10px;"  class="clbutton" >
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+					<td  class="blue_2_j"></td>
+					<td class="blue_4_j">打印输出</td>
+					<td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV> 
+		  </div>
+	   </div>
+</div>
+
+
+
+
+
+
+
+<div style="padding-bottom:10px;">
+<table width="100%" id="addarea" style="color:black; font-size:12px;" >
+   <tr height="8"><td colspan="2"></td></tr>
+   <tr height="30">
+     <td align="right" width="80">填报日期</td>
+	 <td>&nbsp;&nbsp;<input type="text" width="100" onFocus="WdatePicker({dateFmt:'yyyy年MM月'})" value="2010年10月">&nbsp;&nbsp;至&nbsp;&nbsp;<input type="text" width="100" onFocus="WdatePicker({dateFmt:'yyyy年MM月'})" value="2010年10月"></td>
+   </tr>
+   <tr height="30">
+     <td align="right">填表人</td>
+	 <td>&nbsp;&nbsp;<input type="text"></td>
+   </tr>
+   <tr>
+     <td align="right" valign="top"><div style="padding-top:8px;">报表名称</div></td>
+	 <td >
+	  <div style="font-size:15px;height: 200px; overflow:auto; width:400px; border:1px solid #2a5e9a; margin-left:8px; margin-top:8px;">
+<TABLE style = "font-size:12px;height:290px; color:black;">
+<TBODY>
+<TR>
+<TD width="">
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 1<font class="fs">.</font>立案案件统计表</TD></TR>
+<TR>
+<TD>
+<INPUT  value=复选框 type=checkbox name="dy" checked="checked"> 
+2<font class="fs">.</font>处分人员统计表 </TD></TR>
+<TR>
+<TD>
+<INPUT  value=复选框 type=checkbox name="dy" checked="checked"> 
+3<font class="fs">.</font>立案案件分析表(之一 )</TD></TR>
+<TR>
+<TD>
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 
+4<font class="fs">.</font>立案案件分析表(之二)</TD></TR>
+<TR>
+<TD>
+<INPUT  value=复选框 type=checkbox name="dy" checked="checked"> 
+5<font class="fs">.</font>处分人员分析表(之一) </TD></TR>
+<TR>
+<TD>
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 
+6<font class="fs">.</font>立案案件分析表(之一 )</TD></TR>
+<TR>
+<TD>
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 
+7<font class="fs">.</font>立案案件分析表(之二 )</TD></TR>
+<TR>
+<TD>
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 
+8<font class="fs">.</font>立案案件分析表(之三 )</TD></TR>
+<TR>
+<TD>
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 
+9<font class="fs">.</font>办案工作逐月分析表</TD></TR>
+<TR>
+<TD>
+<INPUT value=复选框 type=checkbox name="dy" checked="checked"> 
+10<font class="fs">.</font>立案查处企业人员分析表</TD></TR></TBODY></TABLE> </div>
+	 </td>
+   </tr>
+</table>
+ <div style="background-color:#ebf6fc; width:100%px; height:32px; margin-top:5px; font-size:12px;">
+	     <div style="float:left; padding-top:8px; padding-left:90px;">
+		    <input type="radio" style="width:20px;" checked="checked" onClick="selectAll()" name="reg">全选
+			&nbsp;&nbsp;&nbsp;<input type="radio" style="width:20px;" onClick="selectNon()" name="reg">全不选
+		  </div>
+	      <div style="padding-right:220px; padding-top:5px; float:right;">
+		      <DIV style="PADDING-RIGHT: 10px; FLOAT: left; padding-left:10px; "    class="clbutton">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+					<td  class="blue_2_j"></td>
+					<td class="blue_4_j">屏幕显示</td>
+					<td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV> 
+				 <DIV style="PADDING-RIGHT: 10px; FLOAT: left; padding-left:10px;"  class="clbutton" >
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+					<td  class="blue_2_j"></td>
+					<td class="blue_4_j">打印输出</td>
+					<td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV> 
+		  </div>
+	   </div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+</body> 
+</html>

@@ -1,0 +1,699 @@
+<!----------------------------------------------------------------------
+//  Copyright (c) 2000-2003 Jzchen.net.  All Rights Reserved.
+//  Version: 1.1
+//  Author: jzchen, June 4th, 2003
+//---------------------------------------------------------------------->
+<PUBLIC:COMPONENT>
+<PUBLIC:ATTACH EVENT="onreadystatechange" ONEVENT="fnOnReadyStateChange()" />
+<PUBLIC:ATTACH EVENT="onselectstart" ONEVENT="NoSelectString()" />
+<SCRIPT LANGUAGE="JScript">
+function NoSelectString(){
+	  window.event.returnValue = false;
+}
+
+function fnOnReadyStateChange() {
+	if (readyState == "complete")
+		f_Init();
+}
+
+// Define the menu container
+var _oContainer, _oHolder, _oTrigger, _oLastItem, _oCurrentItem;
+
+// Cache only one div to save memory :)
+var _oSubMenuDiv;
+
+// the Timout id.
+var _hideDiv;
+
+var _oldWidth = "0"; // remember the old width;
+
+// define the color plalete
+var bgColorNormal = "#F7F3F7";
+var bgColorOver = "#CECFCE";
+var bgColorDown = "#9C9A9C";
+var bgColorActive = "#FFFFFF";
+
+var borderColorNormal = bgColorNormal;
+var borderColorOver = "#9C9A9C";
+var borderColorDown = "#9C9A9C";
+
+var fontColorNormal = "#000000";
+var fontColorOver = "#000000";
+var fontColorDown = "#000000";
+
+var hideImage = "../images/arrowleft.gif";
+var showImage = "../images/arrowright.gif";
+
+
+function f_Init() {
+	_oHolder = f_CreateHolder();
+	_oContainer = f_CreateContainer();
+	f_GenMenu(); 
+	_oHolder.insertRow().insertCell().appendChild(_oContainer);
+	element.insertAdjacentElement("BeforeEnd",_oHolder);
+}
+
+function f_CreateHolder() {
+	element.style.height=element.parentElement.scrollHeight;
+	var oTable = window.document.createElement("TABLE");
+	_oldWidth = element.parentElement.scrollWidth;
+	oTable.cellSpacing = 0;
+	oTable.cellPadding = "0px";
+	oTable.style.borderRight = "1px solid "+borderColorOver;
+	oTable.bgColor = bgColorNormal;
+	oTable.width = element.parentElement.width;
+	oTable.height = "100%";
+	
+	var contentArea = oTable.insertRow().insertCell();
+	_oTrigger = document.createElement("IMG");
+	_oTrigger.src= hideImage;
+	_oTrigger.align="right";
+	_oTrigger.onclick=f_doTrigger;
+	_oTrigger.style.cursor = "hand";
+	_oTrigger.title = "Òþ²Øµ¼º½²Ëµ¥";
+	contentArea.appendChild(_oTrigger);
+	contentArea.height="2";
+	return oTable;
+}
+
+function f_doTrigger() {
+	if (_oContainer.style.display == "none") { // Show it.
+		element.parentElement.width=_oldWidth;
+		_oHolder.width = _oldWidth;
+		_oContainer.style.display = "block";
+		_oTrigger.src = hideImage;
+		_oTrigger.title = "Òþ²Øµ¼º½²Ëµ¥";
+
+	} else {
+		_oContainer.style.display = "none";
+		_oHolder.width="1px";
+		element.parentElement.width="1px";
+		_oTrigger.src = showImage;
+		_oTrigger.title = "ÏÔÊ¾µ¼º½²Ëµ¥";
+	}
+}
+
+function f_GenMenu() {
+	//alert(element.menudata);
+	var mb = read(element.menudata);
+	if (!mb) return;
+	
+	var contentArea = _oContainer.insertRow().insertCell();
+	for (var i = 0; i < mb.size(); i++) {
+		var menu = mb.menuList[i];
+		var menuTbl;
+		if (i != element.currentMenuIndex) {
+			menuTbl = f_CreateMenuTable(menu);
+		} else {
+			//menuTbl = f_CreateCurrentMenuTable(menu);
+			menuTbl = f_CreateMenuTable(menu);
+			fnSetCurrentMenuItem(menuTbl);
+		}
+		contentArea.appendChild(menuTbl);
+	}
+	var menuFoot = _oContainer.insertRow().insertCell();
+	menuFoot.style.height= "100%"
+}
+
+function f_CreateMenuTable(objMenu) {
+	var oTable = window.document.createElement("TABLE");
+	oTable.cellSpacing = 0;
+	oTable.cellPadding = 0;
+	oTable.style.borderWidth = "1px";
+	oTable.style.borderStyle = "solid";
+	oTable.style.borderColor = bgColorNormal;
+	oTable.style.cursor = "hand";
+	oTable.bgColor = bgColorNormal;
+	oTable.width = "100%";
+	oTable.setAttribute("srcObj", objMenu);
+	var tr = oTable.insertRow();
+	var td1 = tr.insertCell();
+
+	if(objMenu.text != '-') {
+	td1.style.cssText = "font-size:9pt; color:"+fontColorNormal+"; padding:3px; padding-left:8px";
+	
+	if (objMenu.url != "") 
+		td1.innerHTML = "<a href="+objMenu.url+" style=color:"+fontColorNormal+";text-decoration:none>"+objMenu.text+"</a>";
+	else 
+		td1.innerHTML = objMenu.text;
+	if (objMenu.size() > 0) {
+		td2 = tr.insertCell();
+		td2.style.cssText = "font-family:webdings; color:"+fontColorNormal+"; font-size:12px; padding-right:4px;";
+		td2.align = "right";
+		td2.innerText = "4";
+	}
+	
+	oTable.attachEvent("onmouseover", fnMouseOver);
+	oTable.attachEvent("onmouseout", fnMouseOut);
+	oTable.attachEvent("onmousedown", fnMouseDown);
+	oTable.attachEvent("onmouseup", fnMouseUp);
+	oTable.attachEvent("onselectstart", f_CancelEvent);
+	} else {
+		td1.innerHTML = "<table width=100% cellpading=0 cellspacing=0 height=0><tr><td height=1 bgcolor=#9C9A9C></td></tr><table>";
+		td1.style.cssText = "cursor:default; height:0px; width:100%; padding:0px";
+		td1.vAlign="bottom";
+	}
+	return oTable;
+}
+
+function f_CreateCurrentMenuTable(objMenu) {
+	var oTable = window.document.createElement("TABLE");
+	oTable.cellSpacing = 0;
+	oTable.cellPadding = 0;
+	oTable.style.cursor = "default";
+	oTable.width = "100%";
+	oTable.setAttribute("srcObj", objMenu);
+	var tr = oTable.insertRow();
+	var td1 = tr.insertCell();
+	
+	if(objMenu.text != '-') {
+	oTable.style.borderWidth = "1px";
+	oTable.style.borderStyle = "solid";
+	oTable.style.borderColor = borderColorDown;
+	oTable.bgColor = bgColorActive;
+	
+	td1.style.cssText = "font-size:9pt; color:"+fontColorNormal+"; padding:3px; padding-left:8px";
+	td1.innerHTML = objMenu.text;
+	
+	if (objMenu.size() > 0) {
+		td2 = tr.insertCell();
+		td2.style.cssText = "font-family:webdings; color:"+fontColorNormal+"; font-size:12px; padding-right:4px;";
+		td2.align = "right";
+		td2.innerText = "4";
+	}
+	
+	oTable.attachEvent("onmouseover", fnMouseOverCurTable);
+	oTable.attachEvent("onmouseout", fnMouseOutCurTable);
+	oTable.attachEvent("onselectstart", f_CancelEvent);
+	} else {
+		td1.innerHTML = "<table width=100% cellpading=0 cellspacing=0 height=0><tr><td height=1 bgcolor=#9C9A9C></td></tr><table>";
+		td1.style.cssText = "cursor:default; height:0px; width:100%; padding:0px";
+		td1.vAlign="bottom";
+	}
+	return oTable;
+}
+
+function  fnMouseDown() {
+	var obj = event.srcElement;
+	if (obj.tagName == "TD") {
+		obj.style.color = fontColorDown;
+		obj = obj.parentElement.parentElement.parentElement;
+	}else if (obj.tagName == "A") {
+		obj.style.color = fontColorDown;
+		obj = obj.parentElement.parentElement.parentElement.parentElement;
+	}
+
+	if (obj == _oLastItem) return;
+
+	obj.style.backgroundColor = bgColorDown;
+	obj.style.borderColor = borderColorDown;
+	
+	
+}
+
+function fnSetCurrentMenuItem(obj) {
+	if (obj == null || typeof(obj) != 'object') return;
+	// remove the last items border and bgcolor
+	//_oLastItem.style.
+	if (_oLastItem == null || typeof(_oLastItem) == 'undefined') {
+		obj.style.backgroundColor = bgColorActive;
+		obj.style.borderColor = borderColorDown;
+		_oLastItem = obj;
+		return;
+	}
+	_oLastItem.style.backgroundColor = bgColorNormal;
+	_oLastItem.style.borderColor = borderColorNormal;
+
+	obj.style.backgroundColor = bgColorActive;
+	obj.style.borderColor = borderColorDown;
+	_oLastItem = obj;
+}
+function  fnMouseUp() {
+	var obj = event.srcElement;
+	var theUrl = null;
+	if (obj.tagName == "TD") {
+		if (obj.innerText == '4') {
+			theUrl = obj.parentElement.childNodes[0].childNodes[0].href;
+		} else {
+			theUrl = obj.childNodes[0].href;
+		}
+		obj = obj.parentElement.parentElement.parentElement;
+	} else if (obj.tagName == "A") {
+		obj = obj.parentElement.parentElement.parentElement.parentElement;
+	}
+
+	//if (obj == _oLastItem) return;
+
+	obj.style.backgroundColor = bgColorOver;
+	obj.style.borderColor = borderColorOver;
+	
+	fnSetCurrentMenuItem(obj);
+
+	if (theUrl != null)
+		window.navigate(theUrl);
+}
+
+function fnMouseOver() {
+	var obj = event.srcElement;
+	if (obj.tagName == "TD") {
+		obj = obj.parentElement.parentElement.parentElement;
+	} else if (obj.tagName == "A") {
+		obj = obj.parentElement.parentElement.parentElement.parentElement;
+	}
+
+	if (obj == _oLastItem) return;
+
+	obj.style.backgroundColor = bgColorOver;
+	obj.style.borderColor = borderColorOver;
+
+	var theMenu = obj.srcObj;
+	
+	if (theMenu.size() > 0) {
+		var miContainer = f_CreateSubMenuContainer();
+		contentArea = miContainer.insertRow().insertCell();
+		for (var i = 0; i < theMenu.size(); i++) {
+			var menuItem = theMenu.menuItemList[i];
+			var menuItemTbl = f_CreateMenuItemTable(menuItem);
+			contentArea.appendChild(menuItemTbl);
+		}
+		
+		if (_oSubMenuDiv == null)
+			_oSubMenuDiv = f_CreateSubMenuContainerDiv();
+		
+		//remove all the exist nodes
+		while(_oSubMenuDiv.hasChildNodes()) {
+			_oSubMenuDiv.removeChild(_oSubMenuDiv.childNodes[0]);
+		}
+		_oSubMenuDiv.appendChild(miContainer);
+		_oSubMenuDiv.style.left = f_GetX(obj); 
+		_oSubMenuDiv.style.top = f_GetY(obj);
+		_oSubMenuDiv.style.display = "block";
+		if (_oSubMenuDiv) {
+			if(_hideDiv)
+				clearTimeout(_hideDiv);
+			_oSubMenuDiv.style.display = "block";
+		}
+	}
+}
+
+function fnMouseOut() {
+	var obj = event.srcElement;
+	if (obj.tagName == "TD") {
+		obj = obj.parentElement.parentElement.parentElement;
+	} else if (obj.tagName == "A") {
+		obj = obj.parentElement.parentElement.parentElement.parentElement;
+	}
+
+	if (obj == _oLastItem) return;
+	
+	obj.style.backgroundColor = bgColorNormal;
+	obj.style.borderColor = borderColorNormal;
+	
+	var theMenu = obj.srcObj;
+	if (theMenu.size() > 0)
+		if (_oSubMenuDiv) 
+			_hideDiv = setTimeout("document.all._oSubMenuDivSingle.style.display='none'", 500);		
+}
+
+function fnMouseOverCurTable() {
+	var obj = event.srcElement;
+	if (obj.tagName == "TD") {
+		obj = obj.parentElement.parentElement.parentElement;
+	} else if (obj.tagName == "A") {
+		obj = obj.parentElement.parentElement.parentElement.parentElement;
+	}
+	//obj.style.backgroundColor = bgColorOver;
+	//obj.style.borderColor = borderColorOver;
+
+	var theMenu = obj.srcObj;
+	
+	if (theMenu.size() > 0) {
+		var miContainer = f_CreateSubMenuContainer();
+		contentArea = miContainer.insertRow().insertCell();
+		for (var i = 0; i < theMenu.size(); i++) {
+			var menuItem = theMenu.menuItemList[i];
+			var menuItemTbl = f_CreateMenuItemTable(menuItem);
+			contentArea.appendChild(menuItemTbl);
+		}
+		
+		if (_oSubMenuDiv == null)
+			_oSubMenuDiv = f_CreateSubMenuContainerDiv();
+		
+		//remove all the exist nodes
+		while(_oSubMenuDiv.hasChildNodes()) {
+			_oSubMenuDiv.removeChild(_oSubMenuDiv.childNodes[0]);
+		}
+		_oSubMenuDiv.appendChild(miContainer);
+		_oSubMenuDiv.style.left = f_GetX(obj); 
+		_oSubMenuDiv.style.top = f_GetY(obj);
+		_oSubMenuDiv.style.display = "block";
+		if (_oSubMenuDiv) {
+			if(_hideDiv)
+				clearTimeout(_hideDiv);
+			_oSubMenuDiv.style.display = "block";
+		}
+	}
+}
+
+function fnMouseOverItem() {
+	var obj = event.srcElement;
+	if (obj.tagName == "TD") {
+		obj = obj.parentElement.parentElement.parentElement;
+	} else if (obj.tagName == "A") {
+		obj = obj.parentElement.parentElement.parentElement.parentElement;
+	}
+	obj.style.backgroundColor = bgColorOver;
+	obj.style.borderColor = borderColorOver;
+	
+	if (_oSubMenuDiv)
+	if (_oSubMenuDiv.style.display == 'none')
+		_oSubMenuDiv.style.display= "block";
+}
+
+function f_CreateMenuItemTable(objMenuItem) {
+	var oTable = window.document.createElement("TABLE");
+	oTable.cellSpacing = 0;
+	oTable.cellPadding = 0;
+	oTable.style.borderWidth = "1px";
+	oTable.style.borderStyle = "solid";
+	oTable.style.borderColor = bgColorNormal;
+	oTable.style.cursor = "hand";
+	oTable.bgColor = bgColorNormal;
+	oTable.width = "100%";
+	var tr = oTable.insertRow();
+	var td1 = tr.insertCell();
+	
+	if (objMenuItem.text != '-') {
+	td1.style.cssText = "font-size:9pt; font-color:#000000; padding:3px; padding-left:10px; padding-right:20px";
+	if (objMenuItem.url != "") 
+		td1.innerHTML = "<a href="+objMenuItem.url+" style=color:#000000;text-decoration:none>"+objMenuItem.text+"</a>";
+	else 
+		td1.innerHTML = objMenuItem.text;
+		
+	oTable.attachEvent("onmouseover", fnMouseOverItem);
+	oTable.attachEvent("onmouseout", fnMouseOutItem);
+	oTable.attachEvent("onmousedown", fnMouseDown);
+	oTable.attachEvent("onmouseup", fnMouseUp);
+	oTable.attachEvent("onselectstart", f_CancelEvent);
+	
+	}else {
+		td1.innerHTML = "<table width=100% cellpading=0 cellspacing=0 height=0><tr><td height=1 bgcolor=#9C9A9C></td></tr><table>";
+		td1.style.cssText = "cursor:default; height:0px; width:100%; padding:0px";
+	}
+	return oTable;
+}
+
+function fnMouseOutCurTable() {
+	var obj = event.srcElement;
+	if (obj.tagName == "TD") {
+		obj = obj.parentElement.parentElement.parentElement;
+	} else if (obj.tagName == "A") {
+		obj = obj.parentElement.parentElement.parentElement.parentElement;
+	}
+	//obj.style.backgroundColor = bgColorNormal;
+	//obj.style.borderColor = borderColorNormal;
+	
+	var theMenu = obj.srcObj;
+	if (theMenu.size() > 0)
+		if (_oSubMenuDiv) 
+			_hideDiv = setTimeout("document.all._oSubMenuDivSingle.style.display='none'", 500);		
+}
+
+function fnMouseOutItem() {
+	var obj = event.srcElement;
+	if (obj.tagName == "TD") {
+		obj = obj.parentElement.parentElement.parentElement;
+	} else if (obj.tagName == "A") {
+		obj = obj.parentElement.parentElement.parentElement.parentElement;
+	}
+	obj.style.backgroundColor = bgColorNormal;
+	obj.style.borderColor = borderColorNormal;
+}
+
+function fnMouseOverDiv() {
+	if (_oSubMenuDiv) {
+		if(_hideDiv)
+			clearTimeout(_hideDiv);
+		_oSubMenuDiv.style.display = "block";
+	}
+}
+
+function fnMouseOutDiv() {
+	if (_oSubMenuDiv) {
+		_hideDiv = setTimeout("document.all._oSubMenuDivSingle.style.display='none'", 500);
+	}
+}
+
+function f_CreateSubMenuContainerDiv() {
+	var oDiv = window.document.createElement("DIV");
+	oDiv.id = "_oSubMenuDivSingle";
+	oDiv.style.cssText = "position:absolute; display:none; width=200px; height=300px; z-index:100; filter:DropShadow(Color=#cccccc, OffX=2, OffY=2, Positive=1)";
+	window.document.body.appendChild(oDiv);
+	oDiv.attachEvent("onmouseover", fnMouseOverDiv);
+	oDiv.attachEvent("onmouseout", fnMouseOutDiv);
+	
+	return oDiv;
+}
+function f_CreateSubMenuContainer() {
+	var oTable = window.document.createElement("TABLE");
+	oTable.cellSpacing = 0;
+	oTable.cellPadding = "2px";
+	oTable.style.border = "1px solid "+borderColorOver;
+	oTable.bgColor = bgColorNormal;
+	oTable.attachEvent("onmouseover", fnMouseOverDiv);
+	return oTable;
+}
+
+function f_CreateContainer() {
+	//Tune the height to suitable.
+	//element.style.height=element.parentElement.scrollHeight;
+	var oTable = window.document.createElement("TABLE");
+	oTable.cellSpacing = 0;
+	oTable.cellPadding = "2px";
+	//oTable.style.borderRight = "1px solid "+borderColorOver;
+	oTable.bgColor = bgColorNormal;
+	oTable.width = "100%";
+	oTable.height = "100%";
+	oTable.style.display = "block";
+
+	return oTable;
+}
+
+function f_CancelEvent() {
+	return false;
+}
+
+function f_GetCurrentIndex() {
+	return 0;
+}
+
+function f_SetCurrentIndex(val) {
+	currentMenuIndex = val;
+}
+
+function f_GetX(obj) {
+	var l=obj.offsetLeft;
+	var ex = obj.offsetWidth;
+	while(obj=obj.offsetParent){
+		l+=obj.offsetLeft;
+	}
+	
+	return l + ex - 3; 
+}
+
+function f_GetY(obj) {
+	var t=obj.offsetTop;
+	while(obj=obj.offsetParent){
+		t+=obj.offsetTop;
+	}
+	return t-3;
+}
+
+
+/*//////////////include from menu.js ////////////////////////////////////
+<!----------------------------------------------------------------------
+//  Copyright (c) 2000-2003 Jzchen.  All Rights Reserved.
+//  Version: menu.js version 1.1
+//  Author: jzchen(http://www.jzchen.net), May 20th, 2003
+//  Last Modified: June 5th, 2003
+//  Notes: If you want to use it, please include this paragraph, Thanks!
+//---------------------------------------------------------------------->*/
+function MenuBar() {
+	this.menuList = new Array();
+	this.size = function() {
+		return this.menuList.length;
+	};
+
+	//add a menu after the current menu
+	this.add = function(objMenu) {
+		//this.menuList.push(objMenu); not support IE5.0, faint...
+		this.menuList[this.size()] = objMenu;
+	};
+
+	//insert a menu in a specified position
+	this.insert = function(objMenu, pos) {
+		if (pos < 0 || pos > this.menuList.length) {
+			alert("The index beyonds the menubar array bound!");
+			return;
+		}	
+		for(var i = this.menuList.length; i >= pos ; i--) {
+			this.menuList[i] = this.menuList[i-1];
+		}	
+		this.menuList[pos] = objMenu;
+	}
+
+	// remove one menu of the specified position
+	this.remove = function(pos) {
+		if (pos < 0 || pos >= this.menuList.length) {
+			alert("The index beyonds the menubar array bound!");
+			return;
+		}
+		for(var i = pos; i < this.menuList.length-1; i++) {
+			this.menuList[i] = this.menuList[i+1];
+		}
+		this.menuList.pop();
+	}
+	
+	// remove all the menus(and it's submenuitems)
+	this.removeAll = function() {
+		while(this.menuList.length > 0)
+			this.remove(0);
+	}
+	
+	// find the specified Menu Object
+	this.find = function(item) {
+		// case a number(index)
+		if (typeof(item) == "number") {
+			item = parseInt(item);
+			if (item > 0 || item < this.menuList.length) {
+				return this.menuList[item];
+			} else {
+				alert("The index beyonds the menubar array bound!");
+				return null;
+			}
+		}
+
+		// case a string
+		if (typeof(item) == "string") {
+			for (var i = 0; i < this.menuList.length; i++) {
+				if (this.menuList[i].text == item) {
+					return this.menuList[i];
+				}
+			} 
+			return null;
+		}
+	}
+}
+
+// Define the menu.
+function Menu(text, url, target, tip) {
+	this.menuItemList = new Array();
+	this.text = text;
+	this.tip = tip;
+	this.url = url;
+	this.target = target;
+
+	this.size = function() {
+		return this.menuItemList.length;
+	}
+
+	this.add = function(objMenuItem) {
+		//this.menuItemList.push(objMenuItem); not support IE5.0, faint...
+		this.menuItemList[this.size()] = objMenuItem;
+	}
+
+	this.insert = function(objMenuItem, pos) {
+		if (pos < 0 || pos > this.menuItemList.length) {
+				alert("The index beyonds the menu array bound!");
+				return;
+		}
+		for(var i = this.menuItemList.length; i >= pos ; i--) {
+			this.menuItemList[i] = this.menuItemList[i-1];
+		}
+		this.menuItemList[pos] = objMenuItem;
+	}
+
+	// remove one menu of the specified position
+	this.remove = function(pos) {
+		if (pos < 0 || pos >= this.menuItemList.length) {
+			alert("The index beyonds the menubar array bound!");
+			return;
+		}
+		for(var i = pos; i < this.menuItemList.length-1; i++) {
+			this.menuItemList[i] = this.menuItemList[i+1];
+		}
+		this.menuItemList.pop();
+	}
+
+	// remove all the menus(and it's submenuitems)
+	this.removeAll = function() {
+		while(this.menuItemList.length > 0)	
+			this.remove(0);
+	}
+
+	this.find = function(item) {
+		// case a number(index)
+		if (typeof(item) == "number") {
+			item = parseInt(item);
+			if (item > 0 || item < this.menuItemList.length) {
+				return this.menuItemList[item];
+			} else {
+				alert("The index beyonds the menu array bound!");
+				return null;
+			}
+		}
+
+		// case a string
+		if (typeof(item) == "string") {
+			for (var i = 0; i < this.menuItemList.length; i++) {
+				if (this.menuItemList[i].text == item) {
+					return this.menuItemList[i];
+				}
+			} 
+			return null;
+		}
+	}
+}
+
+// Define the menuitem. this is the smallest item in this menu system.
+function MenuItem(text, url, target, tip) {
+	this.text = text;
+	this.url = url;
+	this.target = target;
+	this.tip = tip;
+}
+
+// read from xml file and parse it into a MenuBar object.
+function read(xmlUrl) {
+	var objXML = new ActiveXObject("Microsoft.XMLDOM");
+	//objXML.url = xmlUrl;
+	objXML.async = false;
+	objXML.load(xmlUrl);
+	var objRoot = objXML.getElementsByTagName("menubar").item(0);
+	var mb = new MenuBar();
+	for (var i = 0; i < objRoot.childNodes.length; i++) {
+		var menuX = objRoot.childNodes.item(i);
+		var menu = new Menu();
+		menu.text = menuX.getAttribute("text");
+		menu.tip = menuX.getAttribute("tip");
+		menu.url = menuX.getAttribute("url")==null?"":menuX.getAttribute("url");
+		menu.target = menuX.getAttribute("target");
+		if (menuX.childNodes.length>0) {
+		for (var j = 0; j < menuX.childNodes.length; j++) {
+			var objMenuItemX = menuX.childNodes.item(j);
+			var menuItem = new MenuItem();
+			menuItem.text = objMenuItemX.getElementsByTagName("text").item(0).text;
+			menuItem.url = objMenuItemX.getElementsByTagName("url").item(0).text;
+			menuItem.target = objMenuItemX.getElementsByTagName("target").item(0).text;
+			menuItem.tip = objMenuItemX.getElementsByTagName("tip").item(0).text;
+
+			menu.add(menuItem);
+		}}
+
+		mb.add(menu);
+	}
+
+	return mb;
+}
+</SCRIPT>
+</PUBLIC:COMPONENT>
