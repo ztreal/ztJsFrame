@@ -1,0 +1,596 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+ 
+<html lang="en"> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+        <meta http-equiv="Content-Style-Type" content="text/css"> 
+        <meta http-equiv="Content-Script-Type" content="text/javascript"> 
+ 	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs2.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+    
+        <title>账户详细信息</title> 
+        
+        <link rel="stylesheet" href="ui.tabs.css" type="text/css" media="print, projection, screen"> 
+        <style type="text/css" media="screen, projection"> 
+            /* Not required for Tabs, just to make this demo look better... */
+            body, h1, h2 {
+                font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+            }
+            h1 {
+                margin: 1em 0 1.5em;
+                font-size: 18px;
+            }
+            h2 {
+                margin: 2em 0 1.5em;
+                font-size: 16px;
+            }
+            p {
+                margin: 0;
+                padding: 0 0 .5em;
+                max-width: 40em;
+            }
+			.hoves{ cursor:pointer}
+			*{ margin:0; padding:0;}
+            /*pre, pre+p, p+p {
+                margin: 1em 0 0;
+            }
+            code {
+                font-family: "Courier New", Courier, monospace;
+            }*/
+			.green1{
+				  border-top:solid 0px red;
+			}
+			.fc{ color:#2a5e9b;}
+        </style> 
+ 
+        <script type="text/javascript"> 
+			$(function() { 
+			    // 将ul.tabs区域设定为选项卡，用来控制div.panes区域中最近一层的各div区域
+			   // 注意tabs和panes与html中class的对应关系
+			    $("ul.tabs").tabs("div.panes > div",{history: true}); 
+			 
+				//添加删除修改事件
+				$("#add").click( function () { $("#addarea tr:first").after(' <tr>  <td width="256"><label> <input type="text" name="textfield" id="textfield"> </label></td>   <td width="188"><input type="text" name="textfield2" id="textfield2"></td>  <td width="239"><input type="text" name="textfield3" id="textfield3"></td> <td width="211"><input type="text" name="textfield4" id="textfield4"></td>'); }); 
+				$("#del").click( function () { $("#addarea tr:last[type!=title]").remove() });
+			
+				//是否可以修改方法
+			
+			});
+        </script> 
+    </head> 
+    <body> 
+	<div style="width:100%">
+    <div style="width:100%;background-color:#f4f4f4; height:35px; font-size:12px; "><div style="padding-left:10px;padding-top:8px;">当前位置： 后台管理&nbsp;<font style="font-family:'宋体'">></font>&nbsp;用户管理&nbsp;<font style="font-family:'宋体'">></font>&nbsp;账户管理 &nbsp;<font style="font-family:'宋体'">></font>&nbsp;账户详细信息</div></div>
+	
+ <form> 
+   <div style=" width:100%; height:32px; background-color:#ebf6fc; text-align:center" class="hoves">
+	     <div style="float: left; padding-top:4px; padding-left:5px;" class="hoves">
+	       <div style="float: left;padding-right:3px;" onClick=" window.location='modifyla.html'">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2"/></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">修改</font></td>
+			<td><img src="../../images/an01_2.gif" width="2"/></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div style="float: left; padding-right:3px;">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2" /></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">打印</font></td>
+			<td><img src="../../images/an01_2.gif" width="2" /></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div style="float: left; padding-right:3px;" onClick=" window.location='la.html'">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2" /></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">返回</font></td>
+			<td><img src="../../images/an01_2.gif" width="2" /></td>
+		  </tr>
+		</table>
+	  </div>
+	 
+	  </div>
+   </div>
+     <div style=" width:100%; height:28px; background:url(../../images/tiao_bg03.gif);">
+    <div style=" float:left; padding-top:2px;"><font color="#595959" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;基本信息</font></div>
+ </div>
+   <table width="791" height="153" cellspacing="0" style="font-size:12px;" >
+    <tr>
+    <td width="108" height="32" align="right">是否单位<span style="color:red">*<span></span></span><span></td>
+    <td class="fc">&nbsp;&nbsp;是</td>
+    <td width="127" align="right">  姓名<span style="color:red">*<span></span></span><span></td>
+    <td width="120" class="fc">&nbsp;&nbsp;陈怡香</td>
+    <td width="88" align="right" >出生日期</td>
+    <td width="241" class="fc">&nbsp;&nbsp;2010-1-1</td>
+    </tr>
+  <tr>
+    <td height="31" align="right">国家公务员</td>
+    <td width="93" class="fc">&nbsp;&nbsp;是</td>
+    <td align="right">政协委员</td>
+    <td class="fc">&nbsp;&nbsp;全国政协委员</td>
+    <td align="right">人大代表</td>
+    <td class="fc">&nbsp;&nbsp;全国人大代表</td>
+    </tr>
+  <tr>
+    <td height="29" align="right">工作单位及职务<span style="color:red">*<span></span></span><span></td>
+    <td height="29" class="fc">&nbsp;&nbsp;市委书记</td>
+    <td height="29" align="right">民族<span style="color:red">*<span></span></span></td>
+    <td height="29" class="fc">&nbsp;&nbsp;汉族</td>
+    <td align="right">&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td height="28" align="right">政治面貌细节</td>
+    <td class="fc">&nbsp;&nbsp;正事党员</td>
+    <td align="right">政治面貌<span style="color:red">*<span></span></span><span></td>
+    <td class="fc">&nbsp;&nbsp;其他</td>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="31" align="right">是否检察对象<span style="color:red">*<span></span></span></td>
+    <td height="31" class="fc">&nbsp;&nbsp;是</td>
+    <td height="31" align="right">职称<span style="color:red">*<span></span></span><span></td>
+    <td colspan="2" class="fc">&nbsp;&nbsp;省部及以上&nbsp;&nbsp;正级</td>
+    <td>&nbsp;</td>
+    </tr>
+  </table> 
+   <div style=" width:100%; height:28px; background:url(../../images/tiao_bg03.gif);">
+    <div style=" float:left; padding-top:2px;"><font color="#595959" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;详细信息</font></div>
+ </div>
+  
+	<table width="824" height="164" style="font-size:12px;">
+    <tr>
+      <td width="109" height="27" align="right">性别</td>
+      <td width="73" class="fc">&nbsp;&nbsp;男</td>
+      <td width="145" align="right">年龄</td>
+      <td width="54" class="fc">&nbsp;&nbsp;55</td>
+      <td width="169" align="right" >企业性质</td>
+      <td width="89" class="fc">&nbsp;&nbsp;国有或国有控股企业</td>
+      <td width="153" class="fc">中央管理正职企业</td>
+      </tr>
+    <tr>
+      <td height="25" align="right"><span class="datepicker">入党时间</span></td>
+      <td class="fc">&nbsp;&nbsp;2010-1-1</td>
+      <td align="right">任现职时间</td>
+      <td class="fc">&nbsp;&nbsp;2010-4-4</td>
+      <td height="25" align="right">企业人员类别<span style="color:red">*</span></td>
+      <td class="fc" colspan="2">&nbsp;&nbsp;中层管理人员&nbsp;&nbsp;市管干部</td>
+      
+      </tr>
+    <tr>
+      <td height="29" align="right">企业级别</td>
+      <td class="fc">&nbsp;&nbsp;一级企业</td>
+      <td align="right">学历</td>
+      <td class="fc">&nbsp;&nbsp;博士</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+    <tr>
+      <td height="25" align="right">部门分类<span style="color:red">*</span></td>
+      <td colspan="3" class="fc">&nbsp;&nbsp;党政机关&nbsp;&nbsp;政法委&nbsp;&nbsp;劳动保障</td>
+     
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+    <tr>
+      <td height="25" align="right">一把手违纪</td>
+      <td class="fc" colspan="3">&nbsp;&nbsp;查处时任一把手&nbsp;&nbsp;省区市&nbsp;&nbsp;党委机关</td>
+      <td height="25" align="right">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+    
+   </table>  
+       		<!-- Tabs --> 
+ 
+ 
+<ul class="tabs" style="width:790px; height:26px;overflow:hidden;border-left:solid #D7D7D7 1px;"> 
+    <li><a href="#1">两规情况</a></li> 
+    <li><a href="#2">立案情况</a></li>
+	<li><a href="#3">违纪行为 </a></li> 
+	<li><a href="#4">立案文书</a></li> 
+	<li><a href="#5">审理情况  </a></li> 
+	<li><a href="#6">结案情况</a></li> 
+	<li><a href="#7">结案文书</a></li> 
+	<li><a href="#8">公检法处理</a></li> 
+	<li><a href="#9">初核情况</a></li> 
+	<li><a href="#10">初核文书</a></li> 
+</ul> 
+<!-- 定义选项卡切换的每个区域，注意最外层的class定义为panes --> 
+<div class="panes" style="width:790px"> 
+ <div><table width="791" height="26" style="font-size:12px; border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;">
+		    <tr>
+		      <td width="70" height="27" align="right">使用措施</td>
+		      <td width="110" class="fc">&nbsp;&nbsp;两规</td>
+		      <td width="98" height="25" align="right">实施时间<span style="color:red">*</span></td>
+		      <td width="101" height="25" class="fc">&nbsp;&nbsp;2010-6-6</td>
+		      <td width="109" height="25" align="right">实施结束时间<span style="color:red">*</span></td>
+		      <td width="275" height="25" class="fc">&nbsp;&nbsp;2010-10-1</td>
+	        </tr>
+		    <tr>
+		      <td height="25" align="right">实施机关</td>
+		      <td height="25" class="fc">&nbsp;&nbsp;中央纪委监察部</td>
+		      <td></td>
+		      <td></td>
+		      <td ></td>
+		      <td ></td>
+		    </tr>
+</table></div>
+
+
+   
+		  <!--tab2-->
+		   <div><table width="791" height="209" style="font-size:12px;border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;" >
+		    <tr>
+		      <td width="95" height="27" align="right">案件编码<span style="color:red">*</span></td>
+		      <td width="233" class="fc">&nbsp;&nbsp;<label>
+		        2010201030
+		      </label></td>
+		      <td width="107" align="right" >涉案人员编码<span style="color:red">*</span></td>
+		      <td width="140" class="fc">&nbsp;&nbsp;002</td>
+		      <td width="89" align="right" >案件来源<span style="color:red">*</span></td>
+		      <td width="99" class="fc">&nbsp;&nbsp;信访举报</td>
+	        </tr>
+		    <tr>
+		      <td height="25" align="right">首次违纪时间<span style="color:red">*</span></td>
+		      <td height="25" class="fc">&nbsp;&nbsp;2010-1-1</td>
+		      <td align="right">末次违纪时间<span style="color:red">*</span></td>
+		      <td class="fc">&nbsp;&nbsp;2010-4-4</td>
+		      <td align="right" >其他违纪时间</td>
+		      <td class="fc">&nbsp;&nbsp;2010-4-4</td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">立案时间<span style="color:red">*</span></td>
+		      <td height="25" class="fc">&nbsp;&nbsp;2010-4-4</td>
+		      <td align="right">立案机关<span style="color:red">*</span></td>
+		      <td class="fc">&nbsp;&nbsp;地市州纪检监察机关</td>
+		      <td align="right" >联合办案</td>
+		      <td class="fc">&nbsp;&nbsp;检察院</td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">窝案串案</td>
+		      <td height="25" class="fc">&nbsp;&nbsp;窝案</td>
+		      <td align="right">窝案细节</td>
+		      <td>&nbsp;&nbsp;<select name="name" id="name">
+		        <option>&nbsp;</option>
+		        <option>主要涉案人</option>
+		        <option>次要涉案人</option>
+		      </select></td>
+		      <td align="right" >窝案涉案人细节</td>
+		      <td class="fc">&nbsp;&nbsp;无</td>
+		    </tr>
+		    <tr>
+		      <td height="25" rowspan="2" align="right">专项统计</td>
+		      <td height="11">
+			            <input  style="width:30px" type="checkbox" name="复选框组1" value="复选框" id="复选框组1_0"  checked>
+			            工程建设领域
+	          </td>
+		      <td><input type="checkbox"style="width:30px"   name="复选框组1" value="复选框" id="复选框组1_1">
+			              房屋拆迁</td>
+		      <td><input type="checkbox" style="width:30px"  name="复选框组1" value="复选框" id="复选框组1_1">
+			              企业改制破产			        </td>
+		      <td colspan="2" ><input type="checkbox" style="width:30px"  name="复选框组1" value="复选框" id="复选框组1_1">
+			              土地征用              </td>
+	         </tr>
+		    <tr>
+		      <td height="12"><input type="checkbox" style="width:30px"  name="复选框组1_" value="复选框" id="复选框组1_2">
+	          生活作风问题</td>
+		      <td><input type="checkbox"style="width:30px"   name="复选框组1_2" value="复选框" id="复选框组1_3">
+买官卖官</td>
+		      <td><input type="checkbox" style="width:30px"  name="复选框组1_3" value="复选框" id="复选框组1_4">
+贿赂</td>
+		      <td colspan="2" ><input type="checkbox" style="width:30px"  name="复选框组1_6" value="复选框" id="复选框组1_7">
+官商勾结</td>
+	         </tr>
+		    <tr>
+		      <td height="25" rowspan="3" align="right"></td>
+		      <td height="25" rowspan="3"><input style="width:30px"  type="checkbox" name="复选框组1" value="复选框" id="复选框组1_1">
+			              设立小金库和使用小金库款项案件</td>
+		      <td><input type="checkbox" style="width:30px"  name="复选框组1" value="复选框" id="复选框组1_1">
+			              商业贿赂</td>
+		      <td ><input type="checkbox" style="width:30px"  name="复选框组1" value="复选框" id="复选框组1_1">
+			              提出问责建议			         </td>
+		      <td colspan="2" >&nbsp;</td>
+             </tr>
+		    <tr>
+		      <td colspan="4"><input style="width:30px"  type="checkbox" name="复选框组1_4" value="复选框" id="复选框组1_5">
+群体性事件涉及的失职渎职和背后的腐败问题</td>
+	         </tr>
+		    <tr>
+		      <td colspan="4"><input style="width:30px"  type="checkbox" name="复选框组1_5" value="复选框" id="复选框组1_6">
+	          重大责任事故涉及的失职渎职和背后的腐败问题</td>
+	         </tr>
+           </table>
+</div>
+		  
+   
+		  <!--tab3-->
+		   <div style="width:790px;border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;"><br><fieldset><legend style="font-size:12px;">主要违纪行为</legend>
+<table width="786" height="29" cellspacing="0" style="font-size:12px;" >
+		    <tr>
+		      <td width="173" height="27">违反组织人事纪律</td>
+		      <td width="185" class="fc">挪用资金</td>
+		      <td width="154" class="fc">非国家工作人员索取收受财物</td>
+		      <td width="49" class="fc">金额<span style="color:red"></span></td>
+		      <td width="213" ><font class="fc">111</font>
+	          <span style="color:red">万元</span></td>
+  </tr>
+		  </table></fieldset><br>
+<fieldset><legend style=" font-size:12px;">次要违纪行为</legend>
+  <table width="788" height="29"  cellspacing="0" style="font-size:12px;">
+    <tr>
+      <td width="185" height="27">违反政治纪律</td>
+      <td width="175" class="fc">挪用资金</td>
+      <td width="200" class="fc">为亲友经营牟利</td>
+      <td width="41" class="fc">金额<span style="color:red"></span></td>
+      <td width="175" ><font class="fc">123</font>
+        <span style="color:red">万元</span></td>
+    </tr>
+  </table> 
+  
+   <table width="790" style="font-size:12px;">
+    <tr type="title">
+      <td width="260">违纪行为一级</td>
+      <td width="188">违纪行为二级</td>
+      <td width="243">违纪行为三级</td>
+      <td width="79">金额</td>
+     </tr>
+  </table>
+</fieldset></div>
+		  
+		 
+		   <!--tab4-->
+		    <div><table width="791" height="26" style="font-size:12px;border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;">
+		    <tr>
+		      <td width="90" height="27" align="right">立案报告</td>
+		      <td width="670" height="25" colspan="5" class="fc">&nbsp;&nbsp;经过审核情况属实</td>
+	        </tr>
+		    <tr>
+		      <td height="25" align="right">立案决定书</td>
+		      <td height="25" colspan="5" class="fc">&nbsp;&nbsp;经过审核情况属实</td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">调查报告</td>
+		      <td height="25" colspan="5" class="fc">&nbsp;&nbsp;经过审核情况属实</td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">简要案情<span style="color:red">*</span></td>
+		      <td height="25" colspan="5" class="fc">&nbsp;&nbsp;经调查情况严重</td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">备注</td>
+		      <td height="25" colspan="5" class="fc">&nbsp;&nbsp;经过审核情况属实</td>
+		    </tr>
+</table></div>
+		   
+		  
+		   <!--tab5-->
+		     <div><table width="791" height="26" style="font-size:12px;border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;" >
+		    <tr>
+		      <td width="84" height="25" align="right">审理受理时间</td>
+		      <td width="99" height="25" class="fc">&nbsp;&nbsp;2010-10-1</td>
+		      <td width="76" align="right">审理机关</td>
+		      <td width="103" class="fc">&nbsp;&nbsp;中央纪委监察部</td>
+		      <td width="78"  align="right">审结时间</td>
+		      <td width="323" class="fc">&nbsp;&nbsp;2010-10-1</td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">审理报告</td>
+		      <td height="25" colspan="5" class="fc">&nbsp;&nbsp;从严处理</td>
+		    </tr>
+</table></div>
+		   
+		
+		   <!--tab6-->
+		 <div><table width="791" height="104" style="font-size:12px;border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;" >
+		    <tr>
+		      <td width="90" height="25" align="right">案件总金额</td>
+		      <td width="140" height="25">&nbsp;&nbsp;<font class="fc">300</font>
+		      <span style="color:red">万元</span></td>
+		      <td width="135" height="25" align="right">失职渎职损失</td>
+		      <td width="184" height="25">&nbsp;&nbsp;<font class="fc">100</font>
+		      <span style="color:red">万元</span></td>
+		      <td width="89" height="25">涉案金额</td>
+		      <td width="125" height="25">&nbsp;&nbsp;<font class="fc">40</font><span style="color:red">万元</span></td>
+	        </tr>
+		    <tr>
+		      <td height="25" align="right">违纪总金额</td>
+		      <td height="25">&nbsp;&nbsp;<font class="fc">400</font>
+		      <span style="color:red">万元</span></td>
+		      <td height="25" align="right">挽回损失</td>
+		      <td height="25">&nbsp;&nbsp;<font class="fc">30</font>
+		      <span style="color:red">万元</span></td>
+		      <td height="25">留党察看年限</td>
+		      <td height="25">&nbsp;&nbsp;<font class="fc">两年</font></td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">责任追究</td>
+		      <td height="25" class="fc">&nbsp;&nbsp;是</td>
+		     <td height="25" align="right">结案时间<span style="color:red">*</span></td>
+		      <td height="25" class="fc">&nbsp;&nbsp;2010-10-4</td>
+		      <td >收缴涉案金额</td>
+		      <td >&nbsp;&nbsp;<font class="fc">200</font><span style="color:red">万元</span></td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">党纪处分</td>
+		      <td height="25" class="fc">&nbsp;&nbsp;开除党籍</td>
+		      <td align="right">政纪处分</td>
+		      <td class="fc">&nbsp;&nbsp;开除</td>
+		      <td >受贿涉及人数</td>
+		      <td class="fc">&nbsp;&nbsp;10</td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">收受礼金人数</td>
+		      <td height="25"class="fc">&nbsp;&nbsp;2</td>
+		      <td height="25" align="right">其他处理</td>
+		      <td colspan="3" class="fc">&nbsp;&nbsp;免予政纪处分 
+		        解聘</td>
+	        </tr>
+		    <tr>
+		      <td height="25" align="right">潜逃时间</td>
+		      <td height="25" class="fc">&nbsp;&nbsp;2010-4-4</td>
+		      <td align="right">潜逃去向</td>
+		      <td class="fc">&nbsp;&nbsp;国境外</td>
+		      <td >潜逃去向细节</td>
+			              <td >&nbsp; </td>
+		    </tr>
+            <tr>
+		      <td height="25" align="right">调查中/终止时间</td>
+		      <td height="25"class="fc">&nbsp;&nbsp;2010-4-4 </td>
+		      <td align="right">解除政纪时间</td>
+		      <td class="fc">&nbsp;&nbsp;2010-4-4 </td>
+		      <td >销案时间</td>
+			              <td class="fc">&nbsp;&nbsp;2010-4-4 </td>
+		    </tr>
+</table></div>
+		   <!--tab7-->
+		   <div><table width="791" height="26" style="font-size:12px;border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;">
+		    <tr>		      <td width="100" height="30" align="center">处分决定</td>
+		      <td  height="25" colspan="5" class="fc">开除党籍</td>
+	        </tr>
+		    <tr>
+		      <td height="25" align="center">案件剖析</htd>
+		      <td height="25" colspan="5">&nbsp;</td>
+		    </tr>
+</table> </div>
+		   <!--tab8-->
+		  <div><table width="791" height="79"  cellspacing="0" style="font-size:12px;border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;">
+		    <tr>
+		      <td width="134" height="27" align="right">移送司法机关时间</td>
+		      <td width="135" class="fc">&nbsp;&nbsp;2010-6-6</td>
+		      <td width="514" height="27">&nbsp;</td>
+	        </tr>
+		    <tr>
+		      <td height="25" align="right">公检法处理</td>
+		      <td height="25" class="fc">&nbsp;&nbsp;死刑立即执行</td>
+		      <td>无期徒刑
+		        <font class="fc">14
+		        年
+		          4
+		        月</font>
+		        
+		        缓刑
+		        <font class="fc">  1
+		        年
+		          1
+		        月 </font></td>
+	        </tr>
+		    <tr>
+		      <td height="25" align="right">公检法处理时间</td>
+		      <td height="25" class="fc">&nbsp;&nbsp;2010-3-3</td>
+		      <td>司法判决金额
+		        <font class="fc">200</font>
+		        <span style="color:red">万元</span></td>
+	        </tr>
+</table></div>
+		   <!--tab9-->
+		 <div><table width="791" height="127"  cellspacing="0" style="font-size:12px;border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;">
+		    <tr>
+		      <td width="85" height="26" align="right">线索编码<span style="color:red">*</span></td>
+		      <td width="129" class="fc">&nbsp;&nbsp;<label>
+		        2001010
+		      </label></td>
+		      <td width="75" align="right" >人员编码<span style="color:red">*</span></td>
+		      <td width="122" class="fc">&nbsp;&nbsp;001</td>
+		      <td width="117" align="right" >线索来源<span style="color:red">*</span></td>
+		      <td width="249" class="fc">&nbsp;&nbsp;信访举报</td>
+        </tr>
+		    <tr>
+		      <td height="24" align="right">违纪类型<span style="color:red">*</span></td>
+		      <td height="24" class="fc">&nbsp;&nbsp;违反组织人事纪律</td>
+		      <td align="right">批准核实时间<span style="color:red">*</span></td>
+		      <td class="fc">&nbsp;&nbsp;2009-10-1</td>
+		      <td align="right" >了结时间</td>
+		      <td class="fc">&nbsp;&nbsp;<span calss="datepick">
+		        2010-10-1
+		      </span></td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">核实结果</td>
+		      <td height="25" class="fc">&nbsp;&nbsp;了结</td>
+		      <td align="right">了结结论</td>
+		      <td class="fc"> &nbsp;&nbsp;适当处理</td>
+		      <td align="right" >挽回经济损失</td>
+		      <td > &nbsp;&nbsp;万元 </td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">收缴涉案金额</td>
+		      <td height="25" class="fc">&nbsp;&nbsp;189 万元 </td>
+		      <td align="right">组织处理情况</td>
+		      <td class="fc">&nbsp;&nbsp;调整岗位</td>
+		      <td align="right" >办理机关</td>
+		      <td class="fc">&nbsp;&nbsp;省区市纪检监察机关</td>
+		    </tr>
+</table> </div> 
+		   <!--tab10-->
+		 <div><table width="791" height="104" style="font-size:12px;border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;">
+		    <tr>
+		      <td width="110" height="27" align="right">主要违纪线索<span style="color:red">*</span></td>
+		      <td width="669" colspan="5" class="fc">&nbsp;&nbsp;被某人举报，发现账本，和不明资金来源100万元</td>
+        </tr>
+		    <tr>
+		      <td height="25" align="right">初核报告<span style="color:red"></span></td>
+		      <td height="25" colspan="5" class="fc">&nbsp;&nbsp;经核实，所举报属实</td>
+	        </tr>
+		    <tr>
+		      <td height="25" align="right">备注</td>
+		      <td height="25" colspan="5" class="fc">&nbsp;&nbsp;已经处理</td>
+	        </tr>
+    </table></div>  
+		  
+</div>
+
+<div style=" width:100%; height:32px; background-color:#ebf6fc; text-align:center" class="hoves">
+	     <div style="float: left; padding-top:4px; padding-left:300px;" class="hoves">
+	       <div style="float: left;padding-right:5px;" onClick=" window.location='modifyla.html'">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2"/></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">修改</font></td>
+			<td><img src="../../images/an01_2.gif" width="2"/></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div style="float: left; padding-right:5px;">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2" /></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">打印</font></td>
+			<td><img src="../../images/an01_2.gif" width="2" /></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div style="float: left; padding-right:5px;" onClick=" window.location='la.html'">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2" /></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">返回</font></td>
+			<td><img src="../../images/an01_2.gif" width="2" /></td>
+		  </tr>
+		</table>
+	  </div>
+	 
+	  </div>
+   </div>
+ </form>
+    </body> 
+</html>

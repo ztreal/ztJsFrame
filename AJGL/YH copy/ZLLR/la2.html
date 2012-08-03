@@ -1,0 +1,314 @@
+<html>
+  <head>
+  	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+    <script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript">
+		$(function() { 
+				$(":date").dateinput()
+			});
+		function nodeRetail(){
+			window.open("nodedetail.html","","resizable=no,menubar=no,directories=no,status=no,location=no,scrollbars=no,left=300,top=170,width=330,height=230");
+		    $(":date").dateinput();
+		}
+	</script>
+	<style type="text/css">
+		#calbody{
+	widows:198px;
+}	
+	</style>
+	<link href="../../css/style.css" rel="stylesheet" type="text/css" />  
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/redmond/jquery-ui-1.8.2.custom.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.jqgrid.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.multiselect.css" />
+<link type="text/css" href="../../css/tabs.css" rel="stylesheet" /> 
+<script src="../../common/js/jquery-1.4.2.min.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery.layout.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script> 
+<script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+<script type="text/javascript"> 
+	$.jgrid.no_legacy_api = true;
+	$.jgrid.useJSON = true;
+</script> 
+<script src="../../common/js/jqgrid/js/ui.multiselect.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery.jqGrid.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+ 
+var mydata = [
+		{id:"1",invdate:"20100803002",name:"王一明",note:"张小二",amount:"001",tax:"张小二",total:"2111"} ,
+		{id:"2",invdate:"20100803002",name:"王一明",note:"张小二",amount:"002",tax:"张小二",total:"320"},
+		{id:"3",invdate:"20100803002",name:"王一明",note:"张小二",amount:"003",tax:"张小二",total:"430"},
+		{id:"4",invdate:"20100803002",name:"王一明",note:"王小二",amount:"004",tax:"张小二",total:"210"},
+		{id:"5",invdate:"20100803002",name:"王一明",note:"张小二",amount:"005",tax:"张小二",total:"320"},
+		{id:"6",invdate:"20100803002",name:"王一明",note:"张小二",amount:"006",tax:"张小二",total:"430"},
+		{id:"7",invdate:"20100803002",name:"王一明",note:"王小二",amount:"007",tax:"张小二",total:"210"},
+		{id:"8",invdate:"20100803002",name:"王一明",note:"张小二",amount:"008",tax:"张小二",total:"320"},
+		{id:"9",invdate:"20100803002",name:"王一明",note:"张小二",amount:"009",tax:"张小二",total:"430"},
+		{id:"11",invdate:"20100803002",name:"王一明",note:"张小二",amount:"010",tax:"张小二",total:"210"},
+		{id:"12",invdate:"20100803002",name:"王一明",note:"王小二",amount:"011",tax:"张小二",total:"320"},
+		{id:"13",invdate:"20100803002",name:"王一明",note:"张小二",amount:"012",tax:"张小二",total:"430"},
+		{id:"14",invdate:"20100803002",name:"王一明",note:"张小二",amount:"013",tax:"张小二",total:"210"},
+		{id:"15",invdate:"20100803002",name:"王一明",note:"张小二",amount:"014",tax:"张小二",total:"320"},
+		{id:"16",invdate:"20100803002",name:"王一明",note:"张小二",amount:"015",tax:"张小二",total:"430"},
+		{id:"17",invdate:"20100803002",name:"王一明",note:"王小二",amount:"016",tax:"张小二",total:"210"},
+		{id:"18",invdate:"20100803002",name:"王一明",note:"张小二",amount:"017",tax:"张小二",total:"320"},
+		{id:"19",invdate:"20100803002",name:"王一明",note:"张小二",amount:"018",tax:"张小二",total:"430"},
+		{id:"21",invdate:"20100803002",name:"王一明",note:"张小二",amount:"019",tax:"张小二",total:"210"},
+		{id:"22",invdate:"20100803002",name:"王一明",note:"张小二",amount:"020",tax:"张小二",total:"320"},
+		{id:"23",invdate:"20100803002",name:"王一明",note:"张小二",amount:"021",tax:"张小二",total:"430"},
+		{id:"24",invdate:"20100803002",name:"王一明",note:"张小二",amount:"022",tax:"张小二",total:"210"},
+		{id:"25",invdate:"20100803002",name:"王一明",note:"王小二",amount:"023",tax:"张小二",total:"320"},
+		{id:"26",invdate:"20100803002",name:"王一明",note:"张小二",amount:"024",tax:"张小二",total:"430"},
+		{id:"27",invdate:"20100803002",name:"王一明",note:"张小二",amount:"025",tax:"张小二",total:"210"},
+		{id:"28",invdate:"20100803002",name:"王一明",note:"王小二",amount:"026",tax:"张小二",total:"320"},
+		{id:"29",invdate:"20100803002",name:"王一明",note:"张小二",amount:"027",tax:"张小二",total:"430"}
+	];
+ 
+ 
+jQuery(document).ready(function(){
+  jQuery("#list486").jqGrid({
+  	width: 796,
+	data: mydata,
+	datatype: "local",
+	height: 'auto',
+	rowNum: 10,
+	rowList: [10,20,30],
+   	colNames:['序号','案件编码', '被调查人', '人员编码','填报人','操作','备注'],
+   	colModel:[
+   		{name:'id',index:'id', width:60, sorttype:"int"},
+   		{name:'invdate',index:'invdate', width:90, sorttype:"int" },
+   		{name:'name',index:'name', width:100, editable:true},
+   		{name:'amount',index:'amount', width:80, align:"left",sorttype:"float", editable:true, summaryType:'min', summaryTpl:'<b>Min: {0}</b>'},
+   		{name:'tax',index:'tax', width:80, align:"left",sorttype:"float", editable:true, summaryType:'max', summaryTpl:'<b>Max: {0}</b>'},
+   		{name:'total',index:'total', width:80,align:"left",sorttype:"float", formatter:"number", summaryType:'sum'},		
+   		{name:'note',index:'note', width:150, sortable:false, summaryType:'count', summaryTpl:'<b>{0} Item(s)</b>',hidegrid:true}		
+   	],
+   	pager: "#plist486",
+   	viewrecords: true,
+   	sortname: 'name',
+   	caption: "立案信息"
+}).jqGrid('hideCol',["note","total"]);
+jQuery("#list486").jqGrid('navGrid','#plist486',{add:false,edit:false,del:false,search:false,refresh:true});
+jQuery("#list486").jqGrid('navButtonAdd','#plist486',{
+    caption: "选择列",
+    title: "点击按钮选择列",
+    onClickButton : function (){
+        jQuery("#list486").jqGrid('columnChooser');
+    }
+});
+
+});
+</script> 
+  </head>
+  
+  <body>
+  	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>    
+			<td align="left" valign="top" class="text01"><strong>当前位置->资料录入->立案部分</strong></td>
+			<td align="right" class="text01"><strong>操作员->案件检查一室王明</strong></td>       
+		</tr>
+	</table>
+	<div class="search" style="border:solid 0px #fff">默认显示当前月份的信息，如需查看其他月份的信息，请在查询区域内进行查询。</div>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="../../images/tiao001.gif" width="2" height="22"></td>
+    <td width="100%" background="../../images/tiao003.gif" class="tit">添加信息</td>
+    <td><img src="../../images/tiao002.gif" width="2" height="22"></td>
+  </tr>
+</table>
+  <table width="100%"  class="search" id="addarea">
+    <tr type="title">
+      <td colspan="6"></td>
+    </tr>
+    <tr type="title">
+      <td width="6">&nbsp;</td>
+      <td colspan="2">填报年月
+  <input type="text" class="Wdate" id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月'})"/>
+</td>
+      <td width="80" align="right"><input type="button" value="添 加" class="button"   onClick="window.open ('newlv.html', 'newwindow', '')" ></td>
+      <td width="100">&nbsp;</td>
+      <td width="353">&nbsp;</td>
+    </tr>
+  </table><br>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="../../images/tiao001.gif" width="2" height="22"></td>
+    <td width="100%" background="../../images/tiao003.gif" class="tit">查询</td>
+    <td><img src="../../images/tiao002.gif" width="2" height="22"></td>
+  </tr>
+</table>
+<table width="100%"  class="search" id="addarea">
+    <tr type="title">
+      <td colspan="8"></td>
+  </tr>
+    <tr type="title">
+      <td>&nbsp;</td>
+      <td align="right">填报起始日期</td>
+      <td><input type="date" width="80"  class="inputtext"></td>
+      <td align="right">填报终止日期        </td>
+      <td><input type="date" width="80"  class="inputtext"></td>
+      <td align="right">被调查人</td>
+      <td><input type="text" width="80"  class="inputtext" style="width:150px"></td>
+      <td>&nbsp;</td>
+  </tr>
+    <tr type="title">
+      <td width="6" height="23">&nbsp;</td>
+      <td width="75" align="right">案件编码        </td>
+      <td width="106"><input type="text" width="80"  class="inputtext"></td>
+      <td width="77" align="right">人员编码        </td>
+      <td width="88"><input type="text" width="80"  class="inputtext"></td>
+      <td width="52" align="right"><span class="text01">填报人</span></td>
+      <td width="168"><input type="text" width="80"  class="inputtext" style="width:150px"></td>
+      <td width="124" align="right"><input type="submit" name="button" id="button"  class="button"  value="查询"></td>
+  </tr>
+</table>	
+<table width="99%" valign="top" border="0" cellpadding="1" cellspacing="0">
+<tr align="right">
+			<td width="87%"><input type="button" value="返 回" class="button" onClick="window.location='la.html'" ></td>
+             <td width="13%" align="left">&nbsp;
+             <input type="button" value="删 除" class="button" onClick="javascript:window.confirm('确实要删除吗？')" ></td>
+  </tr>
+</table>  
+	<!-- 查询结果列表栏(分页显示) --><table id="list486"></table>
+<div id="plist486"></div> 
+	<table width="100%" valign="top" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<div id="primarytable">
+<table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#9CC6F7">
+						<tr height="22">
+							<th background="../../images/listbg.jpg" align="center" width="6%"><input type="checkbox" id="selectall"  onClick="_selectAll()"  style="width:30px"/></th>
+							<th background="../../../images/listbg.jpg" align="center" class="text01" width="5%">序号</th>
+							<th background="../../../images/listbg.jpg" align="center" class="text01" width="14%">案件编码</th>
+							<th background="../../../images/listbg.jpg" align="center" class="text01" width="13%">人员编码</th>
+							<th background="../../../images/listbg.jpg" align="center" class="text01" width="15%">被调查人</th>
+							<th background="../../../images/listbg.jpg" align="center" class="text01" width="10%">填报人</th>
+							<th background="../../../images/listbg.jpg" align="center" class="text01" width="18%">操作</th>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem2"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">1</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">20100803002</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">002</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">张小二</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王一明</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">  <a href="newla.html"  >查 看</a> 修 改</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem3"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">2</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">20100803002</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">001</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">张小四</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王一明</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">查  看 修 改</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem4"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">3</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">20100803001</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">001</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王小二</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王一明</td>	
+							<td bgcolor="#FFFFFF" align="center" class="text01">查  看 修 改</td>					
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">4</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">20100802001</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">002</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">李小二</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王一明</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">查  看 修 改</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">5</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">20100801004</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">001</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">孙小二</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王一明</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">查  看 修 改</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem5"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">6</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">20100801003</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">001</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">赵小二</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王一明</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">查  看 修 改</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">7</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">20100801002</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">003</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">张小二</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王一明</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">查  看 修 改</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">8</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">20100801002</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">002</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">钱小二</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王一明</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">查  看 修 改</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">9</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">20100801002</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">001</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">周小二</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王一明</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">查  看 修 改</td>
+						</tr>
+						<tr height="22">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem"  style="width:30px"/></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">10</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">20100801001</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">001</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">吴小二</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">王一明</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">查  看 修 改</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="text01">
+				<div class="pagination">到 <input name="gopage" type="text" class="queryinput" size="5" />页&nbsp;
+					<ul>
+					<li class="firstpage"><a href="#">跳转</a>&nbsp;</li>
+					<li class="" >第 1 页&nbsp;共 1 页&nbsp;&nbsp;</li>
+					<li class="firstpage"><a href="#">首&nbsp;&nbsp;页</a></li>
+					<li class="disablepage">上一页</li>			
+					<li class="nextpage"><a href="#">下一页</a></li>
+					<li class="endpage"><a href="#">尾&nbsp;&nbsp;页</a></li>
+					</ul>
+				</div>
+			</td>
+		</tr>
+	</table>
+  </body>
+</html>

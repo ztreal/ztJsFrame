@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN">
+<HTML>
+<HEAD>
+<TITLE>案件管理系统</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<SCRIPT language=JavaScript>
+self.moveTo(0,0)
+self.resizeTo(screen.availWidth,screen.availHeight)
+</SCRIPT>
+<script language="javascript" src="../common/login/login.js"></script>
+<SCRIPT>
+N=(document.all)? 0:1;
+function _expend(){
+	if(N){
+	    main_frmObj = document.getElementById("main_frm");
+		main_frmObj.cols="170,5,*";
+	}else{
+		main_frm.cols="170,5,*";
+	}
+}
+function _close(){
+	if(N){
+	    main_frmObj = document.getElementById("main_frm");
+		man = document.getElementById("mainFrame");
+		man.location="welcome.html";
+		main_frmObj.cols="0,5,*";
+	}else{
+		main_frm.cols="0,5,*";
+	}
+}
+function gotodesktop(){
+			main_frmObj = document.getElementById("main_frm");
+		    main_frmObj.cols="0,0,*";	
+			window.top.mainFrame.location="../YH/welcome.html";
+			}
+mNav=1;//判断leftFrame是否打开的参数（0：关闭；1：打开）
+function _funNav(typeID){
+	//typeID：调用_funNav()的参数（0－按钮调用；菜单调用：1、常开，不能关闭;2、开始显示，但可不显示;3、开始不显示，但可显示;4、常闭，不能打开）
+	if(typeID==0){
+		if(mNav==0){
+			_expend();
+			window.top.navFrame.imgNav.src="../images/lefta.gif";
+			window.top.navFrame.divNav.style.display="block";
+			mNav=1;
+		}else{
+			_close();
+			window.top.navFrame.imgNav.src="../images/righta.gif";
+			window.top.navFrame.divNav.style.display="block";
+			mNav=0;
+		}
+	 //控制切换右侧导航后，右边表格宽度。
+		//setTimeout("mainFrame.window.changewidth()",100);   
+	}
+	if(typeID==1){
+		_expend();
+		window.top.navFrame.imgNav.src="../images/lefta.gif";
+		window.top.navFrame.divNav.style.display="none";
+		mNav=1;
+	}
+	if(typeID==2){
+		_expend();
+		window.top.navFrame.imgNav.src="../images/lefta.gif";
+		window.top.navFrame.divNav.style.display="block";
+		mNav=1;
+	}
+	if(typeID==3){
+		_close();
+		window.top.navFrame.imgNav.src="../images/righta.gif";
+		window.top.navFrame.divNav.style.display="block";
+		mNav=0;
+	}
+	if(typeID==4){
+		_close();
+		window.top.navFrame.imgNav.src="../images/righta.gif";
+		window.top.navFrame.divNav.style.display="none";
+		mNav=0;
+	}
+}
+
+function _logout(){
+  
+   //window.location.href="../common/Logout.jsp";
+}
+
+function _showBar(){
+	if(topState == 1){
+		sup_frmObj = document.getElementById("supFrame");
+		sup_frmObj.rows="75,5,*";
+	}
+}
+function _hideBar(){
+	if(topState == 1){
+		sup_frmObj = document.getElementById("supFrame");
+		sup_frmObj.rows="75,0,*";
+	}
+}
+
+topState = 1
+function _topControl(){
+	if(topState == 1){
+		_topClose();
+		topState = 0;
+		window.top.midFrame.imgNav.src="../images/downa.gif";
+	}else{
+		_topOpen();
+		topState = 1;
+		window.top.midFrame.imgNav.src="../images/upa.gif";
+	}
+}
+function _topClose(){
+	    sup_frmObj = document.getElementById("supFrame");
+		sup_frmObj.rows="0,5,0,*";
+}
+function _topOpen(){
+	    sup_frmObj = document.getElementById("supFrame");
+		sup_frmObj.rows="148,5,0,*";
+}
+var coverState = 1;
+function showCover(curappgrpid, s){
+	if(coverState == 1 && s != 1){
+		sup_frmObj = document.getElementById("supFrame");
+		sup_frmObj.rows="75,5,*,0";
+		coverState = 2;
+		//window.top.sys.location.href="/servlet/ApplicationPublishServlet?curappgrpid="+curappgrpid;
+	}else {
+		sup_frmObj = document.getElementById("supFrame");
+		sup_frmObj.rows="75,5,0,*";
+		coverState = 1;
+	}
+}
+</SCRIPT>
+
+<SCRIPT language=JavaScript1.2>
+ function _showUrl(){
+   resolve = 0;
+ 
+if (screen.width==800||screen.height==600) //if 800x600
+  {
+    resolve = 0;   
+  }
+ else if (screen.width==640||screen.height==480) //if 640x480
+  {
+    resolve = -1;
+  }
+  else if (screen.width>=1024||screen.height>=768) //if 1024x768
+  {
+    resolve =1;
+  }    
+ 
+   //window.top.topFrame.location.href = "/application/common/AppTop.jsp?curappgrpid=85&entrymode=login&resolve=" + resolve + "&_mpid=null&_moduleid=null&_callmuuid=null";
+ }
+         
+ </SCRIPT>
+<!--frameset rows="90,*" cols="*" frameborder="NO" border="0" framespacing="0"-->
+ 
+<META content="MSHTML 6.00.6000.16397" name=GENERATOR></HEAD>
+<frameset cols="*,1024,*" frameborder="no" border="0" framespacing="0">
+<frame src="about:blank"></frame>
+
+	<FRAMESET id=supFrame  style="border:2px solid #e2f0fe;padding:0px" frameSpacing=0 rows=148,5,0,* cols= frameBorder=NO cols=* name="supFrame">
+		<FRAME name=topFrame src="../common/AppTop.htm" noResize scrolling=no>
+		<FRAME name=midFrame src="../common/midFrame.htm" noResize scrolling=no>
+		<FRAME name=sys src="about:blank" noResize>
+		<FRAMESET id=main_frm border=0 name=main_frm frameSpacing=0 frameBorder=NO cols=0,0,*>
+			<FRAME name=leftFrame src="" noResize scrolling=no>
+			<FRAME name=navFrame borderColor=#ff6600 src="../common/FrameControl.htm" noResize scrolling=no>
+			<FRAME name=mainFrame src="welcome.html">
+		</FRAMESET>
+	</FRAMESET> 
+	
+	<frame src="about:blank"></frame> 
+</frameset>
+</HTML>

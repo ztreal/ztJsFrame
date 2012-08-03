@@ -1,0 +1,642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>  
+	<meta http-equiv="Content-Type" content="text/html; charset=gbk"> 
+	<title>jqGrid Demos</title> 
+
+	<link href="../../css/style.css" rel="stylesheet" type="text/css"> 
+	<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/redmond/jquery-ui-1.8.2.custom.css"> 
+	<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.jqgrid.css"> 
+	<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.multiselect.css">
+	<link type="text/css" href="../../css/tabs.css" rel="stylesheet"> 
+	<script type="text/javascript" src="../../common/js/jquery-1.4.2.min.js"></script> 
+	<script type="text/javascript" src="../../common/js/jqgrid/js/jquery-ui-1.8.2.custom.min.js"></script> 
+	<script type="text/javascript" src="../../common/js/jqgrid/js/jquery.layout.js"></script> 
+	<script type="text/javascript" src="../../common/js/jqgrid/js/i18n/grid.locale-cn.js"></script> 
+	<script src="../../common/js/My97DatePicker/WdatePicker.js" type="text/javascript" language="JavaScript"></script><link href="file:///C:/Documents%20and%20Settings/Administrator/%E6%A1%8C%E9%9D%A2/update/AJGL/common/js/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css"><link type="text/css" rel="stylesheet" href="file:///C:/Documents%20and%20Settings/Administrator/%E6%A1%8C%E9%9D%A2/update/AJGL/common/js/My97DatePicker/skin/WdatePicker.css"><link href="file:///C:/Documents%20and%20Settings/Administrator/%E6%A1%8C%E9%9D%A2/update/AJGL/common/js/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="../../common/js/jqgrid/js/ui.multiselect.js"></script> 
+	<script type="text/javascript" src="../../common/js/jqgrid/js/jquery.jqGrid.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.base.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.common.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.formedit.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.inlinedit.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.celledit.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.subgrid.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.treegrid.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.custom.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.postext.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.tbltogrid.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.setcolumns.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.import.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/jquery.fmatter.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.grouping.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/jqModal.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/jqDnR.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/JsonXml.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.jqueryui.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/jquery.searchFilter.js"></script>
+	<script src="../../common/js/jqgrid/js/grid.base.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/grid.common.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/grid.formedit.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/grid.inlinedit.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/grid.celledit.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/grid.subgrid.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/grid.treegrid.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/grid.custom.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/grid.postext.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/grid.tbltogrid.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/grid.setcolumns.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/grid.import.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/jquery.fmatter.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/grid.grouping.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/jqModal.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/jqDnR.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/JsonXml.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/grid.jqueryui.js" charset="utf-8" type="text/javascript"></script>
+	<script src="../../common/js/jqgrid/js/jquery.searchFilter.js" charset="utf-8" type="text/javascript"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.base.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.common.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.formedit.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.inlinedit.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.celledit.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.subgrid.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.treegrid.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.custom.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.postext.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.tbltogrid.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.setcolumns.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.import.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/jquery.fmatter.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.grouping.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/jqModal.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/jqDnR.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/JsonXml.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/grid.jqueryui.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../common/js/jqgrid/js/jquery.searchFilter.js"></script>
+	 <script src="../../common/js/base.js" type="text/javascript"></script>
+	<script type="text/javascript"> 
+		$.jgrid.no_legacy_api = true;
+		$.jgrid.useJSON = true;
+	</script> 
+	<style type="text/css">
+		input[type="text"] { width: 100px; } 
+		input[type="checkbox"] { width: 20px; } 
+		*{ margin:0; padding:0;}
+		.hoves{ cursor:pointer;}
+	</style>
+	
+	
+	
+	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<link type="text/css" href="../../css/tabs2.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<link rel="stylesheet" href="ui.tabs.css" type="text/css" media="print, projection, screen" />
+	
+
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+	 
+<script type="text/javascript"> 
+ 
+$(function() { 
+		    // 将ul.tabs区域设定为选项卡，用来控制div.panes区域中最近一层的各div区域
+		   // 注意tabs和panes与html中class的对应关系
+		    $("ul.tabs").tabs("div.panes > div", {history: true,initialIndex:3}); 
+			$(":date").dateinput();
+		
+         $("#chaxun").click(function(){
+			$("#searchearea").fadeIn('slow');
+		})
+         $("#closes").click(function(){$("#searchearea").fadeOut("slow")})
+		 $("#fil,#add2").click(function(){
+				$( "#dialog-confirm" ).dialog({
+			resizable: false,
+			height:140,
+			width:200,
+			modal: true,
+			buttons: {
+				"取消": function() {
+					$( this ).dialog( "close" );
+				},
+				"确定": function() {
+					//window.location='wjlrjg.html';
+					window.location='sjdr.html';
+					$( this ).dialog( "close" );
+				}
+			}
+		});					 
+		
+		})
+		$("#delFile").click(function(){
+		    
+			      $("#files").find(":last").remove();
+			     $("#files").find(":last").remove();
+			  
+		})
+});
+function addComponent()
+{
+        var uploadHTML = document.createElement( "<input type='file' name='upload' style='width:200px;height:20px'/>");
+        document.getElementById("files").appendChild(uploadHTML);
+        uploadHTML = document.createElement( "<div style='height:8px;'></div>");
+        document.getElementById("files").appendChild(uploadHTML);
+}
+function itemAll(reg){
+    
+     var obj=document.getElementsByName("cb_list486");
+	 for(var i=0;i<obj.length;i++){
+	      obj[i].checked=reg.checked;
+	 }
+	 
+}
+function selectDate(){
+    var date=new Date();
+	var y=date.getFullYear();
+	var m=date.getMonth()+1;
+	var d=date.getDate();
+	document.getElementById("dt").value=y+"年"+m+"月"+d+"日";
+}
+
+</script> 
+</head> 
+<body onload="selectDate()"> 
+  <div style="width:100%;background-color:#f4f4f4; height:32px; font-size:12px;"><div style="padding-left:10px;padding-top:8px;">当前位置： 资料填报&nbsp;<font style="font-family:'宋体'">></font>&nbsp;数据导入</div></div>
+ <div style=" width:100%; height:28px; background:url(../../images/tiao_bg04.gif);">
+    <div style=" float:left; padding-top:8px;"><font color="#124c95" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;<img src="../../images/dian02.gif" align="middle">&nbsp;数据导入</font></div>
+	<div style="float:right; padding-right:5px; padding-top:4px;" >
+	  
+	   <div  style="float: right; padding-right:3px;" class="clbutton" onclick="window.location='pldr.html'">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		    <td class="blue_2_j"></td>
+			<td class="blue_4_j">批量导入</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	  </div>
+	 <!-- <div id="delFile" style="float: right; padding-right:3px;" class="clbutton">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		      <td class="blue_2_j"></td>
+			<td class="blue_4_j">删除文件</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div id="search" style="float: right; padding-right:3px;" class="clbutton" onclick="addComponent()">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		      <td class="blue_2_j"></td>
+			<td class="blue_4_j">添加文件</td>
+			<td class="blue_3_j"></td>
+		   
+		  </tr>
+		</table>
+	  </div>-->
+	   
+	</div>
+ </div>
+ <table width="100%" style="font-size:12px;">
+    <tr><td colspan="4" height="8">&nbsp;</td></tr>
+    <tr type="title" height="25">
+	  <td valign="top" style="padding-top:3px;" align="right">填报日期</td>
+	  <td valign="top">&nbsp;<input type="text" onFocus="WdatePicker({dateFmt:'yyyy年MM月dd日'})" style="width:255px;" id="dt"/></td>
+	  <td width="103"   align="right" valign="top" style="padding-top:3px;">选择所在的文件</td>
+      <td valign="top"><span id="files">&nbsp;<input id="fe" type="file" name="file"  style="width:200px;height:20px" /><div style="height:8px;"></div></span>
+	  </tr>
+	  <tr height="25">
+	  <td valign="top" style="padding-top:3px;" align="right">填报单位</td>
+	  <td valign="top">
+	     <select style="margin-left:5px; width:270px;" class="field" name="select2" id="select2" defaultval="纪检监察一室一处" >
+				  <option>请选择</option>
+				<option value="001">001 纪检监察一室一处</option>
+				<option value="002">002 纪检监察一室二处</option>
+				<option value="003">003 纪检监察一室三处</option>
+				<option value="004">004 纪检监察二室一处</option>
+				<option value="005">005 纪检监察二室二处</option>
+				<option value="006">006 纪检监察二室三处</option>
+				<option value="007">007 纪检监察三室一处</option>				
+				<option value="008">008 纪检监察三室二处</option>
+				<option value="009">009 纪检监察三室三处</option>
+				<option value="010">010 纪检监察四室一处</option>
+				<option value="011">011 纪检监察四室二处</option>
+				<option value="012">012 纪检监察四室三处</option>
+				<option value="013">013 案件审理室申诉复查一处</option>
+				<option value="014">014 案件审理室申诉复查二处</option>
+				
+				<option value="015" selected="selected">015 北京市纪检监察机关</option>
+				<option value="016">016 天津市纪检监察机关</option>
+				<option value="017">017 河北省纪检监察机关</option>
+				<option value="018">018 山西省纪检监察机关</option>
+				<option value="019">019 内蒙古自治区纪检监察机关</option>
+				<option value="020">020 辽宁省纪检监察机关</option>				
+				<option value="021">021 吉林省纪检监察机关</option>
+				<option value="022">022 黑龙江省纪检监察机关</option>
+				<option value="023">023 上海市纪检监察机关</option>
+				<option value="024">024 江苏省纪检监察机关</option>
+				<option value="025">025 浙江省纪检监察机关</option>
+				<option value="026">026 安徽省纪检监察机关</option>
+				<option value="027">027 福建省纪检监察机关</option>
+				
+				<option value="028">028 江西省纪检监察机关</option>
+				<option value="029">029 山东省纪检监察机关</option>
+				<option value="030">030 河南省纪检监察机关</option>
+				<option value="031">031 湖北省纪检监察机关</option>
+				<option value="032">032 湖南省纪检监察机关</option>
+				<option value="033">033 广东省纪检监察机关</option>				
+				<option value="034">034 广西壮族自治区纪检监察机关</option>
+				<option value="035">035 海南省纪检监察机关</option>
+				<option value="036">036 重庆市纪检监察机关</option>
+				<option value="037">037 四川省纪检监察机关</option>
+				<option value="038">038 贵州省纪检监察机关</option>
+				<option value="039">039 云南省纪检监察机关</option>
+				<option value="040">040 西藏自治区纪检监察机关</option>
+				
+				<option value="041">041 陕西省纪检监察机关</option>
+				<option value="042">042 甘肃省纪检监察机关</option>
+				<option value="043">043 青海省纪检监察机关</option>
+				<option value="044">044 宁夏回族自治区纪检监察机关</option>
+				<option value="045">045 新疆维吾尔自治区纪检监察机关</option>
+				<option value="046">046 国务院国有资产监督管理委员会纪检监察机关</option>				
+				<option value="047">047 外交部纪检监察机关</option>
+				<option value="048">048 国防部纪检监察机关</option>
+				<option value="049">049 国家发展和改革委员会纪检监察机关</option>
+				<option value="050">050 教育部纪检监察机关</option>
+				<option value="051">051 科学技术部纪检监察机关</option>
+				<option value="052">052 工业和信息化部纪检监察机关</option>
+				<option value="053">053 国家民族事务委员会纪检监察机关</option>
+				
+				<option value="054">054 公安部纪检监察机关</option>
+				<option value="055">055 国家安全部纪检监察机关</option>
+				<option value="056">056 民政部纪检监察机关</option>
+				<option value="057">057 司法部纪检监察机关</option>
+				<option value="058">058 财政部纪检监察机关</option>
+				<option value="059">059 人力资源和社会保障部纪检监察机关</option>				
+				<option value="060">060 国土资源部纪检监察机关</option>
+				<option value="061">061 环境保护部 纪检监察机关</option>
+				<option value="062">062 住房和城乡建设部纪检监察机关</option>
+				<option value="063">063 交通运输部 纪检监察机关</option>
+				<option value="064">064 铁道部 纪检监察机关</option>
+				<option value="065">065 水利部纪检监察机关</option>
+				<option value="066">066 农业部纪检监察机关</option>
+				
+				<option value="067">067 商务部纪检监察机关</option>
+				<option value="068">068 文化部纪检监察机关</option>
+				<option value="069">069 卫生部纪检监察机关</option>
+				<option value="070">070 国家人口和计划生育委员会纪检监察机关</option>
+				<option value="071">071 中国人民银行纪检监察机关</option>
+				<option value="072">072 审计署纪检监察机关</option>				
+				<option value="073">073 海关总署纪检监察机关</option>
+				<option value="074">074 国家税务总局纪检监察机关</option>
+				<option value="075">075 国家工商行政管理总局纪检监察机关</option>
+				<option value="076">076 国家质量监督检验检疫总局纪检监察机关</option>
+				<option value="077">077 国家广播电影电视总局纪检监察机关</option>
+				<option value="078">078 国家新闻出版总署(国家版权局)纪检监察机关</option>
+				<option value="079">079 国家体育总局纪检监察机关</option>
+				
+				<option value="080">080 国家安全生产监督管理总局纪检监察机关</option>
+				<option value="081">081 国家统计局纪检监察机关</option>
+				<option value="082">082 国家林业局纪检监察机关</option>
+				<option value="083">083 国家知识产权局纪检监察机关</option>
+				<option value="084">084 国家旅游局纪检监察机关</option>
+				<option value="085">085 国家宗教事务局纪检监察机关</option>				
+				<option value="086">086 国务院参事室纪检监察机关</option>
+				<option value="087">087 国务院机关事务管理局纪检监察机关</option>
+				
+			  </select>
+	  </td>
+      
+</td>
+     <td colspan="2">
+	   <div id="add" class="clbutton" onclick="window.location='sjdr.html'" style=" margin-left:250px;">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		    <td class="blue_2_j"></td>
+			<td class="blue_4_j">导 入</td>
+			<td class="blue_3_j"></td>
+		  
+		  </tr>
+		</table>
+	  </div>
+	 </td>
+    </tr>
+	<tr height="8"><td colspan="4"></td></tr>
+  </table>
+  
+  <div id="dialog-confirm" title="请选择" style="display:none">
+     <table>
+	    <tr height="25">
+		  <td>&nbsp;&nbsp;&nbsp;填报年月</td>
+		  <td>&nbsp;<input type="text" id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月'})" value="2010年10月" style="width:77px;"></td>
+		</tr>
+		<tr height="25">
+		  <td>&nbsp;&nbsp;&nbsp;填报单位</td>
+		  <td>
+		    <select style="margin-left:5px" class="field" name="select" id="select" defaultVal="案件检查一室">
+				<option>请选择</option>
+				<option selected>一处</option>
+				<option>二处</option>
+				<option>三处</option>
+				<option>四处</option>
+			  </select>
+		  </td>
+		</tr>
+	 </table>
+</div>
+  <div id="searchearea" style="display:none">
+   <div class="ui-jqgrid-titlebar ui-widget-header ui-corner-top ui-helper-clearfix"  style="padding-top:0px;padding-bottom:3px; margin-bottom:10px;">
+   <div style="float:left;height:10px; vertical-align:middle;margin-top:8px;padding-left:10px;font-size:12px">查询  </div> 
+  <a style="float:right;cursor:hand"><SPAN class="ui-icon ui-icon-circle-close" id="closes"></SPAN></a>
+  <DIV style="PADDING-RIGHT: 10px; FLOAT: right; padding-left:10px; PADDING-TOP: 3px"  class="graybutton"    >
+<table border="0" cellpadding="0" cellspacing="0" class="gray_1_j" >
+  <tr>
+    <td  class="gray_2_j"></td>
+    <td class="gray_4_j">查 询</td>
+    <td class="gray_3_j"></td>
+  </tr>
+</table>
+ </DIV> </div>
+<table width="100%" style="font-size:12px;">
+    <tr height="25">
+      <td  align="right">填报起始日期</td>
+      <td><input type="date" width="80"  class="inputtext"></td>
+      <td align="right">填报单位</td>
+      <td> <select style="margin-left:5px; width:150px;" class="field" name="select2" id="select2" defaultval="纪检监察一室一处" >
+				  <option>请选择</option>
+				<option  selected="selected" value="001">001 纪检监察一室一处</option>
+				<option value="002">002 纪检监察一室二处</option>
+				<option value="003">003 纪检监察一室三处</option>
+				<option value="004">004 纪检监察二室一处</option>
+				<option value="005">005 纪检监察二室二处</option>
+				<option value="006">006 纪检监察二室三处</option>
+				<option value="007">007 纪检监察三室一处</option>				
+				<option value="008">008 纪检监察三室二处</option>
+				<option value="009">009 纪检监察三室三处</option>
+				<option value="010">010 纪检监察四室一处</option>
+				<option value="011">011 纪检监察四室二处</option>
+				<option value="012">012 纪检监察四室三处</option>
+				<option value="013">013 案件审理室申诉复查一处</option>
+				<option value="014">014 案件审理室申诉复查二处</option>
+				
+				<option value="015">015 北京市纪检监察机关</option>
+				<option value="016">016 天津市纪检监察机关</option>
+				<option value="017">017 河北省纪检监察机关</option>
+				<option value="018">018 山西省纪检监察机关</option>
+				<option value="019">019 内蒙古自治区纪检监察机关</option>
+				<option value="020">020 辽宁省纪检监察机关</option>				
+				<option value="021">021 吉林省纪检监察机关</option>
+				<option value="022">022 黑龙江省纪检监察机关</option>
+				<option value="023">023 上海市纪检监察机关</option>
+				<option value="024">024 江苏省纪检监察机关</option>
+				<option value="025">025 浙江省纪检监察机关</option>
+				<option value="026">026 安徽省纪检监察机关</option>
+				<option value="027">027 福建省纪检监察机关</option>
+				
+				<option value="028">028 江西省纪检监察机关</option>
+				<option value="029">029 山东省纪检监察机关</option>
+				<option value="030">030 河南省纪检监察机关</option>
+				<option value="031">031 湖北省纪检监察机关</option>
+				<option value="032">032 湖南省纪检监察机关</option>
+				<option value="033">033 广东省纪检监察机关</option>				
+				<option value="034">034 广西壮族自治区纪检监察机关</option>
+				<option value="035">035 海南省纪检监察机关</option>
+				<option value="036">036 重庆市纪检监察机关</option>
+				<option value="037">037 四川省纪检监察机关</option>
+				<option value="038">038 贵州省纪检监察机关</option>
+				<option value="039">039 云南省纪检监察机关</option>
+				<option value="040">040 西藏自治区纪检监察机关</option>
+				
+				<option value="041">041 陕西省纪检监察机关</option>
+				<option value="042">042 甘肃省纪检监察机关</option>
+				<option value="043">043 青海省纪检监察机关</option>
+				<option value="044">044 宁夏回族自治区纪检监察机关</option>
+				<option value="045">045 新疆维吾尔自治区纪检监察机关</option>
+				<option value="046">046 国务院国有资产监督管理委员会纪检监察机关</option>				
+				<option value="047">047 外交部纪检监察机关</option>
+				<option value="048">048 国防部纪检监察机关</option>
+				<option value="049">049 国家发展和改革委员会纪检监察机关</option>
+				<option value="050">050 教育部纪检监察机关</option>
+				<option value="051">051 科学技术部纪检监察机关</option>
+				<option value="052">052 工业和信息化部纪检监察机关</option>
+				<option value="053">053 国家民族事务委员会纪检监察机关</option>
+				
+				<option value="054">054 公安部纪检监察机关</option>
+				<option value="055">055 国家安全部纪检监察机关</option>
+				<option value="056">056 民政部纪检监察机关</option>
+				<option value="057">057 司法部纪检监察机关</option>
+				<option value="058">058 财政部纪检监察机关</option>
+				<option value="059">059 人力资源和社会保障部纪检监察机关</option>				
+				<option value="060">060 国土资源部纪检监察机关</option>
+				<option value="061">061 环境保护部 纪检监察机关</option>
+				<option value="062">062 住房和城乡建设部纪检监察机关</option>
+				<option value="063">063 交通运输部 纪检监察机关</option>
+				<option value="064">064 铁道部 纪检监察机关</option>
+				<option value="065">065 水利部纪检监察机关</option>
+				<option value="066">066 农业部纪检监察机关</option>
+				
+				<option value="067">067 商务部纪检监察机关</option>
+				<option value="068">068 文化部纪检监察机关</option>
+				<option value="069">069 卫生部纪检监察机关</option>
+				<option value="070">070 国家人口和计划生育委员会纪检监察机关</option>
+				<option value="071">071 中国人民银行纪检监察机关</option>
+				<option value="072">072 审计署纪检监察机关</option>				
+				<option value="073">073 海关总署纪检监察机关</option>
+				<option value="074">074 国家税务总局纪检监察机关</option>
+				<option value="075">075 国家工商行政管理总局纪检监察机关</option>
+				<option value="076">076 国家质量监督检验检疫总局纪检监察机关</option>
+				<option value="077">077 国家广播电影电视总局纪检监察机关</option>
+				<option value="078">078 国家新闻出版总署(国家版权局)纪检监察机关</option>
+				<option value="079">079 国家体育总局纪检监察机关</option>
+				
+				<option value="080">080 国家安全生产监督管理总局纪检监察机关</option>
+				<option value="081">081 国家统计局纪检监察机关</option>
+				<option value="082">082 国家林业局纪检监察机关</option>
+				<option value="083">083 国家知识产权局纪检监察机关</option>
+				<option value="084">084 国家旅游局纪检监察机关</option>
+				<option value="085">085 国家宗教事务局纪检监察机关</option>				
+				<option value="086">086 国务院参事室纪检监察机关</option>
+				<option value="087">087 国务院机关事务管理局纪检监察机关</option>
+				
+			  </select></td>
+</tr>
+    <tr height="25">
+	 <td align="right">填报终止日期</td>
+      <td align="left"><input type="date" width="80"  class="inputtext"></td>
+      
+      <td align="right">接收结果</td>
+      <td align="left"><select name="select4" id="select4" style="width:150px">
+        <option>请选择</option>
+        <option>已录</option>
+        <option>出错</option>
+        <option>已录修改</option>
+      </select></td>
+  </tr>
+  <tr height="8"><td colspan="4"></td></tr>
+  </table>	
+ </div>
+
+	<ul class="tabs" style="width:795px; height:26px;overflow:hidden;border-left:solid #D7D7D7 1px"> 
+	<li><a href="#first">未报送(2)</a></li> 
+	    <li><a href="#second">已报送(4)</a></li> 
+
+	</ul>
+	<div style="width: 795px;" id="gview_list486" class="ui-jqgrid-view">
+		<div style="height: auto; width: 795px;" class="ui-jqgrid-bdiv">
+			<div style="position: relative;">
+				<div></div>
+			<div class="ui-jqgrid ui-widget ui-widget-content ui-corner-all" id="gbox_list486" dir="ltr" style="width: 795px;overflow-y: hidden;">
+				<div id="lui_list486" class="ui-widget-overlay jqgrid-overlay"></div>
+				<div id="load_list486" class="loading ui-state-default ui-state-active">读取中...</div>
+				<div class="ui-jqgrid-view" id="gview_list486" style="width: 795px;">
+					<div class="ui-jqgrid-titlebar ui-widget-header ui-corner-top ui-helper-clearfix">
+						<span class="ui-jqgrid-title">导入信息</span>
+					</div>
+					<div class="ui-state-default ui-jqgrid-hdiv" style="width: 795px;">
+						<div class="ui-jqgrid-hbox">
+							<table cellspacing="0" cellpadding="0" border="0" class="ui-jqgrid-htable" style="width: 795px; overflow-y: hidden;" role="grid" aria-labelledby="gbox_list486">
+							<thead>
+								<tr role="rowheader" class="ui-jqgrid-labels">
+									<th rowspan="2" class="ui-state-default ui-th-column ui-th-ltr" role="columnheader" id="list486_cb" style="width: 25px; padding-left: 0px; padding-right: 0px;"><div id="jqgh_cb"><input type="checkbox" class="cbox" id="cb_list486" role="checkbox" onclick="itemAll(this)"><span style="display: none;" class="s-ico"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr" sort="asc"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr" sort="desc"></span></span></div></th>
+									<th rowspan="2" class="ui-state-default ui-th-column ui-th-ltr" role="columnheader" id="list486_id" style="width: 50px; padding-left: 0px; padding-right: 0px;"><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr" style="cursor: col-resize;">&nbsp;</span><div id="jqgh_id" class="ui-jqgrid-sortable">序号<span style="display: none;" class="s-ico"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr" sort="asc"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr" sort="desc"></span></span></div></th>
+									<th rowspan="2" class="ui-state-default ui-th-column ui-th-ltr" role="columnheader" id="list486_invdate" style="width: 175px; padding-left: 0px; padding-right: 0px;"><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr" style="cursor: col-resize;">&nbsp;</span><div id="jqgh_invdate" class="ui-jqgrid-sortable">单位名称<span style="display: none;" class="s-ico"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr" sort="asc"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr" sort="desc"></span></span></div></th>
+									<th rowspan="2" class="ui-state-default ui-th-column ui-th-ltr" role="columnheader" id="list486_note" style="width: 80px; padding-left: 0px; padding-right: 0px;"><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr" style="cursor: col-resize;">&nbsp;</span><div id="jqgh_note" class="ui-jqgrid-sortable">上报日期<span style="display: none;" class="s-ico"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr" sort="asc"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr" sort="desc"></span></span></div></th>
+									<th rowspan="2" class="ui-state-default ui-th-column ui-th-ltr" role="columnheader" id="list486_amount" style="width: 50px; padding-left: 0px; padding-right: 0px;"><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr" style="cursor: col-resize;">&nbsp;</span><div id="jqgh_amount" class="ui-jqgrid-sortable">状态<span style="display: none;" class="s-ico"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr" sort="asc"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr" sort="desc"></span></span></div></th>
+									<th colspan="5" class="ui-state-default ui-th-column ui-th-ltr" role="columnheader" id="list486_tax" style="width: 410px; padding-left: 0px; padding-right: 0px;"><span class="ui-jqgrid-resize ui-jqgrid-resize-ltr" style="cursor: col-resize;">&nbsp;</span><div id="jqgh_tax" class="ui-jqgrid-sortable">填报资料说明<span style="display: none;" class="s-ico"><span class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr" sort="asc"></span><span class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr" sort="desc"></span></span></div></th>
+								</tr>
+								<tr class="ui-jqgrid-labels" role="rowheader">
+									<th style="width: 81px; padding-left: 0px; padding-right: 0px;" id="list486_tax" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr"><span style="cursor: col-resize;" class="ui-jqgrid-resize ui-jqgrid-resize-ltr">&nbsp;</span><div class="ui-jqgrid-sortable" style="text-align: right;" id="jqgh_tax">信访件数<span class="s-ico" style="display: none;"><span sort="asc" class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span sort="desc" class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th>
+									<th style="width: 81px; padding-left: 0px; padding-right: 0px;" id="list486_tax" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr"><span style="cursor: col-resize;" class="ui-jqgrid-resize ui-jqgrid-resize-ltr">&nbsp;</span><div class="ui-jqgrid-sortable" style="text-align: right;" id="jqgh_tax">初核件数<span class="s-ico" style="display: none;"><span sort="asc" class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span sort="desc" class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th>
+									<th style="width: 81px; padding-left: 0px; padding-right: 0px;" id="list486_tax" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr"><span style="cursor: col-resize;" class="ui-jqgrid-resize ui-jqgrid-resize-ltr">&nbsp;</span><div class="ui-jqgrid-sortable" style="text-align: right;" id="jqgh_tax">立案件数<span class="s-ico" style="display: none;"><span sort="asc" class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span sort="desc" class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th>
+									<th style="width: 81px; padding-left: 0px; padding-right: 0px;" id="list486_tax" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr"><span style="cursor: col-resize;" class="ui-jqgrid-resize ui-jqgrid-resize-ltr">&nbsp;</span><div class="ui-jqgrid-sortable" style="text-align: right;" id="jqgh_tax">处分人数<span class="s-ico" style="display: none;"><span sort="asc" class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span sort="desc" class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th>
+									<th style="width: 81px; padding-left: 0px; padding-right: 0px;" id="list486_tax" role="columnheader" class="ui-state-default ui-th-column ui-th-ltr"><span style="cursor: col-resize;" class="ui-jqgrid-resize ui-jqgrid-resize-ltr">&nbsp;</span><div class="ui-jqgrid-sortable" style="text-align: right;" id="jqgh_tax">安全事故件数<span class="s-ico" style="display: none;"><span sort="asc" class="ui-grid-ico-sort ui-icon-asc ui-state-disabled ui-icon ui-icon-triangle-1-n ui-sort-ltr"></span><span sort="desc" class="ui-grid-ico-sort ui-icon-desc ui-state-disabled ui-icon ui-icon-triangle-1-s ui-sort-ltr"></span></span></div></th>
+								</tr>
+							</thead>
+							</table>
+						</div>
+					</div>
+					
+					<div class="ui-jqgrid-bdiv" style="height: auto; width: 795px;">
+						<div style="position: relative;overflow-x: hidden;">
+							<div class="panes">
+							
+							<div>
+							<table cellspacing="0" cellpadding="0" border="0" style="width: 795px;" class="ui-jqgrid-btable" aria-labelledby="gbox_list486" aria-multiselectable="true" role="grid" id="list486">
+								<tr class="jqgfirstrow" role="row" style="height: auto;">
+									<td style="height: 0px; width: 25px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 50px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 175px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 80px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 50px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 81px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 81px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 82px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 81px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 82px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+								</tr>
+								<tr class="ui-widget-content jqgrow ui-row-ltr" role="row">
+									<td role="gridcell" style="text-align: center;" aria-describedby="list486_note"><input type="checkbox" role="checkbox" id="cb_list486" class="cbox" ></td>
+									<td role="gridcell" style="text-align: center;" aria-describedby="list486_note">1</td>
+									<td role="gridcell" style="text-align: left;" aria-describedby="list486_note">司法部纪检监察机关</td>
+									<td role="gridcell" style="text-align: center;" aria-describedby="list486_note">2010-9-26</td>
+									<td role="gridcell" style="text-align: center;"  aria-describedby="list486_note">未报送</td>
+									<td role="gridcell" style="text-align: right;" aria-describedby="list486_note">17</td>
+									<td role="gridcell" style="text-align: right;" aria-describedby="list486_note">12</td>
+									<td role="gridcell" style="text-align: right;" aria-describedby="list486_note">5</td>
+									<td role="gridcell" style="text-align: right;" aria-describedby="list486_note">1</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">2</td>
+								</tr>
+								<tr class="ui-widget-content jqgrow ui-row-ltr" role="row">
+									<td role="gridcell" style="text-align: center;" aria-describedby="list486_note"><input type="checkbox" role="checkbox" id="cb_list486" class="cbox"></td>
+									<td role="gridcell" style="text-align: center;"  aria-describedby="list486_note">2</td>
+									<td role="gridcell" style="text-align: left;"  aria-describedby="list486_note">财政部纪检监察机关</td>
+									<td role="gridcell" style="text-align: center;" aria-describedby="list486_note">2010-9-28</td>
+									<td role="gridcell" style="text-align: center;"  aria-describedby="list486_note">未报送</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">16</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">10</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">7</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">2</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">2</td>
+								</tr>
+								
+							</table>
+							</div>
+							
+							<div>
+							<table cellspacing="0" cellpadding="0" border="0" style="width: 795px;" class="ui-jqgrid-btable" aria-labelledby="gbox_list486" aria-multiselectable="true" role="grid" id="list486">
+								<tr class="jqgfirstrow" role="row" style="height: auto;">
+									<td style="height: 0px; width: 25px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 50px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 175px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 80px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 50px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 81px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 81px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 82px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 81px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+									<td style="height: 0px; width: 82px; padding-left: 0px; padding-right: 0px;" role="gridcell"></td>
+								</tr>
+								<tr class="ui-widget-content jqgrow ui-row-ltr" role="row">
+									<td role="gridcell" style="text-align: center;" aria-describedby="list486_note"><input type="checkbox" role="checkbox" id="cb_list486" class="cbox"></td>
+									<td role="gridcell" style="text-align: center;" aria-describedby="list486_note">1</td>
+									<td role="gridcell" style="text-align: left;" aria-describedby="list486_note">河北省纪检监察机关</td>
+									<td role="gridcell" style="text-align: center;" aria-describedby="list486_note">2010-9-25</td>
+									<td role="gridcell" style="text-align: center;"  aria-describedby="list486_note">已报送</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">21</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">13</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">7</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">1</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">2</td>
+								</tr>
+								<tr class="ui-widget-content jqgrow ui-row-ltr" role="row">
+									<td role="gridcell" style="text-align: center;"  aria-describedby="list486_note"><input type="checkbox" role="checkbox" id="cb_list486" class="cbox"></td>
+									<td role="gridcell" style="text-align: center;"  aria-describedby="list486_note">2</td>
+									<td role="gridcell" style="text-align: left;"  aria-describedby="list486_note">山西省纪检监察机关</td>
+									<td role="gridcell" style="text-align: center;"  aria-describedby="list486_note">2010-9-26</td>
+									<td role="gridcell" style="text-align: center;" aria-describedby="list486_note">已报送</td>
+									<td role="gridcell" style="text-align: right;" aria-describedby="list486_note">17</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">14</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">6</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">4</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">2</td>
+								</tr>
+								<tr class="ui-widget-content jqgrow ui-row-ltr" role="row">
+									<td role="gridcell" style="text-align: center;"  aria-describedby="list486_note"><input type="checkbox" role="checkbox" id="cb_list486" class="cbox"></td>
+									<td role="gridcell" style="text-align: center;" aria-describedby="list486_note">3</td>
+									<td role="gridcell" style="text-align: left;"  aria-describedby="list486_note">内蒙古自治区纪检监察机关</td>
+									<td role="gridcell" style="text-align: center;"  aria-describedby="list486_note">2010-9-25</td>
+									<td role="gridcell" style="text-align: center;" aria-describedby="list486_note">已报送</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">21</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">11</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">8</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">2</td>
+									<td role="gridcell" style="text-align: right;" aria-describedby="list486_note">1</td>
+								</tr>
+								<tr class="ui-widget-content jqgrow ui-row-ltr" role="row">
+									<td role="gridcell" style="text-align: center;"  aria-describedby="list486_note"><input type="checkbox" role="checkbox" id="cb_list486" class="cbox"></td>
+									<td role="gridcell" style="text-align: center;" aria-describedby="list486_note">4</td>
+									<td role="gridcell" style="text-align: left;"  aria-describedby="list486_note">北京市纪检监察机关</td>
+									<td role="gridcell" style="text-align: center;"  aria-describedby="list486_note">2010-9-25</td>
+									<td role="gridcell" style="text-align: center;" aria-describedby="list486_note">已报送</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">21</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">11</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">8</td>
+									<td role="gridcell" style="text-align: right;"  aria-describedby="list486_note">2</td>
+									<td role="gridcell" style="text-align: right;" aria-describedby="list486_note">1</td>
+								</tr>
+							</table>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ui-jqgrid-resize-mark" id="rs_mlist486">&nbsp;</div> 
+  </body>
+</html>

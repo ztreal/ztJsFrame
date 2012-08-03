@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>选择发布单位</title>
+<meta name="company" content="中科软科技股份有限公司">
+<meta name="date" content="2008-12-03">
+	<style type="text/css">
+	  	#form-manage{ font-size:12px; border:1px solid #86B9D6; margin:10px 10px 10px 10px; vertical-align:text-top; background-color:#fafbfd;  }
+		#form-manage a{color:#0D67A6; text-decoration: none;   }
+		#form-manage a:hover{color:#FF9900; text-decoration: none;   }
+		#form-manage-new { background:url(../style/s1/new.gif) 5px 12px no-repeat; float:left; font-weight:bold ; }
+		#form-manage-list{margin:10px 10px 10px 10px }
+		#form-manage-list td{  border:1px solid #DCF0FB;  }
+		#form-manage-list span{ margin:0px 6px 0px 6px}
+		#form-manage-table{border-collapse:collapse; padding: 0 5px 0 5px;font-size:12px;color:#0D67A6;}
+		.table-title{font-weight:bold;  }
+	</style>
+	<link href="../style/s1/tab.css" rel="stylesheet" type="text/css">
+<link rel="StyleSheet" href="dtree.css" type="text/css" />
+<script type="text/javascript" src="dtree.js"></script>
+<script>
+	
+	//获得参数的方法
+	var request = 
+	{ 
+		QueryString : function(val) 
+		{ 
+			var uri = window.location.search; 
+			var re = new RegExp("" +val+ "=([^&?]*)", "ig"); 
+			return ((uri.match(re))?(uri.match(re)[0].substr(val.length+1)):null); 
+		} 
+	}
+	
+
+	function chkAllClick(){
+		var chks = document.getElementsByName("chk");
+		for(var i=0;i<chks.length;i++){
+			chks[i].checked = document.getElementById("chkAll").checked;
+		}
+	}
+	
+	
+	function chk1AllClick(){
+		var chks = document.getElementsByName("chk1");
+		for(var i=0;i<chks.length;i++){
+			chks[i].checked = document.getElementById("chk1All").checked;
+		}
+	}
+	
+	
+	function chk2AllClick(){
+		var chks = document.getElementsByName("chk2");
+		for(var i=0;i<chks.length;i++){
+			chks[i].checked = document.getElementById("chk2All").checked;
+		}
+	}
+	
+	function chk4AllClick(){
+		var chks = document.getElementsByName("chk4");
+		for(var i=0;i<chks.length;i++){
+			chks[i].checked = document.getElementById("chk4All").checked;
+		}
+	}	
+	function chk5AllClick(){
+		var chks = document.getElementsByName("chk5");
+		for(var i=0;i<chks.length;i++){
+			chks[i].checked = document.getElementById("chk5All").checked;
+		}
+	}	
+</script>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"   bordercolor="#DCF0FB" class="b1" >
+ <tr bgcolor="#DCF0FB" height="30" class="table-title" valign="middle">
+  <td align="center" colspan="4">请选择发布单位
+  	&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="checkbox" name="chk1All" onclick="chk1AllClick()"/> 	  	
+    直辖市
+    <input type="checkbox" name="chk2All" onclick="chk2AllClick()"/>
+    自治区
+    <input type="checkbox" name="chkAll" onclick="chkAllClick()"/>
+    省
+    <input type="checkbox" name="chk4All" onclick="chk4AllClick()"/>
+    各部委监察机构    
+    <input type="checkbox" name="chk5All" onclick="chk5AllClick()"/>
+国资委监察机构
+    <input type="checkbox" name="chk6All"/>
+直属局监察机构
+    <input type="checkbox" name="chk7All"/>
+    军委纪委</td>
+ </tr>
+ <tr>
+ <td  width="25%"><table  width="100%" border="0"
+			cellpadding="0" cellspacing="1"  bordercolor="#DCF0FB" class="b1">
+   <tr class="main_listtdbg center">
+     <td align="center" width="10%"></td>
+     <td align="center" nowrap="nowrap" width="15%">&nbsp;</td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk1" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">北京市纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk1" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">天津市纪委 </td>
+   </tr>
+   <tr>
+     <td height="22" align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk1" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">上海市纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk1" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">重庆市纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk2" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">内蒙古纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk2" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">新疆纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk2" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">西藏纪委 </td>
+   </tr>
+   <tr>
+     <td height="22" align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">广东省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">陕西省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">山东省纪委 </td>
+   </tr>   
+ </table> </td>
+ 
+ <td width="25%"><table  width="100%" border="0"
+			cellpadding="0" cellspacing="1"  bordercolor="#DCF0FB" class="b1">
+   <tr class="main_listtdbg center">
+     <td align="center" width="10%"></td>
+     <td align="center" nowrap="nowrap" width="15%">&nbsp;</td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">山东省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">河南省纪委 </td>
+   </tr>
+   <tr>
+     <td height="22" align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">河北省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">江西省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">湖南省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">山西省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">贵州省纪委 </td>
+   </tr>
+   <tr>
+     <td height="22" align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">广东省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">陕西省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">山东省纪委 </td>
+   </tr>   
+ </table> </td>
+  
+ <td width="25%"><table  width="100%" border="0"
+			cellpadding="0" cellspacing="1"  bordercolor="#DCF0FB" class="b1">
+   <tr class="main_listtdbg center">
+     <td align="center" width="10%"></td>
+     <td align="center" nowrap="nowrap" width="15%">&nbsp;</td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">云南省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">甘肃省纪委 </td>
+   </tr>
+   <tr>
+     <td height="22" align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">四川省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">浙江省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">江苏省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">山西省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">贵州省纪委 </td>
+   </tr>
+   <tr>
+     <td height="22" align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">广东省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">陕西省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">山东省纪委 </td>
+   </tr>   
+ </table> </td>
+  
+ <td width="25%"><table  width="100%" border="0"
+			cellpadding="0" cellspacing="1"  bordercolor="#DCF0FB" class="b1">
+   <tr class="main_listtdbg center">
+     <td align="center" width="10%"></td>
+     <td align="center" nowrap="nowrap" width="15%">&nbsp;</td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">吉林省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">辽宁省纪委 </td>
+   </tr>
+   <tr>
+     <td height="22" align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">福建省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">广西省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">海南省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">山西省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">贵州省纪委 </td>
+   </tr>
+   <tr>
+     <td height="22" align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">广东省纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk5" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">某国资委纪委 </td>
+   </tr>
+   <tr>
+     <td align="right" bgcolor="#FFFFFF"><input type="checkbox" name="chk4" /></td>
+     <td align="left" bgcolor="#FFFFFF" class="main_list">某国家部委纪委 </td>
+   </tr>   
+ </table> </td>
+ </tr>
+ <tr bgcolor="#DCF0FB" height="30" valign="middle">
+  <td align="center" colspan="4">
+  			<input name="button2" type="button" class="search_submit" onclick="window.close();" value="确定" />
+            <input name="button22" type="button" class="search_submit" value="关闭" onclick="window.close();" />
+  </td>
+ </tr> 
+</table>
+</body>
+</html>

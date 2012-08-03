@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+ 
+<html lang="en"> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+        <meta http-equiv="Content-Style-Type" content="text/css"> 
+        <meta http-equiv="Content-Script-Type" content="text/javascript"> 
+ 	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+		<script src="../../common/js/base.js" type="text/javascript"></script>
+        <title>jQuery UI Tabsblac</title> 
+        
+        <link rel="stylesheet" href="ui.tabs.css" type="text/css" media="print, projection, screen"> 
+        <style type="text/css" media="screen, projection"> 
+            /* Not required for Tabs, just to make this demo look better... */
+            body, h1, h2 {
+                font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+            }
+            h1 {
+                margin: 1em 0 1.5em;
+                font-size: 18px;
+            }
+            h2 {
+                margin: 2em 0 1.5em;
+                font-size: 16px;
+            }
+            p {
+                margin: 0;
+                padding: 0 0 .5em;
+                max-width: 40em;
+            }
+            /*pre, pre+p, p+p {
+                margin: 1em 0 0;
+            }
+            code {
+                font-family: "Courier New", Courier, monospace;
+            }*/
+			*{ margin:0; padding:0;}
+        </style> 
+ 
+        <script type="text/javascript"> 
+			$(function() { 
+			    // 将ul.tabs区域设定为选项卡，用来控制div.panes区域中最近一层的各div区域
+			   // 注意tabs和panes与html中class的对应关系
+			    $("ul.tabs").tabs("div.panes > div",{history: true}); 
+				$(":date").dateinput();
+				// 让单选按钮可以取消
+				$("input[type=radio]").click(function(){ 
+										  if($(this).attr("ischecked")=="true" ){ 
+											  $(this).attr("checked",""); 
+											  $(this).attr("ischecked","") ;
+										  }else{
+											  $(this).attr("checked","true"); 
+										      $(this).attr("ischecked","true") ;
+										  }
+										  })
+			});
+        </script> 
+    </head> 
+    <body> 
+
+    <div style="width:100%;background-color:#f4f4f4; height:32px; font-size:12px; "><div style="padding-left:10px;padding-top:8px;">当前位置： 辅助功能&nbsp;<font style="font-family:'宋体'">></font>&nbsp;数据上报</div></div>
+    <div style=" width:100%; height:28px; background:url(../../images/tiao_bg04.gif);">
+    <div style=" float:left; padding-top:5px;"><font color="#124c95" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/dian02.gif" align="middle">&nbsp;&nbsp;数据上报</font></div>
+
+
+    <div style="padding-bottom:10px;"><table width="100%" style="font-size:12px;">
+	        <tr height="8"><td colspan="2"></td></tr>
+		     <tr height="30">
+			    <td align="right" width="15%">填报日期</td>
+				<td>&nbsp;&nbsp;<input type="text"  id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月'})" value="2010年10月"/></td>
+			 </tr>  
+			 <tr height="30">
+			   <td align="right">案件上报方式</td>
+			   <td>&nbsp;<input type="radio" name="radio6" id="radio60" value="radio" style="width:20px" checked="checked">月报
+			   &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="radio6" id="radio61" value="radio" style="width:20px">两规
+			   </td>
+			 </tr>
+			 
+		  </table> 
+		  </div>
+		  <div style="background-color:#ebf6fc; width:100%; height:32px; font-size:12px; text-align:center">
+	         <div style=" padding-top:5px;"> <DIV style="PADDING-RIGHT: 10px; FLOAT: left; padding-left:300px;"    class="clbutton" id="add">
+					<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+					  <tr>
+						<td  class="blue_2_j"></td>
+						<td class="blue_4_j">下载文件 </td>
+						<td class="blue_3_j"></td>
+					  </tr>
+					</table>
+					 </DIV> 
+					 <DIV style="PADDING-RIGHT: 10px; FLOAT: left; padding-left:10px;" class="clbutton">
+					<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+					  <tr>
+						<td  class="blue_2_j"></td>
+						<td class="blue_4_j">查看内容</td>
+						<td class="blue_3_j"></td>
+					  </tr>
+					</table>
+					 </DIV> 
+					  <DIV style="PADDING-RIGHT: 10px; FLOAT: left; padding-left:10px;"  class="clbutton"  id="modi">
+					<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j" >
+					  <tr>
+						<td  class="blue_2_j"></td>
+						<td class="blue_4_j">上 报</td>
+						<td class="blue_3_j"></td>
+					  </tr>
+					</table>
+					 </DIV> </div>
+					 
+	     </div>
+      </div> 
+   
+
+    </body> 
+</html>

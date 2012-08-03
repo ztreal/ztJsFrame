@@ -1,0 +1,82 @@
+<html>
+ <head>
+  	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript">
+		$(function() { 
+				$(":date").dateinput()
+			});
+    </script>
+	<style type="text/css">
+	   .tdAlign{text-align:right;}
+	</style>
+  </head>
+  <body style="font:12px;color:#2a5e9b;">
+    <div style="padding-left:10px;width:100%;">
+	   <!--<div class="text01"><strong>当前的位置->综合数据库->人大代表修改</strong></div>-->
+	    <table width="800" border="0" cellspacing="0" cellpadding="0">
+				  <tr>
+					<td><img src="../../images/tiao001.gif" width="2" height="22"></td>
+					<td width="100%" background="../../images/tiao003.gif" class="tit">人大代表修改</td>
+					<td><img src="../../images/tiao002.gif" width="2" height="22"></td>
+				  </tr>
+		 </table>
+       <div style="width:800px;height:180px" class="search">
+	       <table style="font:12px;width:100%;" border="0" cellspacing="0" cellpadding="0">
+		      <tr height="40">
+			    <td class="tdAlign">姓名&nbsp;&nbsp;&nbsp;</td>
+				<td><input type="text" name="names" value="张三"></td>
+				<td class="tdAlign">性别&nbsp;&nbsp;&nbsp;</td>
+				<td align="left"><input type="radio" name="sex" value="1" checked="checked" style="width:30px;">男<input type="radio" name="sex" value="2" style="width:30px;">女</td>
+				<td class="tdAlign">出生日期&nbsp;&nbsp;&nbsp;</td>
+				<td><input type="text" style="width:90px;" class="Wdate" value="1968-10-23" onFocus="WdatePicker({dateFmt:'yyyy-M-dd'})"></td>
+			  </tr>
+			  <tr height="40">
+			    <td class="tdAlign">住址&nbsp;&nbsp;&nbsp;</td>
+				<td><input type="text" value="湖南长沙"></td>
+				<td class="tdAlign">户籍所在地&nbsp;&nbsp;&nbsp;</td>
+				<td><input type="text" style="width:150px;" value="湖南衡阳祁东"/></td>
+				<td class="tdAlign">手机号码&nbsp;&nbsp;&nbsp;</td>
+				<td><input type="text" style="width:90px;" value="13767381598"></td>
+			  </tr>
+			  <tr height="40">
+			    <td class="tdAlign">职位&nbsp;&nbsp;&nbsp;</td>
+				<td><input type="text" value="科长"></td>
+				<td class="tdAlign">职位类别&nbsp;&nbsp;&nbsp;</td>
+				<td><select style="width:150px;">
+				   <option value="0">--请选择--</option>
+				   <option value="1" selected="selected">高层管理</option>
+				   <option value="2">中层管理</option>
+				   <option value="3">普通公务员</option>
+				</select></td>
+				<td class="tdAlign">机构地区&nbsp;&nbsp;&nbsp;</td>
+				<td><input type="text" style="width:90px;" value="长沙"></td>
+			  </tr>
+			  <tr>
+			    <td>&nbsp;</td>
+				<td>&nbsp;</td>
+			    <td>&nbsp;</td>
+				<td>&nbsp;</td>
+			    <td colspan="2" align="right"><input type="button" value="保存">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="返回" onClick="javascript:window.history.back();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			    
+			  </tr>
+		   </table>
+	   </div>
+	</div>
+  </body>
+</html>

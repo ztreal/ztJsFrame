@@ -1,0 +1,393 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+ 
+<html lang="en"> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+        <meta http-equiv="Content-Style-Type" content="text/css"> 
+        <meta http-equiv="Content-Script-Type" content="text/javascript"> 
+ 	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs2.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+    
+        <title>等级积分信息</title> 
+        
+        <link rel="stylesheet" href="ui.tabs.css" type="text/css" media="print, projection, screen"> 
+        <style type="text/css" media="screen, projection"> 
+            /* Not required for Tabs, just to make this demo look better... */
+            body, h1, h2 {
+                font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+            }
+            h1 {
+                margin: 1em 0 1.5em;
+                font-size: 18px;
+            }
+            h2 {
+                margin: 2em 0 1.5em;
+                font-size: 16px;
+            }
+            p {
+                margin: 0;
+                padding: 0 0 .5em;
+                max-width: 40em;
+            }
+			.hoves{ cursor:pointer}
+			*{ margin:0; padding:0;}
+            /*pre, pre+p, p+p {
+                margin: 1em 0 0;
+            }
+            code {
+                font-family: "Courier New", Courier, monospace;
+            }*/
+			.green1{
+				  border-top:solid 0px red;
+			}
+			.fc{ color:#2a5e9b;}
+        </style> 
+ 
+        <script type="text/javascript"> 
+			$(function() { 
+			    // 将ul.tabs区域设定为选项卡，用来控制div.panes区域中最近一层的各div区域
+			   // 注意tabs和panes与html中class的对应关系
+			    $("ul.tabs").tabs("div.panes > div",{history: true}); 
+			 
+				//添加删除修改事件
+				$("#add").click( function () { $("#addarea tr:first").after(' <tr>  <td width="256"><label> <input type="text" name="textfield" id="textfield"> </label></td>   <td width="188"><input type="text" name="textfield2" id="textfield2"></td>  <td width="239"><input type="text" name="textfield3" id="textfield3"></td> <td width="211"><input type="text" name="textfield4" id="textfield4"></td>'); }); 
+				$("#del").click( function () { $("#addarea tr:last[type!=title]").remove() });
+			
+				//是否可以修改方法
+			
+			});
+        </script> 
+    </head> 
+    <body> 
+	<div style="width:100%">
+    <div style="width:100%;background-color:#f4f4f4; height:35px; font-size:12px; "><div style="padding-left:10px;padding-top:8px;">当前位置： 后台管理&nbsp;<font style="font-family:'宋体'">></font>&nbsp;用户管理&nbsp;<font style="font-family:'宋体'">></font>&nbsp;账户管理 &nbsp;<font style="font-family:'宋体'">></font>&nbsp;等级积分信息</div></div>
+	
+ <form> 
+   <div style=" width:100%; height:32px; background-color:#ebf6fc; text-align:center" class="hoves">
+	     <div style="float: left; padding-top:4px; padding-left:5px;" class="hoves">
+	       <div style="float: left;padding-right:3px;" onClick=" window.location='modifyla.html'">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2"/></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">修改</font></td>
+			<td><img src="../../images/an01_2.gif" width="2"/></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div style="float: left; padding-right:3px;">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2" /></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">打印</font></td>
+			<td><img src="../../images/an01_2.gif" width="2" /></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div style="float: left; padding-right:3px;" onClick=" window.location='account.html'">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2" /></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">返回</font></td>
+			<td><img src="../../images/an01_2.gif" width="2" /></td>
+		  </tr>
+		</table>
+	  </div>
+	 
+	  </div>
+   </div>
+     <div style=" width:100%; height:28px; background:url(../../images/tiao_bg03.gif);">
+    <div style=" float:left; padding-top:2px;"><font color="#595959" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;账户等级信息</font></div>
+ </div>
+   <table width="791" height="100" cellspacing="0" style="font-size:12px;" >
+    <tr>
+    <td width="108" height="32" align="right">账户ID<span style="color:red">*<span></span></span><span></td>
+    <td class="fc">&nbsp;&nbsp;DL21212002010200120</td>
+    <td width="127" align="right">等级ID<span style="color:red"><span></span></span><span></td>
+    <td width="120" class="fc">&nbsp;&nbsp;4级</td>
+    </tr>
+  <tr>
+<td width="88" align="right" >创建时间</td>
+    <td width="241" class="fc">&nbsp;&nbsp;2010-1-1</td>
+    <td align="right">修改时间</td>
+    <td class="fc">&nbsp;&nbsp;2012-10-05</td>
+    </tr>
+  </table> 
+   <div style=" width:100%; height:28px; background:url(../../images/tiao_bg03.gif);">
+    <div style=" float:left; padding-top:2px;"><font color="#595959" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;账户积分信息</font></div>
+ </div>
+  
+	<table width="824" height="164" style="font-size:12px;">
+    <tr>
+      <td width="109" height="27" align="right">新增积分</td>
+      <td width="73" class="fc">&nbsp;&nbsp;100</td>
+      <td width="145" align="right">积分余额</td>
+      <td width="54" class="fc">&nbsp;&nbsp;155</td>
+      <td width="169" align="right" >累计积分</td>
+      <td width="89" class="fc">&nbsp;&nbsp;600</td>
+      </tr>
+    <tr>
+      <td height="25" align="right"><span class="datepicker">积分状态</span></td>
+      <td class="fc">&nbsp;&nbsp;只增不减</td>
+      <td align="right">创建时间时间</td>
+      <td class="fc">&nbsp;&nbsp;2010-4-4</td>
+      <td height="25" align="right">修改时间</td>
+      <td class="fc" colspan="2">&nbsp;&nbsp;2012-4-4&nbsp;&nbsp;</td>
+      
+      </tr>
+      </table>  
+       		<!-- Tabs --> 
+ 
+ 
+<ul class="tabs" style="width:790px; height:26px;overflow:hidden;border-left:solid #D7D7D7 1px;"> 
+    <li><a href="#1">介绍</a></li> 
+    <li><a href="#2">账户等级变化</a></li>
+	<li><a href="#3">账户积分变化</a></li> 
+	<li><a href="#4">过期积分</a></li> 
+</ul> 
+<!-- 定义选项卡切换的每个区域，注意最外层的class定义为panes --> 
+<div class="panes" style="width:790px"> 
+ <div><table width="791" height="26" style="font-size:12px; border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;">
+		    <tr>
+<P style="padding-top:10px">点击不同的tab页，从后台通过ajax调用接口，显示相应的信息。
+</P>
+	        </tr>
+ 
+</table></div>
+
+
+    
+		  
+   
+		  <!--tab3-->
+		   <div style="width:990px;border-left: 1px solid #E3E3E3; border-bottom:1px solid #E3E3E3; border-right:1px solid #E3E3E3;"><br><fieldset><legend style="font-size:12px;">等级变化记录</legend>
+<table width="786" height="129" cellspacing="0" style="font-size:12px;" >
+		    <tr>
+		    		      <td width="65" height="27">记录ID</td>
+		     
+		      <td width="65" class="fc">平台表示</td>
+		      
+		      <td width="65" ><font class="fc">账户旧等级</font>	    
+	         		      <td width="65" ><font class="fc">账户新等级</font>	          
+	         		      <td width="65" ><font class="fc">备注</font>	      
+	         		      <td width="65" ><font class="fc">操作者</font>	         
+	         		      <td width="65" ><font class="fc">变更时间</font>	    
+  </tr>		
+		      <td width="65" class="fc">13213</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">18</td>	         		   
+	         <td width="49" class="fc">18</td>	         		      
+	         <td width="49" class="fc">平台送分</td>	         		   
+	         <td width="49" class="fc">张三</td>	      
+	         <td width="49" class="fc">2012-10-8</td>
+  </tr>	
+  		      <td width="65" class="fc">13213</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">18</td>	         		   
+	         <td width="49" class="fc">18</td>	         		      
+	         <td width="49" class="fc">平台送分</td>	         		   
+	         <td width="49" class="fc">张三</td>	      
+	         <td width="49" class="fc">2012-10-8</td>
+  </tr>		
+  		      <td width="65" class="fc">13213</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">18</td>	         		   
+	         <td width="49" class="fc">18</td>	         		      
+	         <td width="49" class="fc">平台送分</td>	         		   
+	         <td width="49" class="fc">张三</td>	      
+	         <td width="49" class="fc">2012-10-8</td>
+  </tr>		
+  		      <td width="65" class="fc">13213</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">18</td>	         		   
+	         <td width="49" class="fc">18</td>	         		      
+	         <td width="49" class="fc">平台送分</td>	         		   
+	         <td width="49" class="fc">张三</td>	      
+	         <td width="49" class="fc">2012-10-8</td>
+  </tr>			   
+		  </table></div>
+		  
+		 
+		   <!--tab4-->
+		    <div><table width="786" height="229" cellspacing="0" style="font-size:12px;" >
+		    <tr>
+		    		      <td width="65" height="27">记录ID</td>		     
+		      <td width="65" class="fc">请求流水号</td>
+		      <td width="65" ><font class="fc">第三方订单流水号</font>	    
+	         		      <td width="65" ><font class="fc">平台表示</font>	          
+	         		      <td width="65" ><font class="fc">备注</font>	      
+	         		      <td width="65" ><font class="fc">积分操作状态</font>	         
+	         		      <td width="65" ><font class="fc">变更时间</font>	
+	         		       <td width="65" ><font class="fc">处理结果</font>	    
+  </tr>		
+		      <td width="65" class="fc">13213</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">dl132132</td>	         		   
+	         <td width="49" class="fc">cid</td>	         		      
+	         <td width="49" class="fc">收入</td>	         		   
+	         <td width="49" class="fc">110</td>	      
+	         <td width="49" class="fc">2012-10-8</td>
+	         <td width="49" class="fc">成功</td>
+  </tr>	
+		      <td width="65" class="fc">13213</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">dl132132</td>	         		   
+	         <td width="49" class="fc">cid</td>	         		      
+	         <td width="49" class="fc">收入</td>	         		   
+	         <td width="49" class="fc">110</td>	      
+	         <td width="49" class="fc">2012-10-8</td>
+	         <td width="49" class="fc">成功</td>
+  </tr>	
+  		      <td width="65" class="fc">13213</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">dl132132</td>	         		   
+	         <td width="49" class="fc">cid</td>	         		      
+	         <td width="49" class="fc">收入</td>	         		   
+	         <td width="49" class="fc">110</td>	      
+	         <td width="49" class="fc">2012-10-8</td>
+	         <td width="49" class="fc">成功</td>
+  </tr>	
+  		      <td width="65" class="fc">13213</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">dl132132</td>	         		   
+	         <td width="49" class="fc">cid</td>	         		      
+	         <td width="49" class="fc">收入</td>	         		   
+	         <td width="49" class="fc">110</td>	      
+	         <td width="49" class="fc">2012-10-8</td>
+	         <td width="49" class="fc">成功</td>
+  </tr>	
+  		      <td width="65" class="fc">13213</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">dl132132</td>	         		   
+	         <td width="49" class="fc">cid</td>	         		      
+	         <td width="49" class="fc">收入</td>	         		   
+	         <td width="49" class="fc">110</td>	      
+	         <td width="49" class="fc">2012-10-8</td>
+	         <td width="49" class="fc">成功</td>
+  </tr>	
+  		      <td width="65" class="fc">13213</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">dl132132</td>	         		   
+	         <td width="49" class="fc">cid</td>	         		      
+	         <td width="49" class="fc">收入</td>	         		   
+	         <td width="49" class="fc">110</td>	      
+	         <td width="49" class="fc">2012-10-8</td>
+	         <td width="49" class="fc">成功</td>
+  </tr>			   
+		  </table></div>
+		   
+		  
+		   <!--tab5-->
+		     <div><table width="786" height="229" cellspacing="0" style="font-size:12px;" >
+		    <tr>
+		    		      <td width="65" height="27">账户id</td>		     
+		      <td width="65" class="fc">收入积分</td>
+		      <td width="65" ><font class="fc">之前积分</font>	    
+	         		      <td width="65" ><font class="fc">开始年份</font>	          
+	         		      <td width="65" ><font class="fc">结束年份</font>	      
+	         		      <td width="65" ><font class="fc">创建时间</font>	         
+	         		      <td width="65" ><font class="fc">修改时间</font>		    
+  </tr>		
+		      <td width="65" class="fc">13717656683</td>
+		      <td width="65" class="fc">192</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">2012</td>	         		   
+	         <td width="49" class="fc">2013</td>	         		      
+	         <td width="49" class="fc">2012-8-8</td>	         		   
+	         <td width="49" class="fc">2012-8-8</td>	      
+  </tr>	
+  		      <td width="65" class="fc">13717656683</td>
+  		      <td width="65" class="fc">192</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">2012</td>	         		   
+	         <td width="49" class="fc">2013</td>	         		      
+	         <td width="49" class="fc">2012-8-8</td>	         		   
+	         <td width="49" class="fc">2012-8-8</td>	      
+  </tr>	
+  		      <td width="65" class="fc">13717656683</td>
+  		      <td width="65" class="fc">192</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">2012</td>	         		   
+	         <td width="49" class="fc">2013</td>	         		      
+	         <td width="49" class="fc">2012-8-8</td>	         		   
+	         <td width="49" class="fc">2012-8-8</td>	      
+  </tr>	
+  		      <td width="65" class="fc">13717656683</td>	
+  		      <td width="65" class="fc">192</td>	      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">2012</td>	         		   
+	         <td width="49" class="fc">2013</td>	         		      
+	         <td width="49" class="fc">2012-8-8</td>	         		   
+	         <td width="49" class="fc">2012-8-8</td>	      
+  </tr>	
+  		      <td width="65" class="fc">13717656683</td>
+  		      <td width="65" class="fc">192</td>		      
+		      <td width="65" class="fc">212</td>		      
+	         <td width="49" class="fc">2012</td>	         		   
+	         <td width="49" class="fc">2013</td>	         		      
+	         <td width="49" class="fc">2012-8-8</td>	         		   
+	         <td width="49" class="fc">2012-8-8</td>	      
+  </tr>	   
+		  </table></div>
+		   
+		  
+		  
+</div>
+
+<div style=" width:100%; height:32px; background-color:#ebf6fc; text-align:center" class="hoves">
+	     <div style="float: left; padding-top:4px; padding-left:300px;" class="hoves">
+	       <div style="float: left;padding-right:5px;" onClick=" window.location='modifyla.html'">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2"/></td>
+			<td background="../../images/an01_3.gif" width="70"  align="center" valign="top"><font size="2" color="2a5e9b">修改等级</font></td>
+			<td><img src="../../images/an01_2.gif" width="2"/></td>
+		  </tr>
+		</table>
+	  </div>
+	  	     <div style="float: left; padding-right:4px;" class="hoves">
+	       <div style="float: left;padding-right:5px;" onClick=" window.location='modifyla.html'">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2"/></td>
+			<td background="../../images/an01_3.gif" width="70"  align="center" valign="top"><font size="2" color="2a5e9b">修改积分</font></td>
+			<td><img src="../../images/an01_2.gif" width="2"/></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div style="float: left; padding-right:5px;">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2" /></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">打印</font></td>
+			<td><img src="../../images/an01_2.gif" width="2" /></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div style="float: left; padding-right:5px;" onClick=" window.location='account.html'">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2" /></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">返回</font></td>
+			<td><img src="../../images/an01_2.gif" width="2" /></td>
+		  </tr>
+		</table>
+	  </div>
+	 
+	  </div>
+   </div>
+ </form>
+    </body> 
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>  
+	<meta http-equiv="Content-Type" content="text/html; charset=gbk"> 
+	<title>校验测试</title> 
+ <script type="text/javascript" src="../common/js/jquery-1.4.2.min.js"></script> 
+ <script type="text/javascript" src="../common/js/jquery.valipingmeng.js"></script> 
+	<script type="text/javascript"> 
+	
+	</script> 
+	<style type="text/css">
+	#jsshowerror{
+        color:red;
+    }
+	</style>
+	
+<script type="text/javascript"> 
+	$(function() { 
+	$("#check").click(function(){
+		var valicontent=new Array({c1tr:0,c1td:1,c2tr:0,c2td:3,symbol:'<'},{c1tr:1,c1td:1,c2tr:1,c2td:3,symbol:'<'},{c1tr:2,c1td:'1+3',c2tr:2,c2td:5,symbol:'<'});
+		$("#test").check(valicontent); 
+		//$("#test").check({c1tr:1,c1td:1,c2tr:1,c2td:3,symbol:'>'}); 
+	})
+	});
+ 
+
+</script> 
+</head> 
+<body >
+<div id="jsshowerror"></div>
+<input type="button" id="check" value="校验"></input>
+  <table id="test">
+  	<tr>
+  		<td>年龄1</td>
+		<td><input type="text"  value="11"/></td>
+		<td>年龄2</td>
+		<td><input type="text"  value="22"/></td>
+  	</tr>
+	  	<tr>
+  		<td>年龄11</td>
+		<td><input type="text"  value="11"/></td>
+		<td>年龄22</td>
+		<td><select>
+			<option>10</option>
+			<option>20</option>
+		</select></td>
+  	</tr>
+	<tr>
+  		<td>数字1</td>
+		<td><input type="text"  value="11"/></td>
+		<td>数字2</td>
+		<td><select>
+			<option>10</option>
+			<option>20</option>
+		</select></td><td>合计</td>
+	   <td><input type="text"  value="33"/></td>
+  	</tr>
+  </table>
+  </body>
+</html>

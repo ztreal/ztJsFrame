@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+ 
+<html lang="en"> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+        <meta http-equiv="Content-Style-Type" content="text/css"> 
+        <meta http-equiv="Content-Script-Type" content="text/javascript"> 
+ 	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+        <title>审理表</title> 
+        
+        <link rel="stylesheet" href="ui.tabs.css" type="text/css" media="print, projection, screen"> 
+        <style type="text/css" media="screen, projection"> 
+	 
+          #tr{
+			  float:left;
+			  width:200px;
+			  position:fixed;
+			  
+		  }
+		  #content{
+			  word-spacing:normal;
+			  white-space:pre;
+		  }
+		  .baobiao{
+				background-color:#fff;
+				border-collapse:collapse;
+				color:#2a5e9b;
+				font-size: 12px;
+				border:solid 1px #9cc6f7;
+				word-break:keep-all;
+			}
+			.baobiao td {
+				border:1px solid #9cc6f7;
+				height:24px;
+			}
+			#baobiao{
+				overflow:scroll;
+			}
+			.inputtext{
+				background-color:#fff;
+			}
+			#content{
+				padding-left:155px;
+				 float:left;
+			}
+			#contrl table{
+			  top:510px;
+			  left:400px;
+			  width:200px;
+			  position:fixed;
+			  border:0px solid  #000;
+			  border-collapse:collapse;
+			}
+			#contrl table td{
+				border:0px solid  #000;
+			}
+			#wrap{
+				height:500px;
+			}
+        .inputtext1 {				background-color:#fff;
+}
+        </style> 
+ 
+        <script type="text/javascript"> 
+			$(function() { 
+			    // 将ul.tabs区域设定为选项卡，用来控制div.panes区域中最近一层的各div区域
+			   // 注意tabs和panes与html中class的对应关系()
+			    $("ul.tabs").tabs("div.panes > div",{history: true}); 
+				$(":date").dateinput();
+		 
+			});
+			
+		 function maxsize(){
+		   self.moveTo(0,0);
+		   self.resizeTo(screen.availWidth,screen.availHeight);
+	}
+        </script> 
+    </head> 
+    <body>
+<div id="wrap"><form>
+<div id="baobiao">
+<div id="tr">
+  <table width="156" border="1" id="hang" class="baobiao">
+    <tr>
+      <td width="45">月份：</td>
+      <td width="95">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="22">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>行号</td>
+      <td>行名</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>合计</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>省部级及以上</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>地厅级</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>县处级</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>乡科级</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>其他</td>
+    </tr>
+  </table>
+</div><div id="content"><table width="791" border="1" class="baobiao">
+    <tr>
+    <td colspan="4" align="center"><strong>线索来源情况</strong></td>
+    </tr>
+    <tr>
+      <td align="center" width="25%">信访举报</td>
+      <td align="center" width="25%">上级交办</td>
+      <td align="center" width="25%">公检法移交</td>
+      <td align="center" width="25%">其他</td>
+    </tr>
+    <tr>
+      <td align="center">1</td>
+      <td align="center">2</td>
+      <td align="center">3</td>
+      <td align="center">4</td>
+    </tr>
+    <tr>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+    </tr>
+    <tr>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+      <td align="center">&nbsp;</td>
+    </tr>
+  </table> <br>
+
+</form>
+</div>  <table width="752" style="position: fixed;">
+    <tr type="title">
+      <td width=  310 align="right" valign="middle"><input type="submit" name="button6" id="button6" value="返回" class="button" onClick="history.back()"></td>
+      <td width="169" align="center">&nbsp;</td>
+      <td width="134" align="center">&nbsp;</td>
+      <td width="119" align="center">&nbsp;</td>
+     </tr>
+  </table>
+</body> 
+</html>

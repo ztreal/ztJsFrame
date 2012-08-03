@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+ 
+<html lang="en"> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+        <meta http-equiv="Content-Style-Type" content="text/css"> 
+        <meta http-equiv="Content-Script-Type" content="text/javascript"> 
+ 	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+        <title>jQuery UI Tabs</title> 
+        
+        <link rel="stylesheet" href="ui.tabs.css" type="text/css" media="print, projection, screen"> 
+        <style type="text/css" media="screen, projection"> 
+            /* Not required for Tabs, just to make this demo look better... */
+            body, h1, h2 {
+                font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+            }
+            h1 {
+                margin: 1em 0 1.5em;
+                font-size: 18px;
+            }
+            h2 {
+                margin: 2em 0 1.5em;
+                font-size: 16px;
+            }
+            p {
+                margin: 0;
+                padding: 0 0 .5em;
+                max-width: 40em;
+            }
+            /*pre, pre+p, p+p {
+                margin: 1em 0 0;
+            }
+            code {
+                font-family: "Courier New", Courier, monospace;
+            }*/
+        </style> 
+ 
+        <script type="text/javascript"> 
+			$(function() { 
+			    // 将ul.tabs区域设定为选项卡，用来控制div.panes区域中最近一层的各div区域
+			   // 注意tabs和panes与html中class的对应关系
+			    $("ul.tabs").tabs("div.panes > div",{history: true}); 
+				$(":date").dateinput()
+			});
+        </script> 
+    </head> 
+    <body> 
+	<div style="width:964px">
+        <h1>数据接收</h1>
+<br>
+
+<div class="panes"> 
+    <div><table width="522" height="102" cellspacing="0" bordercolor="#9CC6F7"  class="green1" >
+		    <tr>
+		      <td width="320" align="left" valign="middle"><fieldset><legend>统计打印</legend>
+		       
+                <p><span style="margin-left:4px;">
+<input type="radio" name="radio" id="radio" value="radio">
+
+	          A盘 </span> </p>              
+                <p>
+                <span style="margin-left:4px">
+                  <input type="radio" name="radio" id="radio7" value="radio">
+                  U盘
+  <select name="select2" id="select2">
+    <option>C</option>
+    <option>D</option>
+    <option>E</option>
+  </select>
+  </span>
+                </p>
+                <p>
+                <span style="margin-left:4px">
+                  <input type="radio" name="radio" id="radio8" value="radio">
+                其他位置</span></p>
+                <p>
+                <span style="margin-left:4px">
+                  <input type="radio" name="radio" id="radio9" value="radio">
+                  通过网络传输
+                  </span>
+                </p>
+              </fieldset>
+</td>
+	        </tr>
+		    <tr>
+		      <td align="center"><input type="submit" name="button2" id="button2" value="确定" class="button">
+<input type="hidden" name="hiddenField2" id="hiddenField2">
+<input type="submit" name="button2" id="button2" value="返回" class="button">
+</td>
+        </tr>
+	      </table> 
+      </div> 
+   
+</div>
+</div>
+    </body> 
+</html>

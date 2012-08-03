@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" /> 
+<title>用户中心</title> 
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css" /> 
+<style type="text/css" >
+*{ margin:0; padding:0;}
+input[type="text"] { width: 100px; } 
+input[type="checkbox"] { width: 20px; } 
+select{ width: 132px; } 
+.hoves{ cursor:pointer}
+
+
+	</style> 
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/redmond/jquery-ui-1.8.2.custom.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.jqgrid.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.multiselect.css" />
+<link type="text/css" href="../../css/tabs.css" rel="stylesheet" /> 
+
+
+<script src="../../common/js/jquery-1.4.2.min.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery.layout.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script> 
+<script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript"> 
+	$.jgrid.no_legacy_api = true;
+	$.jgrid.useJSON = true;
+</script> 
+<script src="../../common/js/jqgrid/js/ui.multiselect.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery.jqGrid.js" type="text/javascript"></script> 
+<script src="../../common/js/base.js" type="text/javascript"></script>
+<script type="text/javascript" src="../../common/js/dp.syntaxhighlighter/jquery.flexbox.js"></script>
+<script type="text/javascript" src="../../common/js/dp.syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../common/js/dp.syntaxhighlighter/shBrushCSharp.js"></script>
+<!-- todo:报错加入，有空再看原因
+<script type="text/javascript" src="../../common/js/dp.syntaxhighlighter/dp.SyntaxHighlighter/shBrushJScript.js"></script>-->
+<script type="text/javascript" src="../../common/js/dp.syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="../../common/js/dp.syntaxhighlighter/countries.js"></script>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link href="../../common/js/dp.syntaxhighlighter/css/dp.syntaxhighlighter.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../../common/js/dp.syntaxhighlighter/css/jquery.flexbox.css" />
+
+<script type="text/javascript">   
+ 
+var mydata = [  
+		{id:"1",xs:'1',invdate:'手机',name:"2010-10-4 13:30:20",note:"2010-10-4 13:30:20"} ,
+		{id:"2",xs:'2',invdate:'邮件',name:"2010-10-4 13:30:20",note:"2010-10-4 13:30:20"} ,
+	];
+  
+ 
+jQuery(document).ready(function(){
+ 
+
+  jQuery("#list486").jqGrid({
+  	width: '100%',
+	data: mydata,
+	datatype: "local",
+	height: 'auto',   
+	rowNum: 11,
+	rowList: [10,20,30],
+   	colNames:['序号','登陆类型id','登陆方式描述','创建时间', '修改时间'],
+   	colModel:[
+   		{name:'id',index:'id', width:10, sorttype:"int"},
+		{name:'xs',index:'xs', width:50, sorttype:"int" },
+   		{name:'invdate',index:'invdate', width:60, sorttype:"int" },
+   		{name:'name',index:'name', width:60, editable:true},
+   		{name:'note',index:'amount', width:60, align:"left",sorttype:"float", editable:true, summaryType:'min', summaryTpl:'<b>Min: {0}</b>'}	
+   	],
+   	pager: "#plist486",
+   	viewrecords: true,
+   	sortname: 'name',
+   	caption: "登陆方式信息",multiselect:true,autowidth:true
+}).jqGrid('hideCol',["note"]);
+jQuery("#list486").jqGrid('navGrid','#plist486',{add:false,edit:false,del:false,search:false,refresh:true});
+jQuery("#list486").jqGrid('navButtonAdd','#plist486',{
+    caption: "选择列",
+    title: "点击按钮选择列",
+    onClickButton : function (){
+        jQuery("#list486").jqGrid('columnChooser');
+    }
+});
+
+
+
+
+$("#add").click(function(){$("#addearea").toggle("slow")})
+$("#search").click(function(){$("#searchearea").fadeIn("slow")})
+<!--$("#fil").click(function(){$("#filter").toggle("slow")})-->
+$("#buttoncontrol").click(function(){$("#buttonearea").toggle("slow")})
+$("#del").click(function(){
+    var item=$("input[name*='jqg_list']:checked").length;
+	
+	if(item==0){
+	   alert("请选择您要删除的信息项！");
+	}else{
+	   confirm("您确认删除吗?")
+	}
+
+});
+
+$("#del2").click(function(){
+    var item=$("input[name*='jqg_list']");
+	 var num=0;
+	 for(var i=0;i<item.length;i++){
+		 if(item[i].checked){
+			num++;
+		 }
+	 }
+	 window.location="account.html";
+});
+$("#closes").click(function(){$("#searchearea").fadeOut("slow")})
+});
+
+
+</script> 
+</head> 
+<body> 
+<script type="text/javascript"
+
+  src//=""> 
+</script>
+
+
+<script>
+	
+	$(function() {
+		//设置默认初始值
+		 $('.form-field').each( function () {
+		    $(this).val($(this).attr('defaultVal'));
+		    $(this).css({color:'#ccc'});
+		      });
+		
+		  $('.form-field').focus(function(){
+		    if ( $(this).val() == $(this).attr('defaultVal') ){
+		      $(this).val('');
+		      $(this).css({color:'#000'});
+		    }
+		    });
+		  $('.form-field').blur(function(){
+		    if ($(this).val() == '' ){
+		      $(this).val($(this).attr('defaultVal'));
+		      $(this).css({color:'#ccc'});
+		    }
+    });
+		
+			// a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+		$( "#dialog" ).dialog( "destroy" );
+
+		$("#fil,#add2").click(function(){
+				$( "#dialog-confirm" ).dialog({
+			resizable: false,
+			height:280,
+			width:270,
+			modal: true,
+			buttons: {
+				"取消": function() {
+					$( this ).dialog( "close" );
+				},
+				"确定": function() {
+					window.location='newxs.html';
+				}
+			}
+		});					 	
+		})
+		
+		$("#update").click(function(){
+		     var item=$("input[name*='jqg_list']");
+			 var num=0;
+			 for(var i=0;i<item.length;i++){
+			     if(item[i].checked){
+				    num++;
+				 }
+			 }
+			 if(num==0){
+			     alert("请选择您要修改的信访信息项!");
+			 }else if(num>1){
+			     alert("由于当前已选择多项数据，无法进行修改操作，请选择一项数据!");
+			 }else if(num==1){
+		     $("#confirm").dialog({
+			    resizable: false,
+				height:120,
+				width:240,
+				modal: true,
+				buttons: {
+					"取消": function() {
+						$( this ).dialog( "close" );
+					},
+					"确定": function() {
+						window.location='newxs.html';
+					}
+			}
+			 })
+			 }
+		})
+		
+				$(".login").click(function(){
+		     $("#dialog-login").dialog({
+			    resizable: false,
+				height:220,
+				width:340,
+				modal: true,
+				buttons: {
+					"取消": function() {
+						$( this ).dialog( "close" );
+					},
+					"确定": function() {
+						window.location='newxs.html';
+					}
+			}
+			 })	 
+		})
+		
+		$("#select2").change(function(){
+		   
+		})
+		// 根据“当前单位”输入值过滤select
+		$("#dqdw").blur(function(){
+			var unit = $.trim($(this).val());
+			if (unit != ""){
+				$("#select2").get(0).value = unit;
+			}
+		});
+		$("#dqdw").keydown(function(){
+			if (event.keyCode == "13"){
+				$("#dqdw").get(0).blur();
+			}
+		});
+	});
+	
+	</script>
+
+ 
+ <div id="dialog-confirm" title="请选择填报年月和单位" style="display:none">
+    <table>
+	   <tr height="25">	<td style="padding-left:10px;">删除确认</td>
+		 <td>&nbsp;&nbsp;<input type="text" class="Wdate  " style=" width:130px" onFocus="WdatePicker({dateFmt:'yyyy年M月'})" value="2010年10月" /></td>
+	   </tr>
+	   <tr height="25">你确认要删除此登陆方式么</td>
+	   </tr>
+	</table>
+ </div>
+ 
+  <div id="dialog-login" title="员工登陆信息" style="display:none">
+    <table>
+	   <tr>	
+		 <td>登录名称</td><td style="padding-left:10px;">登陆方式</td><td style="padding-left:10px;">操作</td>
+	   </tr>
+	   	   <tr>	
+		 <td>13717667793</td><td style="padding-left:10px;">手机号</td><td style="padding-left:10px;"><a href="#">登陆类型</a></td>
+	   </tr>
+	   	   <tr>	
+		 <td>13717667793</td><td style="padding-left:10px;">手机号</td><td style="padding-left:10px;"><a href="#">登陆类型</a></td>
+	   </tr> 
+	   	   	   <tr>	
+		 <td>13717667793</td><td style="padding-left:10px;">手机号</td><td style="padding-left:10px;"><a href="#">登陆类型</a></td>
+	   </tr> 
+	   	   	   <tr>	
+		 <td>13717667793</td><td style="padding-left:10px;">手机号</td><td style="padding-left:10px;"><a href="#">登陆类型</a></td>
+	   </tr> 
+	   </tr>
+	</table>
+ </div>
+
+<div id="confirm" title="请选择" style="display:none; text-align:center;">
+    <div style="font-size:12px;">确认要删除此项</div>
+</div>
+ 
+  <div style="width:100%;background-color:#f4f4f4; height:35px; font-size:12px; "><div style="padding-left:10px;padding-top:8px;">当前位置： 用户管理&nbsp;<font style="font-family:'宋体'">></font>&nbsp;登陆管理&nbsp;</div></div>
+ <div style=" width:100%; height:28px; background:url(../../images/tiao_bg04.gif);">
+    <div style=" float:left; padding-top:5px;"><font color="#124c95" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;<img src="../../images/dian02.gif" align="middle">&nbsp;登陆方式信息</font></div>
+	<div style="float:left; margin-left:130px; padding-right:5px; padding-top:3px;">
+	    
+	  </div>
+	  	  <div id="search" style="float: right; padding-right:3px;" class="clbutton">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		      <td class="blue_2_j"></td>
+			<td class="blue_4_j">查 询</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div id="del2" style="float: right; padding-right:3px;" class="clbutton">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		    <td class="blue_2_j"></td>
+			<td class="blue_4_j">返 回</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	  </div>
+	  	  <div id="update" style="float: right; padding-right:3px;" class="clbutton">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		      <td class="blue_2_j"></td>
+			<td class="blue_4_j">删 除</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	  </div>
+
+	  		
+	  </div>
+ </div>
+
+  <div id="searchearea" style="display:none ">
+<div style=" width:100%; height:28px; background:url(../../images/tiao_bg03.gif); margin-bottom:10px;">
+    <div style=" float:left; padding-top:5px;"><font color="#595959" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;查询</font></div>
+	<div style="float:right; padding-right:5px; padding-top:5px;"> <a style="float:right;cursor:hand" id="closes"><SPAN class="ui-icon ui-icon-circle-close"  style=" background-image:url(../../common/js/jqgrid/themes/redmond/images/ui-icons_d8e7f3_256x240.png)"></SPAN></a> </div>
+	<DIV style="PADDING-RIGHT: 10px; FLOAT: right; padding-left:10px; PADDING-TOP: 3px"  class="graybutton"    >
+		<table border="0" cellpadding="0" cellspacing="0" class="gray_1_j" >
+		  <tr>
+			<td  class="gray_2_j"></td>
+			<td class="gray_4_j">查 询</td>
+			<td class="gray_3_j"></td>
+		  </tr>
+		</table>
+		 </DIV>
+ </div>
+<table width="100%" style=" font-size:12px;">
+    <tr type="title" height="30">
+	  <td width="10%" align="right">登陆方式ID</td>
+      <td width="25%">&nbsp;<input type="text" width="80"  class="inputtext"></td>
+         </tr>
+  <tr height="8"><td colspan="4">&nbsp;</td></tr>
+</table></div>	
+ 
+
+<div id="list1"><table id="list486"></table>
+<div id="plist486"></div> </div>
+
+<div id="list2" style="display:none;"><table id="tabList"></table>
+<div id="divList"></div> </div>
+</body> 
+</html>

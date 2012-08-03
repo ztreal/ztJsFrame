@@ -1,0 +1,284 @@
+<html>
+ <head>
+  	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.treeview.css">
+    <link rel="stylesheet" type="text/css" href="css/screen.css">
+
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.treeview.js"></script>
+	<style type="text/css">
+       a{color: #2a5e9b}
+	   span{cursor: pointer;}
+	   input{ width:30px }
+	   }
+    </style>
+	<script type="text/javascript">
+		$(function() {
+				
+		//点击选择/取消进行切换：
+		$("#checkall").click(function(){
+            $("#checklist input[type='checkbox']").each(function(){
+				 
+				$(this).attr("checked","true");
+        	});
+        });
+		$("#canclall").click(function(){
+            $("#checklist input[type='checkbox']").each(function(){
+				 
+				$(this).attr("checked","");
+        	});
+		 });
+		})
+		
+		function checkName(regs){
+		    var blan=window.confirm("您确定选择此项吗？");
+			if(blan){
+			    window.opener.getValues(regs);
+				window.close();
+			}
+		}
+	</script>
+  </head>
+  <body>
+     <div style="padding-left:10px;width: 100%;height: 360px; overflow:hidden"  >
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  <tr>
+					<td><img src="../../images/tiao001.gif" width="2" height="22"></td>
+					<td width="100%" background="../../images/tiao003.gif" class="tit">单位列表</td>
+					<td><img src="../../images/tiao002.gif" width="2" height="22"></td>
+				  </tr>
+			 </table>
+		   <div style="font-size:15px;height: 260px; overflow-y: scroll;  border:#0CF solid 1px;">
+                                <TABLE width="90%" style ="font-size:12px;height:260px;" id="checklist" class="checkbox">
+                                    <TBODY>
+                                        <TR>
+                                            <TD width="">
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>   1.中央纪检监察机关
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>   2.北京市纪检监察机关 
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                             
+                                                 3.天津市纪检监察机关 
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                              
+                                                 4.河北省纪检监察机关 
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                       
+                                                 5.山西省纪检监察机关 
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                                 
+                                                 6.内蒙古自治区纪检监察机关 
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                              
+                                                 7.辽宁省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                              
+                                                 8.吉林省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 9.黑龙江省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                                
+                                                 10.上海市纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 11.江苏省纪检监察机关 
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                             
+                                                 12.浙江省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 13.安徽省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 14.福建省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 15.江西省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 16.山东省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 17.河南省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 18.湖北省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 19.湖南省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 20.广东省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 21.广西壮族自治区纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 22.海南省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 23.重庆市纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 24.四川省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 25.贵州省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 26.云南省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 27.西藏自治区纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 28.陕西省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 29.甘肃省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 30.青海省纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 31.宁夏回族自治区纪检监察机关</TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>
+                                                <INPUT id=复选框组1_0 value=复选框 type=checkbox name=复选框组1>                                               
+                                                 32.新疆维吾尔自治区纪检监察机关</TD>
+                                        </TR>
+                                        
+                                    </TBODY>
+                                </TABLE>
+                            </div>
+							<div style="font-size:15px;height: 50px;">
+							<table width="60%" height="50" align="left">
+							  <tr>
+								<td align="left" style="font-size:12px;">
+									<label>
+		                                <input id="checkall" value=radio type=radio name=radio style="width:20px">
+		                            </label> 全部选择
+									</td>
+									<td align="left" style="font-size:12px;">
+									<label>
+		                                &nbsp;<input id="canclall" value="radio2" type="radio" name="radio" style="width:20px" checked=true/>
+		                            </label>全部取消
+								</td>
+								</tr>
+							</table>
+							</div>
+							<div style="font-size:15px;height: 50px;">
+							<table width="135" height="25" align="right">
+							  <tr><td width="60" height="23" align="center">
+							  	<!--input type="button" value="确认" class="button" style="width:80" onclick=" window.close();"-->
+								<table border="0" cellpadding="0" cellspacing="0" background="../../images/angray_bg_1.gif" class="jwbuttonb" onclick=" window.close();">
+								  <tr>
+								    <td width="5" align="left"><img src="../../images/angray_left_1.gif" /></td>
+								    <td style="padding:0 10px; padding-top:2px; font: 12px/14px '宋体'; color:#3d3b3c">确认</td>
+								    <td width="5" align="right"><img src="../../images/angray_right_1.gif" /></td>
+								  </tr>
+								</table>
+								</td>
+							    <td width="" align="right">
+							    	<!--input type="button" value="取消" class="button" style="width:80" onclick=" window.close();"-->
+									<table border="0" cellpadding="0" cellspacing="0" background="../../images/angray_bg_1.gif" class="jwbuttonb" onclick=" window.close();">
+								  <tr>
+								    <td width="5" align="left"><img src="../../images/angray_left_1.gif" /></td>
+								    <td style="padding:0 10px; padding-top:2px; font: 12px/14px '宋体'; color:#3d3b3c">取消</td>
+								    <td width="5" align="right"><img src="../../images/angray_right_1.gif" /></td>
+								  </tr>
+								</table>
+									</td>
+						      </tr>
+							</table>
+							</div>
+     </div>
+  </body>
+</html>

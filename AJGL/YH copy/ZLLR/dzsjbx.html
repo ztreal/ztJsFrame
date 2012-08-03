@@ -1,0 +1,205 @@
+<html>
+ <head>
+  	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+	<script type="text/javascript">
+		$(function() { 
+				$(":date").dateinput()
+			});
+		function nodeRetail(){
+			window.open("nodedetail.html","","resizable=no,menubar=no,directories=no,status=no,location=no,scrollbars=no,left=300,top=170,width=330,height=230");
+		    $(":date").dateinput();
+		}
+		 function maxsize(){
+		   self.moveTo(0,0);
+		   self.resizeTo(screen.availWidth,screen.availHeight);
+	}
+	window.load= maxsize();
+	</script>
+	<style type="text/css">
+		#calbody{
+	widows:198px;
+}	
+	</style>
+  </head>
+  
+  <body>
+  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>    
+			<td align="left" valign="top" class="text01"><strong>当前位置->专项报送->定制部分</strong></td>
+			<td align="right" class="text01"><strong></strong></td>       
+		</tr>
+	</table><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="../../images/tiao001.gif" width="2" height="22"></td>
+    <td width="100%" background="../../images/tiao003.gif" class="tit">添加信息</td>
+    <td><img src="../../images/tiao002.gif" width="2" height="22"></td>
+  </tr>
+</table>
+  <div class="search" style="border:solid 0px #fff"></div>
+	<table width="100%"  class="search" id="addarea">
+    <tr type="title">
+      <td colspan="10"></td>
+     </tr>
+    <tr type="title">
+      <td width="6">&nbsp;</td>
+      <td width="80">数据表名称：</td>
+      <td width="80"><input type="text" name="textfield" id="textfield" class="inputtext"></td>
+      <td width="85" align="right" >制定起始日期:</td>
+      <td width="91"><input type="date" width="80"  class="inputtext"></td>
+      <td width="91" align="right" >制定截止日期:</td>
+      <td width="80"><input type="date" width="80"  class="inputtext"></td>
+      <td width="49">制定人:</td>
+      <td width="94"><input type="text" name="textfield2" id="textfield2" class="inputtext"></td>
+      <td width="183"><input type="submit" name="button" id="button"  class="button"  value="查询"></td>
+     </tr>    
+  </table>
+<br>
+	
+ 	<table width="99%" valign="top" border="0" cellpadding="1" cellspacing="0">
+	  <tr align="right">
+			<td>&nbsp;&nbsp;&nbsp;
+			  <input type="button" value="确认" class="button"  onClick="window.close()" >
+			  &nbsp;
+<input type="button" class="button"  onclick="window.close()" value="返回" >
+		    </td>
+        </tr>
+	</table>  
+<!-- 查询结果列表栏(分页显示) -->
+<table width="100%" valign="top" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td bgcolor="#FFFFFF" align="center" class="text01">
+				<div id="primarytable">
+					<table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#9CC6F7">
+						<tr height="22">
+							<th width="45" align="center" background="../../images/listbg.jpg"  ><input type="checkbox" name="selecteditem2" style="width:30px"  /></th>
+							<th background="../../../images/listbg.jpg" align="center" class="text01">序号</th>
+							<th width="198" align="center" background="../../../images/listbg.jpg" class="text01">数据表名称</th>
+							<th width="176" align="center" background="../../../images/listbg.jpg" class="text01">任务名称</th>
+						  <th width="164" align="center" background="../../../images/listbg.jpg" class="text01">制定时间</th>
+						  <th width="122" align="center" background="../../../images/listbg.jpg" class="text01">制定人</th>
+						  <th background="../../../images/listbg.jpg" align="center" class="text01" width="100">操作</th>
+						</tr>
+						<tr height="22" class="text01">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem" style="width:30px"  /></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">1</td>
+							<td   align="left" bgcolor="#FFFFFF">初核情况统计分析表</td>
+							<td   align="left" bgcolor="#FFFFFF">统计汇总任务</td>
+						  <td align="center" bgcolor="#FFFFFF">2010-1-23</td>
+						  <td align="center" bgcolor="#FFFFFF">李文丽</td>
+						  <td bgcolor="#FFFFFF" align="center" class="text01"><a href="#" onClick="window.open ('browsexf.html', 'newwindow', '')">查  看</a><a href="#"></a></td>
+						</tr>
+						<tr height="22" class="text01">
+							<td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem"  style="width:30px"  /></td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">2</td>
+							<td align="left" bgcolor="#FFFFFF">直管干部申诉情况统计表</td>
+							<td align="left" bgcolor="#FFFFFF">党风专项调查任务</td>
+							<td align="center" bgcolor="#FFFFFF">2010-1-23</td>
+							<td align="center" bgcolor="#FFFFFF">李文丽</td>
+						  <td bgcolor="#FFFFFF" align="center" class="text01">查  看 </td>
+						</tr>
+						<tr height="22" class="text01">
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+						  <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+						</tr>
+						<tr height="22" class="text01">
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+						  <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+						</tr>
+						<tr height="22" class="text01">
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+						  <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+						</tr>
+						<tr height="22" class="text01"> 
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+						  <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+						</tr>
+						<tr height="22" class="text01">
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+						  <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+						</tr>
+						<tr height="22" class="text01">
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+							<td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+							<td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+						  <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+						</tr>
+						<tr height="22" class="text01">
+						  <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+						  <td width="56" align="center" bgcolor="#FFFFFF">&nbsp;</td>
+						  <td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+						  <td align="left" bgcolor="#FFFFFF">&nbsp;</td>
+						  <td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+						  <td align="center" bgcolor="#FFFFFF">&nbsp;</td>
+						  <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+					  </tr>
+
+					</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#FFFFFF" align="center" class="text01"  >
+				<div class="pagination">到 <input name="gopage" type="text" class="queryinput" size="5" />页&nbsp;
+					<ul>
+					<li class="firstpage"><a href="#">跳转</a>&nbsp;</li>
+					<li class="" >第 1 页&nbsp;共 1 页&nbsp;&nbsp;</li>
+					<li class="firstpage"><a href="#">首&nbsp;&nbsp;页</a></li>
+					<li class="disablepage">上一页</li>			
+					<li class="nextpage"><a href="#">下一页</a></li>
+					<li class="endpage"><a href="#">尾&nbsp;&nbsp;页</a></li>
+					</ul>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<script>
+		function createTask(){
+  window.location.href="data.zip";
+}
+
+		</script>
+  </body>
+</html>

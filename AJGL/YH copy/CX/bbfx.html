@@ -1,0 +1,121 @@
+<html>
+  <head>
+  	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+				<script src="../../common/js/base.js" type="text/javascript"></script>
+	<style type="text/css">
+	   label{cursor: pointer;}
+	   *{ margin:0; padding:0;}
+	   .tabTd{padding-left:50px;}
+	   .hoves{ cursor:pointer;}
+	</style>
+	<script type="text/javascript">
+       function radioItem(ids){
+	       var id=document.getElementById("f"+ids);
+		   id.checked=true;
+	   }
+	   function windowOpen(){
+	       window.open("gdbb.html","固定报表","width=980,height=690,top=0,left=20");
+	   }
+	</script>
+  </head>
+  <body style="font:12px;color:#2a5e9b;">
+      
+	     <div style="width:102%;background-color:#f4f4f4; height:32px; font-size:12px; "><div style="padding-left:10px;padding-top:8px;">当前位置： 查询分析&nbsp;<font style="font-family:'宋体'">></font>&nbsp;简单查询&nbsp;<font style="font-family:'宋体'">></font>&nbsp;立案部分&nbsp;<font style="font-family:'宋体'">></font>&nbsp;立案指标查询结果&nbsp;<font style="font-family:'宋体'">></font>&nbsp;固定报表分析</div></div>
+	     <div style=" width:102%; height:28px; background:url(../../images/tiao_bg04.gif);">
+    <div style=" float:left; padding-top:5px;"><font color="#124c95" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;<img src="../../images/dian02.gif" align="middle">&nbsp;报表分析</font></div>
+	    
+	  </div>
+	  <div style=" width:102%; height:32px; background:url(../../images/tiao_bg03.gif);">
+       <div style=" float:left; padding-top:5px;"><font color="#595959" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;报表名称</font></div>
+	   <div style="float: right; padding-top:2px;" class="hoves">
+	       <DIV style="PADDING-RIGHT: 3px; FLOAT: right; padding-left:10px;"  class="graybutton" onClick="window.history.back();" >
+			<table border="0" cellpadding="0" cellspacing="0" class="gray_1_j" >
+			  <tr>
+				<td  class="gray_2_j"></td>
+				<td class="gray_4_j">返 回</td>
+				<td class="gray_3_j"></td>
+			  </tr>
+			</table>
+		 </DIV> 
+	      <DIV style="PADDING-RIGHT: 3px; FLOAT: right; padding-left:10px;"  class="graybutton">
+			<table border="0" cellpadding="0" cellspacing="0" class="gray_1_j" >
+			  <tr>
+				<td  class="gray_2_j"></td>
+				<td class="gray_4_j">打 印</td>
+				<td class="gray_3_j"></td>
+			  </tr>
+			</table>
+		 </DIV> 
+	  <DIV style="PADDING-RIGHT: 3px; FLOAT: right; padding-left:10px;"  class="graybutton">
+			<table border="0" cellpadding="0" cellspacing="0" class="gray_1_j" >
+			  <tr>
+				<td  class="gray_2_j"></td>
+				<td class="gray_4_j">输出到Word</td>
+				<td class="gray_3_j"></td>
+			  </tr>
+			</table>
+		 </DIV> 
+	  <DIV style="PADDING-RIGHT: 3px; FLOAT: right; padding-left:10px;"  class="graybutton" onClick="windowOpen()">
+			<table border="0" cellpadding="0" cellspacing="0" class="gray_1_j" >
+			  <tr>
+				<td  class="gray_2_j"></td>
+				<td class="gray_4_j">显 示</td>
+				<td class="gray_3_j"></td>
+			  </tr>
+			</table>
+		 </DIV> 
+	  </div>
+    </div>
+		    
+		  <table width="810" style="font:12px;color:black;">
+					      <tr height="25px">
+						    <td style="width:50%;" class="tabTd"><input type="radio" name="report" id="fs1" checked="checked" style="width:20px;"><label onClick="radioItem(this.id)" id="s1">立案案件统计表</label></td>
+							 <td style="width:50%; "><input type="radio" name="report" id="fs9" style="width:20px;"><label onClick="radioItem(this.id)" id="s9">立案查处企业人员分析表(上、下)</label> </td>
+						  </tr>
+						  <tr height="25px">
+						    <td class="tabTd"><input type="radio" name="report" id="fs2" style="width:20px;"><label onClick="radioItem(this.id)" id="s2">处分人员统计表</label></td>
+							<td><input type="radio" name="report" id="fs10" style="width:20px;"><label onClick="radioItem(this.id)" id="s10">查询案件涉及金额分析表</label></td>
+						  </tr>
+						  <tr height="25px">
+						    <td class="tabTd"><input type="radio" name="report" id="fs3" style="width:20px;"><label onClick="radioItem(this.id)" id="s3">立案案件分析表之一</label></td>
+							 <td><input type="radio" name="report" id="fs11" style="width:20px;"><label onClick="radioItem(this.id)" id="s11">查处案件涉及有关部门分析表(上、下)</label></td>
+						  </tr>
+						  <tr height="25px">
+						    <td class="tabTd"><input type="radio" name="report" id="fs4" style="width:20px;"><label onClick="radioItem(this.id)" id="s4">立案案件分析表之二(上、下)</label></td>
+							<td><input type="radio" name="report" id="fs12" style="width:20px;"><label onClick="radioItem(this.id)" id="s12">各级纪检监察机关立案案件分析表(上、下)</label></td>
+						  </tr>
+						  <tr height="25px">
+						    <td class="tabTd"><input type="radio" name="report" id="fs5" style="width:20px;"><label onClick="radioItem(this.id)" id="s5">立案案件分析表之三(上、下)</label></td>
+							<td><input type="radio" name="report" id="fs13" style="width:20px;"><label onClick="radioItem(this.id)" id="s13">"一把手"违纪情况分析表(上、下)</label></td>
+						  </tr>
+                          <tr height="25px">
+						    <td class="tabTd"><input type="radio" name="report" id="fs6" style="width:20px;"><label onClick="radioItem(this.id)" id="s6">处分人员分析表之一</label></td>
+							<td><input type="radio" name="report" id="fs14" style="width:20px;"><label onClick="radioItem(this.id)" id="s14">"两规" "两指"措施情况一览表</label></td>
+						  </tr>
+						  <tr height="25px">
+						    <td class="tabTd"><input type="radio" name="report" id="fs7" style="width:20px;"><label onClick="radioItem(this.id)" id="s7">处分人员分析表之二(上、下)</label></td>
+							<td><input type="radio" name="report" id="fs15" style="width:20px;"><label onClick="radioItem(this.id)" id="s15">自办案件审理情况统计表</label></td>
+						  </tr>
+						  <tr height="25px"> 
+						    <td class="tabTd"><input type="radio" name="report" id="fs8" style="width:20px;"><label onClick="radioItem(this.id)" id="s8">处分人员分析表之三(上、下)</label></td>
+						  </tr>
+						 
+					   </table>
+	 
+  </body>
+</html>

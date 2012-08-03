@@ -1,0 +1,381 @@
+<html>
+    <head>
+        <link href="../../css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+        <script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js">
+        </script>
+        <!--jqgrid-->
+		<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/redmond/jquery-ui-1.8.2.custom.css" /> 
+		<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.jqgrid.css" /> 
+		<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.multiselect.css" /> 
+		<script src="../../common/js/jquery-1.4.2.min.js" type="text/javascript"></script> 
+		<script src="../../common/js/jqgrid/js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script> 
+		<script src="../../common/js/jqgrid/js/jquery.layout.js" type="text/javascript"></script> 
+		<script src="../../common/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script> 
+		<script type="text/javascript"> 
+			$.jgrid.no_legacy_api = true;
+			$.jgrid.useJSON = true;
+		</script> 
+		<script src="../../common/js/jqgrid/js/ui.multiselect.js" type="text/javascript"></script> 
+		<script src="../../common/js/jqgrid/js/jquery.jqGrid.js" type="text/javascript"></script> 
+		<script type="text/javascript"> 
+		        </script>
+        <!--���� jquery tool
+        <link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />
+        <script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+        -->
+        <link type="text/css" href="../../css/tabs.css" rel="stylesheet" />
+        <link type="text/css" href="../../css/date.css" rel="stylesheet" />
+        <script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js">
+        </script>
+        <script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js">
+        </script>
+        <script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                $(":date").dateinput();
+            });
+        </script>
+		
+		<script type="text/javascript"> 
+ 
+var mydata = [
+		{id:"1",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"001",tax:"��С��",total:"2111"} ,
+		{id:"2",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"002",tax:"��С��",total:"320"},
+		{id:"3",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"003",tax:"��С��",total:"430"},
+		{id:"4",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"004",tax:"��С��",total:"210"},
+		{id:"5",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"005",tax:"��С��",total:"320"},
+		{id:"6",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"006",tax:"��С��",total:"430"},
+		{id:"7",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"007",tax:"��С��",total:"210"},
+		{id:"8",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"008",tax:"��С��",total:"320"},
+		{id:"9",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"009",tax:"��С��",total:"430"},
+		{id:"11",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"010",tax:"��С��",total:"210"},
+		{id:"12",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"011",tax:"��С��",total:"320"},
+		{id:"13",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"012",tax:"��С��",total:"430"},
+		{id:"14",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"013",tax:"��С��",total:"210"},
+		{id:"15",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"014",tax:"��С��",total:"320"},
+		{id:"16",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"015",tax:"��С��",total:"430"},
+		{id:"17",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"016",tax:"��С��",total:"210"},
+		{id:"18",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"017",tax:"��С��",total:"320"},
+		{id:"19",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"018",tax:"��С��",total:"430"},
+		{id:"21",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"019",tax:"��С��",total:"210"},
+		{id:"22",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"020",tax:"��С��",total:"320"},
+		{id:"23",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"021",tax:"��С��",total:"430"},
+		{id:"24",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"022",tax:"��С��",total:"210"},
+		{id:"25",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"023",tax:"��С��",total:"320"},
+		{id:"26",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"024",tax:"��С��",total:"430"},
+		{id:"27",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"025",tax:"��С��",total:"210"},
+		{id:"28",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"026",tax:"��С��",total:"320"},
+		{id:"29",invdate:"20100803002",name:"��һ��",note:"��С��",amount:"027",tax:"��С��",total:"430"}
+	];
+ 
+ 
+jQuery(document).ready(function(){
+  jQuery("#list486").jqGrid({
+	data: mydata,
+	datatype: "local",
+	height: 'auto',
+	rowNum: 10,
+	rowList: [10,20,30],
+   	colNames:['���','��������', '��������', '��Ա����','���','����','��ע'],
+   	colModel:[
+   		{name:'id',index:'id', width:60, sorttype:"int"},
+   		{name:'invdate',index:'invdate', width:90, sorttype:"int" },
+   		{name:'name',index:'name', width:100, editable:true},
+   		{name:'amount',index:'amount', width:80, align:"left",sorttype:"float", editable:true, summaryType:'min', summaryTpl:'<b>Min: {0}</b>'},
+   		{name:'tax',index:'tax', width:80, align:"left",sorttype:"float", editable:true, summaryType:'max', summaryTpl:'<b>Max: {0}</b>'},
+   		{name:'total',index:'total', width:80,align:"left",sorttype:"float", formatter:"number", summaryType:'sum'},		
+   		{name:'note',index:'note', width:150, sortable:false, summaryType:'count', summaryTpl:'<b>{0} Item(s)</b>',hidegrid:true}		
+   	],
+   	pager: "#plist486",
+   	viewrecords: true,
+   	sortname: 'name',
+   	caption: "������Ϣ"
+}).jqGrid('hideCol',["note","total"]);
+jQuery("#list486").jqGrid('navGrid','#plist486',{add:false,edit:false,del:false,search:false,refresh:true});
+jQuery("#list486").jqGrid('navButtonAdd','#plist486',{
+    caption: "ѡ����",
+    title: "�����ťѡ����",
+    onClickButton : function (){
+        jQuery("#list486").jqGrid('columnChooser');
+    }
+});
+
+});
+</script> 
+        <style type="text/css">
+            #calbody {
+                widows: 198px;
+            }
+        </style>
+    </head>
+    <body>
+        <table width="798" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left" valign="top" class="text01">
+                    <strong>��ǰλ��->����¼��->��������</strong>
+                </td>
+                <td align="right" class="text01">
+                    <strong>����Ա->�������һ������</strong>
+                </td>
+            </tr>
+        </table>
+        <div class="search" style="border:solid 0px #fff">
+            Ĭ����ʾ��ǰ�·ݵ���Ϣ������鿴�����·ݵ���Ϣ��<span class="search" style="border:solid 0px #fff">���ڲ�ѯ�����ڽ��в�ѯ��</span>
+        </div>
+        <table width="798" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <img src="../../images/tiao001.gif" width="2" height="22">
+                </td>
+                <td width="100%" background="../../images/tiao003.gif" class="tit">
+                    �����Ϣ
+                </td>
+                <td>
+                    <img src="../../images/tiao002.gif" width="2" height="22">
+                </td>
+            </tr>
+        </table>
+        <table width="798" class="search" id="addarea">
+            <tr type="title">
+                <td colspan="6">
+                </td>
+            </tr>
+            <tr type="title">
+                <td width="81" align="right">
+                    �����
+                </td>
+                <td colspan="2">
+                    <input type="text" class="Wdate" id="d413" onFocus="WdatePicker({dateFmt:'yyyy��M��'})"/>
+                </td>
+                <td width="116" align="right">
+                    ���λ
+                </td>
+                <td width="206">
+                    <select name="select" id="select" style="width:150px">
+                        <option>��ѡ��</option>
+                        <option>һ��</option>
+                        <option>����</option>
+                        <option>��</option>
+                        <option>�Ĵ�</option>
+                    </select>
+                </td>
+                <td width="225">
+                    <input type="button" value="�� ��" class="button" onClick="window.location='newla.html'">
+                </td>
+            </tr>
+        </table>
+        <br>
+        <table width="798" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <img src="../../images/tiao001.gif" width="2" height="22">
+                </td>
+                <td width="100%" background="../../images/tiao003.gif" class="tit">
+                    ��ѯ
+                </td>
+                <td>
+                    <img src="../../images/tiao002.gif" width="2" height="22">
+                </td>
+            </tr>
+        </table>
+        <table width="798" class="search" id="addarea">
+            <tr align="center" type="title">
+                <td colspan="6">
+                </td>
+            </tr>
+            <tr type="title">
+                <td width="95" align="right">
+                    ���ʼ����
+                </td>
+                <td width="201">
+                    <input type="date" width="80" class="inputtext">
+                </td>
+                <td align="right">
+                    ���ֹ����
+                </td>
+                <td align="left">
+                    <input type="date" width="80" class="inputtext">
+                </td>
+                <td width="233" align="left">
+                    &nbsp;
+                </td>
+                <td width="8">
+                    &nbsp;
+                </td>
+            </tr>
+            <tr type="title">
+                <td align="right">
+                    ���λ
+                </td>
+                <td>
+                    <select name="select2" id="select2" style="width:150px">
+                        <option>��ѡ��</option>
+                        <option>һ��</option>
+                        <option>����</option>
+                        <option>��</option>
+                        <option>�Ĵ�</option>
+                    </select>
+                </td>
+                <td width="88" align="right">
+                    ����
+                </td>
+                <td width="230" align="left">
+                    <select name="select4" id="select4" style="width:150px">
+                        <option>��ѡ��</option>
+                        <option>�ѱ�</option>
+                        <option>δ��</option>
+                        <option>����</option>
+                    </select>
+                </td>
+                <td align="right">
+                    <div align="left">
+                        <input type="submit" name="button" id="button" class="button" value="��ѯ">
+                    </div>
+                </td>
+                <td align="right">
+                    &nbsp;
+                </td>
+            </tr>
+        </table>
+        <table width="798" valign="top" border="0" cellpadding="1" cellspacing="0">
+            <tr align="right">
+                <td width="87%">
+                    &nbsp;
+                </td>
+                <td width="13%" align="left">
+                    &nbsp;<input type="button" value="ɾ ��" class="button" onClick="javascript:window.confirm('ȷʵҪɾ����')">
+                </td>
+            </tr>
+        </table>
+</script> 
+<table id="list486"></table>
+<div id="plist486"></div> 
+
+        <!-- ��ѯ����б���(��ҳ��ʾ)
+        <table width="100%" valign="top" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+        <td>
+        <div id="primarytable">
+        <table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#9CC6F7">
+        <tr height="22">
+        <th background="../../images/listbg.jpg" align="center" width="6%"><input type="checkbox" id="selectall"  onClick="_selectAll()"  style="width:30px"/></th>
+        <th background="../../../images/listbg.jpg" align="center" class="text01" width="5%">���</th>
+        <th background="../../../images/listbg.jpg" align="center" class="text01" width="14%">���λ</th>
+        <th background="../../../images/listbg.jpg" align="center" class="text01" width="13%">����</th>
+        <th background="../../../images/listbg.jpg" align="center" class="text01" width="15%">������</th>
+        <th background="../../../images/listbg.jpg" align="center" class="text01" width="10%">���</th>
+        <th background="../../../images/listbg.jpg" align="center" class="text01" width="18%">�����</th>
+        </tr>
+        <tr height="22">
+        <td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem2"  style="width:30px"/></td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">1</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01"><a href="la2.html">һ��</a></td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">�ѱ���¼</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">13</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">��һ��</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">2010-1</td>
+        </tr>
+        <tr height="22">
+        <td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem"  style="width:30px"/></td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">2</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">����</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">�ѱ�����</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">22</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">������</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">2010-1</td>
+        </tr>
+        <tr height="22">
+        <td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem"  style="width:30px"/></td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">3</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">��</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">�ѱ�δ¼</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">0</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">������</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">2010-1</td>
+        </tr>
+        <tr height="22">
+        <td bgcolor="#FFFFFF" align="center" class="text01"><input type="checkbox" name="selecteditem3"  style="width:30px"/></td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">4</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">�Ĵ�</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">δ��</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        </tr>
+        <tr height="22">
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01" style="color:red">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        </tr>
+        <tr height="22">
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        </tr>
+        <tr height="22">
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        </tr>
+        <tr height="22">
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        </tr>
+        <tr height="22">
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        </tr>
+        <tr height="22">
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        <td bgcolor="#FFFFFF" align="center" class="text01">&nbsp;</td>
+        </tr>
+        </table>
+        </div>
+        </td>
+        </tr>
+        <tr>
+        <td class="text01">
+        <div class="pagination">�� <input name="gopage" type="text" class="queryinput" size="5" />ҳ&nbsp;
+        <ul>
+        <li class="firstpage"><a href="#">��ת</a>&nbsp;</li>
+        <li class="" >�� 1 ҳ&nbsp;�� 1 ҳ&nbsp;&nbsp;</li>
+        <li class="firstpage"><a href="#">��&nbsp;&nbsp;ҳ</a></li>
+        <li class="disablepage">��һҳ</li>
+        <li class="nextpage"><a href="#">��һҳ</a></li>
+        <li class="endpage"><a href="#">β&nbsp;&nbsp;ҳ</a></li>
+        </ul>
+        </div>
+        </td>
+        </tr>
+        </table>-->
+    </body>
+</html>

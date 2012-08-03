@@ -1,0 +1,1057 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+        <meta http-equiv="Content-Style-Type" content="text/css"> 
+        <meta http-equiv="Content-Script-Type" content="text/javascript"> 
+ 	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs2.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+    <script src="../../common/js/base.js" type="text/javascript"></script>
+        <title>申诉部分</title> 
+        
+        <link rel="stylesheet" href="ui.tabs.css" type="text/css" media="print, projection, screen"> 
+        <style type="text/css" media="screen, projection"> 
+            /* Not required for Tabs, just to make this demo look better... */
+			*{ padding:0; margin:0;}
+            body, h1, h2 {
+                font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+            }
+            h1 {
+                margin: 1em 0 1.5em;
+                font-size: 18px;
+            }
+            h2 {
+                margin: 2em 0 1.5em;
+                font-size: 16px;
+            }
+            p {
+                margin: 0;
+                padding: 0 0 .5em;
+                max-width: 40em;
+            }
+            /*pre, pre+p, p+p {
+                margin: 1em 0 0;
+            }
+            code {
+                font-family: "Courier New", Courier, monospace;
+            }*/
+			body{font-family:宋体; font-size:12pt; font-weight:400;}
+
+.tr_1 td{border-bottom:solid; border-right:solid; border-top:solid; border-width:thin;height:25px; }
+.tr_2 td{border-bottom:solid; border-right:solid; border-width:thin;height:25px;}
+.l_border{border-left:solid; border-width:thin;height:25px;}
+
+			 input{ border:1px solid #FFFFFF;}
+	textarea{ border:0px;}
+	.DivSelect
+{
+     position: relative;
+     background-color: transparent;
+     width:   70px;
+     height: 17px;
+     overflow: hidden; /*隐藏了小三角，因为宽度为110px,而select宽度为130px*/
+     border-width:0px;
+     border-top-style: none; 
+     border-right-style: none; 
+     border-left-style: none; 
+     border-bottom-style: none;
+}
+.SelectList
+{
+     position: relative;
+     background-color: transparent;
+     TOP:    -2px;
+     left:-2px;
+     border-width: 0px;
+     border-top-style: none; 
+     border-right-style: none; 
+     border-left-style: none; 
+     border-bottom-style: none;
+     width:90px;
+     display:block;
+     height: 18px;
+     overflow:hidden;
+}
+	.DivSelect2
+{
+     position: relative;
+     background-color: transparent;
+     width: 120px;
+     height: 17px;
+     overflow: hidden; /*隐藏了小三角，因为宽度为110px,而select宽度为130px*/
+     border-width:0px;
+     border-top-style: none; 
+     border-right-style: none; 
+     border-left-style: none; 
+     border-bottom-style: none;
+}
+.SelectList2
+{
+     position: relative;
+     background-color: transparent;
+     TOP:    -2px;
+     left:-2px;
+     border-width: 0px;
+     border-top-style: none; 
+     border-right-style: none; 
+     border-left-style: none; 
+     border-bottom-style: none;
+     width:140px;
+     display:block;
+     height: 18px;
+     overflow:hidden;
+}
+.hoves{ cursor:pointer}
+        </style> 
+ 
+        <script type="text/javascript"> 
+			$(function() { 
+			    // 将ul.tabs区域设定为选项卡，用来控制div.panes区域中最近一层的各div区域
+			   // 注意tabs和panes与html中class的对应关系
+			    $("ul.tabs").tabs("div.panes > div",{history: true}); 
+				$(":date").dateinput();
+				//添加删除修改事件
+				//增加次要条件配置：
+				var j=0;
+					$("#add0").click(function(){
+						j++;
+						$("#basicwh0 tr:first").after(' <tr align="center"><td style="padding-left:35px"><p><label><input type="checkbox" name="复选框组1" value="复选框" id="复选框组1_0" /></label><br /></p></td><td id=sectj"'+j+'"><select style="width:180px"><option>请选择</option><option>填表单位名称</option><option>被反映人数</option><option>填表单位代码</option><option>线索编码</option><option>人员编码</option><option>核实结果标志</option><option>被反映人</option><option>工作单位及职务</option><option>政治面貌</option><option>职级</option><option>线索来源</option></select></td><td><select name="select2" id="select2" style="width:90px"><option>请选择</option><option>等于</option><option>大于</option><option>小于</option><option>大于等于</option><option>小于等于</option><option>不等于</option><option>包含</option><option>不包含</option></select></td><td><input type="text" name="textfield" id="textfield" style="width:250px"/></td><td><select name="select3" id="select3" style="width:90px"><option>请选择</option><option>并且</option><option>或者</option><option>结束</option></select></td></tr>');				  
+					})
+					//删除次要条件配置：
+					$("#del0").click( function () { $("#basicwh0 tr:last[type!=title]").remove() });
+					
+
+			$("#change").click(function(){
+				window.location="newlas2.html";
+				
+			})
+			
+			});
+			
+        </script>
+		
+		
+    </head> 
+    <body> 
+	<div style="width:100%">
+      	<!--<table width="789" border="0" cellpadding="0" cellspacing="0">
+		<tr>    
+			<td width="567" align="left" valign="top" class="text01"><strong>当前位置->资料录入->立案部分->纪检监察机关立案线索登记表</strong></td>
+			<td width="222" align="right" class="text01"><strong> </strong></td>       
+		</tr>
+	</table>-->
+    
+	<div style=" width:100%; height:28px; background:url(../../images/tiao_bg04.gif);" class="hoves">
+	  <div style=" float:left; padding-top:8px;"><font color="#124c95" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;<img src="../../images/dian02.gif" align="middle">&nbsp;纪检监察机关复查复议复审复核案件登记表</font></div>
+
+	  <div style="float: right; padding-top:4px;" class="hoves">
+	      
+	  <div id="del2" style="float: right; padding-right:3px;" class="clbutton" onclick="window.location='ss.html'">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		    <td class="blue_2_j"></td>
+			<td class="blue_4_j">返 回</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div id="update" style="float: right; padding-right:3px;" class="clbutton">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		      <td class="blue_2_j"></td>
+			<td class="blue_4_j">打 印</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div id="search" style="float: right; padding-right:3px;" class="clbutton">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		      <td class="blue_2_j"></td>
+			<td class="blue_4_j">还 原</td>
+			<td class="blue_3_j"></td>
+		   
+		  </tr>
+		</table>
+	  </div>
+	   <div id="add2" style="float: right;padding-right:3px;" class="clbutton" onclick="alert('保存成功！')">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		    <td class="blue_2_j"></td>
+			<td class="blue_4_j">保 存</td>
+			<td class="blue_3_j"></td>
+		  
+		  </tr>
+		</table>
+	  </div>
+	  		
+	  </div>
+ </div>
+	</div>
+
+
+<div class="panes">
+<!--<ul class="tabs" style="width:790px; height:26px;overflow:hidden;border-left:solid #D7D7D7 1px;padding-left:0px"> 
+    <li ><a href="#1">登记表信息	</a></li> 
+    <li><a href="#2">其他信息</a></li>
+	<li><a href="#3">初核信息</a></li>
+</ul> 
+<!--标签页一：--> 
+ <div style="width:100%; text-align:center;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="../../images/jiao01.gif" width="10" height="10"></td>
+        <td width="100%" background="../../images/ying01.gif"></td>
+        <td><img src="../../images/jiao02.gif" width="10" height="10"></td>
+      </tr>
+      <tr>
+        <td background="../../images/ying04.gif"></td>
+        <td>
+		  <div style="width:750px; text-align:center; margin:auto">
+      <table width="98%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom:-10px;font-size:12px;">
+	<tr style="font-size:16pt; height:50px; font-weight:bold;">
+    	<td colspan="2">纪检监察机关复查复议复审复核案件登记表</td>
+    </tr>
+	<tr class="trHd">
+    	<td align="left" width="50%">填表单位：<input  type="text"/></td>
+        <td align="left" width="50%">填报日期：<input type="text"  onFocus="WdatePicker({dateFmt:'yyyy年MM月dd日'})"  style="width:110px;"></td>
+    </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-size:12px;">
+  <tr style="height:1px;">
+    <td width="9.17%">&nbsp;</td>
+    <td width="3.67%">&nbsp;</td>
+    <td width="11.31%">&nbsp;</td>
+    <td width="4.89%">&nbsp;</td>
+    <td width="2.14%">&nbsp;</td>
+    <td width="3.98%">&nbsp;</td>
+    <td width="8.26%">&nbsp;</td>
+    <td width="5.20%">&nbsp;</td>
+    <td width="8.56%">&nbsp;</td>
+    <td width="4.89%">&nbsp;</td>
+    <td width="3.06%">&nbsp;</td>
+    <td width="5.50%">&nbsp;</td>
+    <td width="4.28%">&nbsp;</td>
+    <td width="8.56%">&nbsp;</td>
+    <td width="5.50%">&nbsp;</td>
+    <td width="11.01%">&nbsp;</td>
+  </tr>
+  <tr class="tr_1">
+    <td colspan="3" class="l_border">申诉人</td>
+    <td colspan="4"><input type="text"></td>
+    <td colspan="2">政治面貌</td>
+    <td colspan="3" align="left">
+	      <div style="float:left; margin-right:10px;" class="DivSelect2">
+	   <select class="SelectList2">
+	      <option></option>
+		  <option>党员</option>
+		  <option>团员</option>
+		  <option>民主党派</option>
+		  <option>其他</option>
+		  <option>党组织</option>
+		   <option>法人</option>
+	   </select>
+	   </div>
+	</td>
+    <td colspan="3" style="width:100px;">是否监察对象</td>
+    <td align="left">
+	    <div style="float:left; margin-right:10px;" class="DivSelect2">
+	   <select class="SelectList2">
+	      <option></option>
+		  <option>&nbsp;是</option>
+		  <option>&nbsp;否</option>		 
+	   </select>
+	   </div>
+	</td>
+  </tr>
+  <tr class="tr_2">
+    <td colspan="5" class="l_border">受处分时工作单位及职务</td>
+    <td colspan="11" align="left"><input type="text" style="width:450px;"></td>
+  </tr>
+  <tr class="tr_2">
+    <td colspan="3" class="l_border" style="width:150px;">现工作单位及职务</td>
+    <td colspan="13" align="left"><input type="text" style="width:450px;"></td>
+  </tr>
+  <tr class="tr_2">
+    <td colspan="3" class="l_border">受处分时职级</td>
+    <td colspan="3" align="left">
+	    <div style="float:left; margin-right:10px;" class="DivSelect2">
+	  <select class="SelectList2">
+	      <option></option>
+		  <option>省部级</option>
+		  <option>地厅级</option>
+		  <option>县处级</option>
+		  <option>乡科级</option>
+		  <option>一般干部</option>
+		   <option>其他人员</option>
+	   </select>
+	   </div>
+	</td>
+    <td colspan="2">现职级</td>
+    <td colspan="3" align="left">
+	    <div style="float:left; margin-right:10px;" class="DivSelect2">
+	    <select class="SelectList2">
+	      <option></option>
+		  <option>省部级</option>
+		  <option>地厅级</option>
+		  <option>县处级</option>
+		  <option>乡科级</option>
+		  <option>一般干部</option>
+		   <option>其他人员</option>
+	   </select>
+	   </div>
+	</td>
+    <td colspan="3">受处分时间</td>
+    <td colspan="2" align="left"><input type="text"  onFocus="WdatePicker({dateFmt:'yyyy年MM月dd日'})"  style="width:110px;"></td>
+  </tr>
+  <tr class="tr_2">
+    <td colspan="3" class="l_border">违纪行为</td>
+    <td colspan="8" align="left">
+	    <div style="float:left; margin-right:10px;" class="DivSelect2">
+	  <select class="SelectList2">
+	      <option></option>
+		  <option>违反政治纪律</option>
+		  <option>违反组织人事纪律</option>
+		  <option>违反廉洁自律规定</option>
+		  <option>贪污贿赂</option>
+		  <option>破坏社会主义经济秩序</option>
+		  <option>侵犯党员权利公民权利</option>
+		   <option>严重违反社会主义道德</option>
+		   <option>妨碍社会管理秩序</option>
+		   <option>其他违纪行为</option>
+	   </select>
+	   </div>
+	   <!-- <div style="float:left; margin-right:10px;" class="DivSelect2">
+	   <select>
+	      <option></option>
+		  <option>非法占有</option>
+		  <option>受礼</option>
+		  <option>违反从业限制规定</option>
+		  <option>违反从事营利活动</option>
+		  <option>挥霍浪费公共财产</option>
+		  <option>违反其他廉洁自律规定</option>
+		  
+	   </select>
+	  </div>-->
+	   <div style="float:left; margin-right:10px;" class="DivSelect2">
+	   <select class="SelectList2">
+	      <option></option>
+		  <option>个人违规从事营利活动</option>
+		  <option>其他违规营利活动</option>
+		  
+	   </select>
+	   </div>
+	</td>
+    <td colspan="3">申诉类别</td>
+    <td colspan="2" align="left"> 
+	 <div style="float:left; margin-right:10px;" class="DivSelect2">
+	<select class="SelectList2">
+	      <option></option>
+		  <option>党纪申诉</option>
+		  <option>政纪申诉</option>
+		  <option>双重申诉</option>
+		  <option>其他申诉</option>
+	   </select>
+	   </div>
+	   </td>
+  </tr>
+  <tr class="tr_2">
+    <td colspan="3" class="l_border">第一次申诉时间</td>
+    <td colspan="5" align="left"><input type="text"  onFocus="WdatePicker({dateFmt:'yyyy年MM月dd日'})"  style="width:110px;"></td>
+    <td colspan="5">是否二次申诉</td>
+    <td colspan="3" align="left">
+	 <div style="float:left; margin-right:10px;" class="DivSelect2">
+	   <select class="SelectList2">
+	      <option></option>
+		  <option>是</option>
+		  <option>否</option>
+	   </select>
+	   </div>
+	</td>
+  </tr>
+  <tr class="tr_2">
+    <td colspan="3" class="l_border">第一次受理时间</td>
+    <td colspan="5" align="left"><input type="text"  onFocus="WdatePicker({dateFmt:'yyyy年MM月dd日'})"  style="width:110px;"></td>
+    <td colspan="5">第一次办结时间</td>
+    <td colspan="3" align="left"><input type="text"  onFocus="WdatePicker({dateFmt:'yyyy年MM月dd日'})"  style="width:110px;"></td>
+  </tr>
+  <tr class="tr_2">
+    <td colspan="3" class="l_border">第一次办理机关</td>
+    <td colspan="5" align="left">
+	 <div style="float:left; margin-right:10px;" class="DivSelect2">
+	   <select class="SelectList2">
+	      <option></option>
+	   </select>
+	   </div>
+	</td>
+    <td colspan="5">第一次结论</td>
+    <td colspan="3" align="left">
+	 <div style="float:left; margin-right:10px;" class="DivSelect2">
+	  <select class="SelectList2">
+	      <option></option>
+	   </select>
+	   </div>
+	   </td>
+  </tr>
+  <tr class="tr_2">
+    <td colspan="2" class="l_border">受理时间</td>
+    <td colspan="6" align="left"><input type="text"  onFocus="WdatePicker({dateFmt:'yyyy年MM月dd日'})"  style="width:110px;"></td>
+    <td colspan="2">受理机关</td>
+    <td colspan="6" align="left"><input type="text" style="width:250px;"/></td>
+  </tr>
+  <tr class="tr_2">
+    <td colspan="2" class="l_border">撤诉时间</td>
+    <td colspan="4" align="left"><input type="text"  onFocus="WdatePicker({dateFmt:'yyyy年MM月dd日'})"  style="width:110px;"></td>
+    <td colspan="2">办结时间</td>
+    <td colspan="4" align="left"><input type="text"  onFocus="WdatePicker({dateFmt:'yyyy年MM月dd日'})"  style="width:110px;"></td>
+    <td colspan="2">结  论</td>
+    <td colspan="2" align="left">
+	 <div style="float:left; margin-right:10px;" class="DivSelect2">
+	   <select class="SelectList2">
+	      <option></option>
+          <option>维持</option>
+		  <option>变更</option>
+		  <option>撤销</option>
+	   </select>
+	   </div>
+	</td>
+  </tr>
+  <tr class="tr_2">
+    <td colspan="2" rowspan="2" class="l_border">原<br>处<br>分</td>
+    <td colspan="2">党纪处分</td>
+    <td colspan="4" align="left">
+	 <div style="float:left; margin-right:10px;" class="DivSelect2">
+        <select class="SelectList2">
+	      <option></option>
+          <option>警告</option>
+		  <option>严重警告</option>
+		  <option>撤销党内职务</option>
+		  <option>留党查看</option>
+		  <option>开除党籍</option>
+	   </select>
+	   </div>
+	 </td>
+    <td colspan="2" rowspan="2">变<br>更<br>后</td>
+    <td colspan="3">党纪处分</td>
+    <td colspan="3" align="left"> 
+	 <div style="float:left; margin-right:10px;" class="DivSelect2">
+	<select class="SelectList2">
+	      <option></option>
+          <option>警告</option>
+		  <option>严重警告</option>
+		  <option>撤销党内职务</option>
+		  <option>留党查看</option>
+		  <option>开除党籍</option>
+	   </select>
+	    </div>
+	   </td>
+  </tr>
+  <tr class="tr_2">
+    <td colspan="2" >政纪处分</td>
+    <td colspan="4" align="left"> 
+	 <div style="float:left; margin-right:10px;" class="DivSelect2">
+	<select class="SelectList2">
+	      <option></option>
+          <option>警告</option>
+		  <option>记过</option>
+		  <option>记大过</option>
+		  <option>降级</option>
+		  <option>降职</option>
+		   <option>撤职</option>
+		  <option>开除留用察看</option>
+		  <option>开除</option>
+	   </select>
+	   </div>
+	   </td>
+    <td colspan="3">政纪处分</td>
+    <td colspan="3" align="left"> 
+	 <div style="float:left; margin-right:10px;" class="DivSelect2">
+	 <select class="SelectList2">
+	      <option></option>
+          <option>警告</option>
+		  <option>记过</option>
+		  <option>记大过</option>
+		  <option>降级</option>
+		  <option>降职</option>
+		   <option>撤职</option>
+		  <option>开除留用察看</option>
+		  <option>开除</option>
+	   </select>
+	   </div>
+	   </td>
+  </tr>
+  <tr class="tr_2">
+    <td colspan="3" class="l_border">变更、撤销原因</td>
+    <td colspan="13" align="left"><input type="text" style="width:450px;"></td>
+  </tr>
+  <tr style=" height:150px;" class="tr_2">
+    <td class="l_border">申<br><br>诉<br><br>理<br><br>由</td>
+    <td colspan="15" align="left">
+	   <textarea rows="8" cols="83"></textarea>
+	</td>
+  </tr>
+  <tr style="height:70px;" class="tr_2">
+    <td class="l_border">备<br>注</td>
+    <td colspan="15" align="left"><textarea rows="5" cols="83"></textarea></td>
+  </tr>
+  <tr height="10"><td colspan="3"></td></tr>
+</table>
+</div>
+		</td>
+        <td background="../../images/ying02.gif"></td>
+      </tr>
+      <tr>
+        <td><img src="../../images/jiao04.gif" width="10" height="10"></td>
+        <td background="../../images/ying03.gif"></td>
+        <td><img src="../../images/jiao03.gif" width="10" height="10"></td>
+      </tr>
+	  
+    </table>
+  </div>
+ <!-- <div style="width:100%; text-align:center;">
+<!--标签页二：-->    
+<!--<table width="810" height="402" border="0" style="color:#3d3b3c; font-size:12px;">
+  <tr valign="top">
+    <td height="346" align="center">
+
+<!--基本信息-->
+<!--<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:5px;padding-bottom:5px">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>基本信息</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+<!--基本信息内容-->
+<!--<table width="791" height="110" cellspacing="0" >
+    <tr>
+    <td width="114" height="32" align="right">是否单位<span style="color:red">*<span></span></span><span></td>
+    <td width="130"><select name="name18" id="name19">
+      <option>&nbsp;</option>
+      <option>是</option>
+      <option>否</option>
+    </select></td>
+    <td width="125" height="29" align="right">民族<span style="color:red">*<span></span></span></td>
+    <td height="29" width="130"><select name="name16" id="name17">
+      <option>&nbsp;</option>
+      <option>汉族</option>
+      <option>回</option>
+      <option>傣</option>
+      <option>其他</option>
+    </select></td>
+    <td width="125" align="right" >出生年月</td>
+    <td width=""><input type="text" class="Wdate " id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月'})"  ></input></td>
+    </tr>
+  <tr>
+    <td height="31" align="right">国家公务员</td>
+    <td ><select name="name17" id="name18">
+      <option>&nbsp;</option>
+      <option>是</option>
+      <option>否</option>
+    </select></td>
+    <td align="right">政协委员</td>
+    <td><select name="name" id="name">
+          <option>&nbsp;</option>
+          <option>全国政协委员</option>
+          <option>省政协委员</option>
+          <option>市政协委员</option>
+          <option>县政协委员</option>
+        </select></td>
+    <td align="right">人大代表</td>
+    <td><select name="name" id="name">
+          <option>&nbsp;</option>
+          <option>全国人大代表</option>
+          <option>省政人大代表员</option>
+          <option>市政人大代表员</option>
+          <option>县政人大代表</option>
+        </select></td>
+    </tr>
+  <tr>
+    <td align="right">政治面貌细节</td>
+    <td><select name="name3" id="name4">
+      <option>&nbsp;</option>
+      <option>正事党员</option>
+      <option>预备党员</option>
+    </select></td>
+    <td height="31" align="right">职称<span style="color:red">*<span></span></span><span></td>
+    <td><select name="name" id="name">
+      <option>&nbsp;</option>
+      <option>省部级</option>
+      <option>地厅级</option>
+      <option>县处级</option>
+    </select></td>
+	<td height="44" align="right">企业级别</td>
+      <td><select name="name7" id="name6">
+        <option>&nbsp;</option>
+        <option>一级企业</option>
+        <option>二级企业</option>
+        <option>三级企业</option>
+        <option>四级及以下</option>
+      </select></td>
+  </tr>
+  </table> 
+
+<!--两规-->
+<!--<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:5px;padding-bottom:5px">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>两规情况</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+
+<table width="791" height="54" cellspacing="0" >
+  <tr>
+    <td width="114" height="32" align="right">实施时间<span style="color:red">*</span></td>
+    <td width="130"><input type="text" class="Wdate " id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"  ></input></td>
+    <td width="125" align="right">实施结束时间<span style="color:red">*</span></td>
+    <td width="130"><input type="text" class="Wdate " id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"  ></input></td>
+    <td width="125" align="right"></td>
+    <td width=""></td>
+    </tr>
+  </table>
+  <!--立案-->
+<!--<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:5px;padding-bottom:5px">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>立案情况</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+
+<table width="791" height="54" cellspacing="0" >
+    <tr>
+      <td width="114" height="25" align="right">窝案串案</td>
+      <td width="130"><select name="name" id="name">
+        <option>&nbsp;</option>
+        <option>窝案</option>
+        <option>串案</option>
+      </select></td>
+      <td align="right" width="125">窝案细节</td>
+      <td width="130"><select name="name" id="name">
+        <option>&nbsp;</option>
+        <option>主要涉案人</option>
+        <option>次要涉案人</option>
+      </select></td>
+      <td align="right" width="125">窝案涉案人细节</td>
+      <td width=""><input name="textfield" type="text" id="textfield" size="20" maxlength="20" class="input"/></td>
+    </tr>
+  </table>
+  <!--立案文书-->
+<!--<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:5px;padding-bottom:5px">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>立案文书</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+
+<table width="791" height="180" cellspacing="0" >
+    <tr>
+		      <td align="right" width="114" height="15" style="padding-bottom:10px">立案报告</td>
+		      <td width="" height="15" colspan="3" >
+                <textarea name="textfield" cols="87" rows="3" id="textfield" style="border-color:#0d5689;border:solid 1px;"></textarea>
+	        </td>
+	        </tr>
+		    <tr>
+		      <td align="right" height="15" style="padding-bottom:10px">立案决定书</td>
+		      <td height="15" colspan="3" >
+			  <textarea name="textfield" cols="87" rows="3" id="textfield" style="border-color:#0d5689;border:solid 1px"></textarea></td>
+		    </tr>
+		    <tr>
+		      <td align="right" height="15" style="padding-bottom:10px">调查报告</td>
+		      <td height="15" colspan="3" >
+			  <textarea name="textfield" cols="87" rows="3" id="textfield" style="border-color:#0d5689;border:solid 1px"></textarea></td>
+		    </tr>
+  </table>
+<!--违纪行为-->
+<!--<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" height="25" style="padding-top:2px;">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>违纪行为</strong></td>
+			</tr>
+		</table>
+	</td>
+	<td align="right">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-right:2px">
+			<tr>
+		 		<td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+				  	<table border="0" cellpadding="0" cellspacing="0" background="../../images/angray_bg_1.gif" class="jwbuttonb" id="add0">
+					  <tr>
+					    <td width="5"><img src="../../images/angray_left_1.gif" /></td>
+					    <td style="padding:0 10px; padding-top:2px; font: 12px/14px '宋体'; color:#3d3b3c">添加</td>
+					    <td width="5" align="right"><img src="../../images/angray_right_1.gif" /></td>
+					  </tr>
+					</table>
+				 </td>
+		 		 <td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+				  	<table border="0" cellpadding="0" cellspacing="0" background="../../images/angray_bg_1.gif" class="jwbuttonb" id="del0">
+					  <tr>
+					    <td width="5"><img src="../../images/angray_left_1.gif" /></td>
+					    <td style="padding:0 10px; padding-top:2px; font: 12px/14px '宋体'; color:#3d3b3c">删除</td>
+					    <td width="5" align="right"><img src="../../images/angray_right_1.gif" /></td>
+					  </tr>
+					</table>
+				 </td>
+				 <td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+				  	<table border="0" cellpadding="0" cellspacing="0" background="../../images/angray_bg_1.gif" class="jwbuttonb" id="clear">
+					  <tr>
+					    <td width="5"><img src="../../images/angray_left_1.gif" /></td>
+					    <td style="padding:0 10px; padding-top:2px; font: 12px/14px '宋体'; color:#3d3b3c">清空</td>
+					    <td width="5" align="right"><img src="../../images/angray_right_1.gif" /></td>
+					  </tr>
+					</table>
+				 </td>
+				</tr>
+		 	</table>
+	</td>
+  </tr>
+</table>
+<!--违纪行为内容-->
+<!--<table width="100%" id="basicwh0" style="color:#3d3b3c; font-size:12px;padding-left:40px">
+	<tr>
+	  <td width="8%" style="padding-top:5px;padding-bottom:5px">&nbsp;</td>
+	  <td width="25%" align="center">违纪行为一级</td>
+	  <td width="15%" align="center">违纪行为二级</td>
+	  <td width="35%" align="center">违纪行为三级</td>
+	  <td width="17%" align="center">金额</td>
+	</tr>
+	<tr align="center">
+	  <td><p>
+	    <label>
+	      <input type="checkbox" name="复选框组1" value="复选框" id="复选框组1_0" />
+	      </label>
+	    <br />
+	  </p></td>
+	  <td id="sectj0">
+	  <select name="select2" id="select2" style="width:180px">
+	  	<option>请选择</option>
+		<option>违反政治纪律</option>
+	  	<option>贪污贿赂</option>
+		<option>失职渎职</option>
+	  </select></td>
+	  </td>
+	  <td><select name="select2" id="select2" style="width:180px">
+	  	<option>请选择</option>
+		<option>参加非法组织</option>
+	  	<option>不执行党和国家方针政策</option>
+		<option>叛逃出走</option>
+	  </select></td>
+	  <td><select name="select3" id="select3" style="width:180px">
+	  	<option>请选择</option>
+	  	<option>组织领导或参加反动组织</option>
+		<option>组织领导或参加邪教组织</option>
+	  </select></td>
+	  <td><input type="text" name="textfield" id="textfield" style="width:80px"/></td>
+	</tr>
+	<tr>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+</table>
+<!--审理情况-->
+<!--<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:5px;padding-bottom:5px">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>审理情况</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+
+<table width="791" height="60" cellspacing="0" >
+    <tr>
+		      <td align="right" width="114" height="15" style="padding-bottom:10px">审理报告</td>
+		      <td width="" height="15" colspan="3" >
+                <textarea name="textfield" cols="87" rows="3" id="textfield" style="border-color:#0d5689;border:solid 1px;"></textarea>
+	        </td>
+	        </tr>
+  </table>
+  <!--公检法处理-->
+<!--<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:5px;padding-bottom:5px">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>公检法处理</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+
+<table width="791" height="54" cellspacing="0" >
+    <tr>
+      <td width="114" height="25" align="right">公检法处理时间</td>
+	  <td width="130"><input type="text" class="Wdate " id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"  ></input></td>
+      <td align="right" width="125">司法判决金额</td>
+        <td width="130"><input name="textfield8" type="text" id="textfield11" size="20" maxlength="20" class="inputtext"/>
+        <span style="color:red">万元</span></td>
+		<td width="125" align="right"></td>
+		<td width=""></td>
+    </tr>
+  </table>
+  <!--结案-->
+<!--<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:5px;padding-bottom:5px">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>结案情况</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+
+<table width="791" height="170" cellspacing="0" >
+    <tr>
+    	<td width="114" height="25" align="right">案件总金额</td>
+	      <td width="130" height="25"><input name="textfield4" type="text" id="textfield4" size="20" maxlength="20" class="inputtext"/>
+	       <td width="125"  height="25" align="right">留党察看年限</td>
+	      <td height="25" width="130"><select name="name3" id="name3">
+	        <option>&nbsp;</option>
+	        <option>一年</option>
+	        <option>两年</option>
+	      </select></td>
+    		<td width="125">受贿涉及人数</td>
+		      <td width=""><input name="textfield" type="text" id="textfield" size="20" maxlength="5" class="inputtext"/></td>
+	</tr>
+  <tr>
+		      <td height="25" align="right">收受礼金人数</td>
+		      <td height="25"><input name="textfield" type="text" id="textfield" size="20" maxlength="5" class="inputtext"/></td>
+		      <td align="right">潜逃去向</td>
+		      <td ><select name="name2" id="name2">
+		        <option>国内</option>
+		        <option>国境外</option>
+		        <option>去向不明</option>
+              </select></td>
+		      <td >潜逃去向细节</td>
+			              <td ><input name="textfield2" type="text" id="textfield2" size="20" maxlength="5" class="inputtext"/></td>
+		    </tr>
+  <tr>
+		      <td height="25" align="right">调查终止时间</td>
+			  <td width=""><input type="text" class="Wdate " id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月'})"  ></input></td>
+		      <td align="right">解除政纪时间</td>
+			  <td width=""><input type="text" class="Wdate " id="d413" onFocus="WdatePicker({dateFmt:'yyyy年M月'})"  ></input></td>
+		      <td ></td>
+			   <td ><input width="80" class="inputtext"></td>
+		    </tr>
+			<tr>
+				<td colspan="6">
+					<table width="791" height="60" cellspacing="0" >
+					    <tr>
+							      <td width="114" height="15" style="padding-bottom:10px">处分决定</td>
+							      <td width="" height="15" colspan="3" >
+					                <textarea name="textfield" cols="87" rows="3" id="textfield" style="border-color:#0d5689;border:solid 1px;"></textarea>
+						        </td>
+						        </tr>
+					  </table>
+				</td>
+			  </t>
+			  <tr>
+				<td colspan="6">
+					<table width="791" height="60" cellspacing="0" >
+					    <tr>
+							      <td width="114" height="15" style="padding-bottom:10px">案件剖析</td>
+							      <td width="" height="15" colspan="3" >
+					                <textarea name="textfield" cols="87" rows="3" id="textfield" style="border-color:#0d5689;border:solid 1px;"></textarea>
+						        </td>
+						        </tr>
+					  </table>
+				</td>
+			  </tr>
+			  <!--tr>
+			      <td align="right" width="114" height="15" style="padding-bottom:10px">处分决定</td>
+			      <td width="" height="15" colspan="3" rowspan="5">
+	                <textarea name="textfield" cols="87" rows="3" id="textfield" style="border-color:#0d5689;border:solid 1px;"></textarea>
+		        </td>
+	        </tr>
+			<tr>
+			      <td align="right" width="114" height="15" style="padding-bottom:10px">案件剖析</td>
+			      <td width="" height="15" colspan="3" rowspan="5">
+	                <textarea name="textfield" cols="87" rows="3" id="textfield" style="border-color:#0d5689;border:solid 1px;"></textarea>
+		        </td>
+	        </tr-->
+  </table> 
+  	
+
+
+		</td>
+		</tr>
+		</table>
+<!--</div>
+<!--标签页三：-->
+<!--<div style="width:100%; text-align:center;">
+<table width="810" height="402" border="0" style="color:#3d3b3c; font-size:12px;">
+  <tr valign="top">
+    <td height="346" align="center">
+
+<!--初核信息-->
+<!--<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:5px;padding-bottom:5px">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>初核信息</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+<!--初核信息-->
+<!--<table width="791" height="110" cellspacing="0" style="">
+    <tr>
+		      <td width="114" height="26" align="right">线索编码<span style="color:red">*</span></td>
+		      <td width="130" align="left" style="padding-left:15px"><label>
+		        2001010
+		      </label></td>
+		      <td width="125" align="right" >人员编码<span style="color:red">*</span></td>
+		      <td width="130" align="left" style="padding-left:15px">001</td>
+		      <td width="125" align="right" >线索来源<span style="color:red">*</span></td>
+		      <td width="" align="left" style="padding-left:15px">信访举报</td>
+        </tr>
+		    <tr>
+		      <td height="24" align="right">违纪类型<span style="color:red">*</span></td>
+		      <td height="24" align="left" style="padding-left:15px">违反组织人事纪律</td>
+		      <td align="right">批准核实时间<span style="color:red">*</span></td>
+		      <td align="left" style="padding-left:15px">2009-10-1</td>
+		      <td align="right" >了结时间</td>
+		      <td align="left" style="padding-left:15px"><span calss="datepick">
+		        2010-10-1
+		      </span></td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">核实结果</td>
+		      <td height="25" align="left" style="padding-left:15px">了结</td>
+		      <td align="right">了结结论</td>
+		      <td align="left" style="padding-left:15px">适当处理</td>
+		      <td align="right" >挽回经济损失</td>
+		      <td align="left" style="padding-left:15px">500万元 </td>
+		    </tr>
+		    <tr>
+		      <td height="25" align="right">收缴涉案金额</td>
+		      <td height="25" align="left" style="padding-left:15px">189 万元 </td>
+		      <td align="right">组织处理情况</td>
+		      <td align="left" style="padding-left:15px">调整岗位</td>
+		      <td align="right" >办理机关</td>
+		      <td align="left" style="padding-left:15px">省区市纪检监察机关</td>
+		    </tr>
+  </table>
+  <!--初核文书-->
+<!--<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:5px;padding-bottom:5px">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>初核文书</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+  <table width="791" height="180" cellspacing="0" >
+    <tr>
+		      <td align="right" width="114" height="15" style="padding-bottom:10px">主要违纪线索</td>
+		      <td width="" height="15" colspan="3" >
+                <textarea name="textfield" cols="90" rows="3" id="textfield" style="border-color:#0d5689;border:solid 1px;" ReadOnly=true></textarea>
+	        </td>
+	        </tr>
+		    <tr>
+		      <td align="right" height="15" style="padding-bottom:10px">初核报告</td>
+		      <td height="15" colspan="3" >
+			  <textarea name="textfield" cols="90" rows="3" id="textfield" style="border-color:#0d5689;border:solid 1px" ReadOnly></textarea></td>
+		    </tr>
+		    <tr>
+		      <td align="right" height="15" style="padding-bottom:10px">备注</td>
+		      <td height="15" colspan="3" >
+			  <textarea name="textfield" cols="90" rows="3" id="textfield" style="border-color:#0d5689;border:solid 1px" ReadOnly></textarea></td>
+		    </tr>
+  </table> 
+		</td>
+		</tr>
+		</table>
+		</div>
+</div>
+	</div>-->
+ <div style=" width:100%; height:32px; background-color:#ebf6fc; text-align:center; padding-top:8px;" class="hoves">
+	   <div id="del2" style="float: right; padding-right:250px;" class="clbutton" onclick="window.location='ss.html'">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		    <td class="blue_2_j"></td>
+			<td class="blue_4_j">返 回</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div id="update" style="float: right; padding-right:5px;" class="clbutton">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		      <td class="blue_2_j"></td>
+			<td class="blue_4_j">打 印</td>
+			<td class="blue_3_j"></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div id="search" style="float: right; padding-right:5px;" class="clbutton">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		      <td class="blue_2_j"></td>
+			<td class="blue_4_j">还 原</td>
+			<td class="blue_3_j"></td>
+		   
+		  </tr>
+		</table>
+	  </div>
+	   <div id="add2" style="float: right;padding-right:5px;" class="clbutton" onclick="alert('保存成功！')">
+	    <table cellpadding="0" cellspacing="0" class="blue_1_j">
+		  <tr>
+		    <td class="blue_2_j"></td>
+			<td class="blue_4_j">保 存</td>
+			<td class="blue_3_j"></td>
+		  
+		  </tr>
+		</table>
+	  </div>
+	</div>
+ </div>
+    </body> 
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+ 
+<html lang="en"> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+        <meta http-equiv="Content-Style-Type" content="text/css"> 
+        <meta http-equiv="Content-Script-Type" content="text/javascript"> 
+ 	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+	<link type="text/css" href="../../css/tabs2.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+    
+        <title>角色信息</title> 
+        
+        <link rel="stylesheet" href="ui.tabs.css" type="text/css" media="print, projection, screen"> 
+        <style type="text/css" media="screen, projection"> 
+            /* Not required for Tabs, just to make this demo look better... */
+            body, h1, h2 {
+                font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+            }
+            h1 {
+                margin: 1em 0 1.5em;
+                font-size: 18px;
+            }
+            h2 {
+                margin: 2em 0 1.5em;
+                font-size: 16px;
+            }
+            p {
+                margin: 0;
+                padding: 0 0 .5em;
+                max-width: 40em;
+            }
+			.hoves{ cursor:pointer}
+			*{ margin:0; padding:0;}
+            /*pre, pre+p, p+p {
+                margin: 1em 0 0;
+            }
+            code {
+                font-family: "Courier New", Courier, monospace;
+            }*/
+			.green1{
+				  border-top:solid 0px red;
+			}
+			.fc{ color:#2a5e9b;}
+        </style> 
+ 
+        <script type="text/javascript"> 
+			$(function() { 
+		
+				$(".login").click(function(){
+		     $("#dialog-login").dialog({
+			    resizable: false,
+				height:220,
+				width:340,
+				modal: true,
+				buttons: {
+					"取消": function() {
+						$( this ).dialog( "close" );
+					},
+					"确定": function() {
+						window.location='newxs.html';
+					}
+			}
+			 })	 
+		})
+			
+				//是否可以修改方法
+			
+			});
+        </script> 
+    </head> 
+    <body> 
+	<div style="width:100%">
+	
+    <div style="width:100%;background-color:#f4f4f4; height:35px; font-size:12px; "><div style="padding-left:10px;padding-top:8px;">当前位置： 后台管理&nbsp;<font style="font-family:'宋体'">></font>&nbsp;用户管理&nbsp;<font style="font-family:'宋体'">></font>&nbsp;账户管理 &nbsp;<font style="font-family:'宋体'">></font>&nbsp;角色信息</div></div>
+	
+ <form> 
+ 
+  
+  <div id="dialog-login" title="员工登陆信息" style="display:none">
+    <table>
+	   <tr>	
+		 <td>登录名称</td><td style="padding-left:10px;">登陆方式</td><td style="padding-left:10px;">操作</td>
+	   </tr>
+	   	   <tr>	
+		 <td>13717667793</td><td style="padding-left:10px;">1</td><td style="padding-left:10px;"><a href="loginMode.html">登陆类型</a></td>
+	   </tr>
+	   	   <tr>	
+		 <td>13717667793</td><td style="padding-left:10px;">1</td><td style="padding-left:10px;"><a href="loginMode.html">登陆类型</a></td>
+	   </tr> 
+	   	   	   <tr>	
+		 <td>13717667793</td><td style="padding-left:10px;">2</td><td style="padding-left:10px;"><a href="loginMode.html">登陆类型</a></td>
+	   </tr> 
+	   	   	   <tr>	
+		 <td>13717667793</td><td style="padding-left:10px;">3</td><td style="padding-left:10px;"><a href="loginMode.html">登陆类型</a></td>
+	   </tr> 
+	   </tr>
+	</table>
+ </div>
+ 
+   <div style=" width:100%; height:32px; background-color:#ebf6fc; text-align:center" class="hoves">
+	     <div style="float: left; padding-top:4px; padding-left:5px;" class="hoves">
+	       <div style="float: left;padding-right:3px;" onClick=" window.location='modifyla.html'">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2"/></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">修改</font></td>
+			<td><img src="../../images/an01_2.gif" width="2"/></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div style="float: left; padding-right:3px;">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2" /></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">打印</font></td>
+			<td><img src="../../images/an01_2.gif" width="2" /></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div style="float: left; padding-right:3px;" onClick=" window.location='account.html'">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2" /></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">返回</font></td>
+			<td><img src="../../images/an01_2.gif" width="2" /></td>
+		  </tr>
+		</table>
+	  </div>
+	 
+	  </div>
+   </div>
+     <div style=" width:100%; height:28px; background:url(../../images/tiao_bg03.gif);">
+    <div style=" float:left; padding-top:2px;"><font color="#595959" style="font-weight:bold; font-size:12px;">&nbsp;&nbsp;用户角色</font></div>
+ </div>
+   <table width="791" height="100" cellspacing="0" style="font-size:12px;" >
+    <tr>
+    <td width="108" height="32" align="right">记录ID<span style="color:red">*<span></span></span><span></td>
+    <td class="fc">&nbsp;&nbsp;143342342490591378</td>
+    <td width="127" align="right">用户ID<span style="color:red"><span></span></span><span></td>
+    <td width="120" class="fc">&nbsp;&nbsp;4321230</td>
+    </tr>
+  <tr>
+<td width="88" align="right" >业务id</td>
+    <td width="241" class="fc">&nbsp;&nbsp;42910432</td>
+    <td align="right">状态</td>
+    <td class="fc">&nbsp;&nbsp;锁定</td>
+    </tr>
+      <tr>
+<td width="88" align="right" >创建时间</td>
+    <td width="241" class="fc">&nbsp;&nbsp;2019-10-3 14:32</td>
+    <td align="right">修改时间</td>
+    <td class="fc">&nbsp;&nbsp;2019-10-3 14:32</td>
+    </tr>
+  </table> 
+   
+       		<!-- Tabs --> 
+ 
+<div style=" width:100%; height:32px; background-color:#ebf6fc; text-align:center" class="hoves">
+	     <div style="float: left; padding-top:4px; padding-left:300px;" class="hoves">
+	       <div style="float: left;padding-right:5px;" onClick=" window.location='modifyla.html'">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2"/></td>
+			<td background="../../images/an01_3.gif" width="70"  align="center" valign="top"><font size="2" color="2a5e9b">修改</font></td>
+			<td><img src="../../images/an01_2.gif" width="2"/></td>
+		  </tr>
+		</table>
+	  </div>
+	  <div style="float: left; padding-right:5px;" onClick=" window.location='account.html'">
+	    <table cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td><img src="../../images/an01_1.gif" width="2" /></td>
+			<td background="../../images/an01_3.gif" width="50"  align="center" valign="top"><font size="2" color="2a5e9b">返回</font></td>
+			<td><img src="../../images/an01_2.gif" width="2" /></td>
+		  </tr>
+		</table>
+	  </div>
+	 
+	  </div>
+   </div>
+ </form>
+    </body> 
+</html>

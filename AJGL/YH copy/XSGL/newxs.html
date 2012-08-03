@@ -1,0 +1,867 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+ 
+<html lang="en"> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+        <meta http-equiv="Content-Style-Type" content="text/css"> 
+        <meta http-equiv="Content-Script-Type" content="text/javascript"> 
+ 	<link rel="STYLESHEET" type="text/css" href="../../common/tree/css/dhtmlXTree.css">
+  	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/calendar.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/redmond/jquery-ui-1.8.2.custom.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.jqgrid.css" /> 
+<link rel="stylesheet" type="text/css" media="screen" href="../../common/js/jqgrid/themes/ui.multiselect.css" />
+<link type="text/css" href="../../css/tabs.css" rel="stylesheet" /> 
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-1.4.2.js"></script>
+	<script src="../../common/js/base.js" type="text/javascript"></script>
+	<!--改用 jquery tool
+	<link type="text/css" href="../../css/jquery-ui-1.8.4.custom.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery-ui-1.8.4.custom.min.js"></script>
+	-->
+    <script src="../../common/js/jqgrid/js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery.layout.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script> 
+<script language="JavaScript" type="text/javascript" src="../../common/js/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript"> 
+	$.jgrid.no_legacy_api = true;
+	$.jgrid.useJSON = true;
+</script>
+<script src="../../common/js/jqgrid/js/ui.multiselect.js" type="text/javascript"></script> 
+<script src="../../common/js/jqgrid/js/jquery.jqGrid.js" type="text/javascript"></script> 
+	<link type="text/css" href="../../css/tabs2.css" rel="stylesheet" />
+	<link type="text/css" href="../../css/date.css" rel="stylesheet" />	
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jquery.tools.min.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/common.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../../common/js/jcommon.js"></script>
+  	<script type="text/javascript" src="../../common/tree/js/dhtmlXCommon.js"></script>
+	<script type="text/javascript" src="../../common/tree/js/dhtmlXTree.js"></script>	<script language="JavaScript" type="text/javascript" src="../../common/js/dateinput.js"></script>
+    
+        <title>纪检监察机关立案线索登记表</title> 
+        
+        <link rel="stylesheet" href="ui.tabs.css" type="text/css" media="print, projection, screen"> 
+        <style type="text/css" media="screen, projection"> 
+            /* Not required for Tabs, just to make this demo look better... */
+            body, h1, h2 {
+                font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+            }
+            h1 {
+                margin: 1em 0 1.5em;
+                font-size: 18px;
+            }
+            h2 {
+                margin: 2em 0 1.5em;
+                font-size: 16px;
+            }
+            p {
+                margin: 0;
+                padding: 0 0 .5em;
+                max-width: 40em;
+            }
+            /*pre, pre+p, p+p {
+                margin: 1em 0 0;
+            }
+            code {
+                font-family: "Courier New", Courier, monospace;
+            }*/
+			input{ width:130px }
+			select{ width:135px}
+			#addarea1 input{width:115px}
+			#addarea2 input{width:60px}
+        </style> 
+ 
+        <script type="text/javascript"> 
+			$(function() { 
+				//办理例子
+				$("#banli").change( function() {
+                   if(this.value==1){
+					   //alert(1);
+				   }
+				}); 
+				
+				//动态绑定事件例子
+				$("#addarea0 tr").live("dblclick", function(){
+				     $(this).children("td").each(function(){
+						alert($(this).children("input").val());
+					})
+				});
+				
+				//反映摘要
+				$("#add").click(function(){
+					i=0;
+					i++;
+							$( "#dialog-confirm" ).dialog({
+								resizable: false,
+								height:250,
+								width:650,
+								title:"反映问题",
+								modal: true,
+								buttons: {
+									"取消": function() {
+										$( this ).dialog( "close" );
+									},
+									"确定": function() {
+										$("#addarea tr:first").after(' <tr><td width="193"><input type="text" name="textfield2" id="protype'+i+'" value="'+$("#protype").val()+'" readOnly=true></td><td width="583"><input type="text" name="textfield2" id="procontent0" style="width:550px" value="'+$("#procontent").val()+'" readOnly=true></td></tr>');
+										$( this ).dialog( "close" );
+									}
+									
+								}
+							});					  
+										  
+				})
+				$("#addarea tr").live("dblclick", function(){
+				     $(this).children("td").each(function(){
+						if($(this).children("input")[0].id*="protype"){
+							$("#protype").attr("value",$(this).children("input").val()) ;
+						}
+						if($(this).children("input")[0].id=="procontent0"){
+							$("#procontent").attr("value",$(this).children("input").val()) ;
+						}
+					})
+					$( "#dialog-confirm" ).dialog({
+								resizable: false,
+								height:250,
+								width:650,
+								title:"反映问题",
+								modal: true,
+								buttons: {
+									"取消": function() {
+										$( this ).dialog( "close" );
+									},
+									"确定": function() {
+										$("#procontent0").attr("value",$("#procontent").val()) ;
+										$( this ).dialog( "close" );
+									}
+									
+								}
+					});	
+				});
+
+				
+				//领导批示
+				$("#add1").click(function(){
+							$( "#dialogps" ).dialog({
+								resizable: false,
+								height:290,
+								width:650,
+								title:"领导批示",
+								modal: true,
+								buttons: {
+									"取消": function() {
+										$( this ).dialog( "close" );
+									},
+									"确定": function() {
+										$("#addarea1 tr:first").after(' <tr>  <td width="130"><label> <input type="text" name="textfield" id="pstime0" value="'+$("#pstime").val()+'" readOnly=true> </label></td><td width="130"><label> <input type="text" name="textfield" id="psleader0" value="'+$("#psleader").val()+'" readOnly=true> </label></td><td width="290"><input type="text" name="textfield2" id="pstext0" style="width:270px" value="'+$("#pstext").val()+'" readOnly=true></td><td width="230"><input type="text" name="textfield3" id="pscl0" style="width:210px" value="'+$("#pscl").val()+'" readOnly=true></td></tr>');
+										$( this ).dialog( "close" );
+									}
+									
+								}
+							});					  
+										  
+				})
+				
+				$("#addarea1 tr").live("dblclick", function(){
+				     $(this).children("td").each(function(){
+					 	/*
+						if($(this).children("input")[0].id=="pstime0"){
+							$("#pstime").attr("value",$(this).children("input").val()) ;
+						}
+						if($(this).children("input")[0].id=="psleader0"){
+							$("#psleader").attr("value",$(this).children("input").val()) ;
+						}
+						if($(this).children("input")[0].id=="pstext0"){
+							$("#pstext").attr("value",$(this).children("input").val()) ;
+						}
+						if($(this).children("input")[0].id=="pscl0"){
+							$("#pscl").attr("value",$(this).children("input").val()) ;
+						}
+						*/
+					})
+					$( "#dialogps" ).dialog({
+								resizable: false,
+								height:260,
+								width:650,
+								title:"领导批示",
+								modal: true,
+								buttons: {
+									"取消": function() {
+										$( this ).dialog( "close" );
+									},
+									"确定": function() {
+										$( this ).dialog( "close" );
+									}
+									
+								}
+					});	
+				});
+				
+				//办理情况：
+				$("#add2").click(function(){
+					k=0;
+					k++;
+							$( "#dialogbl" ).dialog({
+								resizable: false,
+								height:300,
+								width:650,
+								title:"办理情况",
+								modal: true,
+								buttons: {
+									"取消": function() {
+										$( this ).dialog( "close" );
+									},
+									"确定": function() {
+										$("#addarea2 tr:first").after(' <tr>  <td width="80"><label> <input type="text" name="textfield" id="dealdate'+k+'" value="'+$("#dealdate").val()+'" readOnly=true> </label></td><td width="80"><label> <input type="text" name="textfield" id="dealpar0" value="中央纪委案管室" readOnly=true> </label></td><td width="80"><label> <input type="text" name="textfield" id="dealtype0" value="'+$("#dealtype").val()+'" readOnly=true> </label></td>   <td width="170"><input type="text" name="textfield2" style="width:150px" ></td><td width="80"><input type="checkbox" name="复选框组1" value="复选框" id="imp0" style="width:30px"/></td><td width="130"><input type="text" name="textfield2" style="width:110px" id="dealinfo0" value="'+$("#dealinfo").val()+'" readOnly=true></td><td width="80"><input type="text" name="textfield3" id="dealleader0" value="'+$("#dealleader").val()+'" readOnly=true></td><td width="80"><input type="text" name="textfield3" id="dealremark0" value="'+$("#dealremark").val()+'" readOnly=true></td>');
+										$( this ).dialog( "close" );
+									}
+									
+								}
+							});					  
+										  
+				})
+				$("#addarea2 tr").live("dblclick", function(){
+				     /*
+					 $(this).children("td").each(function(){
+						if($(this).children("input")[0].id*="dealdate"){
+							$("#dealdate").attr("value",$(this).children("input").val()) ;
+						}
+					})
+					*/
+					$( "#dialogbl" ).dialog({
+								resizable: false,
+								height:250,
+								width:650,
+								title:"反映问题",
+								modal: true,
+								buttons: {
+									"取消": function() {
+										$( this ).dialog( "close" );
+									},
+									"确定": function() {
+										$("#dealdate0").attr("value",$("#dealdate").val()) ;
+										$( this ).dialog( "close" );
+									}
+									
+								}
+					});	
+				});
+					   
+			    // 将ul.tabs区域设定为选项卡，用来控制div.panes区域中最近一层的各div区域
+			   // 注意tabs和panes与html中class的对应关系
+			    $("ul.tabs").tabs("div.panes > div",{history: true}); 
+				$(":date").dateinput();
+				//添加删除修改事件
+				$("#del").click( function () { $("#addarea tr:last[type!=title]").remove() });
+				$("#del1").click( function () { $("#addarea1 tr:last[type!=title]").remove() });
+				$("#del2").click( function () { $("#addarea2 tr:last[type!=title]").remove() });
+					
+			});
+			$("#jbclass select").live("change", a)
+			$("#jbtype select").live("change", a)
+			function a(){
+				if($("#jbtype select").val() == "1" && $("#jbclass select").val()=="1"){
+					 $("#0203").css("display","");
+					 $("#0204").css("display","");
+					 $("#03").css("display","none");
+					 $("#04").css("display","none");
+					 $("#05").css("display","none");
+				}else if($("#jbtype select").val() == "1" && $("#jbclass select").val()=="5"){
+					 $("#0203").css("display","none");
+					 $("#0204").css("display","none");
+					 $("#03").css("display","");
+					 $("#04").css("display","none");
+					 $("#05").css("display","none");
+				}else if($("#jbtype select").val()=="1"){
+					 $("#0203").css("display","none");
+					 $("#0204").css("display","none");
+					 $("#03").css("display","none");
+					 $("#04").css("display","none");
+					 $("#05").css("display","none");
+				}else if($("#jbtype select").val() == "2" && $("#jbclass select").val()=="1"){
+					 $("#0203").css("display","");
+					 $("#0204").css("display","");
+					 $("#03").css("display","none");
+					 $("#04").css("display","");
+					 $("#05").css("display","");
+				}else if($("#jbtype select").val() == "2" && $("#jbclass select").val()=="5"){
+					 $("#0203").css("display","none");
+					 $("#0204").css("display","none");
+					 $("#03").css("display","");
+					 $("#04").css("display","");
+					 $("#05").css("display","");
+				}else if($("#jbtype select").val()=="2"){
+					 $("#0203").css("display","none");
+					 $("#0204").css("display","none");
+					 $("#03").css("display","none");
+					 $("#04").css("display","");
+					 $("#05").css("display","");
+				}else{
+					 $("#0203").css("display","none");
+					 $("#0204").css("display","none");
+					 $("#03").css("display","none");
+					 $("#04").css("display","none");
+					 $("#05").css("display","none");
+				}
+			}
+			$("#dealtype select").live("change", b)
+			function b(){
+				if($("#dealtype select").val() == "1"){
+					 $( "#dialogdeal" ).dialog({
+								resizable: false,
+								height:130,
+								width:250,
+								title:"办理方式详情",
+								modal: true,
+								buttons: {
+									"取消": function() {
+										$( this ).dialog( "close" );
+									},
+									"确定": function() {
+										$("#dealdate0").attr("value",$("#dealdate").val()) ;
+										$( this ).dialog( "close" );
+									}
+									
+								}
+					});
+				}
+			}
+			
+			function ShowDiffLY(){
+				if(fm.XSLY.value=="1"){
+					$( "#dialogxf" ).dialog({
+						resizable: false,
+						height:350,
+						width:650,
+						title:"线索来源详细情况",
+						modal: true,
+						buttons: {
+							"取消": function() {
+								$( this ).dialog( "close" );
+							},
+							"确定": function() {
+								$( this ).dialog( "close" );
+							}
+							
+						}
+					});		
+				}else if(fm.XSLY.value=="2"){
+					//alert("办案中发现");	
+				}else if(fm.XSLY.value=="3"){
+					//alert("巡视中发现");	
+				}else if(fm.XSLY.value=="4"){
+					//alert("执法、纠风等工作中发现");	
+				}
+				else if(fm.XSLY.value=="5"){
+					//alert("公检法移送");	
+				}
+				else if(fm.XSLY.value=="6"){
+					//alert("审记中发现");	
+				}
+				else if(fm.XSLY.value=="7"){
+					//alert("其他");	
+				}
+			}
+        </script> 
+    </head>
+    <body style="margin-left: 0px; margin-top: 0px; margin-right: 0px;"> 
+    
+    
+ <form name="fm">
+ 	<div id="dialog-confirm" style="display:none">
+	<table width="600" cellspacing="0" class="green1">
+    <tr>
+    <td width="100" height="32" align="right">问题性质：</td>
+    <td width="163"><select name="name18" id="protype">
+      <option value="违反政治纪律">违反政治纪律</option>
+      <option value="违反组织人事纪律">违反组织人事纪律</option>
+      <option value="违法廉洁自律规定">违法廉洁自律规定</option>
+	  <option value="贪污贿赂">贪污贿赂</option>
+	  <option value="破坏社会主义经济秩序">破坏社会主义经济秩序</option>
+	  <option value="违法财经纪律">违法财经纪律</option>
+	  <option value="失职渎职">失职渎职</option>
+	  <option value="侵犯党员权利公民权利">侵犯党员权利公民权利</option>
+	  <option value="严重违法社会主义道德">严重违法社会主义道德</option>
+	  <option value="妨害社会管理秩序">妨害社会管理秩序</option>
+	  <option value="其他违纪行为">其他违纪行为</option>
+    </select></td>
+	</tr>
+	<tr>
+    <td width="100" align="right">问题摘要：</td>
+	<td width="230"><textarea name="textfield" cols="70" rows="5" id="procontent"></textarea></td>
+    </tr>
+  </table>
+    </div>
+	<div id="dialogbl" style="display:none">
+	<table width="600" cellspacing="0" class="green1" >
+    <tr>
+    <td width="100" height="32" align="right">办理日期：</td>
+    <td width="157"><input type="text" class="Wdate " onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})" id="dealdate"></td>
+	<td width="135" height="32" align="right">办理方式：</td>
+    <td width="180" id="dealtype"><select name="name18">
+      <option value='0'></option>
+      <option value='1'>自办</option>
+      <option value='2'>协办</option>
+      <option value='3'>交办</option>
+    </select></td>
+	</tr>
+	<tr>
+    <td width="100"  height="32" align="right">进展情况：</td>
+	<td width="230" colspan='3'><textarea name="textfield" cols="70" rows="5" id="dealinfo"></textarea></td>
+    </tr>
+	<tr>
+    <td width="100" height="32" align="right">批示领导：</td>
+    <td width="80"><select name="name18" id="dealleader">
+      <option value='刘一明'>刘一明</option>
+      <option value='李春鹏'>李春鹏</option>
+      <option value='王力仁'>王力仁</option>
+    </select></td>
+	<td align="right">
+		<input type="checkbox" name="复选框组1" value="复选框" id="复选框组1_0" style="width:30px"/>
+	</td>
+	<td align="left">
+		拟作为重点案件核查
+	</td>
+	<tr>
+    <td width="100"  height="32" align="right">备注：</td>
+	<td width="230" colspan='3'><input name="textfield6" type="text" id="dealremark" size="150" maxlength="12" class="inputtext" style="width:435px"></td>
+    </tr>
+  </table>
+ </div>
+ <div id="dialogdeal" style="display:none">
+	<table width="30" cellspacing="0" class="green1" >
+    <tr>
+	<td width="135" height="32" align="right">自办方式：</td>
+    <td width="180" id="de"><select name="name18">
+      <option value='0'></option>
+      <option value='1'>了解</option>
+      <option value='2'>暂存</option>
+      <option value='3'>初核</option>
+	  <option value='4'>其他</option>
+    </select></td>
+	</tr>
+  </table>
+ </div>
+	<div id="dialogps" style="display:none">
+	<table width="600" cellspacing="0" class="green1" >
+    <tr>
+    <td width="100" height="32" align="right">批示时间：</td>
+    <td width="201"><input type="text" class="Wdate " onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})" id="pstime"></td>
+	<td width="100" height="32" align="right">批示领导：</td>
+    <td width="80"><select name="name18" id="psleader">
+      <option value='刘一明'>刘一明</option>
+      <option value='李春鹏'>李春鹏</option>
+      <option value='王力仁'>王力仁</option>
+    </select></td>
+	</tr>
+	<tr>
+    <td width="100"  height="32" align="right">批示内容：</td>
+	<td width="230" colspan='3'><textarea name="textfield" cols="70" rows="5" id="pstext"></textarea></td>
+    </tr>
+	<tr>
+    <td width="100"  height="32" align="right">批示材料：</td>
+	<td width="230" colspan='3'><input name="textfield6" type="text" id="pscl" size="150" maxlength="12" class="inputtext" style="width:435px"></td>
+    </tr>
+  </table>
+    </div>
+	<!--信访方式为信访举报时弹出-->
+	<div id="dialogxf" style="display:none">
+	<table width="600" cellspacing="0">
+	<tr>
+    <td width="100" height="32" align="right">举报类型：</td>
+    <td width="201" id="jbtype"><select name="name18">
+      <option value='0'></option>
+      <option value='1'>匿名举报</option>
+      <option value='2'>实名举报</option>
+    </select></td>
+	<td width="100" height="32" align="right">举报方式：</td>
+    <td width="80"  id="jbclass"><select name="name18">
+      <option value='0'></option>
+      <option value='1'>来信</option>
+      <option value='2'>来电</option>
+      <option value='3'>来访</option>
+	  <option value='4'>网络举报</option>
+	  <option value='5'>其他</option>
+    </select></td>
+	</tr>
+    <tr>
+    <td width="100" height="32" align="right">反映时间：</td>
+    <td width="201"><input type="text" class="Wdate " onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})" id="jbtime"></td>
+	<td width="100" height="32" align="right" style="display:none" id="0203">信件来源：</td>
+	<td style="display:none" id="0204">
+	<input type="text" style="width='80px;'" id="jbsource"/>
+    </td>
+	</tr>
+	<tr style="display:none" id="03">
+    <td width="100"  height="32" align="right">详情：</td>
+	<td width="230" colspan='3'><input name="textfield6" type="text" id="jbdetail" size="150" maxlength="12" class="inputtext" style="width:435px"></td>
+    </tr>
+	<tr style="display:none" id="04">
+    <td width="100"  height="32" align="right">举报人姓名：</td>
+	<td width="230" colspan='3'><input name="textfield6" type="text" id="jbaccuser" size="150" maxlength="12" class="inputtext" style="width:435px"></td>
+    </tr>
+	<tr style="display:none" id="05">
+    <td width="100"  height="32" align="right">举报人身份：</td>
+	<td width="230" colspan='3'><textarea name="textfield" cols="70" rows="5" id="pstext"></textarea></td>
+    </tr>
+  </table>
+    </div>
+	<!--最外层table-->
+	<table width="100%" height="62" border="0">
+  <tr valign="top">
+    <td height="346" align="center" style="padding:0">
+    	<!--页面控制条-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg04.gif">
+  <tr>
+	 <td align="left" style="padding-top:2px;">
+	 	<table>
+	 		<tr>
+	 		<td width="1%"><img src="../../images/blue/dian02.gif" style="margin-left:10px"></td>
+			<td style="color:#124c95; font-size:12px;padding-left:5px" align="left"><strong>机关重要案件线索情况登记</strong></td>
+	 		</tr>
+		</table>
+	 </td>
+	 <td align="right">
+	 	<table border="0" cellpadding="0" cellspacing="0" style="margin-right:2px">
+	 		<td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+				<DIV style="FLOAT: left;PADDING-TOP: 3px" class="clbutton" onClick=" window.location='../XSGL/xslrInfo.html'">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+				    <td  class="blue_2_j"></td>
+				    <td class="blue_4_j">保存</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV>
+			 </td>
+	 		<td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+			<DIV style="FLOAT: left;PADDING-TOP: 3px" class="clbutton">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+				    <td  class="blue_2_j"></td>
+				    <td class="blue_4_j">还原</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV>
+			 </td>
+			 <td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+				<DIV style="FLOAT: left;PADDING-TOP: 3px" class="clbutton">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+				    <td  class="blue_2_j"></td>
+				    <td class="blue_4_j">打印</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV>
+			 </td>
+			 <td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+				<DIV style="FLOAT: left;PADDING-TOP: 3px" class="clbutton" onClick=" window.location='../XSGL/xslrInfo.html'">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+				    <td  class="blue_2_j"></td>
+				    <td class="blue_4_j">返回</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV>
+			 </td>
+	 	</table>
+	 </td>
+	  
+  </tr>
+</table>
+<!-- -->
+<table width="100%" height="34" cellspacing="0">
+    <tr>
+    <td width="100" height="32" align="right">填报单位</td>
+    <td width="163"><select name="name18" id="name19">
+      <option>中央纪委</option>
+      <option>山东省纪委</option>
+      <option>辽宁省纪委</option>
+    </select></td>
+    <td width="100" align="right">填报日期</td>
+    <td width="163"><input type="text" class="Wdate " onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"  class="inputtext"></td>
+    <td width="88" align="right" >&nbsp;</td>
+    <td width="163">&nbsp;</td>
+    </tr>
+  </table>
+<!--人员信息-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:2px;" height="20">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>人员信息</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+<!--人员信息内容-->
+<table width="100%" height="94" cellspacing="0" style="color:#3d3b3c; font-size:12px;">
+    <tr>
+    <td width="100" height="32" align="right">被反映人<span style="color:red">*<span></span></span><span></td>
+    <td width="163"><input name="textfield9" type="text" id="textfield12" size="12" maxlength="12" class="inputtext"></td>
+    <td width="100" align="right"> 人员代码 <span style="color:red">*<span></span></span><span></td>
+    <td width="163"><label>
+      <input name="textfield6" type="text" id="textfield6" class="inputtext"  value="00000020100920001">
+    </label></td>
+    <td width="88" align="right" >性别</td>
+    <td width="163"><select name="name19" id="name20">
+      <option>&nbsp;</option>
+      <option>男</option>
+      <option>女</option>
+    </select></td>
+    </tr>
+  <tr>
+    <td height="31" align="right">出生日期</td>
+    <td width="163"><input type="text" class="Wdate " onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"></td>
+    <td align="right">政治面貌</td>
+    <td><select name="name17" id="name18">
+      <option>中共党员</option>
+      <option>共青团员</option>
+      <option>民主党派</option>
+      <option>党组织</option>
+      <option>法人</option>
+      <option>其他</option>
+    </select></td>
+    <td align="right">职级 <span style="color:red">*<span></span></span><span></td>
+    <td><select name="name" id="name">
+      <option>正省部级</option>
+      <option>副省部级</option>
+      <option>正地厅级</option>
+      <option>副地厅级</option>
+      <option>县处级</option>
+      <option>乡科级</option>
+      <option>一般干部</option>
+      <option>其他</option>
+    </select></td>
+    </tr>
+  <tr>
+    <td height="29" align="right">中管干部<span style="color:red"><span></span></span><span></td>
+    <td height="29"><select name="name20" id="name21">
+      <option>&nbsp;</option>
+      <option>是</option>
+      <option>否</option>
+    </select></td>
+    <td height="29" align="right">工作单位及职务</td>
+    <td height="29"><input name="textfield10" type="text" id="textfield13" size="12" maxlength="12" class="inputtext"></td>
+    <td align="right">民族<span style="color:red">*</span></td>
+    <td><select name="name16" id="name17">
+      <option>&nbsp;</option>
+      <option>汉族</option>
+      <option>回</option>
+      <option>傣</option>
+      <option>其他</option>
+    </select></td>
+    </tr>
+  </table>
+<!--线索信息-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:2px;" height="20">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>线索信息</strong></td>
+			</tr>
+		</table>
+	</td>
+  </tr>
+</table>
+<!--线索信息内容-->
+<table width="100%" height="36" cellspacing="0">
+    <tr>
+    <td width="100" height="34" align="right">线索代码<span style="color:red"><span></span></span><span></td>
+    <td width="163"><input name="textfield9" type="text" id="textfield12" size="12" maxlength="12" class="inputtext"></td>
+    <td width="100" align="right"> 线索来源<span style="color:red"><span></span></span><span></td>
+    <td width="163"><select name="XSLY" id="XSLY" onchange="ShowDiffLY();">
+      <option value="0">请选择</option>
+      <option value="1">信访举报</option>
+      <option value="2">办案中发现</option>
+      <option value="3">巡视中发现</option>
+      <option value="4">执法、纠风等工作中发现</option>
+      <option value="5">公检法移送</option>
+      <option value="6">审记中发现</option>
+      <option value="7">其他</option>
+    </select></td>
+    <td width="88" align="right" >受理时间</td>
+    <td width="163"><input type="text" class="Wdate " onFocus="WdatePicker({dateFmt:'yyyy年M月dd日'})"></td>
+    </tr>
+  </table> 
+<!--反映摘要-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="../../images/blue/tiao_bg03.gif">
+  <tr>
+	<td align="left" style="padding-top:2px;" height="20">
+		<table height="100%">
+			<tr align="center">
+				<td style="color:#124c95; font-size:12px;padding-left:30px" align="left"><strong>反映摘要</strong></td>
+			</tr>
+		</table>
+	</td>
+	<td align="right"> 
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-right:2px">
+			<tr>
+		 		<td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+					<DIV style="PADDING-TOP:3px"  class="graybutton" id="add">
+					<table border="0" cellpadding="0" cellspacing="0" class="gray_1_j" >
+					  <tr>
+					    <td  class="gray_2_j"></td>
+					    <td class="gray_4_j">添加</td>
+					    <td class="gray_3_j"></td>
+					  </tr>
+					</table>
+					 </DIV>
+				 </td>
+				 <td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+					<DIV style="PADDING-TOP:3px"  class="graybutton" id="add">
+					<table border="0" cellpadding="0" cellspacing="0" class="gray_1_j" >
+					  <tr>
+					    <td  class="gray_2_j"></td>
+					    <td class="gray_4_j">删除</td>
+					    <td class="gray_3_j"></td>
+					  </tr>
+					</table>
+					 </DIV>
+				 </td>
+				 <td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+					<DIV style="PADDING-TOP:3px"  class="graybutton" id="add">
+					<table border="0" cellpadding="0" cellspacing="0" class="gray_1_j" >
+					  <tr>
+					    <td  class="gray_2_j"></td>
+					    <td class="gray_4_j">查看</td>
+					    <td class="gray_3_j"></td>
+					  </tr>
+					</table>
+					 </DIV>
+				 </td>
+			</tr>
+		 </table>
+	</td>
+  </tr>
+</table>
+<!--反映摘要内容-->
+<table class="100%" style="color:#3d3b3c; id="addarea" border="0"  id='addarea'>
+    <tr>
+      <td width="193">问题性质</td>
+      <td width="583">问题摘要</td>
+     </tr>
+  </table>
+</td>
+		</tr>
+		</table>
+		
+<ul class="tabs" style="width:100%"> 
+    <li><a href="#1">领导批示</a></li> 
+    <li><a href="#2">办理情况</a></li>
+	<li><a href="#3">办理结果 </a></li> 
+</ul> 
+<!-- 定义选项卡切换的每个区域，注意最外层的class定义为panes --> 
+<div class="panes" style="width:100%"> 
+ <div>
+  <table height="10" cellspacing="0" class="green1" border="0">
+    <tr>
+    <table class="green1" id="addarea1" border="0">
+    <tr type="title">
+      <td width="130">批示时间</td>
+      <td width="130">批示领导</td>
+      <td width="290">批示内容</td>
+      <td width="230">批示材料</td>
+     </tr>
+  </table>
+    </tr>
+    <tr>
+    <table border="0">
+    <tr align="right"> 
+      <td width="550" align="right"><input type="button" name="button" id="add1" value="添加" style="width:60px"></td>
+      <td width="100" align="right"><input type="button" name="button2" id="del1" value="删除" style="width:60px"></td>
+      <td width="100" align="right"><input type="button" name="button3" id="look1" value="查看" style="width:60px"></td>
+    </tr>
+  </table>
+    </tr>
+  </table> 
+ 	</div>
+
+		  <!--tab2-->
+		   <div>
+  <table height="10" cellspacing="0" class="green1" border="0">
+    <tr>
+    <table class="green1" id="addarea2" border="0">
+    <tr type="title">
+      <td width="80">办理日期</td>
+      <td width="80">填写单位</td>
+      <td width="80">办理方式</td>
+      <td width="170">办理方式详情</td>
+      <td width="80">拟核查</td>
+      <td width="130">进展情况</td>
+      <td width="80">批示领导</td>
+      <td width="80">备注</td>
+     </tr>
+  </table>
+    </tr>
+    <tr>
+    <table border="0">
+    <tr align="right"> 
+      <td width="550" align="right"><input type="button" name="button" id="add2" value="添加" style="width:60px"></td>
+      <td width="100" align="right"><input type="button" name="button2" id="del2" value="删除" style="width:60px"></td>
+      <td width="100" align="right"><input type="button" name="button3" id="look2" value="查看" style="width:60px"></td>
+    </tr>
+  </table>
+    </tr>
+  </table> 
+</div>
+		  
+   
+		  <!--tab3-->
+		   <div>
+  <table width="100%" height="40" cellspacing="0">
+  <tr>
+    <td width="100" height="32" align="left">办理结果</td>
+    <td width="163" align="left"><select name="name2" id="banli" ReadOnly>
+      <option value="1">暂无</option>
+      <!--option value="2">了结</option>
+      <option value="3">转立案</option>
+      <option value="4">其他</option-->
+    </select></td>
+    <td width="100" align="left"></td>
+    <td width="163" align="left"></td>
+    <td width="88" align="left" ></td>
+    <td width="163" align="left"></td>
+  </tr>
+</table>
+</div>
+	  </div>
+
+
+<tr>
+			<td align="center">
+				<table width="100%" height="32px" border="0" cellspacing="0" cellpadding="0" bgcolor="#ebf6fc">
+  <tr>
+	<td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+			  	<DIV style="FLOAT: right;PADDING-TOP: 3px" class="clbutton" onClick=" window.location='../XSGL/xslrInfo.html'">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+				    <td  class="blue_2_j"></td>
+				    <td class="blue_4_j">保存</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV>
+			 </td>
+	 		<td align="right" style="color:#0d5689; font-size:12px;padding-right:3px">
+			  <DIV style="FLOAT: left;PADDING-TOP: 3px" class="clbutton" onClick=" window.location='../XSGL/xslrInfo.html'">
+				<table border="0" cellpadding="0" cellspacing="0" class="blue_1_j">
+				  <tr>
+				    <td  class="blue_2_j"></td>
+				    <td class="blue_4_j">返回</td>
+				    <td class="blue_3_j"></td>
+				  </tr>
+				</table>
+				 </DIV>
+			 </td>
+  </tr>
+</table>
+			</td>
+		</tr>
+
+</form>
+    </body> 
+</html>
