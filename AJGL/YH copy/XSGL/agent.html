@@ -34,7 +34,7 @@
 <link href="../../common/js/dp.syntaxhighlighter/css/dp.syntaxhighlighter.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../../common/js/dp.syntaxhighlighter/css/jquery.flexbox.css" />
     
-        <title>角色信息</title> 
+        <title>代理商信息</title> 
         
         <link rel="stylesheet" href="ui.tabs.css" type="text/css" media="print, projection, screen"> 
         <style type="text/css" media="screen, projection"> 
@@ -72,7 +72,7 @@
         <script type="text/javascript"> 
 			$(function() { 
 		
-				$("#businessSet").click(function(){
+				$("#certifiSet").click(function(){
 		     $("#dialog-login").dialog({
 			    resizable: false,
 				height:220,
@@ -97,18 +97,18 @@
     <body> 
 	<div style="width:100%">
 	
-    <div style="width:100%;background-color:#f4f4f4; height:35px; font-size:12px; "><div style="padding-left:10px;padding-top:8px;">当前位置： 后台管理&nbsp;<font style="font-family:'宋体'">></font>&nbsp;用户管理&nbsp;<font style="font-family:'宋体'">></font>&nbsp;账户管理 &nbsp;<font style="font-family:'宋体'">></font>&nbsp;角色信息</div></div>
+    <div style="width:100%;background-color:#f4f4f4; height:35px; font-size:12px; "><div style="padding-left:10px;padding-top:8px;">当前位置： 后台管理&nbsp;<font style="font-family:'宋体'">></font>&nbsp;用户管理&nbsp;<font style="font-family:'宋体'">></font>&nbsp;用户信息 &nbsp;<font style="font-family:'宋体'">></font>&nbsp;代理商信息</div></div>
 	
  <form> 
  
   
-  <div id="dialog-login" title="角色字典表" style="display:none">
+  <div id="dialog-login" title="证件类型字典表" style="display:none">
     <table>
 	   <tr>	
 		 <td>序号</td><td style="padding-left:10px;">业务id</td><td style="padding-left:10px;">业务描述</td><td style="padding-left:10px;">业务状</td><td style="padding-left:10px;">修改时间</td><td style="padding-left:10px;">创建时间</td>
 	   </tr>
 	   	   <tr>	
-		 <td>1</td><td style="padding-left:10px;">1</td><td style="padding-left:10px;"><a href="agent.html">代理商</a></td><td style="padding-left:10px;">开放</td><td style="padding-left:10px;">2011-10-10</td><td style="padding-left:10px;">2011-12-10</td>
+		 <td>1</td><td style="padding-left:10px;">1</td><td style="padding-left:10px;">代理商</td><td style="padding-left:10px;">开放</td><td style="padding-left:10px;">2011-10-10</td><td style="padding-left:10px;">2011-12-10</td>
 	   </tr>
 	   	   <tr>	
 		 <td>2</td><td style="padding-left:10px;">2</td><td style="padding-left:10px;">ASP</td><td style="padding-left:10px;">关闭</td><td style="padding-left:10px;">2011-10-10</td><td style="padding-left:10px;">2011-12-10</td>
@@ -121,7 +121,7 @@
  
    <div style=" width:100%; height:32px; background-color:#ebf6fc; text-align:center" class="hoves">
 	     <div style="float: left; padding-top:4px; padding-left:5px;" class="hoves">
-	       <div style="float: left;padding-right:3px;" onClick=" window.location='xslrInfo.html'">
+	       <div style="float: left;padding-right:3px;" onClick=" window.location='modifyla.html'">
 	    <table cellpadding="0" cellspacing="0">
 		  <tr>
 		    <td><img src="../../images/an01_1.gif" width="2"/></td>
@@ -139,7 +139,7 @@
 		  </tr>
 		</table>
 	  </div>
-	  <div style="float: left; padding-right:3px;" onClick=" window.location='xslrInfo.html'">
+	  <div style="float: left; padding-right:3px;" onClick=" window.location='business.html'">
 	    <table cellpadding="0" cellspacing="0">
 		  <tr>
 		    <td><img src="../../images/an01_1.gif" width="2" /></td>
@@ -156,23 +156,43 @@
  </div>
    <table width="791" height="100" cellspacing="0" style="font-size:12px;" >
     <tr>
-    <td width="108" height="32" align="right">记录ID<span style="color:red">*<span></span></span><span></td>
-    <td class="fc">&nbsp;&nbsp;143342342490591378</td>
-    <td width="127" align="right">用户ID<span style="color:red"><span></span></span><span></td>
-    <td width="120" class="fc">&nbsp;&nbsp;4321230</td>
+    <td width="108" height="32" align="right">用户ID<span style="color:red">*<span></span></span><span></td>
+    <td class="fc">&nbsp;&nbsp;423435</td>
+    <td width="127" align="right">经营类型<span style="color:red"><span></span></span><span></td>
+    <td width="120" class="fc">&nbsp;&nbsp;网店经营</td>
+    <td width="127" align="right">公司名称<span style="color:red"><span></span></span><span></td>
+    <td width="120" class="fc">&nbsp;&nbsp;哞哞贸易公司</td>
     </tr>
   <tr>
-<td width="88" align="right" >业务id</td>
-    <td width="241"  class="fc">&nbsp;&nbsp;<a href="#" id="businessSet">42910432</a></td>
-    <td align="right">状态</td>
-    <td class="fc">&nbsp;&nbsp;锁定</td>
+<td width="88" align="right" height="32" >营业执照</td>
+    <td width="241"  class="fc">&nbsp;&nbsp;42910432</td>
+    <td align="right">营业开始时间</td>
+    <td class="fc">&nbsp;&nbsp;9:00</td>
+        <td align="right">营业结束时间</td>
+    <td class="fc">&nbsp;&nbsp;17:00</td>
     </tr>
       <tr>
-<td width="88" align="right" >创建时间</td>
-    <td width="241" class="fc">&nbsp;&nbsp;2019-10-3 14:32</td>
-    <td align="right">修改时间</td>
-    <td class="fc">&nbsp;&nbsp;2019-10-3 14:32</td>
+<td width="88" align="right" height="32" >主营商品</td>
+    <td width="241"  class="fc">&nbsp;&nbsp;魔兽充值</td>
+    <td align="right">主营业务</td>
+    <td class="fc">&nbsp;&nbsp;充值</td>
+        <td align="right">所在经度</td>
+    <td class="fc">&nbsp;&nbsp;45</td>
     </tr>
+      <tr>
+      <td width="88" align="right" height="32" >所在维度</td>
+    <td width="241"  class="fc">&nbsp;&nbsp;45</td>
+    <td align="right">营业时间开关</td>
+    <td class="fc">&nbsp;&nbsp;打开</td>
+        <td align="right">创建时间</td>
+    <td class="fc">&nbsp;&nbsp;2010-10-5 15：00</td>
+    </tr>
+          <tr>
+      <td width="88" align="right" height="32" >修改时间</td>
+    <td width="241"  class="fc">&nbsp;&nbsp;2010-10-5 16：00</td>
+    
+    </tr>
+      <tr>
   </table> 
    
        		<!-- Tabs --> 
@@ -188,7 +208,7 @@
 		  </tr>
 		</table>
 	  </div>
-	  <div style="float: left; padding-right:5px;" onClick=" window.location='xslrInfo.html'">
+	  <div style="float: left; padding-right:5px;" onClick=" window.location='business.html'">
 	    <table cellpadding="0" cellspacing="0">
 		  <tr>
 		    <td><img src="../../images/an01_1.gif" width="2" /></td>

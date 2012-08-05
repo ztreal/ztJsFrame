@@ -123,7 +123,7 @@ $("#del2").click(function(){
 			num++;
 		 }
 	 }
-	 window.location="xslrInfo.html";
+	 window.location="account.html";
 });
 $("#closes").click(function(){$("#searchearea").fadeOut("slow")})
 });
@@ -203,7 +203,7 @@ $("#closes").click(function(){$("#searchearea").fadeOut("slow")})
 						$( this ).dialog( "close" );
 					},
 					"确定": function() {
-						window.location='newxs.html';
+						$( this ).dialog( "close" );
 					}
 			}
 			 })
@@ -214,14 +214,14 @@ $("#closes").click(function(){$("#searchearea").fadeOut("slow")})
 		     $("#dialog-confirm").dialog({
 			    resizable: false,
 				height:220,
-				width:340,
+				width:540,
 				modal: true,
 				buttons: {
 					"取消": function() {
 						$( this ).dialog( "close" );
 					},
 					"确定": function() {
-						window.location='newxs.html';
+						$( this ).dialog( "close" );
 					}
 			}
 			 })	 
@@ -250,15 +250,34 @@ $("#closes").click(function(){$("#searchearea").fadeOut("slow")})
  <div id="dialog-confirm" title="安全类型字典表" style="display:none">
     <table>
 	   <tr height="25">	<td style="padding-left:10px;">安全类型id</td>
-		 <td>&nbsp;&nbsp;11</td>
-		 	   <tr height="25">	<td style="padding-left:10px;">安全类型定义描述</td>
-		 <td>&nbsp;&nbsp;绑定UK</td>
+		 <td>&nbsp;&nbsp;安全类型定义描述</td>
+		 <td>&nbsp;&nbsp;启用状态</td>
+		 <td>&nbsp;&nbsp;创建时间</td>
+		  <td>&nbsp;&nbsp;修改时间</td>
 	   </tr>
-	   <tr height="25">	<td style="padding-left:10px;">启用状态</td>
-		 <td>&nbsp;&nbsp;已启用</td>
-		 	   <tr height="25">	<td style="padding-left:10px;">创建时间</td>
-		 <td>&nbsp;&nbsp;2010-10</td>
+	   <tr height="25">	<td style="padding-left:10px;">1</td>
+		 <td>&nbsp;&nbsp;UK</td>
+		 <td>&nbsp;&nbsp;启用</td>
+		 <td>&nbsp;&nbsp;2012-10-05 15：00</td>
+		  <td>&nbsp;&nbsp;2012-10-05 15：00</td>
 	   </tr>
+	   	   <tr height="25">	<td style="padding-left:10px;">2</td>
+		 <td>&nbsp;&nbsp;MAC</td>
+		 <td>&nbsp;&nbsp;启用</td>
+		 <td>&nbsp;&nbsp;2012-10-05 15：00</td>
+		  <td>&nbsp;&nbsp;2012-10-05 15：00</td>
+	   </tr>
+	   	   <tr height="25">	<td style="padding-left:10px;">3</td>
+		 <td>&nbsp;&nbsp;动态密码</td>
+		 <td>&nbsp;&nbsp;启用</td>
+		 <td>&nbsp;&nbsp;2012-10-05 15：00</td>
+		  <td>&nbsp;&nbsp;2012-10-05 15：00</td>
+	   </tr>
+	   	   	   <tr height="25">	<td style="padding-left:10px;">4</td>
+		 <td>&nbsp;&nbsp;安全问题</td>
+		 <td>&nbsp;&nbsp;启用</td>
+		 <td>&nbsp;&nbsp;2012-10-05 15：00</td>
+		  <td>&nbsp;&nbsp;2012-10-05 15：00</td>
 	   </tr>
 	</table>
  </div>
